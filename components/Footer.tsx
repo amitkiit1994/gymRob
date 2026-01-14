@@ -28,6 +28,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="#transformation" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  Transformation
+                </Link>
+              </li>
+              <li>
                 <Link href="#egym" className="text-gray-400 hover:text-white transition-colors text-sm">
                   eGym Lokhandwala
                 </Link>

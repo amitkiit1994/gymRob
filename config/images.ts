@@ -22,6 +22,13 @@ export const images = {
     // Alternative: '/images/egym-main.jpg'
   },
 
+  // Transformation Section
+  transformation: {
+    beforeAfter: '/images/transformation-before-after.png',
+    // Alternative: Use your transformation image path
+    // Place the image in /public/images/transformation-before-after.jpg
+  },
+
   // Instagram Reels Section
   // Each reel object contains the Instagram URL and optional thumbnail image
   instagram: {
