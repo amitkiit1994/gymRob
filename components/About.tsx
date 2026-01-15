@@ -13,7 +13,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-8 text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-8 text-center px-4">
               About Robin
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-12" />

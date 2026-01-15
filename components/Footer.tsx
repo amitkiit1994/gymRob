@@ -38,6 +38,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="#location" className="text-gray-400 hover:text-white transition-colors text-sm">
+                  Location
+                </Link>
+              </li>
+              <li>
                 <Link href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
                   Contact
                 </Link>

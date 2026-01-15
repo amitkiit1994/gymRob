@@ -30,7 +30,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight px-2"
           >
             30+ Years of Coaching
             <br />
@@ -41,11 +41,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl sm:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
             Three decades of transforming bodies and minds. Old-school discipline meets modern coaching.
             <br />
-            <span className="text-lg text-gray-400 italic mt-2 block">
+            <span className="text-base sm:text-lg text-gray-400 italic mt-2 block">
               "For love of the game"
             </span>
           </motion.p>
@@ -54,17 +54,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 w-full sm:w-auto"
           >
             <Link
               href="#contact"
-              className="px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-lg rounded transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="w-full sm:w-auto px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-center min-h-[44px] flex items-center justify-center"
             >
               Train With Robin
             </Link>
             <Link
               href="#egym"
-              className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-lg rounded transition-all transform hover:scale-105"
+              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 text-center min-h-[44px] flex items-center justify-center"
             >
               Visit eGym Lokhandwala
             </Link>

@@ -63,5 +63,9 @@ export const siteMetadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  alternates: {
+    canonical: siteUrl,
+  },
+  category: 'Fitness & Health',
 }
 

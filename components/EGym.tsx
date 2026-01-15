@@ -25,7 +25,7 @@ export default function EGym() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
               eGym Lokhandwala
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
@@ -103,10 +103,10 @@ export default function EGym() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mt-12 space-y-4"
           >
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto px-4 sm:px-0">
               <Link
                 href="#contact"
-                className="inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-lg rounded transition-all transform hover:scale-105 shadow-lg"
+                className="w-full sm:w-auto inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg text-center min-h-[44px] flex items-center justify-center"
               >
                 Train at eGym Lokhandwala
               </Link>
@@ -114,7 +114,7 @@ export default function EGym() {
                 href="https://instagram.com/egymlokhandwala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-lg rounded transition-all transform hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 min-h-[44px]"
                 aria-label="Follow eGym Lokhandwala on Instagram"
               >
                 <svg

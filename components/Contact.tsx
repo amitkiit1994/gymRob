@@ -101,7 +101,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
               Start Your Training Journey
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
@@ -115,7 +115,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-primary-900 p-8 rounded-lg border border-primary-800"
+            className="bg-primary-900 p-6 sm:p-8 rounded-lg border border-primary-800"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -207,7 +207,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-accent-600 hover:bg-accent-700 disabled:bg-accent-800 disabled:cursor-not-allowed text-white font-bold text-lg rounded transition-all transform hover:scale-105 shadow-lg"
+                className="w-full px-8 py-4 bg-accent-600 hover:bg-accent-700 disabled:bg-accent-800 disabled:cursor-not-allowed text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg min-h-[44px]"
               >
                 {isSubmitting ? 'Submitting...' : 'Start Your Training Journey'}
               </button>

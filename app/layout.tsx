@@ -1,10 +1,9 @@
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
-import { images } from '@/config/images'
+import { siteMetadata } from './metadata'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -12,64 +11,27 @@ const inter = Inter({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
-
-export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: 'Robin Carruthers | Fitness & Life Coach | 30+ Years of Excellence',
-  description: '30+ years of coaching strength, discipline & life. Owner of eGym Lokhandwala. Transform your body and mind with proven training methods.',
-  keywords: ['fitness coach', 'personal trainer', 'strength training', 'life coach', 'eGym Lokhandwala', 'Robin Carruthers'],
-  authors: [{ name: 'Robin Carruthers' }],
-  openGraph: {
-    title: 'Robin Carruthers | Fitness & Life Coach',
-    description: '30+ years of coaching strength, discipline & life. Owner of eGym Lokhandwala.',
-    type: 'website',
-    locale: 'en_US',
-    url: siteUrl,
-    siteName: 'Robin Carruthers',
-    images: [
-      {
-        url: images.social.ogImage.startsWith('http') 
-          ? images.social.ogImage 
-          : `${siteUrl}${images.social.ogImage}`,
-        width: 1200,
-        height: 630,
-        alt: 'Robin Carruthers - Fitness & Life Coach',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Robin Carruthers | Fitness & Life Coach',
-    description: '30+ years of coaching strength, discipline & life.',
-    images: [
-      images.social.ogImage.startsWith('http') 
-        ? images.social.ogImage 
-        : `${siteUrl}${images.social.ogImage}`
-    ],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-}
+export const metadata = siteMetadata
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
+  
   return (
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href={siteUrl} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#1a1a2e" />
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="geo.region" content="IN-MH" />
+        <meta name="geo.placename" content="Mumbai" />
+        <meta name="geo.position" content="19.1364;72.8296" />
+        <meta name="ICBM" content="19.1364, 72.8296" />
       </head>
       <body className="min-h-screen flex flex-col">
         <StructuredData />

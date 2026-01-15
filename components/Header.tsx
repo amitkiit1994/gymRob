@@ -19,8 +19,8 @@ export default function Header() {
   const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#services', label: 'Services' },
-    { href: '#transformation', label: 'Transformation' },
     { href: '#egym', label: 'eGym' },
+    { href: '#blog', label: 'Transformation & Insights' },
     { href: '#testimonials', label: 'Testimonials' },
     { href: '#contact', label: 'Contact' },
   ]
@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="text-2xl font-bold tracking-tight text-white hover:text-accent-500 transition-colors"
+            className="text-xl sm:text-2xl font-bold tracking-tight text-white hover:text-accent-500 transition-colors"
             aria-label="Robin Carruthers - Home"
           >
             Robin Carruthers
@@ -101,7 +101,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors font-medium"
+                    className="text-gray-300 hover:text-white transition-colors font-medium py-2 break-words"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -109,7 +109,7 @@ export default function Header() {
                 ))}
                 <Link
                   href="#contact"
-                  className="px-6 py-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors text-center"
+                  className="px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors text-center min-h-[44px] flex items-center justify-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Train With Robin

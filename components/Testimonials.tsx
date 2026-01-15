@@ -40,13 +40,35 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             Testimonials
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Real results from real people. Long-term transformations, not quick fixes.
           </p>
+        </motion.div>
+
+        {/* Video Testimonials */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 max-w-md mx-auto"
+        >
+          <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
+            <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
+              <iframe
+                className="absolute top-0 left-0 w-full h-full rounded-lg"
+                src="https://www.youtube.com/embed/1AhvWkZJTOw"
+                title="Video Testimonial"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -57,7 +79,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-primary-950 p-8 rounded-lg border border-primary-800 relative"
+              className="bg-primary-950 p-6 sm:p-8 rounded-lg border border-primary-800 relative"
             >
               <div className="absolute top-6 left-6 text-6xl text-accent-600/20 font-serif leading-none">
                 "

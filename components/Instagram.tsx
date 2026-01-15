@@ -16,7 +16,7 @@ export default function Instagram() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             Training & Motivation
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
@@ -77,7 +77,7 @@ export default function Instagram() {
             href="https://instagram.com/gymrob123"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-lg rounded transition-all transform hover:scale-105 shadow-lg"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg min-h-[44px]"
             aria-label="Follow on Instagram"
           >
             <svg

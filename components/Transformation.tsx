@@ -14,7 +14,7 @@ export default function Transformation() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             The Transformation
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
@@ -55,7 +55,7 @@ export default function Transformation() {
               transition={{ duration: 0.8 }}
               className="space-y-6 text-lg text-gray-300 leading-relaxed"
             >
-              <p className="text-2xl font-bold text-white mb-4">
+              <p className="text-xl sm:text-2xl font-bold text-white mb-4">
                 "For love of the game"
               </p>
               
@@ -86,9 +86,9 @@ export default function Transformation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-primary-900 p-8 md:p-12 rounded-lg border border-primary-800 space-y-6"
+            className="bg-primary-900 p-6 sm:p-8 md:p-12 rounded-lg border border-primary-800 space-y-6"
           >
-            <h3 className="text-3xl font-bold text-white mb-6">The Real Story</h3>
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">The Real Story</h3>
             
             <div className="space-y-4 text-lg text-gray-300 leading-relaxed">
               <p>
@@ -142,7 +142,7 @@ export default function Transformation() {
             </p>
             <a
               href="#contact"
-              className="inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-lg rounded transition-all transform hover:scale-105 shadow-lg"
+              className="inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg min-h-[44px] flex items-center justify-center"
             >
               Start Your Journey
             </a>
