@@ -50,26 +50,49 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Video Testimonials */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 max-w-md mx-auto"
-        >
-          <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
-            <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                src="https://www.youtube.com/embed/1AhvWkZJTOw"
-                title="Video Testimonial"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                loading="lazy"
-              />
+        <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-16 px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-md w-full"
+          >
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
+              <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/1AhvWkZJTOw"
+                  title="Video Testimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="max-w-md w-full"
+          >
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
+              <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full rounded-lg"
+                  src="https://www.youtube.com/embed/BsDx5LSZ5a8"
+                  title="Video Testimonial"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
