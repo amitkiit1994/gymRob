@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { images } from '@/config/images'
 
 export default function Transformation() {
@@ -35,10 +36,13 @@ export default function Transformation() {
             >
               <div className="relative rounded-lg overflow-hidden border-2 border-primary-700 shadow-2xl">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-primary-900/60 z-10" />
-                <img
+                <Image
                   src={images.transformation.beforeAfter}
                   alt="Before and After Transformation"
+                  width={800}
+                  height={1000}
                   className="w-full h-auto object-contain"
+                  priority
                 />
               </div>
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-primary-900 px-6 py-2 rounded-full border-2 border-accent-600">

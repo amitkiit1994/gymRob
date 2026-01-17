@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import Image from 'next/image'
 import { images } from '@/config/images'
 
 // Helper to create excerpt with character limit (more predictable)
@@ -363,10 +364,13 @@ function FeaturedBlogCard() {
         >
           <div className="relative rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl hover:border-accent-600 transition-all">
             <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-primary-900/60 z-10" />
-            <img
+            <Image
               src={images.transformation.beforeAfter}
               alt="Before and After Transformation"
+              width={800}
+              height={1000}
               className="w-full h-auto object-contain"
+              priority
             />
           </div>
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-primary-900 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
