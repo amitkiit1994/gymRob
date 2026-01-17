@@ -361,13 +361,12 @@ function FeaturedBlogCard() {
           transition={{ duration: 0.8 }}
           className="relative"
         >
-          <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl hover:border-accent-600 transition-all">
+          <div className="relative rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl hover:border-accent-600 transition-all">
             <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-primary-900/60 z-10" />
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${images.transformation.beforeAfter}')`,
-              }}
+            <img
+              src={images.transformation.beforeAfter}
+              alt="Before and After Transformation"
+              className="w-full h-auto object-contain"
             />
           </div>
           <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-primary-900 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
