@@ -29,6 +29,11 @@ export const images = {
     // Place the image in /public/images/transformation-before-after.jpg
   },
 
+  // Signature
+  signature: {
+    image: '/images/signature.png',
+  },
+
   // Instagram Reels Section
   // Each reel object contains the Instagram URL and optional thumbnail image
   instagram: {
