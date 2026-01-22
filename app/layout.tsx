@@ -37,7 +37,8 @@ export default function RootLayout({
         <meta name="geo.placename" content="Mumbai" />
         <meta name="geo.position" content="19.1364;72.8296" />
         <meta name="ICBM" content="19.1364, 72.8296" />
-        {/* Google Search Console Verification - Add your verification code from Google Search Console */}
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="kJTwjnnqH6O7UP_QHfKp0NUyA8XhsRbtAvda7AyHdb4" />
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
           <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
