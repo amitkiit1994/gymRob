@@ -83,9 +83,13 @@ export const siteMetadata: Metadata = {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', type: 'image/x-icon', sizes: '16x16 32x32 48x48' },
+      { url: '/favicon.ico', type: 'image/x-icon', sizes: '192x192' },
+      { url: '/favicon.ico', type: 'image/x-icon', sizes: '512x512' },
     ],
     shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    apple: [
+      { url: '/favicon.ico', sizes: '180x180', type: 'image/x-icon' },
+    ],
   },
   category: 'Fitness & Health',
 }
