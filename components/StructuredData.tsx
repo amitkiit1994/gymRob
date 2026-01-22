@@ -1,14 +1,18 @@
+import { getCanonicalUrl } from '@/lib/seo'
+
 export default function StructuredData() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
+  const siteUrl = getCanonicalUrl()
   
   // Person Schema for Robin Carruthers
   const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Robin Carruthers',
+    alternateName: ['GymRob', 'Robin Carruthers Fitness'],
     jobTitle: 'Fitness & Life Coach',
-    description: '30+ years of coaching strength, discipline & life. Owner of eGym Lokhandwala.',
+    description: 'Robin Carruthers - 30+ years of coaching strength, discipline & life. Personal trainer, fitness coach, and owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods.',
     url: siteUrl,
+    image: `${siteUrl}/images/Gemini_Generated_Image_vbopksvbopksvbop.png`,
     sameAs: [
       'https://instagram.com/gymrob123',
       'https://instagram.com/egymlokhandwala',
@@ -21,7 +25,16 @@ export default function StructuredData() {
       'Personal Training',
       'Lifestyle Coaching',
       'Transformation Programs',
+      'Personal Trainer Mumbai',
+      'Fitness Coach Andheri',
+      'GymRob',
     ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Mumbai',
+      addressRegion: 'Maharashtra',
+      addressCountry: 'IN',
+    },
   }
 
   // LocalBusiness Schema for eGym Lokhandwala

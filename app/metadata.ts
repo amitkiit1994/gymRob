@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { images } from '@/config/images'
+import { getSiteUrl, getCanonicalUrl, getAlternateLinks } from '@/lib/seo'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
+const siteUrl = getSiteUrl()
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -9,17 +10,25 @@ export const siteMetadata: Metadata = {
     default: 'Robin Carruthers | Fitness & Life Coach | 30+ Years of Excellence',
     template: '%s | Robin Carruthers',
   },
-  description: '30+ years of coaching strength, discipline & life. Owner of eGym Lokhandwala. Transform your body and mind with proven training methods.',
+  description: 'Robin Carruthers - Personal trainer and fitness coach with 30+ years of experience. Owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods. GymRob fitness coaching.',
   keywords: [
+    'Robin Carruthers',
+    'GymRob',
+    'gymrob',
     'fitness coach',
     'personal trainer',
+    'personal trainer Mumbai',
+    'fitness coach Andheri',
     'strength training',
     'life coach',
     'eGym Lokhandwala',
-    'Robin Carruthers',
     'body recomposition',
     'lifestyle coaching',
     'transformation programs',
+    'personal trainer Lokhandwala',
+    'fitness coach Mumbai',
+    'Robin Carruthers fitness',
+    'GymRob personal trainer',
   ],
   authors: [{ name: 'Robin Carruthers' }],
   creator: 'Robin Carruthers',
@@ -64,7 +73,11 @@ export const siteMetadata: Metadata = {
     },
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: getCanonicalUrl(),
+    languages: {
+      'en': getCanonicalUrl(),
+      'en-US': getCanonicalUrl(),
+    },
   },
   icons: {
     icon: [

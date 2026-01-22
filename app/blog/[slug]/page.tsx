@@ -4,7 +4,9 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
-import ShareButtons from '@/components/ShareButtons'
+import ShareButtonsWrapper from '@/components/ShareButtonsWrapper'
+import { getCanonicalUrl, getSiteUrl, PRIMARY_DOMAIN } from '@/lib/seo'
+import { headers } from 'next/headers'
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -24,9 +26,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
-  const url = `${siteUrl}/blog/${params.slug}`
+  // Get current domain from headers for proper Open Graph URLs
+  const headersList = await headers()
+  const host = headersList.get('host') || 'www.robincarruthers.com'
+  const protocol = headersList.get('x-forwarded-proto') || 'https'
+  const currentDomain = `${protocol}://${host}`
+  
+  const canonicalUrl = getCanonicalUrl(`/blog/${params.slug}`)
   const excerpt = blog.content.substring(0, 160).replace(/\n/g, ' ').trim() + '...'
+  
+  // Use current domain for Open Graph images so previews work correctly
+  const ogImage = blog.hasImage 
+    ? `${currentDomain}${images.transformation.beforeAfter}`
+    : `${currentDomain}${images.social.ogImage}`
 
   return {
     title: `${blog.title} | Robin Carruthers`,
@@ -34,15 +46,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: blog.title,
       description: excerpt,
-      url: url,
+      url: `${currentDomain}/blog/${params.slug}`, // Use current domain for OG URL
       siteName: 'Robin Carruthers',
       type: 'article',
       authors: ['Robin Carruthers'],
+      publishedTime: blog.date || undefined,
       images: [
         {
-          url: blog.hasImage 
-            ? `${siteUrl}${images.transformation.beforeAfter}`
-            : `${siteUrl}${images.social.ogImage}`,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: blog.title,
@@ -53,14 +64,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       card: 'summary_large_image',
       title: blog.title,
       description: excerpt,
-      images: [
-        blog.hasImage 
-          ? `${siteUrl}${images.transformation.beforeAfter}`
-          : `${siteUrl}${images.social.ogImage}`
-      ],
+      images: [ogImage],
     },
     alternates: {
-      canonical: url,
+      canonical: canonicalUrl,
     },
   }
 }
@@ -70,7 +77,7 @@ function formatContent(content: string) {
   return content.split(/\n\n+/).filter(p => p.trim())
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const blog = getBlogBySlug(params.slug)
 
   if (!blog) {
@@ -78,8 +85,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
 
   const paragraphs = formatContent(blog.content)
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://robincarruthers.com'
-  const shareUrl = `${siteUrl}/blog/${params.slug}`
 
   return (
     <article className="min-h-screen bg-primary-950 pt-24 pb-16">
@@ -111,7 +116,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           <div className="flex items-center gap-4 text-sm text-gray-400">
             <span>By Robin Carruthers</span>
             <span>•</span>
-            <ShareButtons url={shareUrl} title={blog.title} />
+            <ShareButtonsWrapper path={`/blog/${params.slug}`} title={blog.title} />
           </div>
         </header>
 
@@ -204,7 +209,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <h3 className="text-xl font-bold text-white mb-2">Share this post</h3>
               <p className="text-gray-400 text-sm">Help others discover this story</p>
             </div>
-            <ShareButtons url={shareUrl} title={blog.title} />
+            <ShareButtonsWrapper path={`/blog/${params.slug}`} title={blog.title} />
           </div>
         </div>
 

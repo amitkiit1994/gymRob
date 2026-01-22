@@ -32,6 +32,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight px-2"
           >
+            <span className="sr-only">Robin Carruthers - </span>
             30+ Years of Coaching
             <br />
             <span className="text-accent-500">Strength, Discipline & Life</span>
