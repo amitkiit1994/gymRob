@@ -36,7 +36,7 @@ const testimonials = [
   {
     quote: "My previous encounters with gym environments have been challenging, so while I joined E-gym I was very sceptical and hence not a regular. Once I became somewhat regular, I have found that I enjoy working out and that has everything to do with Robin being my trainer. He possesses a distinctive talent for motivation, adeptly pushing me beyond my self-imposed limits to achieve better performance, progressively increase my lifting capacity, and ultimately foster measurable gains in strength. It has been a profoundly rewarding experience to train under his guidance and I am particularly grateful for the positive shift he has inspired in my fitness journey.",
     author: "Sai Ghatpande",
-    profession: "Photographer, Mom, Cat Mom, Advertising Professional",
+    profession: "Sr.VP - Head of Influencer and Partnership Practice, Ogilvy India | Photographer, Mom, Cat Mom",
     instagram: "https://www.instagram.com/sai_ghatpande/",
     avatar: '/images/sai-ghatpande.jpg',
   },
@@ -61,17 +61,17 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-4">
             Testimonials
           </h2>
-          <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />
+          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
             Real results from real people. Long-term transformations, not quick fixes.
           </p>
         </motion.div>
 
         {/* Video Testimonials */}
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-center mb-16 px-4">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center mb-12 md:mb-16 px-2 sm:px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function Testimonials() {
             transition={{ duration: 0.8 }}
             className="max-w-md w-full"
           >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-1 sm:p-2">
               <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -100,7 +100,7 @@ export default function Testimonials() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-md w-full"
           >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-2">
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-1 sm:p-2">
               <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -123,33 +123,33 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`bg-primary-950 p-5 sm:p-6 rounded-lg border border-primary-800 relative ${
+              className={`bg-primary-950 p-4 sm:p-5 md:p-6 rounded-lg border border-primary-800 relative ${
                 index === testimonials.length - 1 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''
               }`}
             >
-              <div className="absolute top-2 left-4 text-6xl text-accent-600/30 font-serif leading-none">
+              <div className="absolute top-2 left-3 sm:left-4 text-4xl sm:text-5xl md:text-6xl text-accent-600/30 font-serif leading-none">
                 "
               </div>
               <blockquote className="relative z-10">
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed italic whitespace-pre-line">
+                <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed italic whitespace-pre-line">
                   {testimonial.quote}
                 </p>
-                <footer className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
+                <footer className="flex items-center justify-between gap-2 sm:gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
                     {testimonial.avatar && (
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-accent-600/60 flex-shrink-0">
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-accent-600/60 flex-shrink-0">
                         <Image
                           src={testimonial.avatar}
                           alt={`${testimonial.author} profile picture`}
                           fill
                           className="object-cover"
-                          sizes="48px"
+                          sizes="(max-width: 640px) 40px, 48px"
                         />
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="text-white font-semibold">{testimonial.author}</p>
-                      <p className="text-gray-500 text-sm truncate">{testimonial.profession}</p>
+                      <p className="text-white font-semibold text-sm sm:text-base truncate">{testimonial.author}</p>
+                      <p className="text-gray-500 text-xs sm:text-sm truncate">{testimonial.profession}</p>
                     </div>
                   </div>
                   {testimonial.instagram && (
@@ -157,12 +157,12 @@ export default function Testimonials() {
                       href={testimonial.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-primary-800"
+                      className="ml-2 sm:ml-4 p-1.5 sm:p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-primary-800 flex-shrink-0"
                       aria-label={`Follow ${testimonial.author} on Instagram`}
                       title={`Follow ${testimonial.author} on Instagram`}
                     >
                       <svg
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                         aria-hidden="true"

@@ -70,14 +70,14 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
       transition={{ duration: 0.8, delay: index * 0.1 }}
       className="bg-primary-900 rounded-lg border border-primary-800 hover:border-accent-600 transition-all hover:shadow-xl group flex flex-col h-full"
     >
-      <div className="p-6 flex flex-col flex-1">
+      <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-1">
         {/* Date */}
         <p className="text-xs text-accent-500 font-semibold mb-3 uppercase tracking-wide">
           {blog.date}
         </p>
 
         {/* Title */}
-        <h4 className="text-xl font-bold text-white mb-4 group-hover:text-accent-500 transition-colors leading-tight">
+        <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 group-hover:text-accent-500 transition-colors leading-tight">
           {blog.title}
         </h4>
 
@@ -128,10 +128,10 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
         {hasMore && (
           <Link
             href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-            className="mt-auto px-4 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-sm rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full min-h-[44px]"
+            className="mt-auto px-4 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-xs sm:text-sm rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full min-h-[40px] sm:min-h-[44px]"
           >
             <span>Read More</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>
           </Link>
@@ -158,7 +158,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
       {blog.hasImage ? (
         // Layout with Image (Transformation Story)
         <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start mb-8 md:mb-12">
             {/* Before/After Image */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -198,7 +198,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                 <span className="text-gray-400 text-sm">By Robin Carruthers</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
+              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 {blog.title}
               </h3>
 
@@ -212,7 +212,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                       exit={{ opacity: 0 }}
                       className="space-y-4"
                     >
-                      <p className="text-lg text-gray-300 leading-relaxed">
+                      <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                         {excerpt}
                         {hasMore && '...'}
                       </p>
@@ -253,10 +253,10 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                 {hasMore && (
                   <Link
                     href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-                    className="mt-6 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
+                    className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-sm sm:text-base rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
                   >
                     <span>Read Full Story</span>
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </Link>
@@ -272,12 +272,12 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="bg-primary-900 p-8 rounded-lg border-l-4 border-accent-600"
+              className="bg-primary-900 p-4 sm:p-6 md:p-8 rounded-lg border-l-4 border-accent-600"
             >
-              <p className="text-xl text-white font-semibold italic mb-2">
+              <p className="text-lg sm:text-xl text-white font-semibold italic mb-2">
                 "Friends may come and go but 200 pounds will always be 200 pounds"
               </p>
-              <p className="text-gray-400">
+              <p className="text-sm sm:text-base text-gray-400">
                 This isn't just a saying—it's a philosophy. Some things in life are constant. Your commitment to them defines who you become. The weights will always be there. The question is: will you be?
               </p>
             </motion.div>
@@ -285,7 +285,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
         </>
       ) : (
         // Layout without Image (Text-focused)
-        <div className="bg-primary-900 rounded-lg border border-primary-800 hover:border-accent-600 transition-all p-8 md:p-12">
+        <div className="bg-primary-900 rounded-lg border border-primary-800 hover:border-accent-600 transition-all p-4 sm:p-6 md:p-8 lg:p-12">
           <div className="flex items-center justify-between mb-6">
             <span className="px-4 py-2 bg-accent-600 text-white text-sm font-bold rounded-full">
               FEATURED STORY
@@ -293,7 +293,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             <span className="text-gray-400 text-sm">By Robin Carruthers</span>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-6">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4 sm:mb-6">
             {blog.title}
           </h3>
 
@@ -307,7 +307,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                   exit={{ opacity: 0 }}
                   className="space-y-4"
                 >
-                  <p className="text-lg text-gray-300 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
                     {excerpt}
                     {hasMore && '...'}
                   </p>
@@ -364,10 +364,10 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             {hasMore && (
               <Link
                 href={`/blog/${blog.slug}`}
-                className="mt-6 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
+                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-sm sm:text-base rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
               >
                 <span>Read Full Story</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </Link>
@@ -385,11 +385,11 @@ function FeaturedBlogsSection() {
     <div className="max-w-6xl mx-auto mb-20">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-4">
           Transformation & Insights
         </h2>
-        <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+        <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />
+        <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
           The story behind 30 years of discipline, dedication, and transformation. Real insights and honest perspectives.
         </p>
       </div>
@@ -418,13 +418,13 @@ export default function Blog() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h3 className="text-3xl font-bold text-white mb-2 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">
               More Insights
             </h3>
             <div className="h-1 w-16 bg-accent-600 mx-auto" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {otherBlogs.map((blog, index) => (
               <BlogCard key={blog.title} blog={blog} index={index} />
             ))}
