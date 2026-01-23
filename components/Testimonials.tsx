@@ -1,38 +1,59 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { images } from '@/config/images'
 
 const testimonials = [
   {
     quote: "Robin doesn't just train your body—he trains your mind. After 18 months, I've not only transformed physically but developed a discipline that extends to every area of my life.",
     author: "Abhishek Kathalye",
-    role: "Client, 7 years",
+    profession: "Actor - Chhaava",
     instagram: "https://www.instagram.com/abhishekathalye/",
+    avatar: '/images/abhishek-kathalye.jpg',
   },
   {
     quote: "30 years of experience shows. Robin's programming is intelligent, his coaching is precise, and his approach is no-nonsense. This is what real training looks like.",
     author: "Saurav Chakrabarti",
-    role: "Strength Athlete, 6 years",
+    profession: "Film Actor - Bagghi, Tadap, Farzi, Dhruva, Agent, Gully Rowdy...",
     instagram: "https://www.instagram.com/saurav_chakrabarti/",
+    avatar: '/images/saurav-chakrabarti.jpg',
   },
   {
-    quote: "The community at eGym is unlike any other gym. Serious lifters, zero ego, all focus. Robin has built something special here.",
+    quote: "The community at eGym is unlike any other gym.\nSerious lifters, zero ego, all focus.\nRobin has built something special here,\nand it shows in every training session.",
     author: "Amit Kumar Das",
-    role: "Member, 3 years",
+    profession: "CTO, Cofounder - ratl.ai, Software Techie",
     instagram: "https://www.instagram.com/amitkumardas___/",
+    avatar: '/images/amit-kumar-das.jpg',
   },
   {
     quote: "I came in looking for a quick fix. Robin showed me that transformation is a process, not an event. Two years later, I'm stronger, leaner, and more disciplined than I ever thought possible.",
     author: "Ronnie Chouhan",
-    role: "Client, 2 years",
+    profession: "Director | 💃 Choreographer | 📲 Creator / Storyteller",
     instagram: "https://www.instagram.com/roniechouhann/",
+    avatar: '/images/ronnie-chouhan.jpg',
+  },
+  {
+    quote: "My previous encounters with gym environments have been challenging, so while I joined E-gym I was very sceptical and hence not a regular. Once I became somewhat regular, I have found that I enjoy working out and that has everything to do with Robin being my trainer. He possesses a distinctive talent for motivation, adeptly pushing me beyond my self-imposed limits to achieve better performance, progressively increase my lifting capacity, and ultimately foster measurable gains in strength. It has been a profoundly rewarding experience to train under his guidance and I am particularly grateful for the positive shift he has inspired in my fitness journey.",
+    author: "Sai Ghatpande",
+    profession: "Photographer, Mom, Cat Mom, Advertising Professional",
+    instagram: "https://www.instagram.com/sai_ghatpande/",
+    avatar: '/images/sai-ghatpande.jpg',
   },
 ]
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-primary-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="py-24 bg-primary-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url('${images.egym.background}')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }} />
+      </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +115,7 @@ export default function Testimonials() {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -102,19 +123,34 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-primary-950 p-6 sm:p-8 rounded-lg border border-primary-800 relative"
+              className={`bg-primary-950 p-5 sm:p-6 rounded-lg border border-primary-800 relative ${
+                index === testimonials.length - 1 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''
+              }`}
             >
-              <div className="absolute top-6 left-6 text-6xl text-accent-600/20 font-serif leading-none">
+              <div className="absolute top-2 left-4 text-6xl text-accent-600/30 font-serif leading-none">
                 "
               </div>
               <blockquote className="relative z-10">
-                <p className="text-lg text-gray-300 mb-6 leading-relaxed italic">
+                <p className="text-lg text-gray-300 mb-6 leading-relaxed italic whitespace-pre-line">
                   {testimonial.quote}
                 </p>
                 <footer className="flex items-center justify-between">
-                  <div>
-                    <p className="text-white font-semibold">{testimonial.author}</p>
-                    <p className="text-gray-500 text-sm">{testimonial.role}</p>
+                  <div className="flex items-center gap-4">
+                    {testimonial.avatar && (
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-accent-600/60 flex-shrink-0">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={`${testimonial.author} profile picture`}
+                          fill
+                          className="object-cover"
+                          sizes="48px"
+                        />
+                      </div>
+                    )}
+                    <div className="min-w-0 flex-1">
+                      <p className="text-white font-semibold">{testimonial.author}</p>
+                      <p className="text-gray-500 text-sm truncate">{testimonial.profession}</p>
+                    </div>
                   </div>
                   {testimonial.instagram && (
                     <a
