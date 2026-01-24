@@ -6,7 +6,7 @@ export default function Location() {
   const address = "Prerna apartment, 4th Cross Rd, Swami Samarth Nagar, Lokhandwala Complex, Andheri West, Mumbai, Maharashtra 400053"
   const phone = "091371 36354"
   const locationName = "Prerna Apartments"
-  const hours = "Opens 6 am"
+  const hours = "Mon-Fri: 6am - 12am | Sat: 6am - 10:30pm | Sun: 8am - 8pm | Open 365 days"
   // Google Maps embed URL using address query parameter
   // To get the exact embed code: Visit https://maps.app.goo.gl/7kymNroXqtpctVHv6 → Click "Embed a map" → Copy the iframe src URL
   const encodedBusinessName = encodeURIComponent("E- Gym Lokhandwala")

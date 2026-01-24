@@ -54,7 +54,7 @@ export default function StructuredData() {
       addressCountry: 'IN',
     },
     telephone: '+919137136354',
-    openingHours: 'Mo-Su 06:00-22:00',
+    openingHours: 'Mo-Fr 06:00-00:00, Sa 06:00-22:30, Su 08:00-20:00',
     priceRange: '$$',
     servesCuisine: false,
     acceptsReservations: false,

@@ -33,9 +33,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight px-2"
           >
             <span className="sr-only">Robin Carruthers - </span>
-            30+ Years of Coaching
-            <br />
-            <span className="text-accent-500">Strength, Discipline & Life</span>
+            <span className="text-accent-500">Strength. Discipline. Life.</span>
           </motion.h1>
 
           <motion.p
@@ -44,7 +42,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           >
-            Three decades of transforming bodies and minds. Old-school discipline meets modern coaching.
+            Old-school discipline meets modern coaching.
+            <br />
+            No shortcuts. Just showing up.
             <br />
             <span className="text-base sm:text-lg text-gray-400 italic mt-2 block">
               "For love of the game"

@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,6 +17,15 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Check if we're on a blog post page
+  const isBlogPostPage = pathname?.startsWith('/blog/')
+
+  // Helper function to get the correct href
+  const getNavHref = (hash: string) => {
+    // If on blog post page, prepend with '/' to go to homepage first
+    return isBlogPostPage ? `/${hash}` : hash
+  }
 
   const navLinks = [
     { href: '#about', label: 'About' },
@@ -48,14 +59,14 @@ export default function Header() {
             {navLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={getNavHref(link.href)}
                 className="text-gray-300 hover:text-white transition-colors font-medium"
               >
                 {link.label}
               </Link>
             ))}
             <Link
-              href="#contact"
+              href={getNavHref('#contact')}
               className="px-6 py-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors"
             >
               Train With Robin
@@ -100,7 +111,7 @@ export default function Header() {
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
-                    href={link.href}
+                    href={getNavHref(link.href)}
                     className="text-gray-300 hover:text-white transition-colors font-medium py-2 break-words"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -108,7 +119,7 @@ export default function Header() {
                   </Link>
                 ))}
                 <Link
-                  href="#contact"
+                  href={getNavHref('#contact')}
                   className="px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors text-center min-h-[44px] flex items-center justify-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

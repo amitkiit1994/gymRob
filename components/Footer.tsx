@@ -9,8 +9,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Robin Carruthers</h3>
-            <p className="text-gray-400 text-sm">
-              For love of the game. 30+ years of coaching strength, discipline & life.
+            <p className="text-gray-400 text-sm mb-2">
+              For love of the game. Strength, discipline & life.
+            </p>
+            <p className="text-gray-500 text-xs">
+              Certified Personal Trainer • Sports Rehab • Strength & Conditioning
             </p>
           </div>
 
