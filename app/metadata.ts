@@ -7,10 +7,10 @@ const siteUrl = getSiteUrl()
 export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Robin Carruthers | Fitness & Life Coach | 30+ Years of Excellence',
-    template: '%s | Robin Carruthers',
+    default: 'GymRob | Robin Carruthers | Fitness & Life Coach | Strength. Discipline. Life.',
+    template: '%s | GymRob | Robin Carruthers',
   },
-  description: 'Robin Carruthers - Personal trainer and fitness coach with 30+ years of experience. Owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods. GymRob fitness coaching.',
+  description: 'GymRob - Robin Carruthers. Strength. Discipline. Life. Personal trainer and fitness coach. Owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods.',
   keywords: [
     'Robin Carruthers',
     'GymRob',
@@ -37,9 +37,9 @@ export const siteMetadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    siteName: 'Robin Carruthers',
-    title: 'Robin Carruthers | Fitness & Life Coach',
-    description: '30+ years of coaching strength, discipline & life. Owner of eGym Lokhandwala.',
+    siteName: 'GymRob - Robin Carruthers',
+    title: 'GymRob | Robin Carruthers | Fitness & Life Coach',
+    description: 'GymRob - Strength. Discipline. Life. Owner of eGym Lokhandwala in Mumbai.',
     images: [
       {
         url: images.social.ogImage.startsWith('http') 
@@ -53,8 +53,8 @@ export const siteMetadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Robin Carruthers | Fitness & Life Coach',
-    description: '30+ years of coaching strength, discipline & life.',
+    title: 'GymRob | Robin Carruthers | Fitness & Life Coach',
+    description: 'GymRob - Strength. Discipline. Life.',
     images: [
       images.social.ogImage.startsWith('http') 
         ? images.social.ogImage 

@@ -48,9 +48,12 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="text-xl sm:text-2xl font-bold tracking-tight text-white hover:text-accent-500 transition-colors"
-            aria-label="Robin Carruthers - Home"
+            className="flex flex-col text-xl sm:text-2xl font-bold tracking-tight text-white hover:text-accent-500 transition-colors"
+            aria-label="GymRob - Robin Carruthers - Home"
           >
+            <span className="text-xs sm:text-sm font-semibold text-accent-400 tracking-wider uppercase">
+              GymRob
+            </span>
             Robin Carruthers
           </Link>
 

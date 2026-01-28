@@ -10,7 +10,7 @@ export default function StructuredData() {
     name: 'Robin Carruthers',
     alternateName: ['GymRob', 'Robin Carruthers Fitness'],
     jobTitle: 'Fitness & Life Coach',
-    description: 'Robin Carruthers - 30+ years of coaching strength, discipline & life. Personal trainer, fitness coach, and owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods.',
+    description: 'Robin Carruthers - Strength. Discipline. Life. Personal trainer, fitness coach, and owner of eGym Lokhandwala in Mumbai. Transform your body and mind with proven training methods.',
     url: siteUrl,
     image: `${siteUrl}/images/Gemini_Generated_Image_vbopksvbopksvbop.png`,
     sameAs: [
@@ -42,7 +42,7 @@ export default function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Gym',
     name: 'eGym Lokhandwala',
-    description: 'Old-school strength culture with modern coaching excellence. 30+ years of proven training methods.',
+    description: 'Old-school strength culture with modern coaching excellence. Strength. Discipline. Life.',
     url: siteUrl,
     image: `${siteUrl}/images/Gemini_Generated_Image_e6489be6489be648.png`,
     address: {
@@ -130,7 +130,7 @@ export default function StructuredData() {
     name: 'Robin Carruthers Fitness',
     url: siteUrl,
     logo: `${siteUrl}/images/Gemini_Generated_Image_vbopksvbopksvbop.png`,
-    description: '30+ years of coaching strength, discipline & life. Transform your body and mind with proven training methods.',
+    description: 'Strength. Discipline. Life. Transform your body and mind with proven training methods.',
     founder: {
       '@type': 'Person',
       name: 'Robin Carruthers',
@@ -139,6 +139,22 @@ export default function StructuredData() {
       'https://instagram.com/gymrob123',
       'https://instagram.com/egymlokhandwala',
     ],
+  }
+
+  // WebSite Schema – tells Google the site brand is "GymRob" (reduces "did you mean gymrox")
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'GymRob',
+    alternateName: ['gymrob', 'GymRob Fitness', 'Robin Carruthers Fitness'],
+    url: siteUrl,
+    description: 'GymRob - Robin Carruthers. Personal trainer and fitness coach. Owner of eGym Lokhandwala, Mumbai.',
+    publisher: {
+      '@type': 'Person',
+      name: 'Robin Carruthers',
+      alternateName: 'GymRob',
+    },
+    inLanguage: 'en-US',
   }
 
   return (
@@ -154,6 +170,10 @@ export default function StructuredData() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
     </>
   )

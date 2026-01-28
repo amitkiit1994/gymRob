@@ -10,7 +10,7 @@
  */
 
 // Primary canonical domain (use this for canonical URLs)
-export const PRIMARY_DOMAIN = 'https://www.robincarruthers.com'
+export const PRIMARY_DOMAIN = 'https://www.gymrob.com'
 
 // All supported domains
 export const SUPPORTED_DOMAINS = [
@@ -82,11 +82,11 @@ export function getAlternateLinks(path: string = ''): Array<{ href: string; href
   const cleanPath = path.startsWith('/') ? path : `/${path}`
   
   return [
-    { href: `https://www.robincarruthers.com${cleanPath}`, hreflang: 'x-default' },
-    { href: `https://www.robincarruthers.com${cleanPath}`, hreflang: 'en' },
-    { href: `https://robincarruthers.com${cleanPath}`, hreflang: 'en' },
+    { href: `https://www.gymrob.com${cleanPath}`, hreflang: 'x-default' },
     { href: `https://www.gymrob.com${cleanPath}`, hreflang: 'en' },
     { href: `https://gymrob.com${cleanPath}`, hreflang: 'en' },
+    { href: `https://www.robincarruthers.com${cleanPath}`, hreflang: 'en' },
+    { href: `https://robincarruthers.com${cleanPath}`, hreflang: 'en' },
   ]
 }
 
