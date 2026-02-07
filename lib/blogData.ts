@@ -216,6 +216,49 @@ And that's worth more than a hangover.
 — Robin Carruthers`,
     hasImage: false,
     date: "2026"
+  },
+  {
+    slug: "i-am-a-warrior",
+    title: "I am a Warrior",
+    date: "February 7, 2026",
+    hasImage: false,
+    content: `I am a Warrior
+My choices are seen as extreme
+My ability at times defying nature
+Yet my life is characterised
+By near constant disappointment
+In my efforts to build a foundation for later success
+
+To be a worthy representative of myself
+I must know defeat and humble myself to its teachings
+Continuously i must test..and test…and test..and test my limits again
+
+For in this testing lies the answer to the question
+"How will I be better tomorrow"?
+
+Fear and Ego will stop many as they mistake failure for weakness
+But it is precisely through this failure that i come to understand
+What is possible, what i can truly be and who i truly am
+
+For me Iron is a religion and I am defined by its teachings
+
+It teaches humility and patience and focus and power and brotherhood
+
+When i walk into the temple I am prepared to fail,
+i am prepared to fall, I am prepared to look small,
+I am prepared to leave my ego and pride at the entrance
+
+But also I am prepared to never quit, to not give up,
+to never say "I can't do it"
+
+I am prepared to go that last rep when my body says no more,
+I am prepared to go through pain and to focus when my brain is blacking out,
+I am prepared to win – because that is what will define
+me being better tomorrow than i was today !!
+
+I am a warrior!
+
+— Robin Carruthers`
   }
 ]
 

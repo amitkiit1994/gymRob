@@ -172,17 +172,18 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   </div>
                 )
               }
-              // Headings (short lines)
-              if (paragraph.length < 100 && !paragraph.includes('.') && paragraph.split(' ').length < 10) {
+              // Headings (short lines) – skip for content that uses line breaks (e.g. poetry)
+              const isPoetryOrVerse = paragraph.includes('\n') && paragraph.trim().split('\n').length > 1
+              if (!isPoetryOrVerse && paragraph.length < 100 && !paragraph.includes('.') && paragraph.split(' ').length < 10) {
                 return (
                   <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4">
                     {paragraph}
                   </h2>
                 )
               }
-              // Regular paragraphs
+              // Regular paragraphs (whitespace-pre-line preserves line breaks for verse/poetry)
               return (
-                <p key={index} className="text-lg text-gray-300 leading-relaxed">
+                <p key={index} className={`text-lg text-gray-300 leading-relaxed ${paragraph.includes('\n') ? 'whitespace-pre-line' : ''}`}>
                   {paragraph}
                 </p>
               )
