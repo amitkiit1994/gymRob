@@ -30,10 +30,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight px-2"
+            className="iron-text font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-[1.05] tracking-tight uppercase px-2"
           >
             <span className="sr-only">Robin Carruthers - </span>
-            <span className="text-accent-500">Strength. Discipline. Life.</span>
+            Strength.<br className="hidden sm:block" /> Discipline. Life.
           </motion.h1>
 
           <motion.p
@@ -59,13 +59,13 @@ export default function Hero() {
           >
             <Link
               href="#contact"
-              className="w-full sm:w-auto px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-center min-h-[44px] flex items-center justify-center"
+              className="w-full sm:w-auto px-8 py-4 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6),0_0_24px_rgba(234,88,12,0.4)] active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.6)] text-center min-h-[44px] flex items-center justify-center"
             >
               Train With Robin
             </Link>
             <Link
               href="#egym"
-              className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 text-center min-h-[44px] flex items-center justify-center"
+              className="w-full sm:w-auto px-8 py-4 bg-black/40 border-2 border-accent-700 hover:border-accent-500 text-accent-300 hover:text-accent-100 font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider text-center min-h-[44px] flex items-center justify-center"
             >
               Visit eGym Lokhandwala
             </Link>

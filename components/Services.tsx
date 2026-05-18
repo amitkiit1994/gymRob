@@ -48,8 +48,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-primary-950">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="iron-bg iron-grain spark-corner-tl spark-corner-br relative py-24 overflow-hidden border-t-2 border-b-2 border-accent-800/60">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,12 +58,12 @@ export default function Services() {
           className="text-center mb-16"
         >
           <SectionEyebrow number="02" label="What I Offer" />
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
+          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Coaching Services
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Proven methods. Real results. Three decades of refinement.
+          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto uppercase tracking-[0.2em]">
+            Proven methods · Real results · Three decades of refinement
           </p>
         </motion.div>
 
@@ -75,13 +75,13 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="bg-primary-900 p-6 sm:p-8 rounded-lg border border-primary-800 hover:border-accent-600 transition-all hover:shadow-xl"
+              className="iron-frame bg-black/70 p-6 sm:p-8 rounded-sm transition-all"
             >
-              <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+              <h3 className="font-serif text-2xl font-bold text-accent-200 mb-4 uppercase tracking-wide">{service.title}</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
-              
+
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-accent-500 uppercase tracking-wide mb-3">
+                <p className="font-mono text-xs font-bold text-accent-500 uppercase tracking-[0.25em] mb-3">
                   Key Outcomes
                 </p>
                 <ul className="space-y-2">

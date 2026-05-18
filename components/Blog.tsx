@@ -69,7 +69,7 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: index * 0.1 }}
-      className="bg-primary-900 rounded-lg border border-primary-800 hover:border-accent-600 transition-all hover:shadow-xl group flex flex-col h-full"
+      className="iron-frame bg-black/70 rounded-sm transition-all group flex flex-col h-full"
     >
       <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-1">
         {/* Date */}
@@ -387,7 +387,7 @@ function FeaturedBlogsSection() {
       {/* Section Header */}
       <div className="text-center mb-12">
         <SectionEyebrow number="06" label="The Journal" />
-        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 px-4">
+        <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
           Transformation & Insights
         </h2>
         <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />
@@ -406,7 +406,7 @@ function FeaturedBlogsSection() {
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-24 bg-primary-950">
+    <section id="blog" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Featured Blogs Section */}
         <FeaturedBlogsSection />

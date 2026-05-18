@@ -40,7 +40,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-primary-900/95 backdrop-blur-md border-b border-primary-700'
+          ? 'bg-black/90 backdrop-blur-md border-b-2 border-accent-800/60 shadow-[0_4px_24px_rgba(0,0,0,0.6)]'
           : 'bg-transparent'
       }`}
     >
@@ -48,13 +48,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="flex flex-col text-xl sm:text-2xl font-bold tracking-tight text-white hover:text-accent-500 transition-colors"
+            className="flex flex-col text-xl sm:text-2xl font-bold tracking-tight hover:opacity-90 transition-opacity"
             aria-label="GymRob - Robin Carruthers - Home"
           >
-            <span className="text-xs sm:text-sm font-semibold text-accent-400 tracking-wider uppercase">
+            <span className="font-mono text-[0.6rem] sm:text-xs font-bold text-accent-400 tracking-[0.3em] uppercase">
               GymRob
             </span>
-            Robin Carruthers
+            <span className="iron-text font-serif uppercase tracking-tight leading-none">Robin Carruthers</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -70,7 +70,7 @@ export default function Header() {
             ))}
             <Link
               href={getNavHref('#contact')}
-              className="px-6 py-2 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors"
+              className="px-5 py-2 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold rounded-sm transition-all uppercase tracking-wider text-sm border-2 border-accent-800 shadow-[0_3px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5"
             >
               Train With Robin
             </Link>

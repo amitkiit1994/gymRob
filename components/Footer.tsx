@@ -4,11 +4,11 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-primary-950 border-t border-primary-800">
+    <footer className="iron-grain bg-[#0a0604] border-t-2 border-accent-800/60 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold text-white mb-4">Robin Carruthers</h3>
+            <h3 className="iron-text font-serif text-xl font-bold mb-4 uppercase tracking-tight">Robin Carruthers</h3>
             <p className="text-gray-400 text-sm mb-2">
               For love of the game. Strength, discipline & life.
             </p>
@@ -18,7 +18,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-mono text-accent-400 font-bold mb-4 uppercase tracking-[0.25em] text-xs">Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <Link href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Connect</h4>
+            <h4 className="font-mono text-accent-400 font-bold mb-4 uppercase tracking-[0.25em] text-xs">Connect</h4>
             <ul className="space-y-2">
               <li>
                 <a

@@ -7,7 +7,7 @@ import SectionEyebrow from './SectionEyebrow'
 
 export default function EGym() {
   return (
-    <section id="egym" className="py-24 bg-primary-900 relative overflow-hidden">
+    <section id="egym" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -27,12 +27,12 @@ export default function EGym() {
             className="text-center mb-16"
           >
             <SectionEyebrow number="03" label="The Home Base" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
+            <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
               eGym Lokhandwala
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Where old-school strength culture meets modern coaching excellence
+            <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto uppercase tracking-[0.2em]">
+              Old-school strength culture · Modern coaching excellence
             </p>
           </motion.div>
 
@@ -57,8 +57,8 @@ export default function EGym() {
                 transformation requires discipline, not shortcuts.
               </p>
 
-              <div className="bg-primary-800 p-6 rounded-lg border border-primary-700">
-                <h3 className="text-xl font-bold text-white mb-4">What Sets Us Apart</h3>
+              <div className="iron-frame bg-black/60 p-6 rounded-sm">
+                <h3 className="font-serif text-xl font-bold text-accent-200 mb-4 uppercase tracking-wide">What Sets Us Apart</h3>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <span className="text-accent-600 mr-3 font-bold">•</span>
@@ -87,7 +87,7 @@ export default function EGym() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="aspect-[4/3] rounded-lg overflow-hidden border-2 border-primary-700">
+              <div className="iron-frame aspect-[4/3] rounded-sm overflow-hidden">
                 <div
                   className="w-full h-full bg-cover bg-center"
                   style={{
@@ -108,7 +108,7 @@ export default function EGym() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full sm:w-auto px-4 sm:px-0">
               <Link
                 href="#contact"
-                className="w-full sm:w-auto inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg text-center min-h-[44px] flex items-center justify-center"
+                className="w-full sm:w-auto inline-block px-8 py-4 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6),0_0_24px_rgba(234,88,12,0.4)] active:translate-y-0.5 text-center min-h-[44px] flex items-center justify-center"
               >
                 Train at eGym Lokhandwala
               </Link>
@@ -116,7 +116,7 @@ export default function EGym() {
                 href="https://instagram.com/egymlokhandwala"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 min-h-[44px]"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-black/40 border-2 border-accent-700 hover:border-accent-500 text-accent-300 hover:text-accent-100 font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider min-h-[44px]"
                 aria-label="Follow eGym Lokhandwala on Instagram"
               >
                 <svg

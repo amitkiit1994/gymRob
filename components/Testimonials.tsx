@@ -45,7 +45,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-24 bg-primary-900 relative overflow-hidden">
+    <section id="testimonials" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -63,12 +63,12 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <SectionEyebrow number="04" label="In Their Words" />
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 px-4">
+          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Testimonials
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />
-          <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-            Real results from real people. Long-term transformations, not quick fixes.
+          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto px-4 uppercase tracking-[0.2em]">
+            Real results from real people · Long-term transformations
           </p>
         </motion.div>
 

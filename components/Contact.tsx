@@ -65,7 +65,7 @@ Goal: ${formData.goal}`
   }
 
   return (
-    <section id="contact" className="py-24 bg-primary-950">
+    <section id="contact" className="iron-bg iron-grain relative py-24 overflow-hidden border-t-2 border-accent-800/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <motion.div
@@ -76,12 +76,12 @@ Goal: ${formData.goal}`
             className="text-center mb-12"
           >
             <SectionEyebrow number="08" label="Begin" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
-              Start Your Training Journey
+            <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
+              Start Your Training
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-            <p className="text-xl text-gray-400">
-              Ready to transform? Let's discuss your goals and how we can achieve them together.
+            <p className="font-mono text-xs sm:text-sm text-accent-200/70 uppercase tracking-[0.2em]">
+              Ready to transform · Let's discuss your goals
             </p>
           </motion.div>
 
@@ -90,7 +90,7 @@ Goal: ${formData.goal}`
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-primary-900 p-6 sm:p-8 rounded-lg border border-primary-800"
+            className="iron-frame bg-black/70 p-6 sm:p-8 rounded-sm relative z-10"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

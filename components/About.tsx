@@ -5,8 +5,8 @@ import SectionEyebrow from './SectionEyebrow'
 
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-primary-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="iron-grain relative py-24 bg-[#0a0604]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <SectionEyebrow number="01" label="The Story" />
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-8 text-center px-4">
+            <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-8 text-center px-4 uppercase tracking-tight leading-[1.05]">
               About Robin
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-12" />
@@ -55,7 +55,7 @@ export default function About() {
 
               {/* Credentials & Education */}
               <div className="mt-10 mb-10">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-accent-300 mb-2 uppercase tracking-wide">
                   Training & Education
                 </h3>
                 <p className="text-gray-400 text-sm mb-6">
@@ -63,7 +63,7 @@ export default function About() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {/* Certified Personal Trainer */}
-                  <div className="bg-primary-800 border border-primary-700 rounded-lg p-4 hover:border-primary-600 transition-colors">
+                  <div className="bg-black/60 border-2 border-accent-800/60 rounded-sm p-4 hover:border-accent-600 transition-colors shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <svg className="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ export default function About() {
                   </div>
 
                   {/* Sports Medicine Rehabilitation */}
-                  <div className="bg-primary-800 border border-primary-700 rounded-lg p-4 hover:border-primary-600 transition-colors">
+                  <div className="bg-black/60 border-2 border-accent-800/60 rounded-sm p-4 hover:border-accent-600 transition-colors shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <svg className="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -93,7 +93,7 @@ export default function About() {
                   </div>
 
                   {/* Strength & Conditioning */}
-                  <div className="bg-primary-800 border border-primary-700 rounded-lg p-4 hover:border-primary-600 transition-colors">
+                  <div className="bg-black/60 border-2 border-accent-800/60 rounded-sm p-4 hover:border-accent-600 transition-colors shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <svg className="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ export default function About() {
                   </div>
 
                   {/* Speed & Agility */}
-                  <div className="bg-primary-800 border border-primary-700 rounded-lg p-4 hover:border-primary-600 transition-colors">
+                  <div className="bg-black/60 border-2 border-accent-800/60 rounded-sm p-4 hover:border-accent-600 transition-colors shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
                     <div className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1">
                         <svg className="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +124,7 @@ export default function About() {
                 </div>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mt-10 mb-6">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-accent-300 mt-10 mb-6 uppercase tracking-wide">
                 Why I Coach the Way I Do
               </h3>
 
@@ -140,7 +140,7 @@ export default function About() {
                 At eGym Lokhandwala, we carry forward that old-school strength culture, supported by modern coaching methods. Not flash. Not fads. Just intelligent training, done consistently, with purpose.
               </p>
 
-              <div className="mt-12 p-6 bg-primary-800 border-l-4 border-accent-600 rounded">
+              <div className="mt-12 p-6 bg-black/70 border-l-4 border-accent-600 rounded-sm shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
                 <p className="text-xl text-white font-semibold italic mb-2">
                   "Friends may come and go but 200 pounds will always be 200 pounds."
                 </p>

@@ -8,7 +8,7 @@ const reels = getAllReels()
 
 export default function Instagram() {
   return (
-    <section id="instagram" className="py-24 bg-primary-950">
+    <section id="instagram" className="iron-bg iron-grain spark-corner-tl spark-corner-br relative py-24 overflow-hidden border-t-2 border-b-2 border-accent-800/60">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -18,15 +18,15 @@ export default function Instagram() {
           className="text-center mb-16"
         >
           <SectionEyebrow number="07" label="On The Feed" />
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
+          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Training & Motivation
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
-            Real training. Real results. Consistent content that cuts through the noise.
+          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto mb-4 uppercase tracking-[0.2em]">
+            Real training · Real results · Cuts through the noise
           </p>
-          <p className="text-gray-500 text-sm">
-            Follow for daily motivation, training tips, and authentic coaching content
+          <p className="text-accent-200/50 text-xs font-mono uppercase tracking-wider">
+            Follow for daily motivation, training tips, authentic coaching
           </p>
         </motion.div>
 
