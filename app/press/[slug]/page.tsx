@@ -71,60 +71,64 @@ export default async function PressArticlePage({
 
   return (
     <article className="min-h-screen bg-primary-950">
-      {/* Editorial hero — thumbnail portrait on black */}
+      {/* Editorial hero — side-by-side thumbnail + headline */}
       <header className="relative bg-black pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
         {/* Subtle backdrop accent */}
         <div className="pointer-events-none absolute inset-0 opacity-40">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full bg-accent-700/10 blur-3xl" />
+          <div className="absolute -top-32 left-1/4 w-[32rem] h-[32rem] rounded-full bg-accent-700/10 blur-3xl" />
         </div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
-          {/* Thumbnail portrait */}
-          <figure className="mx-auto mb-8 sm:mb-10">
-            <div className="relative inline-block rounded-sm overflow-hidden border border-accent-600/50 shadow-[0_10px_40px_-10px_rgba(234,88,12,0.35)] bg-black">
-              <Image
-                src={feature.image}
-                alt={feature.imageAlt}
-                width={240}
-                height={144}
-                priority
-                sizes="240px"
-                className="block w-[180px] sm:w-[220px] md:w-[240px] h-auto"
-              />
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 md:gap-10">
+            {/* Thumbnail portrait — left side */}
+            <figure className="flex-shrink-0">
+              <div className="relative rounded-sm overflow-hidden border border-accent-600/50 shadow-[0_10px_40px_-10px_rgba(234,88,12,0.35)] bg-black">
+                <Image
+                  src={feature.image}
+                  alt={feature.imageAlt}
+                  width={240}
+                  height={144}
+                  priority
+                  sizes="(min-width: 768px) 240px, 180px"
+                  className="block w-[180px] sm:w-[200px] md:w-[240px] h-auto"
+                />
+              </div>
+            </figure>
+
+            {/* Text block — right side */}
+            <div className="flex-1 min-w-0">
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                <span className="h-px w-8 bg-accent-500" aria-hidden="true" />
+                <span className="font-serif italic text-xs tracking-[0.25em] uppercase text-accent-400">
+                  As Featured In · {feature.source}
+                </span>
+              </div>
+
+              {/* Headline */}
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-white leading-[1.15] tracking-tight mb-4 sm:mb-5">
+                {feature.title}
+              </h1>
+
+              {/* Byline strip */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-400">
+                <span className="font-semibold tracking-wide text-white">{feature.source}</span>
+                <span className="h-1 w-1 rounded-full bg-gray-600" aria-hidden="true" />
+                <time dateTime={feature.publishedDate}>{feature.displayDate}</time>
+                <span className="h-1 w-1 rounded-full bg-gray-600" aria-hidden="true" />
+                <a
+                  href={feature.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 transition-colors"
+                >
+                  <span>View original</span>
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+              </div>
             </div>
-          </figure>
-
-          {/* Eyebrow */}
-          <div className="flex items-center justify-center gap-3 mb-5">
-            <span className="h-px w-8 bg-accent-500" aria-hidden="true" />
-            <span className="font-serif italic text-xs tracking-[0.25em] uppercase text-accent-400">
-              As Featured In · {feature.source}
-            </span>
-            <span className="h-px w-8 bg-accent-500" aria-hidden="true" />
-          </div>
-
-          {/* Headline */}
-          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.15] tracking-tight max-w-3xl mx-auto mb-5 sm:mb-6">
-            {feature.title}
-          </h1>
-
-          {/* Byline strip */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-400">
-            <span className="font-semibold tracking-wide text-white">{feature.source}</span>
-            <span className="h-1 w-1 rounded-full bg-gray-600" aria-hidden="true" />
-            <time dateTime={feature.publishedDate}>{feature.displayDate}</time>
-            <span className="h-1 w-1 rounded-full bg-gray-600" aria-hidden="true" />
-            <a
-              href={feature.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-accent-400 hover:text-accent-300 transition-colors"
-            >
-              <span>View original</span>
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
           </div>
         </div>
       </header>
