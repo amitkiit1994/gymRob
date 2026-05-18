@@ -150,7 +150,7 @@ export default function Testimonials() {
                       </div>
                     )}
                     <div className="min-w-0 flex-1">
-                      <p className="text-white font-semibold text-sm sm:text-base truncate">{testimonial.author}</p>
+                      <p className="font-serif text-accent-200 font-semibold text-sm sm:text-base truncate uppercase tracking-wide">{testimonial.author}</p>
                       <p className="text-gray-500 text-xs sm:text-sm truncate">{testimonial.profession}</p>
                     </div>
                   </div>
@@ -159,7 +159,7 @@ export default function Testimonials() {
                       href={testimonial.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-2 sm:ml-4 p-1.5 sm:p-2 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-primary-800 flex-shrink-0"
+                      className="ml-2 sm:ml-4 p-1.5 sm:p-2 text-accent-400 hover:text-accent-200 transition-colors rounded-sm hover:bg-black/40 flex-shrink-0"
                       aria-label={`Follow ${testimonial.author} on Instagram`}
                       title={`Follow ${testimonial.author} on Instagram`}
                     >

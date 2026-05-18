@@ -94,7 +94,7 @@ Goal: ${formData.goal}`
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-white font-semibold mb-2">
+                <label htmlFor="name" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
                   Name
                 </label>
                 <input
@@ -104,14 +104,14 @@ Goal: ${formData.goal}`
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded text-white placeholder-gray-500 focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-600/20 transition-all"
+                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all"
                   placeholder="Your name"
                   aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-white font-semibold mb-2">
+                <label htmlFor="email" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
                   Email
                 </label>
                 <input
@@ -121,14 +121,14 @@ Goal: ${formData.goal}`
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded text-white placeholder-gray-500 focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-600/20 transition-all"
+                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all"
                   placeholder="your.email@example.com"
                   aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="goal" className="block text-white font-semibold mb-2">
+                <label htmlFor="goal" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
                   Your Goal
                 </label>
                 <textarea
@@ -138,7 +138,7 @@ Goal: ${formData.goal}`
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded text-white placeholder-gray-500 focus:outline-none focus:border-accent-600 focus:ring-2 focus:ring-accent-600/20 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all resize-none"
                   placeholder="Tell us about your training goals, experience level, and what you hope to achieve..."
                   aria-required="true"
                 />
@@ -179,7 +179,7 @@ Goal: ${formData.goal}`
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-accent-600 hover:bg-accent-700 disabled:bg-accent-800 disabled:cursor-not-allowed text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg min-h-[44px] flex items-center justify-center gap-2"
+                className="w-full px-8 py-4 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 disabled:from-accent-800 disabled:to-accent-900 disabled:cursor-not-allowed text-black font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6),0_0_24px_rgba(234,88,12,0.4)] active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.6)] min-h-[44px] flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   'Opening WhatsApp...'

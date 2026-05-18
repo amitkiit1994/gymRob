@@ -71,7 +71,7 @@ export default function About() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm mb-1">Certified Personal Trainer</p>
+                        <p className="font-serif text-accent-200 font-semibold text-sm mb-1 uppercase tracking-wide">Certified Personal Trainer</p>
                         <p className="text-gray-400 text-xs">Renewed 2022</p>
                       </div>
                     </div>
@@ -86,7 +86,7 @@ export default function About() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm mb-1">Sports Medicine Rehabilitation</p>
+                        <p className="font-serif text-accent-200 font-semibold text-sm mb-1 uppercase tracking-wide">Sports Medicine Rehabilitation</p>
                         <p className="text-gray-400 text-xs">Injury-aware training</p>
                       </div>
                     </div>
@@ -101,7 +101,7 @@ export default function About() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm mb-1">Strength & Conditioning</p>
+                        <p className="font-serif text-accent-200 font-semibold text-sm mb-1 uppercase tracking-wide">Strength & Conditioning</p>
                         <p className="text-gray-400 text-xs">Performance-based training</p>
                       </div>
                     </div>
@@ -116,7 +116,7 @@ export default function About() {
                         </svg>
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-white font-semibold text-sm mb-1">Speed & Agility</p>
+                        <p className="font-serif text-accent-200 font-semibold text-sm mb-1 uppercase tracking-wide">Speed & Agility</p>
                         <p className="text-gray-400 text-xs">Athletic performance</p>
                       </div>
                     </div>
@@ -141,8 +141,8 @@ export default function About() {
               </p>
 
               <div className="mt-12 p-6 bg-black/70 border-l-4 border-accent-600 rounded-sm shadow-[inset_0_1px_0_rgba(254,215,170,0.1)]">
-                <p className="text-xl text-white font-semibold italic mb-2">
-                  "Friends may come and go but 200 pounds will always be 200 pounds."
+                <p className="font-serif text-xl text-accent-100 italic mb-2 pull-quote leading-snug">
+                  Friends may come and go but 200 pounds will always be 200 pounds.
                 </p>
                 <p className="text-gray-400">
                   This isn't just about lifting weights. It's about character. About understanding that some things in life are constant—and your commitment to them defines who you become.
@@ -154,9 +154,9 @@ export default function About() {
               </p>
 
               <div className="mt-6 space-y-2">
-                <p className="text-accent-500 font-semibold">Show up.</p>
-                <p className="text-accent-500 font-semibold">Do the work.</p>
-                <p className="text-accent-500 font-semibold">Trust the process.</p>
+                <p className="font-serif text-2xl text-accent-400 font-bold uppercase tracking-wider">Show up.</p>
+                <p className="font-serif text-2xl text-accent-400 font-bold uppercase tracking-wider">Do the work.</p>
+                <p className="font-serif text-2xl text-accent-400 font-bold uppercase tracking-wider">Trust the process.</p>
               </div>
 
               <p className="mt-8 text-gray-400 italic">

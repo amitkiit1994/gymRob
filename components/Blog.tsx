@@ -78,7 +78,7 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
         </p>
 
         {/* Title */}
-        <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 group-hover:text-accent-500 transition-colors leading-tight">
+        <h4 className="font-serif text-lg sm:text-xl font-bold text-accent-200 mb-3 sm:mb-4 group-hover:text-accent-400 transition-colors leading-tight uppercase tracking-wide">
           {blog.title}
         </h4>
 
@@ -129,7 +129,7 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
         {hasMore && (
           <Link
             href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-            className="mt-auto px-4 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-xs sm:text-sm rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full min-h-[40px] sm:min-h-[44px]"
+            className="mt-auto px-4 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-xs sm:text-sm rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_3px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full min-h-[40px] sm:min-h-[44px]"
           >
             <span>Read More</span>
             <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,13 +193,13 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
               className="space-y-6"
             >
               <div className="flex items-center justify-between mb-4">
-                <span className="px-4 py-2 bg-accent-600 text-white text-sm font-bold rounded-full">
+                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-accent-700 text-accent-400 text-[0.65rem] font-mono font-bold rounded-sm uppercase tracking-[0.25em]">
                   FEATURED STORY
                 </span>
                 <span className="text-gray-400 text-sm">By Robin Carruthers</span>
               </div>
 
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight">
+              <h3 className="iron-text font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight uppercase tracking-tight">
                 {blog.title}
               </h3>
 
@@ -254,7 +254,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                 {hasMore && (
                   <Link
                     href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-                    className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-sm sm:text-base rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
+                    className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-sm sm:text-base rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full"
                   >
                     <span>Read Full Story</span>
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -288,13 +288,13 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
         // Layout without Image (Text-focused)
         <div className="bg-primary-900 rounded-lg border border-primary-800 hover:border-accent-600 transition-all p-4 sm:p-6 md:p-8 lg:p-12">
           <div className="flex items-center justify-between mb-6">
-            <span className="px-4 py-2 bg-accent-600 text-white text-sm font-bold rounded-full">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-accent-700 text-accent-400 text-[0.65rem] font-mono font-bold rounded-sm uppercase tracking-[0.25em]">
               FEATURED STORY
             </span>
             <span className="text-gray-400 text-sm">By Robin Carruthers</span>
           </div>
 
-          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4 sm:mb-6">
+          <h3 className="iron-text font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight mb-4 sm:mb-6 uppercase tracking-tight">
             {blog.title}
           </h3>
 
@@ -365,7 +365,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             {hasMore && (
               <Link
                 href={`/blog/${blog.slug}`}
-                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold text-sm sm:text-base rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2 w-full"
+                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-sm sm:text-base rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full"
               >
                 <span>Read Full Story</span>
                 <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -420,7 +420,7 @@ export default function Blog() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">
+            <h3 className="iron-text font-serif text-2xl sm:text-3xl mb-2 text-center uppercase tracking-tight">
               More Insights
             </h3>
             <div className="h-1 w-16 bg-accent-600 mx-auto" />

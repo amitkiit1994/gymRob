@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionEyebrow from './SectionEyebrow'
 
 export default function Location() {
   const address = "Prerna apartment, 4th Cross Rd, Swami Samarth Nagar, Lokhandwala Complex, Andheri West, Mumbai, Maharashtra 400053"
@@ -13,8 +14,8 @@ export default function Location() {
   const mapEmbedUrl = `https://www.google.com/maps?q=${encodedBusinessName}+${encodeURIComponent(address)}&output=embed`
 
   return (
-    <section id="location" className="py-24 bg-primary-950">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="location" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,12 +23,13 @@ export default function Location() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+          <SectionEyebrow label="The Address" />
+          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Visit eGym Lokhandwala
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Find us at our location in Lokhandwala Complex
+          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto uppercase tracking-[0.2em]">
+            Find us in Lokhandwala Complex · Andheri West
           </p>
         </motion.div>
 
@@ -41,8 +43,8 @@ export default function Location() {
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="bg-primary-900 p-6 sm:p-8 rounded-lg border border-primary-800">
-                <h3 className="text-2xl font-bold text-white mb-6">eGym Lokhandwala</h3>
+              <div className="iron-frame bg-black/70 p-6 sm:p-8 rounded-sm">
+                <h3 className="font-serif text-2xl font-bold text-accent-200 mb-6 uppercase tracking-wide">eGym Lokhandwala</h3>
                 
                 <div className="space-y-6">
                   {/* Address */}
@@ -68,7 +70,7 @@ export default function Location() {
                         />
                       </svg>
                       <div>
-                        <p className="text-accent-500 font-semibold mb-1">Located in</p>
+                        <p className="font-mono text-[0.7rem] text-accent-500 font-bold mb-1 uppercase tracking-[0.25em]">Located in</p>
                         <p className="text-gray-300 font-medium">{locationName}</p>
                         <p className="text-gray-400 mt-2 leading-relaxed">{address}</p>
                       </div>
@@ -92,7 +94,7 @@ export default function Location() {
                         />
                       </svg>
                       <div>
-                        <p className="text-accent-500 font-semibold mb-1">Phone</p>
+                        <p className="font-mono text-[0.7rem] text-accent-500 font-bold mb-1 uppercase tracking-[0.25em]">Phone</p>
                         <a
                           href={`tel:${phone.replace(/\s/g, '')}`}
                           className="text-gray-300 hover:text-accent-600 transition-colors font-medium"
@@ -120,7 +122,7 @@ export default function Location() {
                         />
                       </svg>
                       <div>
-                        <p className="text-accent-500 font-semibold mb-1">Hours</p>
+                        <p className="font-mono text-[0.7rem] text-accent-500 font-bold mb-1 uppercase tracking-[0.25em]">Hours</p>
                         <p className="text-gray-300 font-medium">{hours}</p>
                       </div>
                     </div>
@@ -143,7 +145,7 @@ export default function Location() {
                         />
                       </svg>
                       <div>
-                        <p className="text-accent-500 font-semibold mb-1">Service Options</p>
+                        <p className="font-mono text-[0.7rem] text-accent-500 font-bold mb-1 uppercase tracking-[0.25em]">Service Options</p>
                         <p className="text-gray-300 font-medium">Offers online classes</p>
                       </div>
                     </div>
@@ -151,12 +153,12 @@ export default function Location() {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="mt-8 pt-6 border-t border-primary-800 flex flex-col sm:flex-row gap-4">
+                <div className="mt-8 pt-6 border-t-2 border-accent-800/50 flex flex-col sm:flex-row gap-4">
                   <a
                     href="https://maps.app.goo.gl/7kymNroXqtpctVHv6"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-bold rounded transition-all transform hover:scale-105 text-center flex items-center justify-center gap-2"
+                    className="flex-1 px-6 py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 text-center flex items-center justify-center gap-2"
                   >
                     <svg
                       className="w-5 h-5"
@@ -175,7 +177,7 @@ export default function Location() {
                   </a>
                   <a
                     href={`tel:${phone.replace(/\s/g, '')}`}
-                    className="flex-1 px-6 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-900 font-bold rounded transition-all transform hover:scale-105 text-center"
+                    className="flex-1 px-6 py-3 bg-black/40 border-2 border-accent-700 hover:border-accent-500 text-accent-300 hover:text-accent-100 font-bold rounded-sm transition-all uppercase tracking-wider text-center"
                   >
                     Call Now
                   </a>
@@ -191,8 +193,8 @@ export default function Location() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="bg-primary-900 p-2 rounded-lg border border-primary-800">
-                <div className="aspect-[4/3] rounded-lg overflow-hidden">
+              <div className="iron-frame bg-black/70 p-2 rounded-sm">
+                <div className="aspect-[4/3] rounded-sm overflow-hidden">
                   <iframe
                     src={mapEmbedUrl}
                     width="100%"

@@ -21,32 +21,32 @@ export default function Footer() {
             <h4 className="font-mono text-accent-400 font-bold mb-4 uppercase tracking-[0.25em] text-xs">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#about" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#services" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#services" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="#transformation" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#transformation" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   Transformation
                 </Link>
               </li>
               <li>
-                <Link href="#egym" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#egym" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   eGym Lokhandwala
                 </Link>
               </li>
               <li>
-                <Link href="#location" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#location" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   Location
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#contact" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   Contact
                 </Link>
               </li>
@@ -61,7 +61,7 @@ export default function Footer() {
                   href="https://instagram.com/gymrob123"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+                  className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em] flex items-center gap-2"
                   aria-label="Follow Robin Carruthers on Instagram"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -75,7 +75,7 @@ export default function Footer() {
                   href="https://instagram.com/egymlokhandwala"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+                  className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em] flex items-center gap-2"
                   aria-label="Follow eGym Lokhandwala on Instagram"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@ export default function Footer() {
                   href="https://www.youtube.com/@gymrob123"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+                  className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em] flex items-center gap-2"
                   aria-label="Visit Robin Carruthers YouTube channel"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -101,7 +101,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:carruthersrobin3@gmail.com"
-                  className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-2"
+                  className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em] flex items-center gap-2"
                   aria-label="Email Robin Carruthers"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm">
+                <Link href="#contact" className="font-mono text-xs text-accent-200/70 hover:text-accent-300 transition-colors uppercase tracking-[0.15em]">
                   Get in Touch
                 </Link>
               </li>

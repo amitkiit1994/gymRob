@@ -63,7 +63,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={getNavHref(link.href)}
-                className="text-gray-300 hover:text-white transition-colors font-medium"
+                className="font-mono text-xs text-accent-200/80 hover:text-accent-300 transition-colors font-semibold uppercase tracking-[0.2em]"
               >
                 {link.label}
               </Link>
@@ -115,7 +115,7 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={getNavHref(link.href)}
-                    className="text-gray-300 hover:text-white transition-colors font-medium py-2 break-words"
+                    className="font-mono text-sm text-accent-200/80 hover:text-accent-300 transition-colors font-semibold uppercase tracking-[0.2em] py-2 break-words"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
@@ -123,7 +123,7 @@ export default function Header() {
                 ))}
                 <Link
                   href={getNavHref('#contact')}
-                  className="px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-colors text-center min-h-[44px] flex items-center justify-center"
+                  className="px-6 py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_3px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 text-center min-h-[44px] flex items-center justify-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Train With Robin
