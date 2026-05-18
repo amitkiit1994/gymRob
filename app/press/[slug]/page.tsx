@@ -72,17 +72,19 @@ export default async function PressArticlePage({
   return (
     <article className="min-h-screen bg-primary-950">
       {/* Editorial hero */}
-      <header className="relative h-[60vh] min-h-[420px] sm:h-[70vh] sm:min-h-[520px] overflow-hidden">
+      <header className="relative h-[60vh] min-h-[460px] sm:h-[70vh] sm:min-h-[560px] overflow-hidden">
         <Image
           src={feature.image}
           alt={feature.imageAlt}
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[center_25%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/70 to-primary-950/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-950/80 via-transparent to-transparent" />
+        {/* Top→bottom darkening for headline legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-950 via-primary-950/85 to-primary-950/20" />
+        {/* Left-side wash for editorial contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-950/90 via-primary-950/40 to-transparent" />
 
         <div className="absolute inset-x-0 bottom-0">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16 max-w-5xl">
@@ -92,7 +94,7 @@ export default async function PressArticlePage({
                 As Featured In · {feature.source}
               </span>
             </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] tracking-tight max-w-4xl mb-5 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-[1.15] tracking-tight max-w-3xl mb-5 sm:mb-6 [text-shadow:0_2px_24px_rgba(0,0,0,0.5)]">
               {feature.title}
             </h1>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-gray-300">
