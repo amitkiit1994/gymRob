@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, Anton, Bowlby_One_SC } from 'next/font/google'
+import { Inter, Playfair_Display, Anton, Bowlby_One_SC, JetBrains_Mono, Oswald, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -37,6 +37,30 @@ const bowlby = Bowlby_One_SC({
   weight: ['400'],
 })
 
+// JetBrains Mono — metadata / stamped serial IDs (design.md §3)
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+})
+
+// Oswald — closest free match to Franklin Gothic Heavy (the ROCKY title font)
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--font-rocky',
+  display: 'swap',
+  weight: ['500', '600', '700'],
+})
+
+// Alfa Slab One — vintage slab/poster signage (Mighty Mick's painted lettering)
+const alfaSlab = Alfa_Slab_One({
+  subsets: ['latin'],
+  variable: '--font-painted',
+  display: 'swap',
+  weight: ['400'],
+})
+
 export const metadata = siteMetadata
 
 export default function RootLayout({
@@ -48,7 +72,7 @@ export default function RootLayout({
   const alternateLinks = getAlternateLinks()
   
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${anton.variable} ${bowlby.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${anton.variable} ${bowlby.variable} ${jetbrainsMono.variable} ${oswald.variable} ${alfaSlab.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -71,7 +95,7 @@ export default function RootLayout({
           <meta name="google-site-verification" content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION} />
         )}
       </head>
-      <body className="min-h-screen flex flex-col grain-body">
+      <body className="min-h-screen flex flex-col film-grain color-grade">
         <StructuredData />
         <Header />
         <main className="flex-1">

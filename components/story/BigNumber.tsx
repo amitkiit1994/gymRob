@@ -4,30 +4,33 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, ReactNode } from 'react'
 
 interface BigNumberProps {
-  /** The numeric anchor — "120", "78", "30", "120 → 78" etc */
+  /** The numeric anchor — "120", "78", "120 → 78" etc */
   value: string
-  /** Smaller unit label rendered below (e.g. "KILOS", "YEARS") */
+  /** Smaller unit label rendered below the number with rust left-bar */
   unit?: string
-  /** Optional caption/eyebrow above the number */
-  eyebrow?: string
-  /** Optional supporting prose under the number */
+  /** Optional decal text rendered above as stamped serial (e.g. "S_092") */
+  decal?: string
+  /** Variant — "cast" = dark embossed (oppressive); "hot" = bright rust glow */
+  variant?: 'cast' | 'hot'
+  /** Supporting prose under the unit label */
   children?: ReactNode
-  /** Visual variant */
-  variant?: 'oppressive' | 'forge' | 'achievement'
   className?: string
 }
 
 /**
- * BigNumber — massive scroll-revealed numeric anchor.
- * The number IS the design element. Reveals and slightly scales as you
- * scroll into view. The brain reads "120 KG" before any prose.
+ * BigNumber — per Gemini design.md §5 BigNumberAnchor pattern.
+ *
+ * Layout:
+ *   METRIC_DECAL // S_xxx                  ← stamped serial above
+ *   120                                    ← massive dark-cast or hot number
+ *   │ KILOS                                ← rust left-bar + mono label
  */
 export default function BigNumber({
   value,
   unit,
-  eyebrow,
+  decal,
+  variant = 'cast',
   children,
-  variant = 'forge',
   className = '',
 }: BigNumberProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -35,38 +38,41 @@ export default function BigNumber({
     target: ref,
     offset: ['start end', 'center center'],
   })
+  // Heavy hydraulic drag — slow rise into place
+  const y = useTransform(scrollYProgress, [0, 1], [40, 0])
 
-  // Number slides up + scales in as you scroll toward it
-  const y = useTransform(scrollYProgress, [0, 1], [60, 0])
-  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1])
+  // Auto serial — derive from value if not supplied
+  const serial = decal ?? `S_${value.replace(/\D/g, '').padStart(3, '0')}`
+
+  const numeralCls =
+    variant === 'cast'
+      ? 'cast-text'
+      : 'rust-text'
 
   return (
-    <div ref={ref} className={`relative ${className}`}>
-      {eyebrow && (
-        <p className="font-mono text-xs sm:text-sm text-accent-500 font-bold tracking-[0.3em] uppercase mb-4">
-          {eyebrow}
+    <div ref={ref} className={`relative select-none ${className}`}>
+      {/* Stamped decal */}
+      <p className="font-mono text-[10px] sm:text-xs text-rust-corrosion font-bold tracking-[0.25em] uppercase mb-3">
+        METRIC_DECAL // {serial}
+      </p>
+
+      <motion.h2
+        style={{ y, willChange: 'transform' }}
+        className={`
+          font-iron font-bold uppercase tracking-tighter
+          text-display-giant
+          ${numeralCls}
+          leading-[0.85]
+        `}
+      >
+        {value}
+      </motion.h2>
+
+      {unit && (
+        <p className="font-mono text-xs sm:text-sm text-steel-brushed uppercase tracking-[0.25em] -mt-2 border-l-2 border-rust-spark pl-3">
+          {unit}
         </p>
       )}
-
-      <motion.div
-        style={{ y, scale }}
-        className="relative flex items-end gap-3 sm:gap-5"
-      >
-        <span
-          className={`
-            iron-text font-iron leading-[0.85] tracking-tighter
-            text-[8rem] sm:text-[12rem] md:text-[16rem] lg:text-[20rem]
-            ${variant === 'oppressive' ? 'opacity-95' : ''}
-          `}
-        >
-          {value}
-        </span>
-        {unit && (
-          <span className="font-mono text-xl sm:text-2xl md:text-3xl text-accent-500 font-bold tracking-[0.25em] uppercase pb-6 sm:pb-10 md:pb-14">
-            {unit}
-          </span>
-        )}
-      </motion.div>
 
       {children && (
         <motion.div

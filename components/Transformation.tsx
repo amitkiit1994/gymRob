@@ -143,10 +143,7 @@ export default function Transformation() {
             <p className="text-xl text-gray-400 mb-6">
               Ready to start your own transformation?
             </p>
-            <a
-              href="#contact"
-              className="inline-block px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold text-base sm:text-lg rounded transition-all transform hover:scale-105 shadow-lg min-h-[44px] flex items-center justify-center"
-            >
+            <a href="#contact" className="iron-btn iron-btn-primary">
               Start Your Journey
             </a>
           </motion.div>

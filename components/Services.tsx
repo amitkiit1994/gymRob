@@ -1,94 +1,129 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import SectionEyebrow from './SectionEyebrow'
+import ChapterShell from './story/ChapterShell'
 
 const services = [
   {
+    plate: '01',
     title: 'Personal Training',
-    description: 'One-on-one coaching tailored to your goals, experience level, and timeline. Direct guidance, real-time form correction, and programming that adapts to your progress.',
+    description:
+      'One-on-one coaching tailored to your goals, experience level, and timeline. Real-time form correction, programming that adapts to your progress.',
     outcomes: [
       'Personalized programming',
-      'Form mastery and injury prevention',
-      'Accountability and motivation',
+      'Form mastery & injury prevention',
+      'Accountability + motivation',
       'Accelerated progress',
     ],
   },
   {
+    plate: '02',
     title: 'Strength & Body Recomposition',
-    description: 'Build lean muscle while reducing body fat. Science-backed methods that prioritize strength gains and metabolic efficiency over quick fixes.',
+    description:
+      'Build lean muscle while cutting body fat. Science-backed strength progression over quick fixes.',
     outcomes: [
-      'Increased strength and power',
+      'Increased strength & power',
       'Improved body composition',
-      'Enhanced metabolic health',
+      'Metabolic health',
       'Sustainable results',
     ],
   },
   {
+    plate: '03',
     title: 'Lifestyle & Habit Coaching',
-    description: 'Training is only part of the equation. Learn to build habits that support your goals—nutrition, recovery, sleep, and stress management.',
+    description:
+      'Training is part of the equation. Build habits that support it — nutrition, recovery, sleep, stress.',
     outcomes: [
-      'Sustainable habit formation',
-      'Better work-life balance',
-      'Improved energy and focus',
-      'Long-term lifestyle change',
+      'Habit formation',
+      'Work-life balance',
+      'Energy & focus',
+      'Lifestyle change',
     ],
   },
   {
-    title: 'Long-term Transformation Programs',
-    description: 'Multi-month programs designed for complete transformation. Not just physical change, but mental resilience and lifestyle overhaul.',
+    plate: '04',
+    title: 'Long-term Transformation',
+    description:
+      'Multi-month programs for complete transformation. Not just the body — mental resilience and lifestyle overhaul.',
     outcomes: [
       'Complete physical transformation',
-      'Mental toughness and discipline',
-      'Lifelong skills and knowledge',
-      'Confidence and self-efficacy',
+      'Mental toughness',
+      'Lifelong skills',
+      'Confidence',
     ],
   },
 ]
 
+/**
+ * CH 04 — THE OFFERINGS
+ * Coaching programs displayed as numbered LOCKERS along the gym wall.
+ * Each locker has a stamped plate number + the program label burned into it.
+ */
 export default function Services() {
   return (
-    <section id="services" className="iron-bg iron-grain spark-corner-tl spark-corner-br relative py-24 overflow-hidden border-t-2 border-b-2 border-accent-800/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <SectionEyebrow number="02" label="What I Offer" />
-          <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
-            Coaching Services
-          </h2>
-          <div className="iron-divider w-40 mx-auto mb-6" />
-          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto uppercase tracking-[0.2em]">
-            Proven methods · Real results · Three decades of refinement
-          </p>
-        </motion.div>
+    <ChapterShell
+      id="services"
+      numeral="04"
+      era="The Offerings · Coaching Programs"
+      title="Offerings"
+      tone="dark"
+      tilt={1.5}
+    >
+      <div className="max-w-6xl mx-auto">
+        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/85 uppercase tracking-[0.12em] mb-10 sm:mb-14 max-w-3xl">
+          Proven methods. Real results.{' '}
+          <span className="text-mighty-red">Three decades of refinement.</span>
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Locker grid — each program is a locker */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="iron-frame bg-black/70 p-6 sm:p-8 rounded-sm transition-all"
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: index * 0.1 }}
+              className="
+                relative bg-[#1a1411] border-2 border-mighty-shadow rounded-sm
+                p-5 sm:p-7
+                shadow-[0_14px_28px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(254,250,224,0.06)]
+                hover:border-mighty-red transition-colors
+                group
+              "
             >
-              <h3 className="font-serif text-2xl font-bold text-accent-200 mb-4 uppercase tracking-wide">{service.title}</h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+              {/* Locker handle / hinge effect — left edge */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-12 sm:h-16 bg-mighty-shadow border-r border-rocky-paper/15 rounded-r" />
+              {/* Stamped plate top-right */}
+              <div className="absolute top-3 right-3 flex items-center gap-1.5">
+                <span className="pin-bolt" style={{ width: 8, height: 8 }} aria-hidden="true" />
+                <span className="font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.2em] uppercase bg-mighty-shadow px-2 py-0.5 border border-mighty-red/40 rounded-sm">
+                  No. {service.plate}
+                </span>
+              </div>
 
-              <div className="space-y-2">
-                <p className="font-mono text-xs font-bold text-accent-500 uppercase tracking-[0.25em] mb-3">
-                  Key Outcomes
+              <h3 className="font-painted text-painted text-xl sm:text-2xl md:text-3xl leading-tight uppercase pr-20 sm:pr-24 mb-4">
+                {service.title}
+              </h3>
+              <p className="text-sm sm:text-base text-rocky-paper/75 leading-relaxed mb-5">
+                {service.description}
+              </p>
+
+              {/* Outcomes — stamped list */}
+              <div>
+                <p className="font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.25em] uppercase mb-3 pb-2 border-b border-mighty-shadow/60">
+                  Outcomes
                 </p>
-                <ul className="space-y-2">
+                <ul className="space-y-1.5">
                   {service.outcomes.map((outcome) => (
-                    <li key={outcome} className="text-gray-400 flex items-start">
-                      <span className="text-accent-600 mr-2">✓</span>
-                      {outcome}
+                    <li
+                      key={outcome}
+                      className="text-sm text-rocky-paper/80 flex items-start gap-2 font-mono"
+                    >
+                      <span className="text-mighty-red mt-0.5">+</span>
+                      <span className="uppercase tracking-wide text-[11px] sm:text-xs">
+                        {outcome}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -97,7 +132,6 @@ export default function Services() {
           ))}
         </div>
       </div>
-    </section>
+    </ChapterShell>
   )
 }
-

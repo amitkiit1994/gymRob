@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
 import { featuredBlogs, otherBlogs } from '@/lib/blogData'
-import SectionEyebrow from './SectionEyebrow'
 
 // Helper to create excerpt with character limit (more predictable)
 function createExcerpt(content: string, maxChars: number = 250): { excerpt: string; hasMore: boolean } {
@@ -57,346 +56,179 @@ function createSlug(title: string): string {
 // Main featured blog content (keeping for backward compatibility)
 const featuredBlog = featuredBlogs[0]
 
-// Blog Card Component - Clean and Consistent Design
+// Blog Card — paper notebook page pinned to wall
 function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }) {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const { excerpt, hasMore } = createExcerpt(blog.content, 280)
-  const paragraphs = formatContent(blog.content)
+  const { excerpt, hasMore } = createExcerpt(blog.content, 240)
+  const tilts = [-1, 1.2, -0.8, 1.5, -1.2]
+  const tilt = tilts[index % tilts.length]
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
-      className="iron-frame bg-black/70 rounded-sm transition-all group flex flex-col h-full"
+    <motion.article
+      initial={{ opacity: 0, y: 28, rotate: tilt }}
+      whileInView={{ opacity: 1, y: 0, rotate: tilt }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.7, delay: index * 0.1 }}
+      className="relative bg-paper text-mighty-shadow p-5 sm:p-6 border border-mighty-shadow/40 shadow-plate flex flex-col h-full"
     >
-      <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-1">
-        {/* Date */}
-        <p className="text-xs text-accent-500 font-semibold mb-3 uppercase tracking-wide">
-          {blog.date}
-        </p>
+      <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
+      <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
 
-        {/* Title */}
-        <h4 className="font-serif text-lg sm:text-xl font-bold text-accent-200 mb-3 sm:mb-4 group-hover:text-accent-400 transition-colors leading-tight uppercase tracking-wide">
-          {blog.title}
-        </h4>
+      {/* Date stamp */}
+      <p className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.25em] uppercase mb-3 border-b border-mighty-shadow/30 pb-2">
+        {blog.date || 'Entry'}
+      </p>
 
-        {/* Content */}
-        <div className="flex-1 mb-4">
-          <AnimatePresence mode="wait">
-            {!isExpanded ? (
-              <motion.div
-                key="excerpt"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <p className="text-sm text-gray-400 leading-relaxed line-clamp-4">
-                  {excerpt}
-                  {hasMore && '...'}
-                </p>
-              </motion.div>
-            ) : (
-              <motion.div
-                key="full"
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="space-y-3"
-              >
-                {paragraphs.map((paragraph, pIndex) => {
-                  // Check if it's a heading/question
-                  if (paragraph.length < 100 && (paragraph.includes('?') || paragraph.split(' ').length < 8)) {
-                    return (
-                      <h5 key={pIndex} className="text-base font-bold text-accent-500 mt-3 mb-2">
-                        {paragraph}
-                      </h5>
-                    )
-                  }
-                  return (
-                    <p key={pIndex} className="text-sm text-gray-400 leading-relaxed">
-                      {paragraph}
-                    </p>
-                  )
-                })}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+      {/* Title — painted */}
+      <h4 className="font-painted text-mighty-shadow text-lg sm:text-xl leading-tight uppercase mb-3">
+        {blog.title}
+      </h4>
 
-        {/* Read More Button - Links to individual blog page */}
-        {hasMore && (
-          <Link
-            href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-            className="mt-auto px-4 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-xs sm:text-sm rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_3px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full min-h-[40px] sm:min-h-[44px]"
-          >
-            <span>Read More</span>
-            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
-          </Link>
-        )}
-      </div>
-    </motion.div>
+      {/* Excerpt */}
+      <p className="text-sm text-mighty-shadow/80 leading-relaxed mb-4 flex-1 font-mono">
+        {excerpt}
+        {hasMore && '...'}
+      </p>
+
+      {/* Read More — small red painted-metal CTA */}
+      {hasMore && (
+        <Link
+          href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
+          className="relative mt-auto inline-flex items-center justify-center gap-2 bg-mighty-red border-2 border-mighty-shadow px-4 py-2 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[2px] transition-all w-full"
+        >
+          <span className="pin-bolt absolute -top-1.5 -left-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
+          <span className="pin-bolt absolute -top-1.5 -right-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
+          <span>Read Entry</span>
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </Link>
+      )}
+    </motion.article>
   )
 }
 
-// Featured Blog Card Component - Reusable
+// Featured Blog Card — pinned-paper spread, hero entry on the notebook wall
 function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], index: number }) {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const { excerpt, hasMore } = createExcerpt(blog.content, 600)
-  const paragraphs = formatContent(blog.content)
+  const { excerpt, hasMore } = createExcerpt(blog.content, 520)
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
-      className="max-w-6xl mx-auto mb-16"
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.8, delay: index * 0.15 }}
+      className="max-w-6xl mx-auto mb-14 sm:mb-20"
     >
-      {blog.hasImage ? (
-        // Layout with Image (Transformation Story)
-        <>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12 items-start mb-8 md:mb-12">
-            {/* Before/After Image */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="relative rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl hover:border-accent-600 transition-all">
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 z-10" />
+      <div className={`grid grid-cols-1 ${blog.hasImage ? 'lg:grid-cols-12 gap-8 lg:gap-12 items-start' : ''}`}>
+        {/* Before/After Image — pinned polaroid (only when hasImage) */}
+        {blog.hasImage && (
+          <motion.figure
+            initial={{ opacity: 0, scale: 0.96, rotate: -3 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: -2 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.9 }}
+            className="lg:col-span-5 relative mx-auto lg:mx-0 max-w-[340px] w-full"
+          >
+            <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 wall-cast">
+              <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow photo-grain">
                 <Image
                   src={images.transformation.beforeAfter}
                   alt="Before and After Transformation"
-                  width={800}
-                  height={1000}
-                  className="w-full h-auto object-contain"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 80vw"
+                  className="object-cover grayscale-[0.4] contrast-110"
                   priority
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-mighty-shadow/60 via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/70 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
-                <span className="text-white font-semibold text-sm">The Journey</span>
-              </div>
-            </motion.div>
+              <p className="font-mono text-[10px] sm:text-xs text-mighty-shadow font-bold tracking-[0.25em] uppercase text-center mt-3">
+                The Journey · 120 → 78
+              </p>
+            </div>
+            <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+            <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+            <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
+            <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
+          </motion.figure>
+        )}
 
-            {/* Story Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="space-y-6"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-accent-700 text-accent-400 text-[0.65rem] font-mono font-bold rounded-sm uppercase tracking-[0.25em]">
-                  FEATURED STORY
+        {/* Story — paper notebook page pinned to the wall */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className={`${blog.hasImage ? 'lg:col-span-7' : ''} relative`}
+        >
+          <div className="relative bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8)] -rotate-[0.4deg]">
+            <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
+            <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
+
+            <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-mighty-shadow/30">
+              <div className="flex items-center gap-2 bg-mighty-red border border-mighty-shadow px-2 py-0.5 rounded-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-rocky-paper animate-pulse" />
+                <span className="font-mono text-[10px] font-extrabold tracking-[0.25em] uppercase text-rocky-paper">
+                  Featured Entry
                 </span>
-                <span className="text-gray-400 text-sm">By Robin Carruthers</span>
               </div>
+              <span className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 uppercase tracking-[0.2em]">
+                By Robin
+              </span>
+            </div>
 
-              <h3 className="iron-text font-iron text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight uppercase tracking-tight">
-                {blog.title}
-              </h3>
+            <h3 className="font-painted text-mighty-shadow text-2xl sm:text-3xl md:text-4xl leading-[1.15] uppercase mb-5 sm:mb-6">
+              {blog.title}
+            </h3>
 
-              <div className="space-y-6">
-                <AnimatePresence mode="wait">
-                  {!isExpanded ? (
-                    <motion.div
-                      key="excerpt"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="space-y-4"
-                    >
-                      <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                        {excerpt}
-                        {hasMore && '...'}
-                      </p>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="full"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="space-y-6"
-                    >
-                      {paragraphs.map((paragraph, pIndex) => {
-                        if (paragraph.trim().startsWith('•')) {
-                          return (
-                            <div key={pIndex} className="pl-6 border-l-2 border-accent-600">
-                              <p className="text-gray-300">{paragraph}</p>
-                            </div>
-                          )
-                        }
-                        if (paragraph.length < 100 && !paragraph.includes('.') && paragraph.split(' ').length < 10) {
-                          return (
-                            <h4 key={pIndex} className="text-2xl font-bold text-white mt-6 mb-4">
-                              {paragraph}
-                            </h4>
-                          )
-                        }
-                        return (
-                          <p key={pIndex} className="text-lg text-gray-300 leading-relaxed">
-                            {paragraph}
-                          </p>
-                        )
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                {hasMore && (
-                  <Link
-                    href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-                    className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-sm sm:text-base rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full"
-                  >
-                    <span>Read Full Story</span>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </Link>
-                )}
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Quote Section - Only for first blog */}
-          {index === 0 && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="bg-black/70 p-4 sm:p-6 md:p-8 rounded-lg border-l-4 border-accent-600"
-            >
-              <p className="text-lg sm:text-xl text-white font-semibold italic mb-2">
-                "Friends may come and go but 200 pounds will always be 200 pounds"
-              </p>
-              <p className="text-sm sm:text-base text-gray-400">
-                This isn't just a saying—it's a philosophy. Some things in life are constant. Your commitment to them defines who you become. The weights will always be there. The question is: will you be?
-              </p>
-            </motion.div>
-          )}
-        </>
-      ) : (
-        // Layout without Image (Text-focused)
-        <div className="bg-black/70 rounded-lg border border-accent-800/40 hover:border-accent-600 transition-all p-4 sm:p-6 md:p-8 lg:p-12">
-          <div className="flex items-center justify-between mb-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 bg-black/80 border border-accent-700 text-accent-400 text-[0.65rem] font-mono font-bold rounded-sm uppercase tracking-[0.25em]">
-              FEATURED STORY
-            </span>
-            <span className="text-gray-400 text-sm">By Robin Carruthers</span>
-          </div>
-
-          <h3 className="iron-text font-iron text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight mb-4 sm:mb-6 uppercase tracking-tight">
-            {blog.title}
-          </h3>
-
-          <div className="space-y-6">
-            <AnimatePresence mode="wait">
-              {!isExpanded ? (
-                <motion.div
-                  key="excerpt"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="space-y-4"
-                >
-                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                    {excerpt}
-                    {hasMore && '...'}
-                  </p>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="full"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="space-y-6"
-                >
-                      {paragraphs.map((paragraph, pIndex) => {
-                        // Check if it's a signature (starts with — and contains name)
-                        if (paragraph.trim().startsWith('—') && paragraph.includes('Robin')) {
-                          return (
-                            <div key={pIndex} className="mt-10 pt-8 border-t border-accent-800/30">
-                              <div className="flex justify-start">
-                                <div className="inline-block bg-transparent">
-                                  <Image
-                                    src={images.signature.image}
-                                    alt="Robin Carruthers Signature"
-                                    width={200}
-                                    height={80}
-                                    className="h-auto w-auto max-w-[200px] object-contain bg-transparent"
-                                    style={{ 
-                                      backgroundColor: 'transparent',
-                                      display: 'block'
-                                    }}
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          )
-                        }
-                        // Format short lines as emphasis/headings
-                        if (paragraph.length < 80 && paragraph.split('\n').length === 1 && !paragraph.includes('.')) {
-                          return (
-                            <p key={pIndex} className="text-xl font-semibold text-accent-400 mt-6 mb-4">
-                              {paragraph}
-                            </p>
-                          )
-                        }
-                        return (
-                          <p key={pIndex} className="text-lg text-gray-300 leading-relaxed">
-                            {paragraph}
-                          </p>
-                        )
-                      })}
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <p className="text-sm sm:text-base text-mighty-shadow/85 leading-relaxed mb-6 font-mono whitespace-pre-line">
+              {excerpt}
+              {hasMore && '...'}
+            </p>
 
             {hasMore && (
               <Link
-                href={`/blog/${blog.slug}`}
-                className="mt-4 sm:mt-6 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 text-black font-bold text-sm sm:text-base rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6)] active:translate-y-0.5 flex items-center justify-center gap-2 w-full"
+                href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
+                className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
               >
-                <span>Read Full Story</span>
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+                <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+                <span>Read Full Entry</span>
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
             )}
           </div>
-        </div>
+        </motion.div>
+      </div>
+
+      {/* Pull quote (only for first blog with image) — separate pinned paper card */}
+      {blog.hasImage && index === 0 && (
+        <motion.figure
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.8 }}
+          className="relative bg-rocky-leather leather-grain stitched text-mighty-shadow p-6 sm:p-8 mt-10 sm:mt-12 rotate-1 border-4 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8),inset_0_2px_0_rgba(255,255,255,0.12)] max-w-3xl mx-auto"
+        >
+          <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
+          <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
+          <p className="font-painted text-lg sm:text-xl md:text-2xl leading-[1.4] text-mighty-shadow mb-3">
+            &ldquo;Friends may come and go but 200 pounds will always be 200 pounds.&rdquo;
+          </p>
+          <p className="font-mono text-xs sm:text-sm text-mighty-shadow/70">
+            Not a saying — a philosophy. Some things in life are constant. Your commitment defines who you become. The weights will always be there. Will you?
+          </p>
+        </motion.figure>
       )}
-    </motion.div>
+    </motion.article>
   )
 }
 
-// Featured Blogs Container
+// Featured Blogs Container — flat, no header (ChapterShell provides header)
 function FeaturedBlogsSection() {
   return (
-    <div className="max-w-6xl mx-auto mb-20">
-      {/* Section Header */}
-      <div className="text-center mb-12">
-        <SectionEyebrow number="06" label="The Journal" />
-        <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
-          Transformation & Insights
-        </h2>
-        <div className="iron-divider w-40 mx-auto mb-4 sm:mb-6" />
-        <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-          The story behind 30 years of discipline, dedication, and transformation. Real insights and honest perspectives.
-        </p>
-      </div>
-
-      {/* Featured Blogs */}
+    <div className="max-w-6xl mx-auto mb-16 sm:mb-20">
       {featuredBlogs.map((blog, index) => (
         <FeaturedBlogCard key={blog.title} blog={blog} index={index} />
       ))}
@@ -406,27 +238,66 @@ function FeaturedBlogsSection() {
 
 export default function Blog() {
   return (
-    <section id="blog" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
+    <section id="blog" className="relative bg-mighty-shadow py-20 sm:py-28 overflow-hidden">
+      {/* Top weld seam */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Featured Blogs Section */}
+        {/* Chapter heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+          className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto"
+        >
+          <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-mighty-red bg-mighty-shadow border border-rocky-paper/25 px-2.5 py-1 rounded-sm">
+            CH_08
+          </span>
+          <div className="h-px flex-1 max-w-[14rem] bg-gradient-to-r from-rocky-paper/40 to-transparent" />
+          <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] text-rocky-paper/60">
+            The Journal · Notebook
+          </span>
+        </motion.div>
+
+        {/* Notebook-style heading on lined paper */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.97 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.9, delay: 0.1 }}
+          className="text-center mb-14 sm:mb-20"
+        >
+          <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-4 sm:px-10 sm:py-6 -rotate-[0.8deg] border-2 border-mighty-shadow shadow-plate">
+            <span className="pin-bolt absolute -top-2 left-6 sm:left-10" aria-hidden="true" />
+            <span className="pin-bolt absolute -top-2 right-6 sm:right-10" aria-hidden="true" />
+            <p className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.35em] uppercase mb-2">
+              The Coach&apos;s Notebook
+            </p>
+            <h2 className="font-painted text-mighty-shadow text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
+              Transformation &amp; Insights
+            </h2>
+          </div>
+        </motion.div>
+
+        {/* Featured */}
         <FeaturedBlogsSection />
 
-        {/* Other Blog Posts Grid */}
+        {/* More Insights */}
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-12"
+            transition={{ duration: 0.7 }}
+            className="mb-10 sm:mb-12 text-center"
           >
-            <h3 className="iron-text font-iron text-2xl sm:text-3xl mb-2 text-center uppercase tracking-tight">
-              More Insights
-            </h3>
-            <div className="h-1 w-16 bg-accent-600 mx-auto" />
+            <span className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.3em] uppercase">
+              · More From The Notebook ·
+            </span>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
             {otherBlogs.map((blog, index) => (
               <BlogCard key={blog.title} blog={blog} index={index} />
             ))}

@@ -4,9 +4,9 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, ReactNode } from 'react'
 
 interface ChapterProps {
-  /** Roman numeral marker: I, II, III etc */
+  /** Padded chapter number: "01", "02", "03"… */
   numeral: string
-  /** Era / year stamp: "1995–2010", "THE CRISIS", "TODAY" */
+  /** Era / mode label: "THE CRISIS", "THE TRANSFORMATION", "TODAY" */
   era: string
   /** Chapter title — rendered in iron-text */
   title: string
@@ -59,30 +59,35 @@ export default function Chapter({
       className={`relative min-h-screen ${toneStyles[tone]} ${className}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 relative">
-        {/* Roman numeral mark — top-right, scrolls vertically */}
+        {/* Massive ghost numeral mark — top-right, scrolls vertically */}
         <motion.div
           style={{ y: numeralY, opacity: numeralOpacity }}
           className="absolute top-12 right-6 sm:right-10 lg:right-16 z-0 pointer-events-none select-none"
         >
-          <div className="font-iron text-[8rem] sm:text-[12rem] lg:text-[16rem] leading-none text-accent-900/30 tracking-tight">
+          <div className="font-iron text-[8rem] sm:text-[12rem] lg:text-[16rem] leading-none text-rust-corrosion/30 tracking-tight">
             {numeral}
           </div>
         </motion.div>
 
         <div className="relative z-10 max-w-4xl">
-          {/* Era stamp */}
+          {/* Eyebrow — per design.md: [CH_xx] ─── ERA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.8 }}
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-3 sm:gap-4 mb-8"
           >
-            <div className="font-mono text-xs sm:text-sm text-accent-500 font-bold tracking-[0.3em] uppercase">
-              Chapter {numeral}
-            </div>
-            <div className="h-px flex-1 bg-gradient-to-r from-accent-700 via-accent-600 to-transparent shadow-[0_0_8px_rgba(234,88,12,0.4)]" />
-            <div className="font-mono text-xs sm:text-sm text-gray-500 uppercase tracking-[0.25em]">
+            <span
+              className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase
+                         text-rust-spark bg-furnace-plate border border-steel-scale
+                         px-2.5 py-1 rounded-sm
+                         shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+            >
+              CH_{numeral}
+            </span>
+            <div className="h-px flex-1 bg-gradient-to-r from-steel-scale via-steel-scale/60 to-transparent" />
+            <div className="font-mono text-[0.65rem] sm:text-xs text-steel-cast uppercase tracking-[0.25em]">
               {era}
             </div>
           </motion.div>

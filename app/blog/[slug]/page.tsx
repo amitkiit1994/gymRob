@@ -5,38 +5,27 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
 import ShareButtonsWrapper from '@/components/ShareButtonsWrapper'
-import { getCanonicalUrl, getSiteUrl, PRIMARY_DOMAIN } from '@/lib/seo'
+import { getCanonicalUrl } from '@/lib/seo'
 import { headers } from 'next/headers'
 
-// Generate static params for all blog posts
 export async function generateStaticParams() {
   const slugs = getAllBlogSlugs()
-  return slugs.map((slug) => ({
-    slug: slug,
-  }))
+  return slugs.map((slug) => ({ slug }))
 }
 
-// Generate metadata for each blog post
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const blog = getBlogBySlug(params.slug)
-  
-  if (!blog) {
-    return {
-      title: 'Blog Post Not Found',
-    }
-  }
+  if (!blog) return { title: 'Blog Post Not Found' }
 
-  // Get current domain from headers for proper Open Graph URLs
   const headersList = await headers()
-  const host = headersList.get('host') || 'www.robincarruthers.com'
+  const host = headersList.get('host') || 'www.gymrob.com'
   const protocol = headersList.get('x-forwarded-proto') || 'https'
   const currentDomain = `${protocol}://${host}`
-  
+
   const canonicalUrl = getCanonicalUrl(`/blog/${params.slug}`)
   const excerpt = blog.content.substring(0, 160).replace(/\n/g, ' ').trim() + '...'
-  
-  // Use current domain for Open Graph images so previews work correctly
-  const ogImage = blog.hasImage 
+
+  const ogImage = blog.hasImage
     ? `${currentDomain}${images.transformation.beforeAfter}`
     : `${currentDomain}${images.social.ogImage}`
 
@@ -46,19 +35,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     openGraph: {
       title: blog.title,
       description: excerpt,
-      url: `${currentDomain}/blog/${params.slug}`, // Use current domain for OG URL
+      url: `${currentDomain}/blog/${params.slug}`,
       siteName: 'Robin Carruthers',
       type: 'article',
       authors: ['Robin Carruthers'],
       publishedTime: blog.date || undefined,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: blog.title,
-        },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: blog.title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -66,168 +48,199 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description: excerpt,
       images: [ogImage],
     },
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    alternates: { canonical: canonicalUrl },
   }
 }
 
-// Format content into paragraphs for display
 function formatContent(content: string) {
-  return content.split(/\n\n+/).filter(p => p.trim())
+  return content.split(/\n\n+/).filter((p) => p.trim())
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const blog = getBlogBySlug(params.slug)
-
-  if (!blog) {
-    notFound()
-  }
+  if (!blog) notFound()
 
   const paragraphs = formatContent(blog.content)
 
   return (
-    <article className="min-h-screen bg-[#0a0604] pt-24 pb-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-        {/* Back Button */}
-        <Link 
-          href="/#blog"
-          className="inline-flex items-center gap-2 text-accent-500 hover:text-accent-400 transition-colors mb-8"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          <span>Back to Blog</span>
-        </Link>
+    <article className="min-h-screen bg-brick">
+      {/* Pinned header on brick wall */}
+      <header className="relative pt-28 sm:pt-32 pb-12 sm:pb-16">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,_rgba(254,250,224,0.08)_0%,_transparent_55%)] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
 
-        {/* Header */}
-        <header className="mb-8">
-          <div className="flex items-center justify-between mb-4">
-            <span className="px-4 py-2 bg-accent-600 text-white text-sm font-bold rounded-full">
-              {blog.date ? 'BLOG POST' : 'FEATURED STORY'}
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl z-10">
+          {/* Back link */}
+          <Link
+            href="/#blog"
+            className="inline-flex items-center gap-2 text-mighty-red hover:text-rocky-paper font-mono text-xs font-extrabold tracking-[0.2em] uppercase transition-colors mb-8"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back to Journal</span>
+          </Link>
+
+          {/* Eyebrow */}
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 bg-mighty-shadow border-2 border-rocky-paper/30 rounded-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-mighty-red animate-pulse" />
+              <span className="font-mono text-[0.6rem] sm:text-xs font-extrabold tracking-[0.35em] uppercase text-rocky-paper">
+                {blog.date ? 'Journal Entry' : 'Featured Entry'}
+              </span>
             </span>
             {blog.date && (
-              <span className="text-gray-400 text-sm">{blog.date}</span>
+              <span className="font-mono text-[10px] sm:text-xs text-rocky-paper/60 tracking-[0.2em] uppercase">
+                {blog.date}
+              </span>
             )}
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+
+          {/* Title — painted on the wall */}
+          <h1 className="font-painted text-painted text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight uppercase mb-6">
             {blog.title}
           </h1>
-          <div className="flex items-center gap-4 text-sm text-gray-400">
-            <span>By Robin Carruthers</span>
-            <span>•</span>
+
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs text-rocky-paper/70 uppercase tracking-[0.2em]">
+            <span>
+              By <span className="font-extrabold text-rocky-paper">Robin Carruthers</span>
+            </span>
+            <span className="h-1 w-1 rounded-full bg-mighty-red" aria-hidden="true" />
             <ShareButtonsWrapper path={`/blog/${params.slug}`} title={blog.title} />
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Image (if applicable) */}
-        {blog.hasImage && (
-          <div className="mb-12 relative">
-            <div className="relative rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 z-10" />
-              <Image
-                src={images.transformation.beforeAfter}
-                alt="Before and After Transformation"
-                width={800}
-                height={1000}
-                className="w-full h-auto object-contain"
-                priority
-              />
-            </div>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/70 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
-              <span className="text-white font-semibold text-sm">The Journey</span>
-            </div>
-          </div>
-        )}
+      {/* Body — paper notebook page */}
+      <div className="bg-paper text-mighty-shadow py-12 sm:py-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+          {/* Image (transformation only) — pinned polaroid */}
+          {blog.hasImage && (
+            <figure className="relative mx-auto max-w-md mb-14 -rotate-2">
+              <div className="bg-paper p-3 sm:p-4 border-2 border-mighty-shadow wall-cast">
+                <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow photo-grain">
+                  <Image
+                    src={images.transformation.beforeAfter}
+                    alt="Before and After Transformation"
+                    fill
+                    sizes="(min-width: 640px) 28rem, 100vw"
+                    className="object-cover grayscale-[0.4] contrast-110"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mighty-shadow/60 via-transparent to-transparent" />
+                </div>
+                <p className="font-mono text-[10px] sm:text-xs text-mighty-shadow font-extrabold tracking-[0.25em] uppercase text-center mt-3">
+                  The Journey · 120 → 78
+                </p>
+              </div>
+              <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
+            </figure>
+          )}
 
-        {/* Content */}
-        <div className="prose prose-invert prose-lg max-w-none">
-          <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+          {/* Content */}
+          <div className="space-y-5 text-mighty-shadow">
             {paragraphs.map((paragraph, index) => {
-              // Check if it's a signature
+              // Signature
               if (paragraph.trim().startsWith('—') && paragraph.includes('Robin')) {
                 return (
-                  <div key={index} className="mt-10 pt-8 border-t border-accent-800/30">
-                    <div className="flex justify-start">
-                      <Image
-                        src={images.signature.image}
-                        alt="Robin Carruthers Signature"
-                        width={200}
-                        height={80}
-                        className="h-auto w-auto max-w-[200px] object-contain bg-transparent"
-                        style={{ 
-                          backgroundColor: 'transparent',
-                          display: 'block'
-                        }}
-                      />
-                    </div>
+                  <div key={index} className="mt-10 pt-8 border-t-2 border-mighty-shadow/30">
+                    <Image
+                      src={images.signature.image}
+                      alt="Robin Carruthers Signature"
+                      width={200}
+                      height={80}
+                      className="h-auto w-auto max-w-[200px] object-contain bg-transparent"
+                      style={{ backgroundColor: 'transparent' }}
+                    />
                   </div>
                 )
               }
-              // Bullet points
+              // Bullets
               if (paragraph.trim().startsWith('•')) {
                 return (
-                  <div key={index} className="pl-6 border-l-2 border-accent-600">
-                    <p className="text-gray-300">{paragraph}</p>
+                  <div key={index} className="pl-6 border-l-4 border-mighty-red">
+                    <p className="font-mono text-sm sm:text-base text-mighty-shadow leading-relaxed">
+                      {paragraph}
+                    </p>
                   </div>
                 )
               }
-              // Headings (short lines) – skip for content that uses line breaks (e.g. poetry)
+              // Subheadings (short lines)
               const isPoetryOrVerse = paragraph.includes('\n') && paragraph.trim().split('\n').length > 1
               if (!isPoetryOrVerse && paragraph.length < 100 && !paragraph.includes('.') && paragraph.split(' ').length < 10) {
                 return (
-                  <h2 key={index} className="text-2xl font-bold text-white mt-8 mb-4">
+                  <h2
+                    key={index}
+                    className="font-painted text-mighty-shadow text-2xl sm:text-3xl uppercase mt-10 mb-3 leading-tight"
+                  >
                     {paragraph}
                   </h2>
                 )
               }
-              // Regular paragraphs (whitespace-pre-line preserves line breaks for verse/poetry)
+              // Regular prose
+              const isFirst = index === 0
               return (
-                <p key={index} className={`text-lg text-gray-300 leading-relaxed ${paragraph.includes('\n') ? 'whitespace-pre-line' : ''}`}>
+                <p
+                  key={index}
+                  className={`text-base sm:text-lg text-mighty-shadow leading-[1.75] ${
+                    paragraph.includes('\n') ? 'whitespace-pre-line' : ''
+                  } ${
+                    isFirst
+                      ? 'first-letter:font-painted first-letter:text-mighty-red first-letter:text-7xl first-letter:float-left first-letter:mr-2 first-letter:leading-[0.9] first-letter:pt-1'
+                      : ''
+                  }`}
+                >
                   {paragraph}
                 </p>
               )
             })}
           </div>
-        </div>
 
-        {/* Quote Section (only for first featured blog) */}
-        {blog.slug === 'rebuilding-after-40' && (
-          <div className="mt-12 bg-black/70 p-8 rounded-lg border-l-4 border-accent-600">
-            <p className="text-xl text-white font-semibold italic mb-2">
-              "Friends may come and go but 200 pounds will always be 200 pounds"
-            </p>
-            <p className="text-gray-400">
-              This isn't just a saying—it's a philosophy. Some things in life are constant. Your commitment to them defines who you become. The weights will always be there. The question is: will you be?
-            </p>
-          </div>
-        )}
+          {/* Pull quote (only for "rebuilding-after-40") */}
+          {blog.slug === 'rebuilding-after-40' && (
+            <figure className="relative bg-rocky-leather leather-grain stitched text-mighty-shadow p-6 sm:p-8 mt-12 rotate-1 border-4 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8),inset_0_2px_0_rgba(255,255,255,0.12)]">
+              <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
+              <p className="font-painted text-lg sm:text-xl md:text-2xl leading-[1.4] text-mighty-shadow mb-3">
+                &ldquo;Friends may come and go but 200 pounds will always be 200 pounds.&rdquo;
+              </p>
+              <p className="font-mono text-xs sm:text-sm text-mighty-shadow/70">
+                Not a saying — a philosophy. Some things in life are constant. Your commitment defines who you become.
+              </p>
+            </figure>
+          )}
 
-        {/* Share Section */}
-        <div className="mt-12 pt-8 border-t border-accent-800/30">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">Share this post</h3>
-              <p className="text-gray-400 text-sm">Help others discover this story</p>
+          {/* Share + back */}
+          <div className="mt-14 pt-8 border-t-2 border-mighty-shadow/30">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="font-painted text-lg sm:text-xl text-mighty-shadow mb-1">Share this entry</p>
+                <p className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 uppercase tracking-[0.2em]">
+                  Pass it on
+                </p>
+              </div>
+              <ShareButtonsWrapper path={`/blog/${params.slug}`} title={blog.title} />
             </div>
-            <ShareButtonsWrapper path={`/blog/${params.slug}`} title={blog.title} />
           </div>
-        </div>
 
-        {/* Back to Blog Link */}
-        <div className="mt-12 text-center">
-          <Link 
-            href="/#blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 hover:bg-accent-700 text-white font-semibold rounded transition-all transform hover:scale-105"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            <span>Back to All Posts</span>
-          </Link>
+          <div className="mt-12 text-center">
+            <Link
+              href="/#blog"
+              className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] transition-all"
+            >
+              <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span>Back to Journal</span>
+            </Link>
+          </div>
         </div>
       </div>
     </article>
   )
 }
-

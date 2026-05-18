@@ -1,10 +1,21 @@
 interface SectionEyebrowProps {
+  /** Chapter number, e.g. "01", "02". Auto-prefixed with "CH_". */
   number?: string
+  /** Title label rendered right-aligned in mono small caps */
   label: string
   align?: 'left' | 'center'
   className?: string
 }
 
+/**
+ * Section eyebrow — per Gemini design.md §5.
+ * Renders as a stamped identification plate:
+ *
+ *   [CH_01]  ──────────────────────  THE WEIGHT
+ *
+ * The chip uses a JetBrains Mono badge with steel-scale border;
+ * the rule fades to transparent; the right title is mono small caps.
+ */
 export default function SectionEyebrow({
   number,
   label,
@@ -14,18 +25,24 @@ export default function SectionEyebrow({
   const justify = align === 'center' ? 'justify-center' : 'justify-start'
 
   return (
-    <div className={`flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 ${justify} ${className}`}>
+    <div className={`flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8 ${justify} ${className}`}>
+      {number && (
+        <span
+          className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase
+                     text-rust-spark bg-furnace-plate border border-steel-scale
+                     px-2.5 py-1 rounded-sm
+                     shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+        >
+          CH_{number}
+        </span>
+      )}
       <span
-        className="h-[2px] w-10 sm:w-16 bg-gradient-to-r from-transparent via-accent-600 to-accent-500 shadow-[0_0_8px_rgba(234,88,12,0.5)]"
+        className="h-px flex-1 max-w-[12rem] bg-gradient-to-r from-steel-scale via-steel-scale/60 to-transparent"
         aria-hidden="true"
       />
-      <span className="font-mono font-bold text-[0.65rem] sm:text-xs tracking-[0.35em] uppercase text-accent-400 [text-shadow:0_1px_0_rgba(0,0,0,0.8)]">
-        {number ? `${number} · ` : ''}{label}
+      <span className="font-mono text-[0.65rem] sm:text-xs text-steel-cast uppercase tracking-[0.25em]">
+        {label}
       </span>
-      <span
-        className="h-[2px] w-10 sm:w-16 bg-gradient-to-l from-transparent via-accent-600 to-accent-500 shadow-[0_0_8px_rgba(234,88,12,0.5)]"
-        aria-hidden="true"
-      />
     </div>
   )
 }

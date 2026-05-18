@@ -2,184 +2,174 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { images } from '@/config/images'
-import SectionEyebrow from './SectionEyebrow'
+import ChapterShell from './story/ChapterShell'
 
 const testimonials = [
   {
-    quote: "Robin doesn't just train your body—he trains your mind. After 18 months, I've not only transformed physically but developed a discipline that extends to every area of my life.",
-    author: "Abhishek Kathalye",
-    profession: "Actor - Chhaava",
-    instagram: "https://www.instagram.com/abhishekathalye/",
+    quote:
+      "Robin doesn't just train your body—he trains your mind. After 18 months, I've developed a discipline that extends to every area of my life.",
+    author: 'Abhishek Kathalye',
+    profession: 'Actor · Chhaava',
+    instagram: 'https://www.instagram.com/abhishekathalye/',
     avatar: '/images/abhishek-kathalye.jpg',
+    rotate: -3,
   },
   {
-    quote: "30 years of experience shows. Robin's programming is intelligent, his coaching is precise, and his approach is no-nonsense. This is what real training looks like.",
-    author: "Saurav Chakrabarti",
-    profession: "Film Actor - Bagghi, Tadap, Farzi, Dhruva, Agent, Gully Rowdy...",
-    instagram: "https://www.instagram.com/saurav_chakrabarti/",
+    quote:
+      "30 years of experience shows. Robin's programming is intelligent, his coaching is precise, and his approach is no-nonsense. This is what real training looks like.",
+    author: 'Saurav Chakrabarti',
+    profession: 'Film Actor · Bagghi, Tadap, Farzi',
+    instagram: 'https://www.instagram.com/saurav_chakrabarti/',
     avatar: '/images/saurav-chakrabarti.jpg',
+    rotate: 2,
   },
   {
-    quote: "The community at eGym is unlike any other gym.\nSerious lifters, zero ego, all focus.\nRobin has built something special here,\nand it shows in every training session.",
-    author: "Amit Kumar Das",
-    profession: "CTO, Cofounder - ratl.ai, Software Techie",
-    instagram: "https://www.instagram.com/amitkumardas___/",
+    quote:
+      'The community at eGym is unlike any other gym. Serious lifters, zero ego, all focus. Robin has built something special.',
+    author: 'Amit Kumar Das',
+    profession: 'CTO · Cofounder ratl.ai',
+    instagram: 'https://www.instagram.com/amitkumardas___/',
     avatar: '/images/amit-kumar-das.jpg',
+    rotate: -2,
   },
   {
-    quote: "I came in looking for a quick fix. Robin showed me that transformation is a process, not an event. Two years later, I'm stronger, leaner, and more disciplined than I ever thought possible.",
-    author: "Ronnie Chouhan",
-    profession: "Director | 💃 Choreographer | 📲 Creator / Storyteller",
-    instagram: "https://www.instagram.com/roniechouhann/",
+    quote:
+      "I came in looking for a quick fix. Robin showed me transformation is a process, not an event. Two years later, I'm stronger, leaner, and more disciplined than I thought possible.",
+    author: 'Ronnie Chouhan',
+    profession: 'Director · Choreographer',
+    instagram: 'https://www.instagram.com/roniechouhann/',
     avatar: '/images/ronnie-chouhan.jpg',
+    rotate: 3,
   },
   {
-    quote: "My previous encounters with gym environments have been challenging, so while I joined E-gym I was very sceptical and hence not a regular. Once I became somewhat regular, I have found that I enjoy working out and that has everything to do with Robin being my trainer. He possesses a distinctive talent for motivation, adeptly pushing me beyond my self-imposed limits to achieve better performance, progressively increase my lifting capacity, and ultimately foster measurable gains in strength. It has been a profoundly rewarding experience to train under his guidance and I am particularly grateful for the positive shift he has inspired in my fitness journey.",
-    author: "Sai Ghatpande",
-    profession: "Sr.VP - Head of Influencer and Partnership Practice, Ogilvy India | Photographer, Mom, Cat Mom",
-    instagram: "https://www.instagram.com/sai_ghatpande/",
+    quote:
+      "Robin has a distinctive talent for motivation, pushing me beyond my self-imposed limits. Profoundly rewarding to train under his guidance — measurable gains in strength.",
+    author: 'Sai Ghatpande',
+    profession: 'SVP · Influencer Partnerships, Ogilvy India',
+    instagram: 'https://www.instagram.com/sai_ghatpande/',
     avatar: '/images/sai-ghatpande.jpg',
+    rotate: -2,
   },
 ]
 
+/**
+ * CH 06 — THE FRATERNITY
+ * Testimonials as polaroids taped to the gym wall + video shorts as old TVs.
+ */
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="iron-grain py-24 bg-[#0a0604] relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url('${images.egym.background}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }} />
-      </div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <SectionEyebrow number="04" label="In Their Words" />
-          <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
-            Testimonials
-          </h2>
-          <div className="iron-divider w-40 mx-auto mb-4 sm:mb-6" />
-          <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto px-4 uppercase tracking-[0.2em]">
-            Real results from real people · Long-term transformations
-          </p>
-        </motion.div>
+    <ChapterShell
+      id="testimonials"
+      numeral="06"
+      era="The Fraternity · In Their Words"
+      title="The Fraternity"
+      tone="brick"
+      tilt={1.5}
+    >
+      <div className="max-w-6xl mx-auto">
+        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/90 uppercase tracking-[0.12em] mb-12 sm:mb-14 max-w-3xl">
+          Real results from real people. Long-term transformations,{' '}
+          <span className="text-mighty-red">not quick fixes.</span>
+        </p>
 
-        {/* Video Testimonials */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center mb-12 md:mb-16 px-2 sm:px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-md w-full"
-          >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-black/70 p-1 sm:p-2">
-              <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/1AhvWkZJTOw"
-                  title="Video Testimonial"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="max-w-md w-full"
-          >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-black/70 p-1 sm:p-2">
-              <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full rounded-lg"
-                  src="https://www.youtube.com/embed/BsDx5LSZ5a8"
-                  title="Video Testimonial"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
+        {/* Video testimonials — old TV monitors */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20 max-w-3xl mx-auto">
+          {['1AhvWkZJTOw', 'BsDx5LSZ5a8'].map((id, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              key={id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`bg-[#0a0604] p-4 sm:p-5 md:p-6 rounded-lg border border-accent-800/40 relative ${
-                index === testimonials.length - 1 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''
-              }`}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+              className="relative bg-mighty-shadow p-2 sm:p-3 border-4 border-mighty-shadow rounded-sm shadow-[0_14px_28px_rgba(0,0,0,0.85)]"
+              style={{ transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)` }}
             >
-              <div className="absolute top-2 left-3 sm:left-4 text-4xl sm:text-5xl md:text-6xl text-accent-600/30 font-serif leading-none">
-                "
+              <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
+              <div
+                className="relative w-full overflow-hidden border border-rocky-paper/15 rounded-sm"
+                style={{ paddingBottom: '177.78%' }}
+              >
+                <iframe
+                  className="absolute top-0 left-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${id}`}
+                  title={`Video Testimonial ${i + 1}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                />
               </div>
-              <blockquote className="relative z-10">
-                <p className="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed italic whitespace-pre-line">
-                  {testimonial.quote}
-                </p>
-                <footer className="flex items-center justify-between gap-2 sm:gap-4">
-                  <div className="flex items-center gap-2 sm:gap-4 min-w-0 flex-1">
-                    {testimonial.avatar && (
-                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-accent-600/60 flex-shrink-0">
-                        <Image
-                          src={testimonial.avatar}
-                          alt={`${testimonial.author} profile picture`}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 640px) 40px, 48px"
-                        />
-                      </div>
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p className="font-serif text-accent-200 font-semibold text-sm sm:text-base truncate uppercase tracking-wide">{testimonial.author}</p>
-                      <p className="text-gray-500 text-xs sm:text-sm truncate">{testimonial.profession}</p>
-                    </div>
-                  </div>
-                  {testimonial.instagram && (
-                    <a
-                      href={testimonial.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-2 sm:ml-4 p-1.5 sm:p-2 text-accent-400 hover:text-accent-200 transition-colors rounded-sm hover:bg-black/40 flex-shrink-0"
-                      aria-label={`Follow ${testimonial.author} on Instagram`}
-                      title={`Follow ${testimonial.author} on Instagram`}
-                    >
-                      <svg
-                        className="w-4 h-4 sm:w-5 sm:h-5"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                      </svg>
-                    </a>
-                  )}
-                </footer>
-              </blockquote>
+              <p className="font-mono text-[10px] text-rocky-paper/60 tracking-[0.25em] uppercase text-center mt-2">
+                · Live From The Floor ·
+              </p>
             </motion.div>
           ))}
         </div>
+
+        {/* Polaroid wall — testimonials as taped photos */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {testimonials.map((t, i) => (
+            <motion.figure
+              key={t.author}
+              initial={{ opacity: 0, y: 22, rotate: t.rotate }}
+              whileInView={{ opacity: 1, y: 0, rotate: t.rotate }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+              className={`relative bg-paper text-mighty-shadow p-4 sm:p-5 border border-mighty-shadow/40 shadow-plate ${
+                i === testimonials.length - 1 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-2' : ''
+              }`}
+            >
+              <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
+
+              {/* Polaroid photo */}
+              {t.avatar && (
+                <div className="relative aspect-square overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow mb-4">
+                  <Image
+                    src={t.avatar}
+                    alt={t.author}
+                    fill
+                    sizes="(min-width: 1024px) 28vw, 80vw"
+                    className="object-cover grayscale-[0.4] contrast-110"
+                  />
+                </div>
+              )}
+
+              {/* Quote */}
+              <blockquote className="font-painted text-base sm:text-lg text-mighty-shadow leading-[1.35] mb-4">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+
+              {/* Footer caption strip */}
+              <figcaption className="border-t border-mighty-shadow/30 pt-3 flex items-center justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-xs sm:text-sm font-extrabold text-mighty-shadow uppercase tracking-[0.15em] truncate">
+                    {t.author}
+                  </p>
+                  <p className="font-mono text-[10px] text-mighty-shadow/60 uppercase tracking-wide truncate">
+                    {t.profession}
+                  </p>
+                </div>
+                {t.instagram && (
+                  <a
+                    href={t.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Follow ${t.author} on Instagram`}
+                    className="text-mighty-red hover:text-mighty-shadow transition-colors flex-shrink-0"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                  </a>
+                )}
+              </figcaption>
+            </motion.figure>
+          ))}
+        </div>
       </div>
-    </section>
+    </ChapterShell>
   )
 }
-

@@ -160,73 +160,78 @@
   }
 
   /* ──────────────────────────────────────────────
-   * IRON TEXT — extruded 3D, ONE color family (orange/rust).
+   * IRON TEXT — per Gemini design.md §5
    *
-   * Face: polished bronze/copper gradient.
-   * Extrusion: stepped darker rusts down into black (no gray).
-   * Cast shadow: dark rust + black on the surface behind.
+   * Face: POLISHED STEEL gradient (no rust mixing — rust lives on rust-text).
+   * The "metal plate depth" comes from a translated black blur layer behind.
    * ────────────────────────────────────────────── */
   .iron-text {
-    /* Face — polished bronze, bright top to bright bottom (no dark dropouts) */
     background-image: linear-gradient(
       180deg,
-      #fef3c7 0%,    /* bright cream highlight */
-      #fde68a 15%,   /* warm gold band */
-      #fdba74 35%,   /* copper midtone */
-      #fb923c 55%,   /* core orange */
-      #fdba74 75%,   /* second highlight */
-      #fef3c7 100%   /* bottom rim light */
+      #f9fafb 0%,    /* polished steel top */
+      #f3f4f6 35%,
+      #9ca3af 48%,
+      #6b7280 52%,
+      #f9fafb 100%   /* polished steel bottom */
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     letter-spacing: 0.01em;
-
-    /* 15-layer extrusion — orange-family rust stepping down to black */
-    text-shadow:
-      1px 1px 0 #9a3412,
-      2px 2px 0 #7c2d12,
-      3px 3px 0 #5b1a08,
-      4px 4px 0 #3d1003,
-      5px 5px 0 #2a0a02,
-      6px 6px 0 #1a0501,
-      7px 7px 0 #0d0200,
-      8px 8px 0 #060100,
-      9px 9px 0 #030000,
-      10px 10px 0 #000000,
-      11px 11px 0 #000000,
-      12px 12px 0 #000000,
-      13px 13px 0 #000000,
-      14px 14px 0 #000000,
-      15px 15px 0 #000000;
-
-    /* Cast shadow on the surface behind */
+    /* Heavy plate-depth cast shadow underneath */
     filter:
-      drop-shadow(18px 24px 28px rgba(0, 0, 0, 0.85))
-      drop-shadow(0 0 40px rgba(122, 45, 18, 0.4));
+      drop-shadow(2px 4px 0 rgba(0, 0, 0, 0.85))
+      drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
   }
 
-  /* Smaller variant — half the extrusion depth, same family */
+  /* Smaller variant — same family, lighter shadow */
   .iron-text-sm {
     background-image: linear-gradient(
       180deg,
-      #fef3c7 0%,
-      #fdba74 50%,
-      #fb923c 100%
+      #f9fafb 0%,
+      #9ca3af 50%,
+      #f3f4f6 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow:
-      1px 1px 0 #7c2d12,
-      2px 2px 0 #5b1a08,
-      3px 3px 0 #3d1003,
-      4px 4px 0 #1a0501,
-      5px 5px 0 #060100,
-      6px 6px 0 #000;
-    filter: drop-shadow(8px 10px 14px rgba(0, 0, 0, 0.85));
+    filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, 0.85))
+            drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+  }
+
+  /* Rust text — for the few moments we want hot-metal accents on numerics */
+  .rust-text {
+    background-image: linear-gradient(
+      180deg,
+      #fdba74 0%,
+      #fb923c 35%,
+      #ea580c 65%,
+      #7c2d12 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter: drop-shadow(2px 3px 0 rgba(0, 0, 0, 0.85))
+            drop-shadow(0 4px 8px rgba(122, 45, 18, 0.4));
+  }
+
+  /* Dark embossed / casting text — for oppressive BIG numbers (per spec §5) */
+  .cast-text {
+    background-image: linear-gradient(
+      180deg,
+      #16110e 0%,
+      #374151 50%,
+      #0a0604 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(107,114,128,0.25);
+    filter: drop-shadow(0 2px 0 rgba(0,0,0,0.8));
   }
 
   /* Pure brushed steel — for the very few headlines where copper is wrong */
@@ -364,6 +369,518 @@
     box-shadow:
       inset 0 -1px 1px rgba(0, 0, 0, 0.8),
       0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  /* ──────────────────────────────────────────────
+   * IRON BUTTONS — gunmetal + steel borders (Option 3 palette).
+   * Orange used only for the inset hot-dot accent on primary.
+   * ────────────────────────────────────────────── */
+  .iron-btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           font-bold text-sm sm:text-base uppercase tracking-wider
+           rounded-sm transition-all min-h-[44px] select-none;
+  }
+
+  /* Primary — dark gunmetal slab, polished steel text, hard press shadow */
+  .iron-btn-primary {
+    background-image: linear-gradient(180deg, #374151 0%, #16110e 100%);
+    color: #f9fafb;
+    border: 2px solid #6b7280;
+    box-shadow:
+      0 4px 0 0 #050302,
+      inset 0 1px 0 0 rgba(249, 250, 251, 0.18);
+  }
+  .iron-btn-primary:hover {
+    border-color: #9ca3af;
+    background-image: linear-gradient(180deg, #4b5563 0%, #1f2937 100%);
+    box-shadow:
+      0 4px 0 0 #050302,
+      inset 0 1px 0 0 rgba(249, 250, 251, 0.25),
+      0 0 24px rgba(234, 88, 12, 0.18);
+  }
+  .iron-btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 #050302;
+  }
+
+  /* Ghost — transparent slab, steel-scale border, brushed-metal text */
+  .iron-btn-ghost {
+    background: rgba(0, 0, 0, 0.4);
+    color: #9ca3af;
+    border: 2px solid #374151;
+  }
+  .iron-btn-ghost:hover {
+    color: #f9fafb;
+    border-color: #6b7280;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  /* ──────────────────────────────────────────────
+   * MIGHTY MICK'S — Rocky-Balboa-inspired textures
+   * (design-rocky.md §6, §8)
+   * ────────────────────────────────────────────── */
+
+  /* Brick wall — REAL Unsplash photograph + warm color grade + spotlight */
+  .bg-brick {
+    background-color: #1a0a06;
+    background-image:
+      /* Hot spotlight from above */
+      radial-gradient(ellipse at 50% 0%, rgba(254, 215, 170, 0.16) 0%, transparent 55%),
+      /* Heavy edge vignette */
+      radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.7) 100%),
+      /* Warm rust color overlay (turns the photo into our palette) */
+      linear-gradient(rgba(91, 26, 8, 0.45) 0%, rgba(20, 8, 4, 0.6) 100%),
+      /* Real brick wall photo */
+      url('/images/textures/brick-wall.jpg');
+    background-size: cover, cover, cover, cover;
+    background-position: center;
+    background-attachment: scroll;
+  }
+
+  /* Aged paper — REAL paper photograph tinted to warm cream */
+  .bg-paper {
+    background-color: #fefae0;
+    background-image:
+      /* Foxing / tea-stain spots */
+      radial-gradient(circle at 18% 22%, rgba(166, 116, 60, 0.15) 0%, transparent 4%),
+      radial-gradient(circle at 78% 38%, rgba(166, 116, 60, 0.12) 0%, transparent 3.5%),
+      radial-gradient(circle at 32% 78%, rgba(166, 116, 60, 0.14) 0%, transparent 4.5%),
+      radial-gradient(circle at 86% 82%, rgba(166, 116, 60, 0.1) 0%, transparent 3%),
+      /* Subtle yellowing toward bottom edge */
+      linear-gradient(180deg, rgba(254, 250, 224, 0.7) 0%, rgba(214, 188, 132, 0.55) 100%),
+      /* Real paper photo (sepia-tinted) */
+      url('/images/textures/paper.jpg');
+    background-size: cover, cover, cover, cover, cover, cover;
+    background-blend-mode: normal, normal, normal, normal, normal, multiply;
+  }
+
+  /* Canvas banner — REAL canvas photograph tinted Mighty-Mick's red */
+  .bg-canvas {
+    background-color: #a4271f;
+    background-image:
+      /* Top-left key light highlight */
+      radial-gradient(ellipse at 25% 18%, rgba(254, 215, 170, 0.22) 0%, transparent 50%),
+      /* Bottom-right shadow fall-off */
+      radial-gradient(ellipse at 75% 85%, rgba(0, 0, 0, 0.6) 0%, transparent 65%),
+      /* Paint-chipped darker patches */
+      radial-gradient(circle at 12% 65%, rgba(60, 12, 8, 0.45) 0%, transparent 8%),
+      radial-gradient(circle at 88% 30%, rgba(60, 12, 8, 0.4) 0%, transparent 6%),
+      /* Heavy red tint (overrides photo color while keeping texture) */
+      linear-gradient(rgba(164, 39, 31, 0.85) 0%, rgba(120, 25, 18, 0.92) 100%),
+      /* Real canvas/fabric photo */
+      url('/images/textures/canvas.jpg');
+    background-size: cover;
+    background-blend-mode: normal, normal, normal, normal, multiply, normal;
+  }
+
+  /* Painted text — hand-painted look (chipped, off-white) */
+  .text-painted {
+    color: #fefae0;
+    text-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.4),
+      0 2px 8px rgba(0, 0, 0, 0.55);
+    -webkit-text-stroke: 0.5px rgba(254, 250, 224, 0.4);
+  }
+
+  /* Pinned bolt — photographic 3D screw head with phillips slot + AO */
+  .pin-bolt {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background:
+      /* Phillips screw slot — vertical line */
+      linear-gradient(180deg, transparent 35%, rgba(0,0,0,0.6) 47%, rgba(0,0,0,0.6) 53%, transparent 65%),
+      /* Phillips screw slot — horizontal line */
+      linear-gradient(90deg, transparent 35%, rgba(0,0,0,0.55) 47%, rgba(0,0,0,0.55) 53%, transparent 65%),
+      /* Metal sphere with specular */
+      radial-gradient(circle at 30% 25%, #ffffff 0%, #f3f4f6 4%, #d1d5db 18%, #9ca3af 38%, #4b5563 65%, #1f2937 85%, #050505 100%);
+    background-size: 100% 100%, 100% 100%, 100% 100%;
+    box-shadow:
+      /* Inner concave + top spec rim */
+      inset 0 -2px 3px rgba(0, 0, 0, 0.75),
+      inset 1px 1px 2px rgba(255, 255, 255, 0.45),
+      /* Outer recess ring */
+      0 0 0 1px rgba(0, 0, 0, 0.95),
+      0 0 0 2px rgba(254, 215, 170, 0.06),
+      /* Tight contact AO */
+      0 1px 1px rgba(0, 0, 0, 0.9),
+      /* Drop shadow */
+      0 3px 5px rgba(0, 0, 0, 0.8),
+      0 6px 12px rgba(0, 0, 0, 0.55),
+      0 10px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ──────────────────────────────────────────────
+   * CINEMATIC depth — multi-layer shadows that read as physical objects
+   * cast by directional gym lighting, not flat boxes.
+   * ────────────────────────────────────────────── */
+
+  /* Pinned paper / polaroid — long soft + tight contact shadow */
+  .shadow-pinned {
+    box-shadow:
+      /* Tight contact shadow (where paper meets wall) */
+      0 1px 0 rgba(0, 0, 0, 0.4),
+      0 2px 2px rgba(0, 0, 0, 0.6),
+      /* Mid drop */
+      0 6px 8px rgba(0, 0, 0, 0.55),
+      /* Long soft drop (lifted off wall) */
+      0 18px 30px rgba(0, 0, 0, 0.7),
+      0 28px 48px rgba(0, 0, 0, 0.45);
+  }
+
+  /* Hanging canvas banner — heavier shadow because larger, hangs further off wall */
+  .shadow-hung {
+    box-shadow:
+      0 2px 0 rgba(0, 0, 0, 0.5),
+      0 4px 4px rgba(0, 0, 0, 0.65),
+      0 12px 18px rgba(0, 0, 0, 0.7),
+      0 28px 48px rgba(0, 0, 0, 0.75),
+      0 40px 72px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Metal plate — embedded in wall, hard shadow */
+  .shadow-plate {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.85),
+      0 2px 0 -1px rgba(0, 0, 0, 0.9),
+      0 6px 12px rgba(0, 0, 0, 0.7),
+      0 14px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Paper edge — top highlight + bottom shadow rim */
+  .paper-edge {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+  }
+
+  /* Deckle paper — uneven torn-paper edges via clip-path notches */
+  .deckle-edge {
+    clip-path: polygon(
+      0% 0.5%,   3% 0%,   8% 0.8%,   14% 0.2%,   22% 0.6%,
+      30% 0%,    40% 0.5%, 50% 0.2%,  58% 0.7%,   66% 0%,
+      74% 0.5%,  82% 0.2%, 90% 0.8%,  96% 0.3%,   100% 0.6%,
+      99.5% 5%,  100% 12%, 99.4% 22%, 100% 32%,   99.6% 42%,
+      99.4% 52%, 100% 64%, 99.5% 76%, 99.7% 88%,  100% 99.5%,
+      96% 100%,  88% 99.3%, 80% 99.8%, 72% 99.4%, 64% 100%,
+      54% 99.6%, 46% 99.9%, 36% 99.4%, 28% 99.8%, 20% 99.5%,
+      12% 100%,  4% 99.6%,  0% 99.2%,
+      0.5% 92%,  0% 84%,    0.6% 74%, 0% 64%,     0.4% 54%,
+      0% 44%,    0.5% 34%,  0% 24%,    0.4% 14%,  0% 6%
+    );
+  }
+
+  /* Stronger contact shadow — for elements pinned to the wall */
+  .shadow-contact {
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.3),
+      0 1px 1px rgba(0, 0, 0, 0.5),
+      0 3px 4px rgba(0, 0, 0, 0.55),
+      0 8px 12px rgba(0, 0, 0, 0.55),
+      0 20px 36px rgba(0, 0, 0, 0.65),
+      0 36px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Wall cast shadow — long soft directional shadow as if hot light is overhead */
+  .wall-cast {
+    box-shadow:
+      /* Tight contact at top edge (item touches wall) */
+      0 -1px 0 rgba(0, 0, 0, 0.3) inset,
+      0 1px 0 rgba(0, 0, 0, 0.4),
+      /* Body shadow (mass casts onto wall below) */
+      0 4px 6px rgba(0, 0, 0, 0.55),
+      0 12px 14px rgba(0, 0, 0, 0.55),
+      0 28px 32px rgba(0, 0, 0, 0.55),
+      0 48px 56px rgba(0, 0, 0, 0.4),
+      /* Long soft fall-off */
+      0 80px 96px rgba(0, 0, 0, 0.3),
+      /* Tiny red bounce light (warm brick reflecting) */
+      0 -8px 16px -4px rgba(164, 39, 31, 0.18);
+  }
+
+  /* Canvas rope — for hanging the canvas banner */
+  .canvas-rope {
+    position: absolute;
+    top: -2px;
+    width: 14px;
+    height: 28px;
+    background: linear-gradient(
+      180deg,
+      #2a1810 0%,
+      #4a2814 18%,
+      #6b3a1f 38%,
+      #4a2814 60%,
+      #2a1810 82%,
+      #0a0604 100%
+    );
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        rgba(0, 0, 0, 0.3) 0px,
+        rgba(0, 0, 0, 0.3) 2px,
+        transparent 2px,
+        transparent 4px
+      ),
+      linear-gradient(
+        180deg,
+        #2a1810 0%,
+        #4a2814 18%,
+        #6b3a1f 38%,
+        #4a2814 60%,
+        #2a1810 82%,
+        #0a0604 100%
+      );
+    border-radius: 3px;
+    box-shadow:
+      inset -1px 0 1px rgba(0, 0, 0, 0.6),
+      inset 1px 0 1px rgba(255, 200, 150, 0.15),
+      0 2px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Stitch border — for leather plates */
+  .stitched {
+    position: relative;
+  }
+  .stitched::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed rgba(60, 30, 10, 0.55);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* Painted-metal sign — drip paint edge + scratch */
+  .paint-drip {
+    position: relative;
+  }
+  .paint-drip::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 8px;
+    background-image:
+      radial-gradient(circle at 15% 30%, currentColor 0%, currentColor 40%, transparent 41%),
+      radial-gradient(circle at 38% 50%, currentColor 0%, currentColor 35%, transparent 36%),
+      radial-gradient(circle at 62% 35%, currentColor 0%, currentColor 38%, transparent 39%),
+      radial-gradient(circle at 85% 45%, currentColor 0%, currentColor 32%, transparent 33%);
+    background-size: 18px 12px;
+    background-repeat: repeat-x;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  /* Washi tape — strip of tape across a corner */
+  .tape-corner {
+    position: relative;
+  }
+  .tape-corner::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    width: 90px;
+    height: 24px;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.4) 0%, transparent 100%),
+      repeating-linear-gradient(90deg, rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 1px, transparent 1px, transparent 4px),
+      rgba(220, 200, 160, 0.72);
+    border-left: 1px dashed rgba(255,255,255,0.45);
+    border-right: 1px dashed rgba(0,0,0,0.15);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.35);
+    pointer-events: none;
+  }
+
+  /* Coffee stain — random ring stain on paper */
+  .coffee-stain {
+    position: relative;
+  }
+  .coffee-stain::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    bottom: 16px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 4px solid rgba(120, 75, 40, 0.18);
+    box-shadow:
+      inset 0 0 12px rgba(120, 75, 40, 0.08),
+      0 0 0 1px rgba(120, 75, 40, 0.06);
+    background: radial-gradient(circle, transparent 55%, rgba(120, 75, 40, 0.08) 80%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Pencil mark — for notebook annotations */
+  .pencil-margin {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 27px,
+      rgba(60, 90, 120, 0.18) 27px,
+      rgba(60, 90, 120, 0.18) 28px
+    );
+  }
+
+  /* Drop cap variant — painted ink stamp */
+  .ink-cap::first-letter {
+    font-family: var(--font-painted), serif;
+    color: #a4271f;
+    float: left;
+    font-size: 5.5rem;
+    line-height: 0.85;
+    padding: 0.2rem 0.6rem 0 0;
+    text-shadow:
+      1px 1px 0 rgba(91, 26, 8, 0.6),
+      2px 2px 0 rgba(45, 13, 4, 0.4),
+      0 4px 8px rgba(91, 26, 8, 0.25);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+
+  /* Spotlight pool — for chapter sections, hot light from above */
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(254, 215, 170, 0.14) 0%, transparent 70%);
+  }
+  .spotlight {
+    position: relative;
+  }
+
+  /* Atmospheric haze — subtle smoke/dust between layers */
+  .haze::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><filter id='h'><feTurbulence baseFrequency='0.012' numOctaves='2' seed='11'/><feColorMatrix values='0 0 0 0 0.6  0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23h)'/></svg>");
+    background-size: 600px 600px;
+    opacity: 0.08;
+    mix-blend-mode: screen;
+  }
+
+  /* Photo grain — for polaroids only (heavier than page grain) */
+  .photo-grain {
+    position: relative;
+  }
+  .photo-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='pg'><feTurbulence baseFrequency='1.8' numOctaves='2' seed='2'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23pg)'/></svg>");
+    background-size: 180px 180px;
+    opacity: 0.18;
+    mix-blend-mode: overlay;
+  }
+
+  /* Canvas weathering — adds top-light highlight + bottom shadow gradient */
+  .canvas-weather::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 30%, rgba(0, 0, 0, 0.25) 100%),
+      radial-gradient(ellipse at 25% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  }
+
+  /* Cinematic vignette — warm spotlight from above-center, darker corners */
+  .cinematic-vignette::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(ellipse at 50% 25%, rgba(254, 215, 170, 0.06) 0%, transparent 45%),
+      radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  /* Film grain — subtle constant noise across the whole page */
+  .film-grain::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence baseFrequency='2.5' numOctaves='2' stitchTiles='stitch' seed='5'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+  }
+
+  /* Cinematic color grade — overall warm/teal LUT */
+  .color-grade::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+    background-image: linear-gradient(
+      180deg,
+      rgba(254, 215, 170, 0.5) 0%,
+      transparent 50%,
+      rgba(28, 31, 41, 0.35) 100%
+    );
+  }
+
+  /* Leather grain — REAL leather photograph as overlay */
+  .leather-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.65;
+    mix-blend-mode: multiply;
+    background-image: url('/images/textures/leather.jpg');
+    background-size: cover;
+  }
+  .leather-grain {
+    position: relative;
+  }
+  .leather-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      /* Specular highlight from top-left */
+      radial-gradient(ellipse at 25% 20%, rgba(254, 215, 170, 0.15) 0%, transparent 50%),
+      /* Edge wear darkening */
+      radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.2) 100%);
+  }
+
+  /* Crease — a horizontal fold line across a paper card */
+  .paper-crease::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.15) 20%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.15) 80%,
+      transparent 100%
+    );
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
   /* Iron divider — chunky rust bar instead of thin line */

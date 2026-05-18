@@ -2,14 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { useState, FormEvent } from 'react'
-import SectionEyebrow from './SectionEyebrow'
+import ChapterShell from './story/ChapterShell'
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    goal: '',
-  })
+  const [formData, setFormData] = useState({ name: '', email: '', goal: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
@@ -17,196 +13,183 @@ export default function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus('idle')
-
     try {
-      // Format message for WhatsApp
-      const whatsappMessage = `Hi Robin! I'm interested in training with you.
-
-Name: ${formData.name}
-Email: ${formData.email}
-
-Goal: ${formData.goal}`
-
-      // Encode message for URL
+      const whatsappMessage = `Hi Robin! I'm interested in training with you.\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nGoal: ${formData.goal}`
       const encodedMessage = encodeURIComponent(whatsappMessage)
-      
-      // WhatsApp phone number with country code (India: 91)
-      // Number provided: 9372303172
       const phoneNumber = '919372303172'
-      
-      // Create WhatsApp URL
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
-      
-      // Open WhatsApp in new tab/window
-      window.open(whatsappUrl, '_blank')
-      
-      // Show success message
-        setSubmitStatus('success')
-        setFormData({ name: '', email: '', goal: '' })
-        setTimeout(() => {
-          setSubmitStatus('idle')
-        }, 5000)
-    } catch (error) {
-      console.error('Error opening WhatsApp:', error)
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank')
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', goal: '' })
+      setTimeout(() => setSubmitStatus('idle'), 5000)
+    } catch (err) {
+      console.error(err)
       setSubmitStatus('error')
-      setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 5000)
+      setTimeout(() => setSubmitStatus('idle'), 5000)
     } finally {
       setIsSubmitting(false)
     }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
+  const inputCls =
+    'w-full bg-rocky-paper text-mighty-shadow placeholder-mighty-shadow/40 ' +
+    'border-2 border-mighty-shadow rounded-sm px-4 py-3 font-mono text-sm sm:text-base ' +
+    'focus:outline-none focus:border-mighty-red focus:ring-2 focus:ring-mighty-red/30 transition-all'
+
+  const labelCls =
+    'block font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.3em] uppercase mb-2'
+
   return (
-    <section id="contact" className="iron-bg iron-grain relative py-24 overflow-hidden border-t-2 border-accent-800/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <SectionEyebrow number="08" label="Begin" />
-            <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
-              Start Your Training
-            </h2>
-            <div className="iron-divider w-40 mx-auto mb-6" />
-            <p className="font-mono text-xs sm:text-sm text-accent-200/70 uppercase tracking-[0.2em]">
-              Ready to transform · Let's discuss your goals
+    <ChapterShell
+      id="contact"
+      numeral="10"
+      era="The Bell · Begin"
+      title="Train With Robin"
+      tone="dark"
+      tilt={-1.2}
+    >
+      <div className="max-w-2xl mx-auto">
+        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/90 uppercase tracking-[0.12em] mb-10 sm:mb-12 text-center">
+          Ready to transform?{' '}
+          <span className="text-mighty-red">Step up to the bell.</span>
+        </p>
+
+        {/* The form — pinned-to-wall clipboard */}
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.8 }}
+          className="relative bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-4 border-mighty-shadow shadow-hung -rotate-[0.5deg]"
+        >
+          {/* Clipboard clip at top */}
+          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mighty-shadow border-2 border-mighty-shadow rounded-sm px-4 py-1 shadow-[0_3px_6px_rgba(0,0,0,0.8)]">
+            <p className="font-mono text-[10px] sm:text-xs font-extrabold text-mighty-red tracking-[0.3em] uppercase">
+              Form · 10A
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="iron-frame bg-black/70 p-6 sm:p-8 rounded-sm relative z-10"
-          >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all"
-                  placeholder="Your name"
-                  aria-required="true"
-                />
-              </div>
+          <span className="pin-bolt absolute top-3 left-3" aria-hidden="true" />
+          <span className="pin-bolt absolute top-3 right-3" aria-hidden="true" />
 
-              <div>
-                <label htmlFor="email" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all"
-                  placeholder="your.email@example.com"
-                  aria-required="true"
-                />
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-6 mt-2">
+            <div>
+              <label htmlFor="name" className={labelCls}>
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className={inputCls}
+                placeholder="Your name"
+                aria-required="true"
+              />
+            </div>
 
-              <div>
-                <label htmlFor="goal" className="block font-mono text-accent-400 font-bold text-xs uppercase tracking-[0.25em] mb-2">
-                  Your Goal
-                </label>
-                <textarea
-                  id="goal"
-                  name="goal"
-                  value={formData.goal}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full px-4 py-3 bg-black/70 border-2 border-accent-800/60 rounded-sm text-gray-100 placeholder-gray-600 focus:outline-none focus:border-accent-500 focus:ring-1 focus:ring-accent-500/30 transition-all resize-none"
-                  placeholder="Tell us about your training goals, experience level, and what you hope to achieve..."
-                  aria-required="true"
-                />
-              </div>
+            <div>
+              <label htmlFor="email" className={labelCls}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className={inputCls}
+                placeholder="your.email@example.com"
+                aria-required="true"
+              />
+            </div>
 
-              {submitStatus === 'success' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-900/30 border border-green-700 rounded text-green-400"
-                >
-                  Thank you! We'll be in touch soon.
-                </motion.div>
-              )}
+            <div>
+              <label htmlFor="goal" className={labelCls}>
+                Your Goal
+              </label>
+              <textarea
+                id="goal"
+                name="goal"
+                value={formData.goal}
+                onChange={handleChange}
+                required
+                rows={5}
+                className={`${inputCls} resize-none`}
+                placeholder="Tell Robin about your goals, experience, and what you want to achieve…"
+                aria-required="true"
+              />
+            </div>
 
-              {submitStatus === 'error' && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-900/30 border border-red-700 rounded text-red-400"
-                >
-                  <p className="font-semibold mb-2">Error opening WhatsApp</p>
-                  <p className="text-sm">
-                    There was an issue opening WhatsApp. Please try again or reach out directly via Instagram{' '}
-                    <a 
-                      href="https://instagram.com/gymrob123" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="underline hover:text-red-300"
-                    >
-                      @gymrob123
-                    </a>
-                    {' '}or email at carruthersrobin3@gmail.com.
-                  </p>
-                </motion.div>
-              )}
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-gradient-to-b from-accent-500 to-accent-700 hover:from-accent-400 hover:to-accent-600 disabled:from-accent-800 disabled:to-accent-900 disabled:cursor-not-allowed text-black font-bold text-base sm:text-lg rounded-sm transition-all uppercase tracking-wider border-2 border-accent-800 shadow-[0_4px_0_0_rgba(0,0,0,0.6),0_0_24px_rgba(234,88,12,0.4)] active:translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.6)] min-h-[44px] flex items-center justify-center gap-2"
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-rocky-dust/40 border-2 border-mighty-shadow rounded-sm text-mighty-shadow font-mono text-sm"
               >
-                {isSubmitting ? (
-                  'Opening WhatsApp...'
-                ) : (
-                  <>
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                    Send via WhatsApp
-                  </>
-                )}
-              </button>
-            </form>
-          </motion.div>
+                Bell rung. We&apos;ll be in touch — check WhatsApp.
+              </motion.div>
+            )}
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 bg-mighty-red/15 border-2 border-mighty-red rounded-sm text-mighty-shadow font-mono text-sm"
+              >
+                <p className="font-bold mb-1">Couldn&apos;t open WhatsApp.</p>
+                <p>
+                  Reach out directly:{' '}
+                  <a
+                    href="https://instagram.com/gymrob123"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-mighty-red"
+                  >
+                    @gymrob123
+                  </a>{' '}
+                  · carruthersrobin3@gmail.com
+                </p>
+              </motion.div>
+            )}
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 text-center text-gray-500 text-sm"
-          >
-            <p>Or reach out directly at eGym Lokhandwala or via WhatsApp: 9372303172</p>
-          </motion.div>
-        </div>
+            {/* Big red bell CTA */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="relative w-full inline-flex items-center justify-center gap-3 bg-mighty-red border-4 border-mighty-shadow px-6 py-4 font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+            >
+              <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
+              <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
+              {isSubmitting ? (
+                'Ringing…'
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  Send via WhatsApp
+                </>
+              )}
+            </button>
+          </form>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-10 text-center font-mono text-[11px] sm:text-xs text-rocky-paper/60 tracking-[0.2em] uppercase"
+        >
+          Or walk in · eGym Lokhandwala · WhatsApp 9372303172
+        </motion.p>
       </div>
-    </section>
+    </ChapterShell>
   )
 }
-
