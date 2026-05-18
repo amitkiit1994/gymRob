@@ -10,7 +10,8 @@
   }
 
   body {
-    @apply bg-primary-900 text-gray-100 antialiased;
+    @apply text-gray-100 antialiased;
+    background-color: #0a0604;
     font-family: var(--font-inter);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -158,54 +159,56 @@
       );
   }
 
-  /* IRON TEXT — actual iron / polished steel.
-     Cold gunmetal gradient + rust-colored chisel shadow underneath.
-     Reads as forged steel sitting on rusted bedrock. */
+  /* ──────────────────────────────────────────────
+   * IRON TEXT — extruded 3D, ONE color family (orange/rust).
+   *
+   * Face: polished bronze/copper gradient.
+   * Extrusion: stepped darker rusts down into black (no gray).
+   * Cast shadow: dark rust + black on the surface behind.
+   * ────────────────────────────────────────────── */
   .iron-text {
+    /* Face — polished bronze, bright top to bright bottom (no dark dropouts) */
     background-image: linear-gradient(
       180deg,
-      #f9fafb 0%,    /* top highlight - bright steel */
-      #e5e7eb 20%,   /* polished chrome */
-      #9ca3af 45%,   /* gunmetal midtone */
-      #6b7280 65%,   /* deep iron */
-      #d1d5db 85%,   /* bottom rim light */
-      #f3f4f6 100%   /* edge shine */
+      #fef3c7 0%,    /* bright cream highlight */
+      #fde68a 15%,   /* warm gold band */
+      #fdba74 35%,   /* copper midtone */
+      #fb923c 55%,   /* core orange */
+      #fdba74 75%,   /* second highlight */
+      #fef3c7 100%   /* bottom rim light */
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     letter-spacing: 0.01em;
-    /* Hard chiseled bottom — rust under the iron */
+
+    /* 15-layer extrusion — orange-family rust stepping down to black */
+    text-shadow:
+      1px 1px 0 #9a3412,
+      2px 2px 0 #7c2d12,
+      3px 3px 0 #5b1a08,
+      4px 4px 0 #3d1003,
+      5px 5px 0 #2a0a02,
+      6px 6px 0 #1a0501,
+      7px 7px 0 #0d0200,
+      8px 8px 0 #060100,
+      9px 9px 0 #030000,
+      10px 10px 0 #000000,
+      11px 11px 0 #000000,
+      12px 12px 0 #000000,
+      13px 13px 0 #000000,
+      14px 14px 0 #000000,
+      15px 15px 0 #000000;
+
+    /* Cast shadow on the surface behind */
     filter:
-      drop-shadow(0 1px 0 #1f2937)
-      drop-shadow(0 2px 0 #111827)
-      drop-shadow(0 3px 0 #7c2d12)
-      drop-shadow(0 4px 0 #3d1003)
-      drop-shadow(0 7px 14px rgba(0, 0, 0, 0.95));
+      drop-shadow(18px 24px 28px rgba(0, 0, 0, 0.85))
+      drop-shadow(0 0 40px rgba(122, 45, 18, 0.4));
   }
 
-  /* Smaller variant — proportional shadow stack */
+  /* Smaller variant — half the extrusion depth, same family */
   .iron-text-sm {
-    background-image: linear-gradient(
-      180deg,
-      #f9fafb 0%,
-      #9ca3af 50%,
-      #f3f4f6 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    filter:
-      drop-shadow(0 1px 0 #111827)
-      drop-shadow(0 2px 0 #7c2d12)
-      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
-  }
-
-  /* Rust text — for when we want the orange-rust palette specifically
-     (kept available, but iron-text is now actual iron) */
-  .rust-text {
     background-image: linear-gradient(
       180deg,
       #fef3c7 0%,
@@ -216,10 +219,14 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    filter:
-      drop-shadow(0 1px 0 #7c2d12)
-      drop-shadow(0 2px 0 #2a0a02)
-      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
+    text-shadow:
+      1px 1px 0 #7c2d12,
+      2px 2px 0 #5b1a08,
+      3px 3px 0 #3d1003,
+      4px 4px 0 #1a0501,
+      5px 5px 0 #060100,
+      6px 6px 0 #000;
+    filter: drop-shadow(8px 10px 14px rgba(0, 0, 0, 0.85));
   }
 
   /* Pure brushed steel — for the very few headlines where copper is wrong */

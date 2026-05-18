@@ -81,7 +81,7 @@ export default function Testimonials() {
             transition={{ duration: 0.8 }}
             className="max-w-md w-full"
           >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-1 sm:p-2">
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-black/70 p-1 sm:p-2">
               <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -102,7 +102,7 @@ export default function Testimonials() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="max-w-md w-full"
           >
-            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-primary-900 p-1 sm:p-2">
+            <div className="relative w-full rounded-lg border-2 border-accent-600/60 shadow-2xl bg-black/70 p-1 sm:p-2">
               <div className="relative w-full rounded-lg overflow-hidden" style={{ paddingBottom: '177.78%' }}> {/* 9:16 aspect ratio for YouTube Shorts */}
                 <iframe
                   className="absolute top-0 left-0 w-full h-full rounded-lg"
@@ -125,7 +125,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`bg-primary-950 p-4 sm:p-5 md:p-6 rounded-lg border border-primary-800 relative ${
+              className={`bg-[#0a0604] p-4 sm:p-5 md:p-6 rounded-lg border border-accent-800/40 relative ${
                 index === testimonials.length - 1 ? 'md:col-span-2 md:max-w-2xl md:mx-auto' : ''
               }`}
             >

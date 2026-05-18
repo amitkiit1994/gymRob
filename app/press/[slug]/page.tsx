@@ -70,7 +70,7 @@ export default async function PressArticlePage({
   const pullQuoteSet = new Set(feature.inlinePullQuotes.map((q) => q.trim()))
 
   return (
-    <article className="min-h-screen bg-primary-950">
+    <article className="min-h-screen bg-[#0a0604]">
       {/* IRON THEME hero — weathered metal, side-by-side */}
       <header className="iron-bg iron-grain spark-corner-tl spark-corner-br relative pt-28 sm:pt-32 pb-14 sm:pb-20 overflow-hidden border-b-2 border-accent-800/60">
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl z-10">
@@ -157,7 +157,7 @@ export default async function PressArticlePage({
         </Link>
 
         {/* Byline + share */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 mb-10 border-b border-primary-800">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 mb-10 border-b border-accent-800/40">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-accent-500 mb-1">
               Press Coverage
@@ -198,8 +198,8 @@ export default async function PressArticlePage({
         </div>
 
         {/* Origin footer */}
-        <div className="mt-14 pt-8 border-t border-primary-800">
-          <div className="bg-primary-900 border border-primary-800 rounded-sm p-5 sm:p-6">
+        <div className="mt-14 pt-8 border-t border-accent-800/40">
+          <div className="bg-black/70 border border-accent-800/40 rounded-sm p-5 sm:p-6">
             <p className="text-xs uppercase tracking-[0.2em] text-accent-500 mb-2">
               Original Publication
             </p>
@@ -240,7 +240,7 @@ export default async function PressArticlePage({
         </div>
 
         {/* Share + back */}
-        <div className="mt-12 pt-8 border-t border-primary-800">
+        <div className="mt-12 pt-8 border-t border-accent-800/40">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-lg font-bold text-white mb-1">

@@ -54,7 +54,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
     <div className="flex items-center gap-3 flex-wrap">
       <button
         onClick={() => handleShare('twitter')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Share on Twitter"
         title="Share on Twitter"
       >
@@ -65,7 +65,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       
       <button
         onClick={() => handleShare('facebook')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Share on Facebook"
         title="Share on Facebook"
       >
@@ -76,7 +76,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       
       <button
         onClick={() => handleShare('linkedin')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Share on LinkedIn"
         title="Share on LinkedIn"
       >
@@ -88,7 +88,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       
       <button
         onClick={() => handleShare('whatsapp')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Share on WhatsApp"
         title="Share on WhatsApp"
       >
@@ -99,7 +99,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       
       <button
         onClick={() => handleShare('instagram')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Share on Instagram"
         title="Share on Instagram"
       >
@@ -110,7 +110,7 @@ export default function ShareButtons({ url, title }: ShareButtonsProps) {
       
       <button
         onClick={() => handleShare('copy')}
-        className="p-2 bg-primary-800 hover:bg-primary-700 rounded-lg transition-colors"
+        className="p-2 bg-black/60 hover:bg-black/40 rounded-lg transition-colors"
         aria-label="Copy link"
         title="Copy link"
       >

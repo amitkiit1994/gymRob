@@ -87,7 +87,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const paragraphs = formatContent(blog.content)
 
   return (
-    <article className="min-h-screen bg-primary-950 pt-24 pb-16">
+    <article className="min-h-screen bg-[#0a0604] pt-24 pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
         {/* Back Button */}
         <Link 
@@ -124,7 +124,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         {blog.hasImage && (
           <div className="mb-12 relative">
             <div className="relative rounded-lg overflow-hidden border border-accent-600/50 shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-primary-900/60 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 z-10" />
               <Image
                 src={images.transformation.beforeAfter}
                 alt="Before and After Transformation"
@@ -134,7 +134,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 priority
               />
             </div>
-            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-primary-900 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/70 px-6 py-2 rounded-full border border-accent-600 shadow-lg">
               <span className="text-white font-semibold text-sm">The Journey</span>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               // Check if it's a signature
               if (paragraph.trim().startsWith('—') && paragraph.includes('Robin')) {
                 return (
-                  <div key={index} className="mt-10 pt-8 border-t border-primary-700/30">
+                  <div key={index} className="mt-10 pt-8 border-t border-accent-800/30">
                     <div className="flex justify-start">
                       <Image
                         src={images.signature.image}
@@ -193,7 +193,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
         {/* Quote Section (only for first featured blog) */}
         {blog.slug === 'rebuilding-after-40' && (
-          <div className="mt-12 bg-primary-900 p-8 rounded-lg border-l-4 border-accent-600">
+          <div className="mt-12 bg-black/70 p-8 rounded-lg border-l-4 border-accent-600">
             <p className="text-xl text-white font-semibold italic mb-2">
               "Friends may come and go but 200 pounds will always be 200 pounds"
             </p>
@@ -204,7 +204,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         )}
 
         {/* Share Section */}
-        <div className="mt-12 pt-8 border-t border-primary-700/30">
+        <div className="mt-12 pt-8 border-t border-accent-800/30">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-xl font-bold text-white mb-2">Share this post</h3>

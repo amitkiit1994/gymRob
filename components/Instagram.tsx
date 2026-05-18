@@ -41,7 +41,7 @@ export default function Instagram() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="aspect-[9/16] rounded-lg overflow-hidden border-2 border-primary-800 hover:border-accent-600 transition-all cursor-pointer group block"
+              className="aspect-[9/16] rounded-lg overflow-hidden border-2 border-accent-800/40 hover:border-accent-600 transition-all cursor-pointer group block"
               aria-label={`View reel ${index + 1} on Instagram`}
             >
               <div

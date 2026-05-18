@@ -108,7 +108,7 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden py-4 border-t border-primary-700"
+              className="md:hidden py-4 border-t border-accent-800/50"
             >
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link) => (

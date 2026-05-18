@@ -6,7 +6,7 @@ import { images } from '@/config/images'
 
 export default function Transformation() {
   return (
-    <section id="transformation" className="py-24 bg-primary-950">
+    <section id="transformation" className="py-24 bg-[#0a0604]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,8 +34,8 @@ export default function Transformation() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="relative rounded-lg overflow-hidden border-2 border-primary-700 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-b from-primary-900/20 to-primary-900/60 z-10" />
+              <div className="relative rounded-lg overflow-hidden border-2 border-accent-800/50 shadow-2xl">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80 z-10" />
                 <Image
                   src={images.transformation.beforeAfter}
                   alt="Before and After Transformation"
@@ -45,7 +45,7 @@ export default function Transformation() {
                   priority
                 />
               </div>
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-primary-900 px-6 py-2 rounded-full border-2 border-accent-600">
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/70 px-6 py-2 rounded-full border-2 border-accent-600">
                 <span className="text-white font-semibold text-sm">The Journey</span>
               </div>
             </motion.div>
@@ -89,7 +89,7 @@ export default function Transformation() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="bg-primary-900 p-6 sm:p-8 md:p-12 rounded-lg border border-primary-800 space-y-6"
+            className="bg-black/70 p-6 sm:p-8 md:p-12 rounded-lg border border-accent-800/40 space-y-6"
           >
             <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">The Real Story</h3>
             
@@ -113,7 +113,7 @@ export default function Transformation() {
                 going when you want to quit.
               </p>
 
-              <div className="mt-8 p-6 bg-primary-800 border-l-4 border-accent-600 rounded">
+              <div className="mt-8 p-6 bg-black/60 border-l-4 border-accent-600 rounded">
                 <p className="text-xl text-white font-semibold italic mb-2">
                   "Friends may come and go but 200 pounds will always be 200 pounds"
                 </p>
