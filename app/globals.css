@@ -158,29 +158,47 @@
       );
   }
 
-  /* Iron text — vintage gym-sign amber, hard 90s shadow.
-     Pairs with Bungee Inline's built-in 3D strokes for movie-marquee feel. */
+  /* Iron text — polished steel/copper gradient stamped on heavy industrial type.
+     Pairs with Anton (heavy condensed sans) for forklift-plate / factory-sign feel. */
   .iron-text {
-    color: #fcd34d;
-    letter-spacing: 0.02em;
-    text-shadow:
-      /* Hard offset shadow — Rocky-poster style */
-      4px 4px 0 #7c2d12,
-      6px 6px 0 #3d1003,
-      8px 8px 0 #000,
-      /* Soft fall-off behind the stack */
-      12px 12px 24px rgba(0, 0, 0, 0.95);
+    background-image: linear-gradient(
+      180deg,
+      #fef3c7 0%,    /* top highlight - bright cream */
+      #fde68a 20%,   /* warm gold band */
+      #fdba74 45%,   /* copper midtone */
+      #fb923c 65%,   /* core orange */
+      #fdba74 85%,   /* second highlight */
+      #fef3c7 100%   /* bottom rim light */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    letter-spacing: 0.01em;
+    /* Hard chiseled bottom — gives the stamped iron-machinery feel */
+    filter:
+      drop-shadow(0 1px 0 #7c2d12)
+      drop-shadow(0 2px 0 #5b1a08)
+      drop-shadow(0 3px 0 #2a0a02)
+      drop-shadow(0 6px 12px rgba(0, 0, 0, 0.95));
   }
 
-  /* Subtle variant for inline text — smaller shadow stack */
+  /* Smaller variant — proportionally smaller chisel for inline use */
   .iron-text-sm {
-    color: #fcd34d;
-    letter-spacing: 0.02em;
-    text-shadow:
-      2px 2px 0 #7c2d12,
-      3px 3px 0 #3d1003,
-      4px 4px 0 #000,
-      6px 6px 12px rgba(0, 0, 0, 0.9);
+    background-image: linear-gradient(
+      180deg,
+      #fef3c7 0%,
+      #fdba74 50%,
+      #fef3c7 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter:
+      drop-shadow(0 1px 0 #7c2d12)
+      drop-shadow(0 2px 0 #2a0a02)
+      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
   }
 
   /* Pure brushed steel — for the very few headlines where copper is wrong */
