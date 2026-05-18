@@ -63,7 +63,7 @@ export default function Testimonials() {
           className="text-center mb-16"
         >
           <SectionEyebrow number="04" label="In Their Words" />
-          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
+          <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Testimonials
           </h2>
           <div className="iron-divider w-40 mx-auto mb-4 sm:mb-6" />

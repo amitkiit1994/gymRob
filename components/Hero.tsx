@@ -33,7 +33,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="iron-text font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-[0.95] tracking-tight uppercase px-2"
+            className="iron-text font-iron text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-[0.95] tracking-tight uppercase px-2"
           >
             <span className="sr-only">Robin Carruthers - </span>
             Strength.<br /> Discipline.<br /> Life.

@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Playfair_Display, Bungee_Inline, Bowlby_One_SC, Anton } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -20,6 +20,32 @@ const playfair = Playfair_Display({
   style: ['normal', 'italic'],
 })
 
+// Iron headline — Bungee Inline = vintage cinema marquee / painted gym sign
+// (the 3D inline strokes give that 90s Rocky-poster / Pumping Iron feel)
+const bungeeInline = Bungee_Inline({
+  subsets: ['latin'],
+  variable: '--font-iron',
+  display: 'swap',
+  weight: ['400'],
+})
+
+// Heavy single-color hammered display — Bowlby One SC reads as a chunky
+// painted-on-wall gym sign, used for section headings
+const bowlby = Bowlby_One_SC({
+  subsets: ['latin'],
+  variable: '--font-stamp',
+  display: 'swap',
+  weight: ['400'],
+})
+
+// Anton — reserved alternative (kept around in case we want a back-up bold)
+const anton = Anton({
+  subsets: ['latin'],
+  variable: '--font-anton',
+  display: 'swap',
+  weight: ['400'],
+})
+
 export const metadata = siteMetadata
 
 export default function RootLayout({
@@ -31,7 +57,7 @@ export default function RootLayout({
   const alternateLinks = getAlternateLinks()
   
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${bungeeInline.variable} ${bowlby.variable} ${anton.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />

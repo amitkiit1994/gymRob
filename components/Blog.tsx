@@ -199,7 +199,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
                 <span className="text-gray-400 text-sm">By Robin Carruthers</span>
               </div>
 
-              <h3 className="iron-text font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight uppercase tracking-tight">
+              <h3 className="iron-text font-iron text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight uppercase tracking-tight">
                 {blog.title}
               </h3>
 
@@ -294,7 +294,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             <span className="text-gray-400 text-sm">By Robin Carruthers</span>
           </div>
 
-          <h3 className="iron-text font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight mb-4 sm:mb-6 uppercase tracking-tight">
+          <h3 className="iron-text font-iron text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight mb-4 sm:mb-6 uppercase tracking-tight">
             {blog.title}
           </h3>
 
@@ -387,7 +387,7 @@ function FeaturedBlogsSection() {
       {/* Section Header */}
       <div className="text-center mb-12">
         <SectionEyebrow number="06" label="The Journal" />
-        <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
+        <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
           Transformation & Insights
         </h2>
         <div className="iron-divider w-40 mx-auto mb-4 sm:mb-6" />
@@ -420,7 +420,7 @@ export default function Blog() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h3 className="iron-text font-serif text-2xl sm:text-3xl mb-2 text-center uppercase tracking-tight">
+            <h3 className="iron-text font-iron text-2xl sm:text-3xl mb-2 text-center uppercase tracking-tight">
               More Insights
             </h3>
             <div className="h-1 w-16 bg-accent-600 mx-auto" />

@@ -105,7 +105,7 @@ export default async function PressArticlePage({
             {/* Text block — right side */}
             <div className="flex-1 min-w-0">
               {/* Headline — embossed iron text */}
-              <h1 className="iron-text font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase">
+              <h1 className="iron-text font-iron text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-5 sm:mb-6 uppercase">
                 {feature.title}
               </h1>
 

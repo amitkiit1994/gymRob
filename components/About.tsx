@@ -15,7 +15,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <SectionEyebrow number="01" label="The Story" />
-            <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-8 text-center px-4 uppercase tracking-tight leading-[1.05]">
+            <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl mb-8 text-center px-4 uppercase tracking-tight leading-[1.05]">
               About Robin
             </h2>
             <div className="iron-divider w-40 mx-auto mb-12" />

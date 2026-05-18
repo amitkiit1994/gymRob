@@ -54,7 +54,7 @@ export default function Header() {
             <span className="font-mono text-[0.6rem] sm:text-xs font-bold text-accent-400 tracking-[0.3em] uppercase">
               GymRob
             </span>
-            <span className="iron-text font-serif uppercase tracking-tight leading-none">Robin Carruthers</span>
+            <span className="iron-text font-iron uppercase tracking-tight leading-none">Robin Carruthers</span>
           </Link>
 
           {/* Desktop Navigation */}

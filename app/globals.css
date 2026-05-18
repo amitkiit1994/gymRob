@@ -158,20 +158,50 @@
       );
   }
 
-  /* Iron text — solid bright copper with hard chiseled shadow.
-     No gradient (avoids contrast loss against busy backgrounds). */
+  /* Iron text — vintage gym-sign amber, hard 90s shadow.
+     Pairs with Bungee Inline's built-in 3D strokes for movie-marquee feel. */
   .iron-text {
-    color: #fdba74;
-    font-weight: 900;
-    letter-spacing: 0.01em;
+    color: #fcd34d;
+    letter-spacing: 0.02em;
     text-shadow:
-      /* Hard chisel - bottom edge */
-      0 1px 0 #7c2d12,
-      0 2px 0 #5b1a08,
-      0 3px 0 #3d1003,
-      /* Dark drop shadow for separation */
-      0 4px 8px rgba(0, 0, 0, 0.95),
-      0 6px 16px rgba(0, 0, 0, 0.8);
+      /* Hard offset shadow — Rocky-poster style */
+      4px 4px 0 #7c2d12,
+      6px 6px 0 #3d1003,
+      8px 8px 0 #000,
+      /* Soft fall-off behind the stack */
+      12px 12px 24px rgba(0, 0, 0, 0.95);
+  }
+
+  /* Subtle variant for inline text — smaller shadow stack */
+  .iron-text-sm {
+    color: #fcd34d;
+    letter-spacing: 0.02em;
+    text-shadow:
+      2px 2px 0 #7c2d12,
+      3px 3px 0 #3d1003,
+      4px 4px 0 #000,
+      6px 6px 12px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Pure brushed steel — for the very few headlines where copper is wrong */
+  .steel-text {
+    background-image: linear-gradient(
+      180deg,
+      #f9fafb 0%,
+      #e5e7eb 25%,
+      #d1d5db 50%,
+      #e5e7eb 75%,
+      #f9fafb 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    font-weight: 900;
+    filter:
+      drop-shadow(0 1px 0 #1f2937)
+      drop-shadow(0 2px 0 #111827)
+      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
   }
 
   /* Stamped/punched text — heavier hit, darker shadow, more weight */

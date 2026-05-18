@@ -25,7 +25,7 @@ export default function PressFeature() {
           className="text-center mb-12 sm:mb-16"
         >
           <SectionEyebrow number="05" label="In the Press" />
-          <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl tracking-tight mb-3 uppercase">
+          <h2 className="iron-text font-iron text-4xl sm:text-5xl md:text-6xl tracking-tight mb-3 uppercase">
             Earned Media
           </h2>
           <p className="text-sm sm:text-base text-accent-200/70 max-w-xl mx-auto font-mono uppercase tracking-wider text-[0.7rem] sm:text-xs">
@@ -121,7 +121,7 @@ function FeatureCard({
           </time>
         </div>
 
-        <h3 className="iron-text font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 uppercase">
+        <h3 className="iron-text font-iron text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight mb-6 uppercase">
           {feature.title}
         </h3>
 
