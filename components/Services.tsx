@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import ChapterShell from './story/ChapterShell'
+import { useGsapContext, gsap } from '@/hooks/useGsap'
 
 const services = [
   {
@@ -60,37 +61,59 @@ const services = [
  * Each locker has a stamped plate number + the program label burned into it.
  */
 export default function Services() {
+  // Lockers slam onto the wall — heavy painted-metal, no bounce
+  const lockersRef = useGsapContext<HTMLDivElement>((q, scope) => {
+    const lockers = q('.service-locker')
+    if (!lockers.length) return
+
+    lockers.forEach((el) => {
+      gsap.set(el, { y: -500 })
+    })
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: scope, start: 'top 75%', once: true },
+    })
+
+    lockers.forEach((el, idx) => {
+      tl.to(el, {
+        y: 0,
+        duration: 0.45,
+        ease: 'power4.in',
+      }, idx * 0.1)
+    })
+  }, [])
+
   return (
     <ChapterShell
       id="services"
       numeral="04"
       era="The Offerings · Coaching Programs"
       title="Offerings"
-      tone="dark"
+      tone="brick-left"
       tilt={1.5}
     >
       <div className="max-w-6xl mx-auto">
-        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/85 uppercase tracking-[0.12em] mb-10 sm:mb-14 max-w-3xl">
-          Proven methods. Real results.{' '}
-          <span className="text-mighty-red">Three decades of refinement.</span>
-        </p>
+        <div className="legible-on-dark mb-10 sm:mb-14 max-w-3xl">
+          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+            Proven methods. Real results.{' '}
+            <span className="text-mighty-red">Three decades of refinement.</span>
+          </p>
+        </div>
 
         {/* Locker grid — each program is a locker */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
+        <div ref={lockersRef} className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={service.title}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.7, delay: index * 0.1 }}
               className="
+                service-locker
                 relative bg-[#1a1411] border-2 border-mighty-shadow rounded-sm
                 p-5 sm:p-7
                 shadow-[0_14px_28px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(254,250,224,0.06)]
                 hover:border-mighty-red transition-colors
                 group
               "
+              style={{ willChange: 'transform' }}
             >
               {/* Locker handle / hinge effect — left edge */}
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-12 sm:h-16 bg-mighty-shadow border-r border-rocky-paper/15 rounded-r" />
@@ -105,7 +128,7 @@ export default function Services() {
               <h3 className="font-painted text-painted text-xl sm:text-2xl md:text-3xl leading-tight uppercase pr-20 sm:pr-24 mb-4">
                 {service.title}
               </h3>
-              <p className="text-sm sm:text-base text-rocky-paper/75 leading-relaxed mb-5">
+              <p className="text-sm sm:text-base text-rocky-paper leading-relaxed mb-5">
                 {service.description}
               </p>
 
@@ -118,7 +141,7 @@ export default function Services() {
                   {service.outcomes.map((outcome) => (
                     <li
                       key={outcome}
-                      className="text-sm text-rocky-paper/80 flex items-start gap-2 font-mono"
+                      className="text-sm text-rocky-paper flex items-start gap-2 font-mono"
                     >
                       <span className="text-mighty-red mt-0.5">+</span>
                       <span className="uppercase tracking-wide text-[11px] sm:text-xs">
@@ -128,7 +151,7 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -35,14 +35,25 @@ export default function CanvasBanner({
       {/* The canvas banner */}
       <div
         className="
-          bg-canvas canvas-weather shadow-hung
+          bg-canvas canvas-weather light-streak wearouts-heavy shadow-hung
           relative
           px-10 py-6 sm:px-16 sm:py-10 md:px-24 md:py-12
           border-4 border-mighty-shadow
         "
+        style={{
+          /* Subtle fabric-fold corners — slight irregular polygon clip */
+          clipPath:
+            'polygon(0.5% 1%, 99.5% 0.5%, 100% 99%, 99% 100%, 0% 99.5%)',
+        }}
       >
         {/* Heavy inner border (canvas seam stitching) */}
         <div className="absolute inset-2 border border-rocky-paper/15 pointer-events-none" />
+
+        {/* Sewn-on patches in 4 corners (where rope eyelets reinforce) */}
+        <div className="absolute top-2 left-2 w-8 h-8 border border-mighty-shadow/40 bg-mighty-red/30 pointer-events-none" />
+        <div className="absolute top-2 right-2 w-8 h-8 border border-mighty-shadow/40 bg-mighty-red/30 pointer-events-none" />
+        <div className="absolute bottom-2 left-2 w-8 h-8 border border-mighty-shadow/40 bg-mighty-red/30 pointer-events-none" />
+        <div className="absolute bottom-2 right-2 w-8 h-8 border border-mighty-shadow/40 bg-mighty-red/30 pointer-events-none" />
 
         {/* Optional boxing-gloves silhouette top-corner */}
         {showGloves && (

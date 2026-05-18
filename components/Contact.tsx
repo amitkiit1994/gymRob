@@ -48,21 +48,19 @@ export default function Contact() {
       numeral="10"
       era="The Bell · Begin"
       title="Train With Robin"
-      tone="dark"
+      tone="brick-right"
       tilt={-1.2}
     >
       <div className="max-w-2xl mx-auto">
-        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/90 uppercase tracking-[0.12em] mb-10 sm:mb-12 text-center">
-          Ready to transform?{' '}
-          <span className="text-mighty-red">Step up to the bell.</span>
-        </p>
+        <div className="legible-on-dark mb-10 sm:mb-12 max-w-2xl mx-auto">
+          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em] text-center">
+            Ready to transform?{' '}
+            <span className="text-mighty-red">Step up to the bell.</span>
+          </p>
+        </div>
 
         {/* The form — pinned-to-wall clipboard */}
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.8 }}
           className="relative bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-4 border-mighty-shadow shadow-hung -rotate-[0.5deg]"
         >
           {/* Clipboard clip at top */}
@@ -129,8 +127,6 @@ export default function Contact() {
 
             {submitStatus === 'success' && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
                 className="p-4 bg-rocky-dust/40 border-2 border-mighty-shadow rounded-sm text-mighty-shadow font-mono text-sm"
               >
                 Bell rung. We&apos;ll be in touch — check WhatsApp.
@@ -138,8 +134,6 @@ export default function Contact() {
             )}
             {submitStatus === 'error' && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
                 className="p-4 bg-mighty-red/15 border-2 border-mighty-red rounded-sm text-mighty-shadow font-mono text-sm"
               >
                 <p className="font-bold mb-1">Couldn&apos;t open WhatsApp.</p>
@@ -162,7 +156,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="relative w-full inline-flex items-center justify-center gap-3 bg-mighty-red border-4 border-mighty-shadow px-6 py-4 font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+              className="relative w-full inline-flex items-center justify-center gap-3 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-4 font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] disabled:opacity-60 disabled:cursor-not-allowed transition-all"
             >
               <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -180,15 +174,13 @@ export default function Contact() {
           </form>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-10 text-center font-mono text-[11px] sm:text-xs text-rocky-paper/60 tracking-[0.2em] uppercase"
+        <motion.div
+          className="mt-10 flex justify-center"
         >
-          Or walk in · eGym Lokhandwala · WhatsApp 9372303172
-        </motion.p>
+          <span className="gym-locker-plate inline-block font-mono text-[11px] sm:text-xs text-rocky-paper tracking-[0.2em] uppercase">
+            Or walk in · eGym Lokhandwala · WhatsApp 9372303172
+          </span>
+        </motion.div>
       </div>
     </ChapterShell>
   )

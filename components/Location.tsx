@@ -18,20 +18,21 @@ const mapEmbedUrl = `https://www.google.com/maps?q=${encodedBusinessName}+${enco
  */
 export default function Location() {
   return (
-    <section id="location" className="relative bg-mighty-shadow text-rocky-paper py-16 sm:py-20 overflow-hidden">
-      {/* Top weld seam */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
+    <section id="location" className="relative bg-brick brick-cracks bg-brick-spotlight-right text-rocky-paper py-16 sm:py-20 overflow-hidden">
+      {/* Top welded iron seam */}
+      <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-[0_2px_4px_rgba(0,0,0,0.85)] z-30" />
+      {/* Light dark scrim */}
+      <div className="absolute inset-0 bg-mighty-shadow/25 pointer-events-none" aria-hidden="true" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
           className="flex items-center gap-3 mb-8"
         >
-          <span className="font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.3em] uppercase px-2.5 py-1 border border-rocky-paper/30 rounded-sm">
+          <span
+            className="font-mono text-[10px] sm:text-xs font-bold text-rocky-paper tracking-[0.3em] uppercase px-2.5 py-1 bg-mighty-shadow/80 border-l-2 border-mighty-red rounded-sm"
+            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+          >
             · The Address ·
           </span>
           <div className="h-px flex-1 bg-gradient-to-r from-rocky-paper/40 to-transparent" />
@@ -40,19 +41,20 @@ export default function Location() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* LEFT — Address card on a leather plate */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8 }}
             className="lg:col-span-5"
           >
-            <div className="relative bg-rocky-leather leather-grain stitched text-mighty-shadow p-6 sm:p-7 rounded-sm border-4 border-mighty-shadow shadow-[0_14px_28px_rgba(0,0,0,0.7),inset_0_2px_0_rgba(255,255,255,0.12)] -rotate-1">
-              <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
-              <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
+            <div className="relative leather-grain wearouts text-mighty-shadow p-6 sm:p-7 rounded-sm border-4 border-mighty-shadow shadow-[0_18px_36px_-6px_rgba(0,0,0,0.85),0_4px_0_-2px_rgba(0,0,0,0.85),inset_0_2px_0_rgba(255,255,255,0.15)] -rotate-1">
+              <span className="brass-tack absolute -top-2 left-6" aria-hidden="true" />
+              <span className="brass-tack absolute -top-2 right-6" aria-hidden="true" />
+              <span className="brass-tack absolute -bottom-2 left-6" aria-hidden="true" />
+              <span className="brass-tack absolute -bottom-2 right-6" aria-hidden="true" />
 
-              <p className="font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.3em] uppercase mb-3">
-                Plate · 05A
-              </p>
+              {/* Brass plate label */}
+              <div className="inline-block bg-brass px-3 py-1 mb-3 border border-[#3a2208]/60 rounded-sm">
+                <p className="font-mono text-[10px] sm:text-xs font-bold text-engrave-brass tracking-[0.3em] uppercase">
+                  · Plate 05A ·
+                </p>
+              </div>
               <h3 className="font-painted text-2xl sm:text-3xl text-mighty-shadow uppercase mb-5 leading-tight">
                 eGym Lokhandwala
               </h3>
@@ -91,7 +93,7 @@ export default function Location() {
                   href="https://maps.app.goo.gl/7kymNroXqtpctVHv6"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-2 border-mighty-shadow px-5 py-2.5 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow hover:text-rocky-paper active:translate-y-[2px] transition-all"
+                  className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-2 border-mighty-shadow px-5 py-2.5 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[2px] transition-all"
                 >
                   <span className="pin-bolt absolute -top-1.5 -left-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
                   <span className="pin-bolt absolute -top-1.5 -right-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
@@ -99,7 +101,7 @@ export default function Location() {
                 </a>
                 <a
                   href={`tel:${phone.replace(/\s/g, '')}`}
-                  className="relative inline-flex items-center justify-center gap-2 bg-mighty-shadow border-2 border-rocky-paper/40 px-5 py-2.5 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:border-rocky-paper active:translate-y-[2px] transition-all"
+                  className="relative inline-flex items-center justify-center gap-2 painted-metal-dark wearouts border-2 border-rocky-paper/40 px-5 py-2.5 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:border-rocky-paper active:translate-y-[2px] transition-all"
                 >
                   <span className="pin-bolt absolute -top-1.5 -left-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
                   <span className="pin-bolt absolute -top-1.5 -right-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
@@ -111,13 +113,9 @@ export default function Location() {
 
           {/* RIGHT — Map pinned to wall */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8 }}
             className="lg:col-span-7"
           >
-            <div className="relative bg-paper p-3 sm:p-4 border-2 border-mighty-shadow shadow-pinned rotate-[0.5deg]">
+            <div className="relative polaroid-aged wearouts p-3 sm:p-4 border-2 border-mighty-shadow shadow-pinned rotate-[0.5deg]">
               <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
               <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />

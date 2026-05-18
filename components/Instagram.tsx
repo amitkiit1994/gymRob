@@ -17,14 +17,16 @@ export default function Instagram() {
       numeral="09"
       era="The Feed · Live From The Floor"
       title="On Camera"
-      tone="dark"
+      tone="concrete"
       tilt={0.8}
     >
       <div className="max-w-6xl mx-auto">
-        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/90 uppercase tracking-[0.12em] mb-12 sm:mb-14 max-w-3xl">
-          Real training. Real results.{' '}
-          <span className="text-mighty-red">Cuts through the noise.</span>
-        </p>
+        <div className="legible-on-dark mb-12 sm:mb-14 max-w-3xl">
+          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+            Real training. Real results.{' '}
+            <span className="text-mighty-red">Cuts through the noise.</span>
+          </p>
+        </div>
 
         {/* CCTV grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
@@ -34,10 +36,6 @@ export default function Instagram() {
               href={reel.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.94 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
               className="relative block bg-mighty-shadow border-2 border-mighty-shadow rounded-sm overflow-hidden shadow-[0_8px_18px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(254,250,224,0.05)] hover:border-mighty-red transition-colors group"
               aria-label={`Watch reel ${i + 1} on Instagram`}
             >
@@ -70,17 +68,13 @@ export default function Instagram() {
 
         {/* Follow CTA */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="text-center"
         >
           <a
             href="https://instagram.com/gymrob123"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-7 py-3.5 sm:px-9 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-rocky-leather hover:text-mighty-shadow active:translate-y-[3px] transition-all"
+            className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-7 py-3.5 sm:px-9 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] transition-all"
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />

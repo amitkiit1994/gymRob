@@ -1,4 +1,4 @@
-import Hero from '@/components/Hero'
+import HeroSwitch from '@/components/HeroSwitch'
 import TheWeight from '@/components/story/TheWeight'
 import TheForge from '@/components/story/TheForge'
 import TheWarrior from '@/components/story/TheWarrior'
@@ -25,7 +25,7 @@ import Contact from '@/components/Contact'
 export default function Home() {
   return (
     <>
-      <Hero />
+      <HeroSwitch />
 
       {/* ── PAST ─────────────────────────────────────── */}
       <TheWeight />

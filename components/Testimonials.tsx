@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import ChapterShell from './story/ChapterShell'
+import { useGsapContext, gsap } from '@/hooks/useGsap'
 
 const testimonials = [
   {
@@ -57,30 +58,69 @@ const testimonials = [
  * Testimonials as polaroids taped to the gym wall + video shorts as old TVs.
  */
 export default function Testimonials() {
+  // Polaroids swing in from the top edge — hinged at top, pendulum settle
+  const wallRef = useGsapContext<HTMLDivElement>((q, scope) => {
+    const polaroids = q('.testimonial-card')
+    if (!polaroids.length) return
+
+    gsap.set(scope, { perspective: 1400 })
+    polaroids.forEach((el) => {
+      gsap.set(el, {
+        transformOrigin: '50% 0%',
+        rotateX: -75,
+        rotateZ: -4,
+        y: -20,
+      })
+    })
+
+    const tl = gsap.timeline({
+      scrollTrigger: { trigger: scope, start: 'top 78%', once: true },
+    })
+
+    polaroids.forEach((el, idx) => {
+      const targetRotate = idx % 2 === 0 ? -2.5 : 2.5
+      tl.to(el, {
+        rotateX: 0,
+        rotateZ: targetRotate * 1.6,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.out',
+      }, idx * 0.1)
+        .to(el, {
+          rotateZ: -targetRotate,
+          duration: 0.35,
+          ease: 'sine.inOut',
+        })
+        .to(el, {
+          rotateZ: targetRotate,
+          duration: 0.4,
+          ease: 'sine.out',
+        })
+    })
+  }, [])
+
   return (
     <ChapterShell
       id="testimonials"
       numeral="06"
       era="The Fraternity · In Their Words"
       title="The Fraternity"
-      tone="brick"
+      tone="brick-crop"
       tilt={1.5}
     >
       <div className="max-w-6xl mx-auto">
-        <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper/90 uppercase tracking-[0.12em] mb-12 sm:mb-14 max-w-3xl">
-          Real results from real people. Long-term transformations,{' '}
-          <span className="text-mighty-red">not quick fixes.</span>
-        </p>
+        <div className="legible-on-dark mb-12 sm:mb-14 max-w-3xl">
+          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+            Real results from real people. Long-term transformations,{' '}
+            <span className="text-mighty-red">not quick fixes.</span>
+          </p>
+        </div>
 
         {/* Video testimonials — old TV monitors */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20 max-w-3xl mx-auto">
           {['1AhvWkZJTOw', 'BsDx5LSZ5a8'].map((id, i) => (
             <motion.div
               key={id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
               className="relative bg-mighty-shadow p-2 sm:p-3 border-4 border-mighty-shadow rounded-sm shadow-[0_14px_28px_rgba(0,0,0,0.85)]"
               style={{ transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)` }}
             >
@@ -101,7 +141,7 @@ export default function Testimonials() {
                   loading="lazy"
                 />
               </div>
-              <p className="font-mono text-[10px] text-rocky-paper/60 tracking-[0.25em] uppercase text-center mt-2">
+              <p className="font-mono text-[10px] text-rocky-paper tracking-[0.3em] uppercase text-center mt-2 text-shadow-readable">
                 · Live From The Floor ·
               </p>
             </motion.div>
@@ -109,17 +149,14 @@ export default function Testimonials() {
         </div>
 
         {/* Polaroid wall — testimonials as taped photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div ref={wallRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((t, i) => (
-            <motion.figure
+            <figure
               key={t.author}
-              initial={{ opacity: 0, y: 22, rotate: t.rotate }}
-              whileInView={{ opacity: 1, y: 0, rotate: t.rotate }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.7, delay: i * 0.1 }}
-              className={`relative bg-paper text-mighty-shadow p-4 sm:p-5 border border-mighty-shadow/40 shadow-plate ${
+              className={`testimonial-card relative bg-paper text-mighty-shadow p-4 sm:p-5 border border-mighty-shadow/40 shadow-plate ${
                 i === testimonials.length - 1 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-2' : ''
               }`}
+              style={{ willChange: 'transform' }}
             >
               <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
@@ -166,7 +203,7 @@ export default function Testimonials() {
                   </a>
                 )}
               </figcaption>
-            </motion.figure>
+            </figure>
           ))}
         </div>
       </div>

@@ -64,10 +64,6 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 28, rotate: tilt }}
-      whileInView={{ opacity: 1, y: 0, rotate: tilt }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.7, delay: index * 0.1 }}
       className="relative bg-paper text-mighty-shadow p-5 sm:p-6 border border-mighty-shadow/40 shadow-plate flex flex-col h-full"
     >
       <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
@@ -93,7 +89,7 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
       {hasMore && (
         <Link
           href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-          className="relative mt-auto inline-flex items-center justify-center gap-2 bg-mighty-red border-2 border-mighty-shadow px-4 py-2 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[2px] transition-all w-full"
+          className="relative mt-auto inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-2 border-mighty-shadow px-4 py-2 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[2px] transition-all w-full"
         >
           <span className="pin-bolt absolute -top-1.5 -left-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
           <span className="pin-bolt absolute -top-1.5 -right-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
@@ -113,20 +109,12 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.8, delay: index * 0.15 }}
       className="max-w-6xl mx-auto mb-14 sm:mb-20"
     >
       <div className={`grid grid-cols-1 ${blog.hasImage ? 'lg:grid-cols-12 gap-8 lg:gap-12 items-start' : ''}`}>
         {/* Before/After Image — pinned polaroid (only when hasImage) */}
         {blog.hasImage && (
           <motion.figure
-            initial={{ opacity: 0, scale: 0.96, rotate: -3 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: -2 }}
-            viewport={{ once: true, margin: '-40px' }}
-            transition={{ duration: 0.9 }}
             className="lg:col-span-5 relative mx-auto lg:mx-0 max-w-[340px] w-full"
           >
             <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 wall-cast">
@@ -154,10 +142,6 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
 
         {/* Story — paper notebook page pinned to the wall */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.8, delay: 0.1 }}
           className={`${blog.hasImage ? 'lg:col-span-7' : ''} relative`}
         >
           <div className="relative bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8)] -rotate-[0.4deg]">
@@ -165,10 +149,9 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
 
             <div className="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-mighty-shadow/30">
-              <div className="flex items-center gap-2 bg-mighty-red border border-mighty-shadow px-2 py-0.5 rounded-sm">
-                <span className="h-1.5 w-1.5 rounded-full bg-rocky-paper animate-pulse" />
-                <span className="font-mono text-[10px] font-extrabold tracking-[0.25em] uppercase text-rocky-paper">
-                  Featured Entry
+              <div className="relative inline-flex items-center painted-metal-red border-2 border-mighty-shadow px-2.5 py-0.5 rounded-sm shadow-[0_2px_0_-1px_rgba(0,0,0,0.85)]">
+                <span className="font-mono text-[10px] font-extrabold tracking-[0.3em] uppercase text-rocky-paper">
+                  · Featured Entry ·
                 </span>
               </div>
               <span className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 uppercase tracking-[0.2em]">
@@ -188,7 +171,7 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             {hasMore && (
               <Link
                 href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-                className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
+                className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
               >
                 <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
                 <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -205,14 +188,12 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
       {/* Pull quote (only for first blog with image) — separate pinned paper card */}
       {blog.hasImage && index === 0 && (
         <motion.figure
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.8 }}
-          className="relative bg-rocky-leather leather-grain stitched text-mighty-shadow p-6 sm:p-8 mt-10 sm:mt-12 rotate-1 border-4 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8),inset_0_2px_0_rgba(255,255,255,0.12)] max-w-3xl mx-auto"
+          className="relative leather-grain wearouts text-mighty-shadow p-6 sm:p-8 mt-10 sm:mt-12 rotate-1 border-4 border-mighty-shadow shadow-[0_22px_44px_-8px_rgba(0,0,0,0.9),0_4px_0_-2px_rgba(0,0,0,0.85),inset_0_2px_0_rgba(255,255,255,0.15)] max-w-3xl mx-auto"
         >
-          <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
-          <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
+          <span className="brass-tack absolute -top-2 left-8" aria-hidden="true" />
+          <span className="brass-tack absolute -top-2 right-8" aria-hidden="true" />
+          <span className="brass-tack absolute -bottom-2 left-8" aria-hidden="true" />
+          <span className="brass-tack absolute -bottom-2 right-8" aria-hidden="true" />
           <p className="font-painted text-lg sm:text-xl md:text-2xl leading-[1.4] text-mighty-shadow mb-3">
             &ldquo;Friends may come and go but 200 pounds will always be 200 pounds.&rdquo;
           </p>
@@ -238,34 +219,31 @@ function FeaturedBlogsSection() {
 
 export default function Blog() {
   return (
-    <section id="blog" className="relative bg-mighty-shadow py-20 sm:py-28 overflow-hidden">
-      {/* Top weld seam */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
+    <section id="blog" className="relative bg-brick brick-cracks bg-brick-spotlight-left py-20 sm:py-28 overflow-hidden">
+      {/* Top welded iron seam */}
+      <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-[0_2px_4px_rgba(0,0,0,0.85)] z-30" />
+      {/* Light dark scrim so paper cards still pop — but wall stays visible */}
+      <div className="absolute inset-0 bg-mighty-shadow/25 pointer-events-none" aria-hidden="true" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Chapter heading */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
           className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto"
         >
           <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-mighty-red bg-mighty-shadow border border-rocky-paper/25 px-2.5 py-1 rounded-sm">
             CH_08
           </span>
           <div className="h-px flex-1 max-w-[14rem] bg-gradient-to-r from-rocky-paper/40 to-transparent" />
-          <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] text-rocky-paper/60">
+          <span
+            className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] font-bold text-rocky-paper bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
+            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+          >
             The Journal · Notebook
           </span>
         </motion.div>
 
         {/* Notebook-style heading on lined paper */}
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, delay: 0.1 }}
           className="text-center mb-14 sm:mb-20"
         >
           <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-4 sm:px-10 sm:py-6 -rotate-[0.8deg] border-2 border-mighty-shadow shadow-plate">
@@ -286,13 +264,12 @@ export default function Blog() {
         {/* More Insights */}
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
             className="mb-10 sm:mb-12 text-center"
           >
-            <span className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.3em] uppercase">
+            <span
+              className="inline-block font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.3em] uppercase bg-mighty-shadow/80 border-l-2 border-mighty-red px-3 py-1 rounded-sm"
+              style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+            >
               · More From The Notebook ·
             </span>
           </motion.div>

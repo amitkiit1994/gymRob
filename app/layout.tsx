@@ -3,6 +3,8 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StructuredData from '@/components/StructuredData'
+import SvgFilters from '@/components/SvgFilters'
+import MobileStickyCTA from '@/components/MobileStickyCTA'
 import { siteMetadata } from './metadata'
 import { getCanonicalUrl, getAlternateLinks } from '@/lib/seo'
 
@@ -96,12 +98,14 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen flex flex-col film-grain color-grade">
+        <SvgFilters />
         <StructuredData />
         <Header />
         <main className="flex-1">
           {children}
         </main>
         <Footer />
+        <MobileStickyCTA />
       </body>
     </html>
   )

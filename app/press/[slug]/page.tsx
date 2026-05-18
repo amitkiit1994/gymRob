@@ -65,7 +65,7 @@ export default async function PressArticlePage({
   const pullQuoteSet = new Set(feature.inlinePullQuotes.map((q) => q.trim()))
 
   return (
-    <article className="min-h-screen bg-brick">
+    <article className="min-h-screen bg-brick brick-cracks">
       {/* Hero — pinned newspaper-cut headline + polaroid photo */}
       <header className="relative pt-28 sm:pt-32 pb-14 sm:pb-20">
         {/* Spotlight */}
@@ -111,7 +111,7 @@ export default async function PressArticlePage({
             {/* Headline + byline */}
             <div className="lg:col-span-8">
               {/* Title — painted on the wall */}
-              <h1 className="font-painted text-painted text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6 uppercase">
+              <h1 className="font-painted text-hammered-canvas text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight mb-6 uppercase">
                 {feature.title}
               </h1>
 

@@ -63,7 +63,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   const paragraphs = formatContent(blog.content)
 
   return (
-    <article className="min-h-screen bg-brick">
+    <article className="min-h-screen bg-brick brick-cracks">
       {/* Pinned header on brick wall */}
       <header className="relative pt-28 sm:pt-32 pb-12 sm:pb-16">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_30%,_rgba(254,250,224,0.08)_0%,_transparent_55%)] pointer-events-none" />
@@ -97,7 +97,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
 
           {/* Title — painted on the wall */}
-          <h1 className="font-painted text-painted text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight uppercase mb-6">
+          <h1 className="font-painted text-hammered-canvas text-3xl sm:text-4xl md:text-5xl leading-[1.1] tracking-tight uppercase mb-6">
             {blog.title}
           </h1>
 

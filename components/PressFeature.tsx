@@ -12,7 +12,7 @@ export default function PressFeature() {
   return (
     <section
       id="press"
-      className="relative bg-brick py-20 sm:py-28 overflow-hidden"
+      className="relative bg-brick brick-cracks py-20 sm:py-28 overflow-hidden"
     >
       {/* Top weld seam */}
       <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
@@ -20,27 +20,22 @@ export default function PressFeature() {
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7 }}
           className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto"
         >
           <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-mighty-red bg-mighty-shadow border border-rocky-paper/25 px-2.5 py-1 rounded-sm">
             CH_07
           </span>
           <div className="h-px flex-1 max-w-[14rem] bg-gradient-to-r from-rocky-paper/40 to-transparent" />
-          <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] text-rocky-paper/60">
+          <span
+            className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] font-bold text-rocky-paper bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
+            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+          >
             The Press · Newspaper Cut
           </span>
         </motion.div>
 
         {/* Newspaper-style heading on paper */}
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, delay: 0.1 }}
           className="text-center mb-14 sm:mb-20"
         >
           <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-4 sm:px-10 sm:py-6 -rotate-1 border-4 border-mighty-shadow shadow-plate">
@@ -79,10 +74,6 @@ function FeatureCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.8 }}
       className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
     >
       {/* Pinned photo — polaroid on the wall */}
@@ -92,10 +83,6 @@ function FeatureCard({
         }`}
       >
         <motion.figure
-          initial={{ opacity: 0, scale: 0.95, rotate: -4 }}
-          whileInView={{ opacity: 1, scale: 1, rotate: -3 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
           className="relative inline-block"
         >
           <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 shadow-pinned">
@@ -127,11 +114,12 @@ function FeatureCard({
           <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
           <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
 
-          {/* FEATURED tag — floating red sign */}
-          <div className="absolute -top-5 -right-5 sm:-right-7 flex items-center gap-1.5 bg-mighty-red border-2 border-mighty-shadow px-3 py-1 rounded-sm shadow-[0_4px_0_-1px_rgba(0,0,0,0.85)] rotate-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-rocky-paper animate-pulse" />
-            <span className="font-mono text-[0.6rem] font-extrabold tracking-[0.25em] uppercase text-rocky-paper">
-              Featured
+          {/* FEATURED tag — stenciled red metal sign, brass-tacked */}
+          <div className="absolute -top-5 -right-5 sm:-right-7 painted-metal-red wearouts border-2 border-mighty-shadow px-3 py-1 rounded-sm shadow-[0_5px_0_-1px_rgba(0,0,0,0.85),0_8px_14px_rgba(0,0,0,0.7)] rotate-6">
+            <span className="brass-tack absolute -top-1 -left-1" aria-hidden="true" />
+            <span className="brass-tack absolute -top-1 -right-1" aria-hidden="true" />
+            <span className="font-mono text-[0.6rem] font-extrabold tracking-[0.3em] uppercase text-rocky-paper">
+              · Featured ·
             </span>
           </div>
         </motion.figure>
@@ -151,7 +139,7 @@ function FeatureCard({
         </div>
 
         {/* Headline — painted on the wall */}
-        <h3 className="font-painted text-painted text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-7 uppercase">
+        <h3 className="font-painted text-hammered-canvas text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.05] tracking-tight mb-7 uppercase">
           {feature.title}
         </h3>
 
@@ -170,15 +158,27 @@ function FeatureCard({
           </figcaption>
         </figure>
 
-        <p className="text-sm sm:text-base text-rocky-paper/80 leading-relaxed mb-8">
-          {feature.excerpt}
-        </p>
+        {/* Press excerpt — newspaper cutting pinned to the wall */}
+        <div className="relative inline-block mb-8 max-w-full">
+          <div
+            className="newsprint text-mighty-shadow px-6 py-5 sm:px-8 sm:py-6 -rotate-[0.4deg] border border-mighty-shadow/30 shadow-[0_10px_22px_rgba(0,0,0,0.65),0_2px_0_-1px_rgba(0,0,0,0.75)]"
+          >
+            <p className="font-mono text-[10px] text-mighty-red font-extrabold tracking-[0.3em] uppercase mb-2 border-b border-mighty-shadow/25 pb-2">
+              · The Cutting ·
+            </p>
+            <p className="text-sm sm:text-base text-mighty-shadow leading-relaxed">
+              {feature.excerpt}
+            </p>
+          </div>
+          <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
+          <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
+        </div>
 
         {/* CTAs — painted metal signs */}
         <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
           <Link
             href={`/press/${feature.slug}`}
-            className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 sm:px-7 sm:py-3.5 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-rocky-leather hover:text-mighty-shadow active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
+            className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3 sm:px-7 sm:py-3.5 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -201,7 +201,7 @@ function FeatureCard({
             href={feature.sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center gap-2 bg-mighty-shadow border-4 border-rocky-paper/40 px-6 py-3 sm:px-7 sm:py-3.5 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:border-rocky-paper active:translate-y-[3px] transition-all group"
+            className="relative inline-flex items-center justify-center gap-2 painted-metal-dark wearouts border-4 border-rocky-paper/40 px-6 py-3 sm:px-7 sm:py-3.5 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:border-rocky-paper active:translate-y-[3px] transition-all group"
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
