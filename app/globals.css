@@ -98,53 +98,112 @@
 
   /* ─────────────────────────────────────────────────────────
    * IRON THEME — rusted-metal industrial aesthetic
-   * Used for press section / "hard, raw" surfaces.
+   * RAW MODE — turned up: heavier grain, deeper bevels,
+   * stamped typography, harder shadows, broken edges.
    * ───────────────────────────────────────────────────────── */
 
-  /* Rusty weathered metal background — layered noise + radial scratches */
+  /* Rusty weathered metal background — heavier rust + scratches + harsh vignette */
   .iron-bg {
-    background-color: #0a0604;
+    background-color: #050302;
     background-image:
-      radial-gradient(ellipse at 20% 20%, rgba(234, 88, 12, 0.18) 0%, transparent 45%),
-      radial-gradient(ellipse at 80% 80%, rgba(124, 45, 18, 0.25) 0%, transparent 55%),
-      radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.95) 100%),
-      url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.6 0 0 0 0.08  0.3 0 0 0 0.03  0.1 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23r)' opacity='0.35'/></svg>");
-    background-size: cover, cover, cover, 400px 400px;
+      /* Diagonal scratch streaks */
+      repeating-linear-gradient(
+        135deg,
+        transparent 0px,
+        transparent 100px,
+        rgba(254, 215, 170, 0.025) 100px,
+        rgba(254, 215, 170, 0.025) 101px,
+        transparent 101px,
+        transparent 240px,
+        rgba(234, 88, 12, 0.035) 240px,
+        rgba(234, 88, 12, 0.035) 241px
+      ),
+      radial-gradient(ellipse at 15% 25%, rgba(234, 88, 12, 0.28) 0%, transparent 40%),
+      radial-gradient(ellipse at 85% 75%, rgba(124, 45, 18, 0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.85) 75%, #000 100%),
+      url("data:image/svg+xml;utf8,<svg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'><filter id='r'><feTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='4' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.7 0 0 0 0.12  0.32 0 0 0 0.04  0.08 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23r)' opacity='0.6'/></svg>");
+    background-size: 240px 240px, cover, cover, cover, 400px 400px;
   }
 
-  /* Heavier rust grain layer for emphasis areas */
+  /* Heavier rust grain layer — boosted opacity for raw feel */
   .iron-grain::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.85;
     mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.5 0 0 0 0.1  0.25 0 0 0 0.05  0.1 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
-    background-size: 200px 200px;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0.6 0 0 0 0.15  0.3 0 0 0 0.06  0.1 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
+    background-size: 220px 220px;
   }
 
-  /* Metallic embossed orange-to-gold text */
+  /* Extra scratch streak layer for surfaces that need MORE */
+  .iron-scratch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image:
+      repeating-linear-gradient(
+        165deg,
+        transparent 0,
+        transparent 80px,
+        rgba(254, 215, 170, 0.04) 80px,
+        rgba(254, 215, 170, 0.04) 82px
+      ),
+      repeating-linear-gradient(
+        20deg,
+        transparent 0,
+        transparent 180px,
+        rgba(234, 88, 12, 0.05) 180px,
+        rgba(234, 88, 12, 0.05) 181px
+      );
+  }
+
+  /* Embossed iron text — heavier, dirtier, more shadow */
   .iron-text {
     background-image: linear-gradient(
       180deg,
       #fed7aa 0%,
-      #fb923c 25%,
-      #ea580c 55%,
-      #9a3412 85%,
-      #fed7aa 100%
+      #fb923c 18%,
+      #ea580c 42%,
+      #9a3412 68%,
+      #7c2d12 88%,
+      #fdba74 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     text-shadow:
-      0 1px 0 rgba(0, 0, 0, 0.5),
-      0 2px 6px rgba(234, 88, 12, 0.25),
-      0 0 24px rgba(234, 88, 12, 0.15);
-    filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.6));
-    font-weight: 800;
+      0 1px 0 rgba(0, 0, 0, 0.7),
+      0 2px 0 rgba(0, 0, 0, 0.6),
+      0 3px 0 rgba(0, 0, 0, 0.4),
+      0 4px 8px rgba(0, 0, 0, 0.9),
+      0 0 32px rgba(234, 88, 12, 0.4),
+      0 0 6px rgba(234, 88, 12, 0.5);
+    filter:
+      drop-shadow(0 2px 1px rgba(0, 0, 0, 0.7))
+      drop-shadow(0 0 3px rgba(124, 45, 18, 0.6));
+    font-weight: 900;
     letter-spacing: 0.01em;
+  }
+
+  /* Stamped/punched text — heavier hit, darker shadow, more weight */
+  .iron-stamp {
+    color: #ea580c;
+    font-weight: 900;
+    text-shadow:
+      0 0 0 rgba(254, 215, 170, 0.4),
+      -1px -1px 0 rgba(254, 215, 170, 0.25),
+      1px 1px 0 rgba(0, 0, 0, 0.95),
+      2px 2px 0 rgba(0, 0, 0, 0.8),
+      3px 3px 0 rgba(0, 0, 0, 0.6),
+      4px 4px 12px rgba(0, 0, 0, 0.9),
+      0 0 24px rgba(234, 88, 12, 0.3);
+    letter-spacing: 0.02em;
   }
 
   /* Brushed steel text — for contrast vs iron-text */
@@ -152,56 +211,117 @@
     background-image: linear-gradient(
       180deg,
       #f3f4f6 0%,
-      #d1d5db 30%,
-      #9ca3af 60%,
-      #4b5563 100%
+      #d1d5db 25%,
+      #9ca3af 55%,
+      #4b5563 80%,
+      #1f2937 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
-    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
-    font-weight: 800;
+    text-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.8),
+      0 2px 0 rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.8));
+    font-weight: 900;
   }
 
-  /* Heavy iron frame — double-bevel rust border for cards/thumbnails */
+  /* Heavy iron frame — deeper bevels, more grit, harder shadows */
   .iron-frame {
     position: relative;
-    border: 2px solid #9a3412;
+    border: 2px solid #7c2d12;
     box-shadow:
-      inset 0 0 0 1px rgba(254, 215, 170, 0.15),
-      inset 0 2px 4px rgba(0, 0, 0, 0.8),
-      0 0 0 1px rgba(0, 0, 0, 0.8),
-      0 0 24px rgba(234, 88, 12, 0.25),
-      0 12px 40px rgba(0, 0, 0, 0.8);
+      inset 0 0 0 1px rgba(254, 215, 170, 0.18),
+      inset 0 2px 0 rgba(254, 215, 170, 0.12),
+      inset 0 -2px 0 rgba(0, 0, 0, 0.9),
+      inset 0 4px 8px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(0, 0, 0, 0.9),
+      0 0 0 3px rgba(124, 45, 18, 0.4),
+      0 0 32px rgba(234, 88, 12, 0.2),
+      0 16px 48px rgba(0, 0, 0, 0.95);
   }
 
-  /* Diagonal spark/streak corner decorations */
+  /* Notched / cut-corner frame — broken industrial edge */
+  .iron-frame-notch {
+    position: relative;
+    border: 2px solid #7c2d12;
+    box-shadow:
+      inset 0 0 0 1px rgba(254, 215, 170, 0.18),
+      inset 0 4px 8px rgba(0, 0, 0, 0.7),
+      0 0 0 1px rgba(0, 0, 0, 0.9),
+      0 16px 48px rgba(0, 0, 0, 0.95);
+    clip-path: polygon(
+      14px 0,
+      100% 0,
+      100% calc(100% - 14px),
+      calc(100% - 14px) 100%,
+      0 100%,
+      0 14px
+    );
+  }
+
+  /* Diagonal spark / scratch corner decorations — bigger, brighter */
   .spark-corner-tl::before,
   .spark-corner-br::after {
     content: '';
     position: absolute;
-    width: 80px;
-    height: 2px;
+    width: 140px;
+    height: 3px;
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(254, 215, 170, 0.8),
+      rgba(254, 215, 170, 0.95),
+      rgba(251, 146, 60, 0.7),
       rgba(234, 88, 12, 0.6),
       transparent
     );
     pointer-events: none;
     filter: blur(0.5px);
+    box-shadow: 0 0 12px rgba(251, 146, 60, 0.4);
   }
   .spark-corner-tl::before {
-    top: 14px;
-    left: -10px;
+    top: 20px;
+    left: -20px;
     transform: rotate(-30deg);
   }
   .spark-corner-br::after {
-    bottom: 14px;
-    right: -10px;
+    bottom: 20px;
+    right: -20px;
     transform: rotate(-30deg);
+  }
+
+  /* Rivet — small metallic stud for industrial accent */
+  .rivet {
+    position: relative;
+  }
+  .rivet::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fdba74 0%, #9a3412 70%, #000 100%);
+    box-shadow:
+      inset 0 -1px 1px rgba(0, 0, 0, 0.8),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  /* Iron divider — chunky rust bar instead of thin line */
+  .iron-divider {
+    height: 6px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #9a3412 15%,
+      #ea580c 50%,
+      #9a3412 85%,
+      transparent 100%
+    );
+    border-top: 1px solid rgba(254, 215, 170, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.8),
+      0 0 16px rgba(234, 88, 12, 0.3);
   }
 }

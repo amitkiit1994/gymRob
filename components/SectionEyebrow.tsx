@@ -15,11 +15,17 @@ export default function SectionEyebrow({
 
   return (
     <div className={`flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 ${justify} ${className}`}>
-      <span className="h-px w-8 sm:w-12 bg-accent-600" aria-hidden="true" />
-      <span className="font-serif italic text-[0.7rem] sm:text-xs tracking-[0.25em] uppercase text-accent-500">
-        {number ? `${number} / ` : ''}{label}
+      <span
+        className="h-[2px] w-10 sm:w-16 bg-gradient-to-r from-transparent via-accent-600 to-accent-500 shadow-[0_0_8px_rgba(234,88,12,0.5)]"
+        aria-hidden="true"
+      />
+      <span className="font-mono font-bold text-[0.65rem] sm:text-xs tracking-[0.35em] uppercase text-accent-400 [text-shadow:0_1px_0_rgba(0,0,0,0.8)]">
+        {number ? `${number} · ` : ''}{label}
       </span>
-      <span className="h-px w-8 sm:w-12 bg-accent-600" aria-hidden="true" />
+      <span
+        className="h-[2px] w-10 sm:w-16 bg-gradient-to-l from-transparent via-accent-600 to-accent-500 shadow-[0_0_8px_rgba(234,88,12,0.5)]"
+        aria-hidden="true"
+      />
     </div>
   )
 }

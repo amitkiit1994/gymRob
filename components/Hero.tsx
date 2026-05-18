@@ -7,9 +7,10 @@ import { images } from '@/config/images'
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image/Video Placeholder */}
+      {/* Background Image/Video — heavier warm vignette + grain */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/90 via-primary-900/80 to-primary-900 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-[#0a0604]/80 to-black z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,_transparent_0%,_rgba(0,0,0,0.7)_90%)] z-10" />
         <div
           className="kenburns absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -17,6 +18,11 @@ export default function Hero() {
           }}
         />
       </div>
+
+      {/* Hero grain overlay for raw texture */}
+      <div className="iron-grain pointer-events-none absolute inset-0 z-10" />
+      {/* Spark streaks */}
+      <div className="spark-corner-tl spark-corner-br pointer-events-none absolute inset-0 z-10" />
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -30,10 +36,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="iron-text font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-[1.05] tracking-tight uppercase px-2"
+            className="iron-text font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-6 leading-[0.95] tracking-tight uppercase px-2"
           >
             <span className="sr-only">Robin Carruthers - </span>
-            Strength.<br className="hidden sm:block" /> Discipline. Life.
+            Strength.<br /> Discipline.<br /> Life.
           </motion.h1>
 
           <motion.p

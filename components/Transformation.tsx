@@ -18,7 +18,7 @@ export default function Transformation() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
             The Transformation
           </h2>
-          <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />
+          <div className="iron-divider w-40 mx-auto mb-6" />
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             The story behind 30 years of discipline, dedication, and transformation
           </p>

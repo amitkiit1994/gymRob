@@ -66,7 +66,7 @@ export default function Testimonials() {
           <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-4 px-4 uppercase tracking-tight leading-[1.05]">
             Testimonials
           </h2>
-          <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />
+          <div className="iron-divider w-40 mx-auto mb-4 sm:mb-6" />
           <p className="font-mono text-xs sm:text-sm text-accent-200/70 max-w-2xl mx-auto px-4 uppercase tracking-[0.2em]">
             Real results from real people · Long-term transformations
           </p>

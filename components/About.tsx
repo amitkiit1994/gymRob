@@ -18,7 +18,7 @@ export default function About() {
             <h2 className="iron-text font-serif text-4xl sm:text-5xl md:text-6xl mb-8 text-center px-4 uppercase tracking-tight leading-[1.05]">
               About Robin
             </h2>
-            <div className="h-1 w-24 bg-accent-600 mx-auto mb-12" />
+            <div className="iron-divider w-40 mx-auto mb-12" />
 
             <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
               <p>
