@@ -71,15 +71,29 @@ export default async function PressArticlePage({
 
   return (
     <article className="min-h-screen bg-primary-950">
-      {/* Editorial hero — contained, framed magazine-cover style */}
-      <header className="relative bg-primary-950 pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
-        {/* Backdrop wash */}
-        <div className="pointer-events-none absolute inset-0 opacity-50">
-          <div className="absolute -top-20 -right-20 w-[30rem] h-[30rem] rounded-full bg-accent-700/10 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-[30rem] h-[30rem] rounded-full bg-accent-900/20 blur-3xl" />
+      {/* Editorial hero — thumbnail portrait on black */}
+      <header className="relative bg-black pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
+        {/* Subtle backdrop accent */}
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[32rem] h-[32rem] rounded-full bg-accent-700/10 blur-3xl" />
         </div>
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+          {/* Thumbnail portrait */}
+          <figure className="mx-auto mb-8 sm:mb-10">
+            <div className="relative inline-block rounded-sm overflow-hidden border border-accent-600/50 shadow-[0_10px_40px_-10px_rgba(234,88,12,0.35)] bg-black">
+              <Image
+                src={feature.image}
+                alt={feature.imageAlt}
+                width={240}
+                height={144}
+                priority
+                sizes="240px"
+                className="block w-[180px] sm:w-[220px] md:w-[240px] h-auto"
+              />
+            </div>
+          </figure>
+
           {/* Eyebrow */}
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="h-px w-8 bg-accent-500" aria-hidden="true" />
@@ -95,7 +109,7 @@ export default async function PressArticlePage({
           </h1>
 
           {/* Byline strip */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-400 mb-10 sm:mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-400">
             <span className="font-semibold tracking-wide text-white">{feature.source}</span>
             <span className="h-1 w-1 rounded-full bg-gray-600" aria-hidden="true" />
             <time dateTime={feature.publishedDate}>{feature.displayDate}</time>
@@ -112,24 +126,6 @@ export default async function PressArticlePage({
               </svg>
             </a>
           </div>
-
-          {/* Contained framed image — original aspect ratio, capped width */}
-          <figure className="relative mx-auto max-w-2xl">
-            <div className="relative rounded-sm overflow-hidden border border-accent-600/40 shadow-[0_20px_70px_-15px_rgba(234,88,12,0.25)] bg-primary-900">
-              <Image
-                src={feature.image}
-                alt={feature.imageAlt}
-                width={590}
-                height={355}
-                priority
-                sizes="(min-width: 768px) 42rem, 100vw"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <figcaption className="mt-4 text-xs sm:text-sm text-gray-500 italic">
-              Photo: {feature.source}
-            </figcaption>
-          </figure>
         </div>
       </header>
 
