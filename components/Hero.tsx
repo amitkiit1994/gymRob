@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/90 via-primary-900/80 to-primary-900 z-10" />
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="kenburns absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('${images.hero.background}')`,
           }}
@@ -69,6 +69,34 @@ export default function Hero() {
             >
               Visit eGym Lokhandwala
             </Link>
+          </motion.div>
+
+          {/* Editorial trust bar — As Featured In */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="mt-12 sm:mt-14 px-4"
+          >
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-3">
+              <span className="h-px w-8 sm:w-12 bg-accent-600/60" aria-hidden="true" />
+              <span className="font-serif italic text-[0.65rem] sm:text-xs tracking-[0.3em] uppercase text-accent-400">
+                As Featured In
+              </span>
+              <span className="h-px w-8 sm:w-12 bg-accent-600/60" aria-hidden="true" />
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[0.7rem] sm:text-sm text-gray-400">
+              <Link
+                href="/press/robin-carruthers-reinvents-in-adland"
+                className="font-serif text-base sm:text-lg text-gray-200 hover:text-white transition-colors"
+              >
+                MediaInfoline
+              </Link>
+              <span className="hidden sm:inline text-gray-600">·</span>
+              <span className="text-gray-500">30+ Years in Adland</span>
+              <span className="hidden sm:inline text-gray-600">·</span>
+              <span className="text-gray-500">Certified Coach</span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

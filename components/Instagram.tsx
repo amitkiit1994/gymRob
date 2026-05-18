@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { getAllReels } from '@/config/images'
+import SectionEyebrow from './SectionEyebrow'
 
 const reels = getAllReels()
 
@@ -16,7 +17,8 @@ export default function Instagram() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+          <SectionEyebrow number="07" label="On The Feed" />
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
             Training & Motivation
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />

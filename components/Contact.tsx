@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, FormEvent } from 'react'
+import SectionEyebrow from './SectionEyebrow'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -74,7 +75,8 @@ Goal: ${formData.goal}`
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+            <SectionEyebrow number="08" label="Begin" />
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
               Start Your Training Journey
             </h2>
             <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />

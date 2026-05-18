@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { images } from '@/config/images'
+import SectionEyebrow from './SectionEyebrow'
 
 const testimonials = [
   {
@@ -61,7 +62,8 @@ export default function Testimonials() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-4">
+          <SectionEyebrow number="04" label="In Their Words" />
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 px-4">
             Testimonials
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />

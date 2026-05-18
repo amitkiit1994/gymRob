@@ -119,6 +119,25 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Featured In line */}
+        <div className="mt-10 pt-8 border-t border-primary-800">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+            <span className="font-serif italic text-[0.65rem] sm:text-xs tracking-[0.3em] uppercase text-accent-500">
+              Featured In
+            </span>
+            <Link
+              href="/press/robin-carruthers-reinvents-in-adland"
+              className="text-sm text-gray-300 hover:text-white transition-colors"
+            >
+              <span className="font-serif text-base text-white">MediaInfoline</span>
+              <span className="text-gray-500"> · </span>
+              <span className="italic">
+                &ldquo;Advertising Veteran Robin Carruthers Reinvents Himself in Adland&rdquo;
+              </span>
+            </Link>
+          </div>
+        </div>
+
         <div className="mt-8 pt-8 border-t border-primary-800 text-center">
           <p className="text-gray-500 text-sm">
             © {currentYear} Robin Carruthers. All rights reserved.

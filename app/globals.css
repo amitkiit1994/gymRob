@@ -6,6 +6,7 @@
   :root {
     --font-inter: 'Inter', system-ui, sans-serif;
     --font-display: 'Inter', system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
   }
 
   body {
@@ -35,5 +36,63 @@
   .text-balance {
     text-wrap: balance;
   }
-}
 
+  /* Editorial grain overlay — applied fixed to body, very subtle */
+  .grain-body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+  }
+
+  /* Slow Ken Burns motion for hero background */
+  .kenburns {
+    animation: kenburns 28s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.0) translate3d(0, 0, 0); }
+    to   { transform: scale(1.07) translate3d(-1%, -1%, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kenburns { animation: none; }
+  }
+
+  /* Editorial drop cap for long-form press articles */
+  .drop-cap::first-letter {
+    @apply font-serif text-accent-500;
+    float: left;
+    font-size: 4.5rem;
+    line-height: 0.95;
+    padding-right: 0.75rem;
+    padding-top: 0.35rem;
+    font-weight: 700;
+  }
+
+  /* Pull quote treatment for press features */
+  .pull-quote {
+    @apply font-serif italic text-gray-100;
+    quotes: '\201C' '\201D';
+  }
+  .pull-quote::before {
+    content: open-quote;
+    @apply text-accent-500;
+    font-size: 1.5em;
+    line-height: 0;
+    margin-right: 0.1em;
+    vertical-align: -0.25em;
+  }
+  .pull-quote::after {
+    content: close-quote;
+    @apply text-accent-500;
+    font-size: 1.5em;
+    line-height: 0;
+    margin-left: 0.05em;
+    vertical-align: -0.4em;
+  }
+}

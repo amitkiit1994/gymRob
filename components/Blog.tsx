@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
 import { featuredBlogs, otherBlogs } from '@/lib/blogData'
+import SectionEyebrow from './SectionEyebrow'
 
 // Helper to create excerpt with character limit (more predictable)
 function createExcerpt(content: string, maxChars: number = 250): { excerpt: string; hasMore: boolean } {
@@ -385,7 +386,8 @@ function FeaturedBlogsSection() {
     <div className="max-w-6xl mx-auto mb-20">
       {/* Section Header */}
       <div className="text-center mb-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 px-4">
+        <SectionEyebrow number="06" label="The Journal" />
+        <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-4 px-4">
           Transformation & Insights
         </h2>
         <div className="h-1 w-24 bg-accent-600 mx-auto mb-4 sm:mb-6" />

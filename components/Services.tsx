@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionEyebrow from './SectionEyebrow'
 
 const services = [
   {
@@ -56,7 +57,8 @@ export default function Services() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 px-4">
+          <SectionEyebrow number="02" label="What I Offer" />
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white mb-4 px-4">
             Coaching Services
           </h2>
           <div className="h-1 w-24 bg-accent-600 mx-auto mb-6" />

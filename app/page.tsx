@@ -6,6 +6,7 @@ import Location from '@/components/Location'
 import Blog from '@/components/Blog'
 import Instagram from '@/components/Instagram'
 import Testimonials from '@/components/Testimonials'
+import PressFeature from '@/components/PressFeature'
 import Contact from '@/components/Contact'
 
 export default function Home() {
@@ -16,9 +17,10 @@ export default function Home() {
       <Services />
       <EGym />
       <Location />
+      <Testimonials />
+      <PressFeature />
       <Blog />
       <Instagram />
-      <Testimonials />
       <Contact />
     </>
   )

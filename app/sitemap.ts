@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getCanonicalUrl } from '@/lib/seo'
 import { getAllBlogSlugs } from '@/lib/blogData'
+import { getAllPressSlugs } from '@/lib/pressData'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getCanonicalUrl().replace(/\/$/, '') // Remove trailing slash
@@ -45,6 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/#press`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}/#testimonials`,
       lastModified: now,
       changeFrequency: 'monthly',
@@ -67,6 +74,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...mainPages, ...blogPages]
+  // Press feature pages
+  const pressSlugs = getAllPressSlugs()
+  const pressPages: MetadataRoute.Sitemap = pressSlugs.map(slug => ({
+    url: `${baseUrl}/press/${slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.85,
+  }))
+
+  return [...mainPages, ...blogPages, ...pressPages]
 }
 
