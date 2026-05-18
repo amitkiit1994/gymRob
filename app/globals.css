@@ -158,38 +158,59 @@
       );
   }
 
-  /* Iron text — polished steel/copper gradient stamped on heavy industrial type.
-     Pairs with Anton (heavy condensed sans) for forklift-plate / factory-sign feel. */
+  /* IRON TEXT — actual iron / polished steel.
+     Cold gunmetal gradient + rust-colored chisel shadow underneath.
+     Reads as forged steel sitting on rusted bedrock. */
   .iron-text {
     background-image: linear-gradient(
       180deg,
-      #fef3c7 0%,    /* top highlight - bright cream */
-      #fde68a 20%,   /* warm gold band */
-      #fdba74 45%,   /* copper midtone */
-      #fb923c 65%,   /* core orange */
-      #fdba74 85%,   /* second highlight */
-      #fef3c7 100%   /* bottom rim light */
+      #f9fafb 0%,    /* top highlight - bright steel */
+      #e5e7eb 20%,   /* polished chrome */
+      #9ca3af 45%,   /* gunmetal midtone */
+      #6b7280 65%,   /* deep iron */
+      #d1d5db 85%,   /* bottom rim light */
+      #f3f4f6 100%   /* edge shine */
     );
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     letter-spacing: 0.01em;
-    /* Hard chiseled bottom — gives the stamped iron-machinery feel */
+    /* Hard chiseled bottom — rust under the iron */
     filter:
-      drop-shadow(0 1px 0 #7c2d12)
-      drop-shadow(0 2px 0 #5b1a08)
-      drop-shadow(0 3px 0 #2a0a02)
-      drop-shadow(0 6px 12px rgba(0, 0, 0, 0.95));
+      drop-shadow(0 1px 0 #1f2937)
+      drop-shadow(0 2px 0 #111827)
+      drop-shadow(0 3px 0 #7c2d12)
+      drop-shadow(0 4px 0 #3d1003)
+      drop-shadow(0 7px 14px rgba(0, 0, 0, 0.95));
   }
 
-  /* Smaller variant — proportionally smaller chisel for inline use */
+  /* Smaller variant — proportional shadow stack */
   .iron-text-sm {
+    background-image: linear-gradient(
+      180deg,
+      #f9fafb 0%,
+      #9ca3af 50%,
+      #f3f4f6 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    filter:
+      drop-shadow(0 1px 0 #111827)
+      drop-shadow(0 2px 0 #7c2d12)
+      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
+  }
+
+  /* Rust text — for when we want the orange-rust palette specifically
+     (kept available, but iron-text is now actual iron) */
+  .rust-text {
     background-image: linear-gradient(
       180deg,
       #fef3c7 0%,
       #fdba74 50%,
-      #fef3c7 100%
+      #fb923c 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -198,7 +219,7 @@
     filter:
       drop-shadow(0 1px 0 #7c2d12)
       drop-shadow(0 2px 0 #2a0a02)
-      drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
+      drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
   }
 
   /* Pure brushed steel — for the very few headlines where copper is wrong */
