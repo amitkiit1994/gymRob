@@ -2,6 +2,7 @@ import HeroSwitch from '@/components/HeroSwitch'
 import TheWeight from '@/components/story/TheWeight'
 import TheForge from '@/components/story/TheForge'
 import TheWarrior from '@/components/story/TheWarrior'
+import FullCircle from '@/components/story/FullCircle'
 import Services from '@/components/Services'
 import EGym from '@/components/EGym'
 import Location from '@/components/Location'
@@ -31,6 +32,9 @@ export default function Home() {
       <TheWeight />
       <TheForge />
       <TheWarrior />
+
+      {/* ── INTERLUDE · Full Circle (the Stallone moment) ── */}
+      <FullCircle />
 
       {/* ── PRESENT ──────────────────────────────────── */}
       <Services />
