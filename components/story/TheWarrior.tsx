@@ -60,20 +60,10 @@ export default function TheWarrior() {
       const settleRotate = idx % 2 === 0 ? -1.5 : 2
       tl.to(el, {
         y: 0,
-        rotateZ: settleRotate * 1.8,
-        duration: 0.55,
-        ease: 'power4.in',
+        rotateZ: settleRotate,
+        duration: 0.65,
+        ease: 'power3.out',
       }, idx * 0.12)
-        .to(el, {
-          rotateZ: -settleRotate,
-          duration: 0.35,
-          ease: 'sine.inOut',
-        }, `>-0.05`)
-        .to(el, {
-          rotateZ: settleRotate,
-          duration: 0.45,
-          ease: 'sine.out',
-        })
     })
   }, [])
 

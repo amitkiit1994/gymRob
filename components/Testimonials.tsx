@@ -58,44 +58,29 @@ const testimonials = [
  * Testimonials as polaroids taped to the gym wall + video shorts as old TVs.
  */
 export default function Testimonials() {
-  // Polaroids swing in from the top edge — hinged at top, pendulum settle
-  const wallRef = useGsapContext<HTMLDivElement>((q, scope) => {
+  // Polaroids fade and ease up into their resting tilt — one quiet beat per card.
+  const wallRef = useGsapContext<HTMLDivElement>((q) => {
     const polaroids = q('.testimonial-card')
     if (!polaroids.length) return
 
-    gsap.set(scope, { perspective: 1400 })
     polaroids.forEach((el) => {
-      gsap.set(el, {
-        transformOrigin: '50% 0%',
-        rotateX: -75,
-        rotateZ: -4,
-        y: -20,
-      })
+      gsap.set(el, { opacity: 0, y: 24, scale: 0.98 })
     })
 
     const tl = gsap.timeline({
-      scrollTrigger: { trigger: scope, start: 'top 78%', once: true },
+      scrollTrigger: { trigger: polaroids[0], start: 'top 85%', once: true },
     })
 
     polaroids.forEach((el, idx) => {
-      const targetRotate = idx % 2 === 0 ? -2.5 : 2.5
+      const targetRotate = idx % 2 === 0 ? -2 : 2
       tl.to(el, {
-        rotateX: 0,
-        rotateZ: targetRotate * 1.6,
+        opacity: 1,
         y: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-      }, idx * 0.1)
-        .to(el, {
-          rotateZ: -targetRotate,
-          duration: 0.35,
-          ease: 'sine.inOut',
-        })
-        .to(el, {
-          rotateZ: targetRotate,
-          duration: 0.4,
-          ease: 'sine.out',
-        })
+        scale: 1,
+        rotateZ: targetRotate,
+        duration: 0.55,
+        ease: 'power2.out',
+      }, idx * 0.08)
     })
   }, [])
 

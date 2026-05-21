@@ -56,51 +56,21 @@ export default function Hero() {
       ease: 'power3.in',
     }, 0.1)
 
-    // PHOTO — falls, hits nails, swings to settle
+    // PHOTO — falls and lands at its final tilt in one beat
     tl.to(q('.hero-photo'), {
       y: 0,
-      rotateZ: -2,
-      duration: 0.7,
-      ease: 'power3.in',
+      rotateZ: -3,
+      duration: 0.8,
+      ease: 'power3.out',
     }, 0.2)
-      .to(q('.hero-photo'), {
-        rotateZ: -5,
-        duration: 0.4,
-        ease: 'sine.inOut',
-      })
-      .to(q('.hero-photo'), {
-        rotateZ: -3,
-        duration: 0.5,
-        ease: 'sine.inOut',
-      })
-      .to(q('.hero-photo'), {
-        rotateZ: -3.6,
-        duration: 0.55,
-        ease: 'sine.out',
-      })
 
-    // BANNER — heaviest hanging item, slowest fall + biggest pendulum settle
+    // BANNER — heaviest hanging item, single lands-at-rest tween
     tl.to(q('.hero-banner'), {
       y: 0,
-      rotateZ: -2.5,
-      duration: 0.85,
-      ease: 'power4.in',
+      rotateZ: -1.5,
+      duration: 0.95,
+      ease: 'power3.out',
     }, 0.45)
-      .to(q('.hero-banner'), {
-        rotateZ: 1,
-        duration: 0.55,
-        ease: 'sine.inOut',
-      })
-      .to(q('.hero-banner'), {
-        rotateZ: -1.5,
-        duration: 0.6,
-        ease: 'sine.inOut',
-      })
-      .to(q('.hero-banner'), {
-        rotateZ: -1.5,
-        duration: 0.5,
-        ease: 'sine.out',
-      })
 
     // CHALKBOARD — wall-pinned + heavy: drops, slams, no bounce
     tl.to(q('.hero-subline'), {
@@ -118,40 +88,13 @@ export default function Hero() {
       ease: 'power4.in',
     }, 1.4)
 
-    // PRESS CLIPPING — paper, floats down slower (air resistance)
+    // PRESS CLIPPING — paper, floats down to its resting tilt
     tl.to(q('.hero-clipping'), {
       y: 0,
       rotate: -2,
-      duration: 1.0,
+      duration: 0.9,
       ease: 'power1.out',
     }, 1.55)
-      .to(q('.hero-clipping'), {
-        rotate: -3,
-        duration: 0.55,
-        ease: 'sine.inOut',
-      })
-      .to(q('.hero-clipping'), {
-        rotate: -2,
-        duration: 0.7,
-        ease: 'sine.out',
-      })
-
-    // ── Scroll physics ──
-    // Pinned posters DON'T drift. Only free-hanging items (banner on ropes) sway.
-    // Brick wall stays still (it's the wall — has mass).
-
-    // Banner is the ONLY thing that responds to scroll — it's free-hanging from ropes
-    // so it gently sways as the viewport moves past it.
-    gsap.to(q('.hero-banner'), {
-      rotateZ: -3,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: scope,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.5,
-      },
-    })
   }, [])
 
   return (

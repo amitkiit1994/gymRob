@@ -31,21 +31,13 @@ export default function TheForge() {
     tl.to(from, { x: 0, rotateY: 0, duration: 0.7, ease: 'power3.out' })
     // The arrow draws in
     tl.to(arrow, { x: 0, opacity: 1, duration: 0.35, ease: 'power2.out' }, '-=0.1')
-    // "78" SLAMS down from above with weight + screen shake
+    // "78" lands from above — single weighted tween, no shake, no bounce
     tl.to(to, {
       y: 0,
       scale: 1,
-      duration: 0.45,
-      ease: 'power4.in',
+      duration: 0.55,
+      ease: 'power3.out',
     }, '+=0.05')
-      // Bounce settle (heavy: small bounce only)
-      .to(to, { scale: 1.04, duration: 0.1, ease: 'power2.out' })
-      .to(to, { scale: 1, duration: 0.25, ease: 'sine.out' })
-      // Screen shake on impact
-      .to(scope, { x: -4, duration: 0.04, ease: 'none' }, '-=0.35')
-      .to(scope, { x: 4, duration: 0.04, ease: 'none' })
-      .to(scope, { x: -2, duration: 0.04, ease: 'none' })
-      .to(scope, { x: 0, duration: 0.04, ease: 'none' })
   }, [])
 
   return (

@@ -33,8 +33,16 @@ export function useGsapContext<T extends HTMLElement = HTMLElement>(
     if (!ref.current) return
     const scope = ref.current
     const q = gsap.utils.selector(scope)
-    const ctx = gsap.context(() => setup(q, scope), scope)
-    return () => ctx.revert()
+    // matchMedia gates the whole setup on prefers-reduced-motion: no-preference.
+    // When reduce is requested, no tweens or ScrollTriggers register, so every
+    // component mounts in its natural CSS state (which is also the final state
+    // each timeline was landing on). cleanup reverts everything matchMedia made.
+    const mm = gsap.matchMedia()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => setup(q, scope), scope)
+      return () => ctx.revert()
+    })
+    return () => mm.revert()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps)
 

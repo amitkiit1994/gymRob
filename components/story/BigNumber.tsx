@@ -57,7 +57,7 @@ export default function BigNumber({
       </p>
 
       <motion.h2
-        style={{ y, willChange: 'transform' }}
+        style={{ y }}
         className={`
           font-iron font-bold uppercase tracking-tighter
           text-display-giant

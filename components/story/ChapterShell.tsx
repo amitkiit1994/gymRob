@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, ReactNode } from 'react'
 import CanvasBanner from '../CanvasBanner'
-import { useGsapContext, gsap, ScrollTrigger } from '@/hooks/useGsap'
+import { useGsapContext, gsap } from '@/hooks/useGsap'
 
 type Tone =
   | 'brick' | 'brick-left' | 'brick-right' | 'brick-crop'
@@ -87,35 +87,8 @@ export default function ChapterShell({
     tl.to(banner, {
       y: 0,
       rotateZ: tilt,
-      duration: 0.85,
-      ease: 'power4.in',
-    })
-      .to(banner, {
-        rotateZ: tilt + 2.2,
-        duration: 0.5,
-        ease: 'sine.inOut',
-      })
-      .to(banner, {
-        rotateZ: tilt - 0.6,
-        duration: 0.55,
-        ease: 'sine.inOut',
-      })
-      .to(banner, {
-        rotateZ: tilt,
-        duration: 0.55,
-        ease: 'sine.out',
-      })
-
-    // Subtle scroll-sway after settle (free-hanging banner reacts to scroll)
-    gsap.to(banner, {
-      rotateZ: tilt - 1.8,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: scope,
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1.2,
-      },
+      duration: 0.95,
+      ease: 'power3.out',
     })
   }, [tilt])
 

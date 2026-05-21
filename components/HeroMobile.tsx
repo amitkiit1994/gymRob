@@ -38,37 +38,17 @@ export default function HeroMobile() {
 
     tl.to(q('.m-hero-photo'), {
       y: 0,
-      rotateZ: -2,
-      duration: 0.65,
-      ease: 'power3.in',
+      rotateZ: -2.5,
+      duration: 0.75,
+      ease: 'power3.out',
     }, 0.1)
-      .to(q('.m-hero-photo'), {
-        rotateZ: -3.5,
-        duration: 0.35,
-        ease: 'sine.inOut',
-      })
-      .to(q('.m-hero-photo'), {
-        rotateZ: -2.5,
-        duration: 0.4,
-        ease: 'sine.out',
-      })
 
     tl.to(q('.m-hero-banner'), {
       y: 0,
-      rotateZ: -1.5,
-      duration: 0.75,
-      ease: 'power4.in',
+      rotateZ: -1,
+      duration: 0.85,
+      ease: 'power3.out',
     }, 0.45)
-      .to(q('.m-hero-banner'), {
-        rotateZ: 0.5,
-        duration: 0.4,
-        ease: 'sine.inOut',
-      })
-      .to(q('.m-hero-banner'), {
-        rotateZ: -1,
-        duration: 0.45,
-        ease: 'sine.out',
-      })
 
     tl.to(q('.m-hero-subline'), {
       y: 0,
@@ -158,7 +138,7 @@ export default function HeroMobile() {
                 <p className="font-mono text-[0.55rem] text-rocky-paper/85 tracking-[0.4em] uppercase mb-1.5">
                   Robin Carruthers'
                 </p>
-                <h1 className="font-painted text-hammered-canvas text-4xl leading-[0.9] tracking-tight uppercase">
+                <h1 className="font-painted text-hammered-canvas text-3xl leading-[0.92] tracking-tight uppercase">
                   <span className="sr-only">Robin Carruthers — </span>
                   Iron <br />Reinvention
                 </h1>
@@ -196,7 +176,6 @@ export default function HeroMobile() {
           <Link
             href="#story"
             className="m-hero-cta relative w-full inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-5 py-3.5 font-painted text-rocky-paper text-sm uppercase tracking-wider rounded-sm shadow-[0_5px_0_-1px_rgba(0,0,0,0.85),0_8px_16px_rgba(0,0,0,0.7)] active:translate-y-[2px]"
-            style={{ willChange: 'transform' }}
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -208,7 +187,6 @@ export default function HeroMobile() {
           <Link
             href="#contact"
             className="m-hero-cta relative w-full inline-flex items-center justify-center gap-2 painted-metal-dark wearouts border-4 border-rocky-paper/50 px-5 py-3.5 font-painted text-rocky-paper text-sm uppercase tracking-wider rounded-sm shadow-[0_5px_0_-1px_rgba(0,0,0,0.85),0_8px_16px_rgba(0,0,0,0.7)] active:translate-y-[2px]"
-            style={{ willChange: 'transform' }}
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
