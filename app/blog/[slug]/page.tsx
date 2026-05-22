@@ -229,7 +229,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <div className="mt-12 text-center">
             <Link
               href="/#blog"
-              className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] transition-all"
+              className="relative inline-flex items-center justify-center gap-2 bg-mighty-red border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:bg-mighty-shadow active:translate-y-[3px] transition-[transform,background-color]"
             >
               <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />

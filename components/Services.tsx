@@ -1,9 +1,18 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import ChapterShell from './story/ChapterShell'
-import { useGsapContext, gsap } from '@/hooks/useGsap'
 
+/**
+ * Four lockers along a back wall, absolute-positioned on desktop so doors
+ * overlap and tilt at different angles. No. 01 is cracked open (bigger,
+ * leaning forward); No. 02 is the shut neighbor butted right up against
+ * 01's right edge; No. 03 hangs low-left, its top corner sliding under 01's
+ * skirt; No. 04 is jammed at bottom-right with the biggest tilt and partly
+ * tucked behind 02 on its left edge.
+ *
+ * Mobile (default): clean vertical stack with alternating tilts only —
+ * tap-safe, no overlap. Reading order = source order.
+ */
 const services = [
   {
     plate: '01',
@@ -16,6 +25,10 @@ const services = [
       'Accountability + motivation',
       'Accelerated progress',
     ],
+    // Desktop: top-left, cracked open, biggest, in front of everyone
+    deskPos:
+      'sm:absolute sm:left-[0%] sm:top-[2%] sm:w-[52%] sm:-rotate-[2deg] sm:scale-[1.04] sm:z-30',
+    mobileTilt: '-rotate-[1.2deg]',
   },
   {
     plate: '02',
@@ -28,6 +41,10 @@ const services = [
       'Metabolic health',
       'Sustainable results',
     ],
+    // Desktop: top-right, butted up against 01's right edge, slightly smaller
+    deskPos:
+      'sm:absolute sm:right-[0%] sm:top-[8%] sm:w-[48%] sm:rotate-[1.2deg] sm:scale-[0.98] sm:z-20',
+    mobileTilt: 'rotate-[0.8deg]',
   },
   {
     plate: '03',
@@ -40,6 +57,10 @@ const services = [
       'Energy & focus',
       'Lifestyle change',
     ],
+    // Desktop: bottom-left, drops down, top-right corner slides under 01
+    deskPos:
+      'sm:absolute sm:left-[3%] sm:bottom-[3%] sm:w-[50%] sm:-rotate-[1deg] sm:z-25',
+    mobileTilt: '-rotate-[0.6deg]',
   },
   {
     plate: '04',
@@ -52,6 +73,10 @@ const services = [
       'Lifelong skills',
       'Confidence',
     ],
+    // Desktop: bottom-right, sits lowest & furthest back, biggest tilt
+    deskPos:
+      'sm:absolute sm:right-[2%] sm:bottom-[0%] sm:w-[46%] sm:rotate-[2.5deg] sm:z-10',
+    mobileTilt: 'rotate-[1.4deg]',
   },
 ]
 
@@ -61,59 +86,45 @@ const services = [
  * Each locker has a stamped plate number + the program label burned into it.
  */
 export default function Services() {
-  // Lockers slam onto the wall — heavy painted-metal, no bounce
-  const lockersRef = useGsapContext<HTMLDivElement>((q, scope) => {
-    const lockers = q('.service-locker')
-    if (!lockers.length) return
-
-    lockers.forEach((el) => {
-      gsap.set(el, { y: -500 })
-    })
-
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: scope, start: 'top 75%', once: true },
-    })
-
-    lockers.forEach((el, idx) => {
-      tl.to(el, {
-        y: 0,
-        duration: 0.45,
-        ease: 'power4.in',
-      }, idx * 0.1)
-    })
-  }, [])
-
   return (
     <ChapterShell
       id="services"
-      numeral="04"
-      era="The Offerings · Coaching Programs"
       title="Offerings"
       tone="brick-left"
       tilt={1.5}
     >
       <div className="max-w-6xl mx-auto">
         <div className="legible-on-dark mb-10 sm:mb-14 max-w-3xl">
-          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+          <p className="font-painted text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.15em] leading-relaxed">
             Proven methods. Real results.{' '}
             <span className="text-mighty-red">Three decades of refinement.</span>
           </p>
         </div>
 
-        {/* Locker grid — each program is a locker */}
-        <div ref={lockersRef} className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
-          {services.map((service, index) => (
+        {/* Locker wall — four overlapping doors at different angles & depths.
+            Desktop uses absolute positioning to break the grid; mobile keeps
+            a clean flex column stack (with alternating tilts) so the cards
+            stay tap-safe and the reading order = source order. */}
+        <div
+          className="
+            relative flex flex-col gap-5
+            sm:block sm:gap-0
+            sm:h-[900px] md:h-[820px] lg:h-[780px]
+          "
+        >
+          {services.map((service) => (
             <div
               key={service.title}
+              className={`${service.mobileTilt} ${service.deskPos} flex w-full`}
+            >
+            <div
               className="
-                service-locker
-                relative bg-[#1a1411] border-2 border-mighty-shadow rounded-sm
-                p-5 sm:p-7
+                relative bg-locker-dark border-2 border-mighty-shadow rounded-sm
+                p-5 sm:p-7 flex-1
                 shadow-[0_14px_28px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(254,250,224,0.06)]
                 hover:border-mighty-red transition-colors
                 group
               "
-              style={{ willChange: 'transform' }}
             >
               {/* Locker handle / hinge effect — left edge */}
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-12 sm:h-16 bg-mighty-shadow border-r border-rocky-paper/15 rounded-r" />
@@ -151,6 +162,7 @@ export default function Services() {
                   ))}
                 </ul>
               </div>
+            </div>
             </div>
           ))}
         </div>

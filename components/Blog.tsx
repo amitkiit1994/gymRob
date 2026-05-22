@@ -1,7 +1,5 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
@@ -63,8 +61,9 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
   const tilt = tilts[index % tilts.length]
 
   return (
-    <motion.article
+    <article
       className="relative bg-paper text-mighty-shadow p-5 sm:p-6 border border-mighty-shadow/40 shadow-plate flex flex-col h-full"
+      style={{ transform: `rotate(${tilt}deg)` }}
     >
       <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
       <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
@@ -85,21 +84,20 @@ function BlogCard({ blog, index }: { blog: typeof otherBlogs[0], index: number }
         {hasMore && '...'}
       </p>
 
-      {/* Read More — small red painted-metal CTA */}
+      {/* Read More — tertiary: painted underlined text on the paper itself,
+          like a journalist's reference line. No plaque, no pin-bolts. */}
       {hasMore && (
         <Link
           href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-          className="relative mt-auto inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-2 border-mighty-shadow px-4 py-2 font-painted text-rocky-paper text-xs sm:text-sm uppercase tracking-wider rounded-sm shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[2px] transition-all w-full"
+          className="group mt-auto inline-flex items-center gap-1.5 font-painted text-mighty-red text-xs sm:text-sm uppercase tracking-[0.15em] underline decoration-mighty-red decoration-2 underline-offset-[5px] hover:decoration-mighty-shadow hover:text-mighty-shadow transition-colors self-start"
         >
-          <span className="pin-bolt absolute -top-1.5 -left-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
-          <span className="pin-bolt absolute -top-1.5 -right-1.5" style={{ width: 10, height: 10 }} aria-hidden="true" />
           <span>Read Entry</span>
-          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
           </svg>
         </Link>
       )}
-    </motion.article>
+    </article>
   )
 }
 
@@ -108,17 +106,18 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
   const { excerpt, hasMore } = createExcerpt(blog.content, 520)
 
   return (
-    <motion.article
+    <article
       className="max-w-6xl mx-auto mb-14 sm:mb-20"
     >
       <div className={`grid grid-cols-1 ${blog.hasImage ? 'lg:grid-cols-12 gap-8 lg:gap-12 items-start' : ''}`}>
-        {/* Before/After Image — pinned polaroid (only when hasImage) */}
+        {/* Documentary spread — paper backing only, no inner frame.
+            The image is editorial evidence of the journey, not a portrait. */}
         {blog.hasImage && (
-          <motion.figure
+          <figure
             className="lg:col-span-5 relative mx-auto lg:mx-0 max-w-[340px] w-full"
           >
             <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 wall-cast">
-              <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow photo-grain">
+              <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow photo-grain">
                 <Image
                   src={images.transformation.beforeAfter}
                   alt="Before and After Transformation"
@@ -137,11 +136,11 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
             <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
-          </motion.figure>
+          </figure>
         )}
 
         {/* Story — paper notebook page pinned to the wall */}
-        <motion.div
+        <div
           className={`${blog.hasImage ? 'lg:col-span-7' : ''} relative`}
         >
           <div className="relative bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_18px_36px_rgba(0,0,0,0.8)] -rotate-[0.4deg]">
@@ -171,38 +170,43 @@ function FeaturedBlogCard({ blog, index }: { blog: typeof featuredBlogs[0], inde
             {hasMore && (
               <Link
                 href={`/blog/${(blog as any).slug || createSlug(blog.title)}`}
-                className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all group"
+                className="group inline-flex items-center gap-1.5 font-painted text-mighty-red text-sm sm:text-base uppercase tracking-[0.15em] underline decoration-mighty-red decoration-2 underline-offset-[6px] hover:decoration-mighty-shadow hover:text-mighty-shadow transition-colors"
               >
-                <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
-                <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
                 <span>Read Full Entry</span>
-                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </Link>
             )}
           </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Pull quote (only for first blog with image) — separate pinned paper card */}
+      {/* Pull quote (only for first blog with image) — chalked on the gym's
+          coach slate. No paper, no tacks: hand-written in chalk on a dark
+          board hung on the wall, with an uneven chalked border drawn around
+          the words. */}
       {blog.hasImage && index === 0 && (
-        <motion.figure
-          className="relative leather-grain wearouts text-mighty-shadow p-6 sm:p-8 mt-10 sm:mt-12 rotate-1 border-4 border-mighty-shadow shadow-[0_22px_44px_-8px_rgba(0,0,0,0.9),0_4px_0_-2px_rgba(0,0,0,0.85),inset_0_2px_0_rgba(255,255,255,0.15)] max-w-3xl mx-auto"
+        <figure
+          className="relative bg-chalkboard p-6 sm:p-8 mt-10 sm:mt-12 rotate-[0.6deg] rounded-sm max-w-3xl mx-auto"
+          style={{
+            boxShadow:
+              'inset 0 0 0 2px rgba(240,237,224,0.18), inset 0 0 0 6px rgba(20,33,23,0.7), inset 0 0 0 7px rgba(240,237,224,0.12), 0 16px 30px rgba(0,0,0,0.7), 0 2px 0 -1px rgba(0,0,0,0.85)',
+          }}
         >
-          <span className="brass-tack absolute -top-2 left-8" aria-hidden="true" />
-          <span className="brass-tack absolute -top-2 right-8" aria-hidden="true" />
-          <span className="brass-tack absolute -bottom-2 left-8" aria-hidden="true" />
-          <span className="brass-tack absolute -bottom-2 right-8" aria-hidden="true" />
-          <p className="font-painted text-lg sm:text-xl md:text-2xl leading-[1.4] text-mighty-shadow mb-3">
+          <p
+            className="font-painted text-chalk text-lg sm:text-xl md:text-2xl leading-[1.4] mb-3 uppercase tracking-[0.04em]"
+          >
             &ldquo;Friends may come and go but 200 pounds will always be 200 pounds.&rdquo;
           </p>
-          <p className="font-mono text-xs sm:text-sm text-mighty-shadow/70">
+          <p
+            className="text-chalk font-mono text-xs sm:text-sm opacity-80"
+          >
             Not a saying — a philosophy. Some things in life are constant. Your commitment defines who you become. The weights will always be there. Will you?
           </p>
-        </motion.figure>
+        </figure>
       )}
-    </motion.article>
+    </article>
   )
 }
 
@@ -221,59 +225,33 @@ export default function Blog() {
   return (
     <section id="blog" className="relative bg-brick brick-cracks bg-brick-spotlight-left py-20 sm:py-28 overflow-hidden">
       {/* Top welded iron seam */}
-      <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-[0_2px_4px_rgba(0,0,0,0.85)] z-30" />
+      <div className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-weld-seam z-30" />
       {/* Light dark scrim so paper cards still pop — but wall stays visible */}
       <div className="absolute inset-0 bg-mighty-shadow/25 pointer-events-none" aria-hidden="true" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Chapter heading */}
-        <motion.div
-          className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl mx-auto"
-        >
-          <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-mighty-red bg-mighty-shadow border border-rocky-paper/25 px-2.5 py-1 rounded-sm">
-            CH_08
-          </span>
-          <div className="h-px flex-1 max-w-[14rem] bg-gradient-to-r from-rocky-paper/40 to-transparent" />
-          <span
-            className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] font-bold text-rocky-paper bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-          >
-            The Journal · Notebook
-          </span>
-        </motion.div>
-
-        {/* Notebook-style heading on lined paper */}
-        <motion.div
-          className="text-center mb-14 sm:mb-20"
-        >
-          <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-4 sm:px-10 sm:py-6 -rotate-[0.8deg] border-2 border-mighty-shadow shadow-plate">
+        {/* Notebook-style heading on lined paper. Chapter-stamp corners
+            removed (wave-5) to honor the Hallmark "present cluster un-numbered"
+            claim — masthead now reads as eyebrow + H2 only. */}
+        <div className="text-center mb-14 sm:mb-20">
+          <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-5 sm:px-10 sm:py-7 -rotate-[0.8deg] border-2 border-mighty-shadow shadow-plate">
             <span className="pin-bolt absolute -top-2 left-6 sm:left-10" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 right-6 sm:right-10" aria-hidden="true" />
-            <p className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.35em] uppercase mb-2">
+            <p className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.35em] uppercase mb-2 mt-1 sm:mt-2">
               The Coach&apos;s Notebook
             </p>
             <h2 className="font-painted text-mighty-shadow text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
               Transformation &amp; Insights
             </h2>
           </div>
-        </motion.div>
+        </div>
 
         {/* Featured */}
         <FeaturedBlogsSection />
 
-        {/* More Insights */}
+        {/* More Insights — no standalone chip header; the cards are clearly
+            the "rest of the notebook" by adjacency to the featured spread. */}
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="mb-10 sm:mb-12 text-center"
-          >
-            <span
-              className="inline-block font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.3em] uppercase bg-mighty-shadow/80 border-l-2 border-mighty-red px-3 py-1 rounded-sm"
-              style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-            >
-              · More From The Notebook ·
-            </span>
-          </motion.div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7">
             {otherBlogs.map((blog, index) => (
               <BlogCard key={blog.title} blog={blog} index={index} />

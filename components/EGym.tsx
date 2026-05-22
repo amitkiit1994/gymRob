@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
@@ -22,15 +21,13 @@ export default function EGym() {
   return (
     <ChapterShell
       id="egym"
-      numeral="05"
-      era="The Temple · Mumbai · Andheri West"
       title="eGym Lokhandwala"
       tone="brick-right"
       tilt={-1}
     >
       <div className="max-w-6xl mx-auto">
         <div className="legible-on-dark mb-12 sm:mb-16 max-w-3xl">
-          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+          <p className="font-painted text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.15em] leading-relaxed">
             Not a gym. <span className="text-mighty-red">A training environment.</span>
             {' '}Plates clang, chalk dust flies, progress is measured in strength — not likes.
           </p>
@@ -39,7 +36,7 @@ export default function EGym() {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* LEFT — pillars on a wood placard */}
           <div className="lg:col-span-6 order-2 lg:order-1">
-            <motion.div
+            <div
               className="relative leather-grain wearouts text-mighty-shadow p-6 sm:p-8 rounded-sm border-4 border-mighty-shadow shadow-[0_18px_36px_-6px_rgba(0,0,0,0.85),0_4px_0_-2px_rgba(0,0,0,0.85),inset_0_2px_0_rgba(255,255,255,0.15)] -rotate-1"
             >
               <span className="brass-tack absolute -top-2 left-6" aria-hidden="true" />
@@ -48,7 +45,7 @@ export default function EGym() {
               <span className="brass-tack absolute -bottom-2 right-6" aria-hidden="true" />
 
               {/* Brass "house rules" header plate */}
-              <div className="inline-block bg-brass px-3 py-1 mb-4 border border-[#3a2208]/60 rounded-sm">
+              <div className="inline-block bg-brass px-3 py-1 mb-4 border border-brass-edge-dark/60 rounded-sm">
                 <p className="font-mono text-[10px] sm:text-xs text-engrave-brass font-bold tracking-[0.3em] uppercase">
                   · House Rules ·
                 </p>
@@ -60,22 +57,23 @@ export default function EGym() {
                 {pillars.map((p) => (
                   <li
                     key={p}
-                    className="flex items-start gap-3 font-rocky text-sm sm:text-base text-mighty-shadow font-bold uppercase tracking-wide"
+                    className="flex items-start gap-3 font-mono text-xs sm:text-sm text-mighty-shadow font-bold uppercase tracking-[0.15em]"
                   >
                     <span className="text-mighty-red font-bold mt-0.5 text-lg">●</span>
                     <span>{p}</span>
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           </div>
 
-          {/* RIGHT — pinned gym photo */}
-          <motion.figure
+          {/* RIGHT — documentary gym photo: bare paper backing, no inner
+              frame. This is "the floor on a day in 2026", not a portrait. */}
+          <figure
             className="lg:col-span-6 relative order-1 lg:order-2 mx-auto lg:mx-0 max-w-lg w-full"
           >
             <div className="bg-paper p-3 sm:p-4 shadow-[0_20px_36px_-8px_rgba(0,0,0,0.95)] border border-mighty-shadow/30">
-              <div className="relative aspect-[4/3] overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow photo-grain">
+              <div className="relative aspect-[4/3] overflow-hidden bg-mighty-shadow photo-grain">
                 <Image
                   src={images.egym.main}
                   alt="eGym Lokhandwala — the floor"
@@ -93,32 +91,36 @@ export default function EGym() {
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
             <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
-          </motion.figure>
+          </figure>
         </div>
 
         {/* CTAs */}
-        <motion.div
+        <div
           className="mt-14 sm:mt-16 flex flex-col sm:flex-row gap-5 justify-center"
         >
           <Link
             href="#contact"
-            className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] transition-all"
+            className="relative inline-flex items-center justify-center gap-2 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] transition-[transform,box-shadow,filter]"
           >
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
             Train Here
           </Link>
+          {/* Secondary — chalked on the gym slate. No plaque, no pin-bolts:
+              the gym's coach scribbled it on the corner of the chalkboard. */}
           <a
             href="https://instagram.com/egymlokhandwala"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative inline-flex items-center justify-center gap-2 painted-metal-dark wearouts border-4 border-rocky-paper/50 px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:border-rocky-ring-blue active:translate-y-[3px] transition-all"
+            className="relative inline-flex items-center justify-center gap-2 bg-chalkboard px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-chalk text-sm sm:text-base uppercase tracking-[0.1em] rounded-sm hover:brightness-110 active:translate-y-[2px] transition-[transform,filter]"
+            style={{
+              boxShadow:
+                'inset 0 0 0 2px rgba(240,237,224,0.2), inset 0 0 0 5px rgba(20,33,23,0.7), inset 0 0 0 6px rgba(240,237,224,0.12), 0 4px 12px rgba(0,0,0,0.55)',
+            }}
           >
-            <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
-            <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
             Follow eGym
           </a>
-        </motion.div>
+        </div>
       </div>
     </ChapterShell>
   )

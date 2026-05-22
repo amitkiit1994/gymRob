@@ -36,10 +36,10 @@ export default function Verse({
         transition={{ duration: 1 }}
         className={`relative max-w-3xl ${alignClass} ${className}`}
       >
-        <div className="absolute -top-6 -left-4 font-serif text-[8rem] leading-none text-accent-700/40 select-none pointer-events-none">
+        <div className="absolute -top-6 -left-4 font-painted text-[8rem] leading-none text-accent-700/40 select-none pointer-events-none">
           “
         </div>
-        <blockquote className="relative font-serif italic text-xl sm:text-2xl md:text-3xl leading-[1.5] text-gray-100 whitespace-pre-line">
+        <blockquote className="relative font-painted text-xl sm:text-2xl md:text-3xl leading-[1.5] text-gray-100 whitespace-pre-line">
           {children}
         </blockquote>
         {attribution && (
@@ -59,7 +59,7 @@ export default function Verse({
       transition={{ duration: 0.8 }}
       className={`relative ${alignClass} ${className}`}
     >
-      <blockquote className="pull-quote font-serif italic text-2xl sm:text-3xl md:text-4xl leading-[1.3] text-gray-100 max-w-3xl">
+      <blockquote className="pull-quote text-2xl sm:text-3xl md:text-4xl leading-[1.3] text-gray-100 max-w-3xl">
         {children}
       </blockquote>
       {attribution && (

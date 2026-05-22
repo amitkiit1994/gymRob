@@ -1,9 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import ChapterShell from './story/ChapterShell'
-import { useGsapContext, gsap } from '@/hooks/useGsap'
 
 const testimonials = [
   {
@@ -58,44 +56,16 @@ const testimonials = [
  * Testimonials as polaroids taped to the gym wall + video shorts as old TVs.
  */
 export default function Testimonials() {
-  // Polaroids fade and ease up into their resting tilt — one quiet beat per card.
-  const wallRef = useGsapContext<HTMLDivElement>((q) => {
-    const polaroids = q('.testimonial-card')
-    if (!polaroids.length) return
-
-    polaroids.forEach((el) => {
-      gsap.set(el, { opacity: 0, y: 24, scale: 0.98 })
-    })
-
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: polaroids[0], start: 'top 85%', once: true },
-    })
-
-    polaroids.forEach((el, idx) => {
-      const targetRotate = idx % 2 === 0 ? -2 : 2
-      tl.to(el, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        rotateZ: targetRotate,
-        duration: 0.55,
-        ease: 'power2.out',
-      }, idx * 0.08)
-    })
-  }, [])
-
   return (
     <ChapterShell
       id="testimonials"
-      numeral="06"
-      era="The Fraternity · In Their Words"
       title="The Fraternity"
       tone="brick-crop"
       tilt={1.5}
     >
       <div className="max-w-6xl mx-auto">
         <div className="legible-on-dark mb-12 sm:mb-14 max-w-3xl">
-          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em]">
+          <p className="font-painted text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.15em] leading-relaxed">
             Real results from real people. Long-term transformations,{' '}
             <span className="text-mighty-red">not quick fixes.</span>
           </p>
@@ -104,7 +74,7 @@ export default function Testimonials() {
         {/* Video testimonials — old TV monitors */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-14 sm:mb-20 max-w-3xl mx-auto">
           {['1AhvWkZJTOw', 'BsDx5LSZ5a8'].map((id, i) => (
-            <motion.div
+            <div
               key={id}
               className="relative bg-mighty-shadow p-2 sm:p-3 border-4 border-mighty-shadow rounded-sm shadow-[0_14px_28px_rgba(0,0,0,0.85)]"
               style={{ transform: `rotate(${i === 0 ? -1.5 : 1.5}deg)` }}
@@ -129,19 +99,20 @@ export default function Testimonials() {
               <p className="font-mono text-[10px] text-rocky-paper tracking-[0.3em] uppercase text-center mt-2 text-shadow-readable">
                 · Live From The Floor ·
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* Polaroid wall — testimonials as taped photos */}
-        <div ref={wallRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Polaroid wall — testimonials as taped photos. Static tilts; no
+            entrance animation — these are pictures already on the wall. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((t, i) => (
             <figure
               key={t.author}
-              className={`testimonial-card relative bg-paper text-mighty-shadow p-4 sm:p-5 border border-mighty-shadow/40 shadow-plate ${
+              className={`relative bg-paper text-mighty-shadow p-4 sm:p-5 border border-mighty-shadow/40 shadow-plate ${
                 i === testimonials.length - 1 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-2' : ''
               }`}
-              style={{ willChange: 'transform' }}
+              style={{ transform: `rotate(${i % 2 === 0 ? -2 : 2}deg)` }}
             >
               <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />

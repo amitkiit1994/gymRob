@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { useGsapContext, gsap } from '@/hooks/useGsap'
 
 /**
  * INTERLUDE · FULL CIRCLE
@@ -14,34 +13,6 @@ import { useGsapContext, gsap } from '@/hooks/useGsap'
  * Not a numbered chapter; this is a pinned-to-the-wall keepsake.
  */
 export default function FullCircle() {
-  // Polaroid swings in (hinged at top); the note slides up beside it.
-  const stageRef = useGsapContext<HTMLDivElement>((q, scope) => {
-    const polaroid = q('.fc-polaroid')[0]
-    const note = q('.fc-note')[0]
-    if (!polaroid || !note) return
-
-    gsap.set(scope, { perspective: 1400 })
-    gsap.set(polaroid, { transformOrigin: '50% 0%', rotateX: -70, rotateZ: -6, y: -24 })
-    gsap.set(note, { y: 40, rotateZ: 4, opacity: 0 })
-
-    const tl = gsap.timeline({
-      scrollTrigger: { trigger: scope, start: 'top 78%', once: true },
-    })
-
-    tl.to(polaroid, {
-      rotateX: 0,
-      rotateZ: -2.5,
-      y: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-    })
-      .to(
-        note,
-        { y: 0, rotateZ: 1.2, opacity: 1, duration: 0.65, ease: 'power3.out' },
-        0.25
-      )
-  }, [])
-
   return (
     <section
       id="full-circle"
@@ -50,32 +21,28 @@ export default function FullCircle() {
       {/* Welded seam to bridge from preceding chapter */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-[0_2px_4px_rgba(0,0,0,0.85)] z-30"
+        className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-weld-seam z-30"
       />
 
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        {/* Eyebrow — MOMENT (deliberately NOT a CH_XX; this is an interlude) */}
-        <div className="flex items-center gap-3 sm:gap-4 mb-10 sm:mb-14 max-w-4xl mx-auto">
-          <span className="font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase text-mighty-red bg-mighty-shadow border border-rocky-paper/25 px-2.5 py-1 rounded-sm">
-            · MOMENT ·
-          </span>
-          <div className="h-px flex-1 max-w-[14rem] bg-gradient-to-r from-rocky-paper/40 to-transparent" />
-          <span
-            className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] font-bold text-rocky-paper bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+        {/* Eyebrow — painted directly on the brick wall. No chips, no
+            divider. This is an interlude, a moment, written by hand. */}
+        <div className="mb-10 sm:mb-14 max-w-4xl mx-auto">
+          <p
+            className="font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-[0.3em]"
+            style={{ textShadow: 'var(--text-shadow-on-dark)' }}
           >
-            Full Circle · Off The Screen
-          </span>
+            <span className="text-mighty-red">·&nbsp;Moment&nbsp;·</span>
+            <span className="opacity-80">&nbsp;&nbsp;Full Circle · Off The Screen</span>
+          </p>
         </div>
 
         <div
-          ref={stageRef}
           className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center max-w-6xl mx-auto"
         >
           {/* ── POLAROID ─────────────────────────────────────── */}
           <figure
-            className="fc-polaroid relative lg:col-span-5 mx-auto"
-            style={{ willChange: 'transform' }}
+            className="relative lg:col-span-5 mx-auto -rotate-[2.5deg]"
           >
             <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 shadow-pinned">
               <div className="relative overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow">
@@ -121,8 +88,7 @@ export default function FullCircle() {
 
           {/* ── NOTE — aged paper card with the quote ───────── */}
           <figure
-            className="fc-note relative lg:col-span-7 bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_14px_28px_rgba(0,0,0,0.75)] -rotate-[0.6deg]"
-            style={{ willChange: 'transform' }}
+            className="relative lg:col-span-7 bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_14px_28px_rgba(0,0,0,0.75)] rotate-[1.2deg]"
           >
             {/* Top washi tape strip — anchors the note to the wall */}
             <span className="tape-corner" aria-hidden="true" />

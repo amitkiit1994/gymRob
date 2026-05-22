@@ -40,6 +40,32 @@ const config: Config = {
           shadow: '#0e0a07',      // crushed-black tobacco shadow
         },
 
+        /* Role-named tokens lifted out of component literals.
+         * Mirrored in app/globals.css :root as CSS custom properties
+         * for inline-style consumers (`var(--rope-brown)` etc.). Hex
+         * literals are retained here so Tailwind opacity modifiers
+         * (e.g. `border-brass-edge-dark/60`) keep working — Tailwind v3
+         * cannot derive an alpha channel from a `var(...)` reference. */
+        'rope-brown': '#6b3a1f',
+        'ink-stencil': '#5b1208',
+        'locker-dark': '#1a1411',
+        'brass-edge-dark': '#3a2208',
+        'brass-edge': '#d4a14a',
+        'brass-mid': '#b8862b',
+        'brass-shadow': '#8a5e1c',
+        'chapter-cold-dark': '#04060a',
+        'steel-gunmetal': '#1f2937',
+        'steel-mid': '#4b5563',
+        'steel-light': '#d1d5db',
+        'steel-highlight': '#f3f4f6',
+        'iron-beam-top': '#1f1611',
+        'iron-beam-bottom': '#050201',
+        'wood-shadow': '#4a2814',
+        'wood-deep': '#2a1810',
+        'mighty-red-mid': '#9a241c',
+        'mighty-red-shadow': '#8a1f18',
+        'red-cinder': '#6f1812',
+
         /* Legacy palette — retained for back-compat with existing components.
          * Gradually migrate references to furnace/steel/rust tokens above. */
         primary: {
@@ -68,13 +94,9 @@ const config: Config = {
         },
       },
       fontFamily: {
+        // 2+1 cull — see app/layout.tsx for the rationale.
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-iron)', 'Anton', 'Impact', 'sans-serif'],
-        serif: ['var(--font-serif)', 'Georgia', 'Cambria', 'serif'],
-        iron: ['var(--font-iron)', 'Anton', 'Impact', 'Arial Black', 'sans-serif'],
-        stamp: ['var(--font-stamp)', 'Bowlby One SC', 'Impact', 'sans-serif'],
         mono: ['var(--font-mono)', 'JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-        rocky: ['var(--font-rocky)', 'Oswald', 'Franklin Gothic Heavy', 'Impact', 'sans-serif'],
         painted: ['var(--font-painted)', 'Alfa Slab One', 'Rockwell', 'serif'],
       },
       fontSize: {
@@ -96,6 +118,12 @@ const config: Config = {
         'iron-press-sm': '0 2px 0 0 #050302',
         /* Iron-frame stacked bevel */
         'iron-frame': 'inset 0 0 0 1px rgba(254,215,170,0.18), inset 0 4px 8px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,0,0,0.9), 0 0 0 3px rgba(124,45,18,0.4), 0 0 32px rgba(234,88,12,0.2), 0 16px 48px rgba(0,0,0,0.95)',
+        /* Welded iron seam drop — used wherever a chapter band bridges
+         * adjoining sections (mirrors --shadow-weld-seam in globals.css). */
+        'weld-seam': '0 2px 4px rgba(0,0,0,0.85)',
+        /* Chapter-spine rail cast shadow — lifts the rail off the brick
+         * (mirrors --shadow-rail in globals.css). */
+        'rail': '0 4px 16px rgba(0,0,0,0.6)',
       },
     },
   },

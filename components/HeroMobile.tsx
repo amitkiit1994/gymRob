@@ -138,7 +138,7 @@ export default function HeroMobile() {
                 <p className="font-mono text-[0.55rem] text-rocky-paper/85 tracking-[0.4em] uppercase mb-1.5">
                   Robin Carruthers'
                 </p>
-                <h1 className="font-painted text-hammered-canvas text-3xl leading-[0.92] tracking-tight uppercase">
+                <h1 className="font-painted text-hammered-canvas text-3xl leading-[1.0] tracking-tight uppercase">
                   <span className="sr-only">Robin Carruthers — </span>
                   Iron <br />Reinvention
                 </h1>
@@ -159,15 +159,15 @@ export default function HeroMobile() {
         <div
           className="m-hero-subline relative bg-chalkboard border-[5px] border-mighty-shadow rounded-sm px-5 py-4 max-w-[340px] w-full shadow-pinned"
           style={{
-            boxShadow: 'inset 0 0 0 2px #6b3a1f, 0 6px 12px rgba(0,0,0,0.7), 0 14px 22px rgba(0,0,0,0.5)',
+            boxShadow: 'inset 0 0 0 2px var(--rope-brown), 0 6px 12px rgba(0,0,0,0.7), 0 14px 22px rgba(0,0,0,0.5)',
             willChange: 'transform',
           }}
         >
           <span className="pin-bolt absolute -top-2 left-5" aria-hidden="true" />
           <span className="pin-bolt absolute -top-2 right-5" aria-hidden="true" />
-          <p className="text-chalk font-rocky text-sm uppercase tracking-[0.12em] leading-snug text-center">
+          <p className="text-chalk font-painted text-sm uppercase tracking-[0.18em] leading-relaxed text-center">
             From the boardrooms of adland to the iron of the gym floor —{' '}
-            <span className="text-rocky-melt">a reinvention forged at 40</span>.
+            <span className="text-rust-melt">a reinvention forged at 40</span>.
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export default function HeroMobile() {
             <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
             <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
             <span>Read the Story</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </Link>
@@ -201,15 +201,15 @@ export default function HeroMobile() {
         >
           <Link
             href="/press/robin-carruthers-reinvents-in-adland"
-            className="block bg-[#fefae0] text-[#0e0a07] px-4 py-3 border-2 border-[#0e0a07] shadow-[0_6px_14px_rgba(0,0,0,0.7),0_2px_0_-1px_rgba(0,0,0,0.8)]"
+            className="block bg-rocky-paper text-mighty-shadow px-4 py-3 border-2 border-mighty-shadow shadow-[0_6px_14px_rgba(0,0,0,0.7),0_2px_0_-1px_rgba(0,0,0,0.8)]"
           >
-            <span className="block font-mono text-[0.55rem] font-extrabold tracking-[0.35em] uppercase text-[#a4271f] mb-0.5">
+            <span className="block font-mono text-[0.55rem] font-extrabold tracking-[0.35em] uppercase text-mighty-red mb-0.5">
               · As Featured In ·
             </span>
-            <p className="font-painted text-xl text-[#0e0a07] leading-none">
+            <p className="font-painted text-xl text-mighty-shadow leading-none">
               MediaInfoline
             </p>
-            <p className="font-mono text-[0.5rem] text-[#0e0a07]/60 tracking-[0.25em] uppercase mt-1">
+            <p className="font-mono text-[0.5rem] text-mighty-shadow/60 tracking-[0.25em] uppercase mt-1">
               May 18, 2026
             </p>
           </Link>

@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, Anton, Bowlby_One_SC, JetBrains_Mono, Oswald, Alfa_Slab_One } from 'next/font/google'
+import { Inter, JetBrains_Mono, Alfa_Slab_One } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -8,35 +8,14 @@ import MobileStickyCTA from '@/components/MobileStickyCTA'
 import { siteMetadata } from './metadata'
 import { getCanonicalUrl, getAlternateLinks } from '@/lib/seo'
 
+// 2+1 typographic system (Hallmark rule):
+//   Inter      — body prose
+//   Alfa Slab  — painted display / Mighty Mick's signage
+//   JetBrains  — receipts, dates, fight-card metadata
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-})
-
-// Iron / machinery headline — Anton = heavy condensed industrial sans
-// Reads as factory signage / forklift plate / heavy-equipment label.
-const anton = Anton({
-  subsets: ['latin'],
-  variable: '--font-iron',
-  display: 'swap',
-  weight: ['400'],
-})
-
-// Bowlby One SC — chunky hammered display kept around for section sub-heads
-const bowlby = Bowlby_One_SC({
-  subsets: ['latin'],
-  variable: '--font-stamp',
-  display: 'swap',
-  weight: ['400'],
 })
 
 // JetBrains Mono — metadata / stamped serial IDs (design.md §3)
@@ -47,15 +26,9 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ['400', '500', '600', '700'],
 })
 
-// Oswald — closest free match to Franklin Gothic Heavy (the ROCKY title font)
-const oswald = Oswald({
-  subsets: ['latin'],
-  variable: '--font-rocky',
-  display: 'swap',
-  weight: ['500', '600', '700'],
-})
-
-// Alfa Slab One — vintage slab/poster signage (Mighty Mick's painted lettering)
+// Alfa Slab One — vintage slab/poster signage (Mighty Mick's painted lettering).
+// Inherits every retired display role (Anton/Oswald/Bowlby/Playfair) under the
+// 2+1 cull. The stencil-paint utilities still ride on top of this face.
 const alfaSlab = Alfa_Slab_One({
   subsets: ['latin'],
   variable: '--font-painted',
@@ -74,7 +47,7 @@ export default function RootLayout({
   const alternateLinks = getAlternateLinks()
   
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${anton.variable} ${bowlby.variable} ${jetbrainsMono.variable} ${oswald.variable} ${alfaSlab.variable}`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${alfaSlab.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -98,13 +71,28 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen flex flex-col film-grain color-grade">
+        {/* Skip-to-content link — first focusable element. Keyboard users land
+            here on first Tab so they bypass the 96px chapter-spine rail, the
+            mobile sticky CTA, and the hamburger sheet trigger. Hidden via
+            sr-only until focused, then painted as a brand chip in the corner. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:bg-mighty-red focus:text-rocky-paper focus:px-4 focus:py-2 focus:rounded-sm focus:shadow-rail focus:outline-none focus:ring-2 focus:ring-rocky-paper"
+        >
+          Skip to content
+        </a>
         <SvgFilters />
         <StructuredData />
         <Header />
-        <main className="flex-1">
+        {/* lg:pl-[var(--rail-w)] shifts page content off the N3 chapter-spine
+            rail. Rail is hidden below the lg breakpoint, so no padding on
+            mobile. Footer rides the same offset so the wall reads continuous. */}
+        <main id="main" className="flex-1 lg:pl-[var(--rail-w,96px)]">
           {children}
         </main>
-        <Footer />
+        <div className="lg:pl-[var(--rail-w,96px)]">
+          <Footer />
+        </div>
         <MobileStickyCTA />
       </body>
     </html>

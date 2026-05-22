@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { images } from '@/config/images'
@@ -163,7 +162,7 @@ export default function Hero() {
                 <p className="font-mono text-[0.6rem] sm:text-xs text-rocky-paper/85 tracking-[0.4em] uppercase mb-2">
                   Robin Carruthers'
                 </p>
-                <h1 className="font-painted text-hammered-canvas text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tight uppercase">
+                <h1 className="font-painted text-hammered-canvas text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.0] tracking-tight uppercase">
                   <span className="sr-only">Robin Carruthers — </span>
                   Iron <br />Reinvention
                 </h1>
@@ -177,15 +176,15 @@ export default function Hero() {
             <div
               className="hero-subline relative bg-chalkboard border-[6px] border-mighty-shadow rounded-sm px-7 py-5 sm:px-9 sm:py-6 max-w-xl shadow-pinned"
               style={{
-                boxShadow: 'inset 0 0 0 2px #6b3a1f, 0 8px 16px rgba(0,0,0,0.7), 0 18px 30px rgba(0,0,0,0.5)',
+                boxShadow: 'inset 0 0 0 2px var(--rope-brown), 0 8px 16px rgba(0,0,0,0.7), 0 18px 30px rgba(0,0,0,0.5)',
                 willChange: 'transform',
               }}
             >
               <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
-              <p className="text-chalk font-rocky text-sm sm:text-base md:text-lg uppercase tracking-[0.12em] leading-snug text-center">
+              <p className="text-chalk font-painted text-sm sm:text-base md:text-lg uppercase tracking-[0.18em] leading-relaxed text-center">
                 From the boardrooms of adland to the iron of the gym floor —{' '}
-                <span className="text-rocky-melt">a reinvention forged at 40</span>.
+                <span className="text-rust-melt">a reinvention forged at 40</span>.
               </p>
             </div>
 
@@ -193,18 +192,18 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-5 items-center">
               <Link
                 href="#story"
-                className="hero-cta relative group inline-flex items-center gap-3 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85),0_10px_20px_rgba(0,0,0,0.75)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all"
+                className="hero-cta relative group inline-flex items-center gap-3 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85),0_10px_20px_rgba(0,0,0,0.75)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-[transform,box-shadow]"
               >
                 <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
                 <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
                 <span>Read the Story</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                 </svg>
               </Link>
               <Link
                 href="#contact"
-                className="hero-cta relative group inline-flex items-center gap-3 painted-metal-dark wearouts border-4 border-rocky-paper/50 px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85),0_10px_20px_rgba(0,0,0,0.75)] hover:border-rocky-ring-blue active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-all"
+                className="hero-cta relative group inline-flex items-center gap-3 painted-metal-dark wearouts border-4 border-rocky-paper/50 px-6 py-3.5 sm:px-8 sm:py-4 font-painted text-rocky-paper text-sm sm:text-base uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85),0_10px_20px_rgba(0,0,0,0.75)] hover:border-rocky-ring-blue active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] transition-[transform,box-shadow,border-color]"
               >
                 <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
                 <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -219,17 +218,17 @@ export default function Hero() {
             >
               <Link
                 href="/press/robin-carruthers-reinvents-in-adland"
-                className="block bg-[#fefae0] text-[#0e0a07] px-6 py-4 sm:px-8 sm:py-5 border-2 border-[#0e0a07] shadow-[0_8px_20px_rgba(0,0,0,0.7),0_2px_0_-1px_rgba(0,0,0,0.8)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.6)] hover:rotate-0 transition-all"
+                className="block bg-rocky-paper text-mighty-shadow px-6 py-4 sm:px-8 sm:py-5 border-2 border-mighty-shadow shadow-[0_8px_20px_rgba(0,0,0,0.7),0_2px_0_-1px_rgba(0,0,0,0.8)] hover:shadow-[0_4px_14px_rgba(0,0,0,0.6)] hover:rotate-0 transition-[transform,box-shadow]"
               >
                 <div className="flex items-center gap-3 mb-1">
-                  <span className="font-mono text-[0.65rem] sm:text-xs font-extrabold tracking-[0.35em] uppercase text-[#a4271f]">
+                  <span className="font-mono text-[0.65rem] sm:text-xs font-extrabold tracking-[0.35em] uppercase text-mighty-red">
                     · As Featured In ·
                   </span>
                 </div>
-                <p className="font-painted text-xl sm:text-2xl md:text-3xl text-[#0e0a07] leading-none">
+                <p className="font-painted text-xl sm:text-2xl md:text-3xl text-mighty-shadow leading-none">
                   MediaInfoline
                 </p>
-                <p className="font-mono text-[0.55rem] sm:text-[0.65rem] text-[#0e0a07]/60 tracking-[0.25em] uppercase mt-1.5">
+                <p className="font-mono text-[0.55rem] sm:text-[0.65rem] text-mighty-shadow/60 tracking-[0.25em] uppercase mt-1.5">
                   May 18, 2026 · India's Media &amp; Adland News
                 </p>
               </Link>
@@ -242,22 +241,20 @@ export default function Hero() {
       </div>
 
       {/* Scroll prompt */}
-      <motion.div
+      <div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
         aria-hidden="true"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+        <div
           className="flex flex-col items-center gap-2 text-rocky-paper"
-          style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+          style={{ textShadow: 'var(--text-shadow-on-dark)' }}
         >
           <span className="font-mono text-[0.6rem] tracking-[0.35em] uppercase">Scroll Down</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   )
 }

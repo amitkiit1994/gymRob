@@ -11,10 +11,10 @@ type Tone =
   | 'room-bags' | 'room-ring' | 'room-rack' | 'room-floor'
 
 interface ChapterShellProps {
-  /** Padded chapter number e.g. "01", "10" */
-  numeral: string
-  /** Era / mode label e.g. "THE CRISIS" */
-  era: string
+  /** Padded chapter number e.g. "01", "10". Optional — omit on un-numbered sections. */
+  numeral?: string
+  /** Era / mode label e.g. "THE CRISIS". Optional — omit when no era chip is wanted. */
+  era?: string
   /** Title to render in the canvas banner (short — fits in a banner) */
   title: string
   /** Visual tone for the section bg */
@@ -101,75 +101,60 @@ export default function ChapterShell({
       {/* Top welded iron seam — bridges adjoining chapters so the wall reads continuous */}
       <div
         aria-hidden="true"
-        className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-[0_2px_4px_rgba(0,0,0,0.85)] z-30"
+        className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-weld-seam z-30"
       />
       {/* Background SPRAY-STENCILED chapter numeral — painted on the brick (paint always there) */}
-      <motion.div
-        style={{ y: numeralY }}
-        className="absolute top-8 right-2 sm:right-6 lg:right-10 z-0 pointer-events-none select-none"
-      >
-        <div
-          aria-hidden="true"
-          className={`font-painted text-[8rem] sm:text-[14rem] lg:text-[20rem] leading-none tracking-tight ${
-            tone === 'paper'
-              ? 'stencil-paint-dark'
-              : 'stencil-paint-red'
-          }`}
+      {numeral && (
+        <motion.div
+          style={{ y: numeralY }}
+          className="absolute top-8 right-2 sm:right-6 lg:right-10 z-0 pointer-events-none select-none"
         >
-          {numeral}
-        </div>
-      </motion.div>
+          <div
+            aria-hidden="true"
+            className={`font-painted text-[8rem] sm:text-[14rem] lg:text-[20rem] leading-none tracking-tight ${
+              tone === 'paper'
+                ? 'stencil-paint-dark'
+                : 'stencil-paint-red'
+            }`}
+          >
+            {numeral}
+          </div>
+        </motion.div>
+      )}
 
       <div ref={stageRef} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
-        {/* Eyebrow — CH_XX · ERA */}
-        <motion.div
-          className="flex items-center gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-4xl"
-        >
-          <span
-            className={`font-mono text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase px-2.5 py-1 rounded-sm border ${
-              tone === 'paper'
-                ? 'text-mighty-red bg-mighty-shadow/5 border-mighty-shadow/30'
-                : 'text-mighty-red bg-mighty-shadow border-rocky-paper/25'
-            }`}
-          >
-            CH_{numeral}
-          </span>
-          <div
-            className={`h-px flex-1 max-w-[14rem] ${
-              tone === 'paper'
-                ? 'bg-gradient-to-r from-mighty-shadow/40 to-transparent'
-                : 'bg-gradient-to-r from-rocky-paper/40 to-transparent'
-            }`}
-          />
-          {/* Era label — now sits on a dark masking-tape strip so it's always legible */}
-          <span
-            className={`font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.25em] font-bold px-2 py-1 rounded-sm ${
-              tone === 'paper'
-                ? 'text-mighty-shadow bg-rocky-paper/0'
-                : 'text-rocky-paper bg-mighty-shadow/80 border-l-2 border-mighty-red'
-            }`}
-            style={{
-              textShadow: tone === 'paper' ? 'none' : '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)',
-            }}
-          >
-            {era}
-          </span>
-        </motion.div>
-
-        {/* CanvasBanner — title pinned to the wall (GSAP: drops from above, pendulum settles) */}
-        <div className="chapter-banner mb-12 sm:mb-16" style={{ willChange: 'transform' }}>
+        {/* CanvasBanner — title pinned to the wall (GSAP: drops from above).
+            The giant background numeral above is the chapter stamp; no
+            separate CH_NN chip is needed. */}
+        <div className="chapter-banner mb-4 sm:mb-6" style={{ willChange: 'transform' }}>
           <CanvasBanner tilt={0} showGloves={false}>
-            <h2 className="font-painted text-hammered-canvas text-3xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight uppercase">
+            <h2 className="font-painted text-hammered-canvas text-3xl sm:text-5xl md:text-6xl leading-[1.0] tracking-tight uppercase">
               {title}
             </h2>
           </CanvasBanner>
         </div>
 
+        {/* Era caption — small painted line under the banner. No chip,
+            no divider; it's a sub-line of the title, not a tag. */}
+        {era && (
+          <p
+            className={`font-painted text-sm sm:text-base uppercase tracking-[0.25em] mb-12 sm:mb-16 ${
+              tone === 'paper' ? 'text-mighty-shadow/70' : 'text-rocky-paper/80'
+            }`}
+            style={{
+              textShadow:
+                tone === 'paper' ? 'none' : 'var(--text-shadow-on-dark)',
+            }}
+          >
+            <span className="text-mighty-red">·&nbsp;</span>
+            {era}
+            <span className="text-mighty-red">&nbsp;·</span>
+          </p>
+        )}
+        {!era && <div className="mb-12 sm:mb-16" aria-hidden="true" />}
+
         {/* Body */}
-        <motion.div
-        >
-          {children}
-        </motion.div>
+        <div>{children}</div>
       </div>
     </section>
   )

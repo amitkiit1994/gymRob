@@ -17,33 +17,26 @@ export default function TheWeight() {
       tilt={-1.5}
     >
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
-        {/* LEFT — The "120 KG" painted-stencil anchor */}
+        {/* LEFT — The "120 KG" painted-stencil anchor. The number is the
+            statement — it doesn't need flanking chips to name itself. The
+            "KG" unit is stenciled directly into the painted numeral so it
+            reads as a single piece of wall paint, not a tagged exhibit. */}
         <div className="lg:col-span-6 relative">
-          {/* Painted-stencil number */}
-          <span
-            className="inline-block font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.35em] uppercase mb-3 bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-          >
-            · At His Heaviest ·
-          </span>
           <div className="relative inline-block">
             {/* Rust streak behind the number */}
             <div className="absolute inset-0 bg-gradient-to-br from-mighty-red/25 to-transparent blur-3xl scale-125" aria-hidden="true" />
             <h3 className="relative stencil-paint-red font-painted text-[7rem] sm:text-[10rem] md:text-[13rem] lg:text-[16rem] leading-[0.85] tracking-tighter">
               120
+              <span className="font-painted stencil-paint-red text-[1.75rem] sm:text-[2.25rem] md:text-[3rem] tracking-[0.05em] align-top ml-2 sm:ml-4">
+                KG
+              </span>
             </h3>
           </div>
-          <span
-            className="inline-block font-mono text-xs sm:text-sm text-rocky-paper font-bold uppercase tracking-[0.25em] -mt-2 sm:-mt-4 bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-            style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-          >
-            Kilos
-          </span>
         </div>
 
         {/* RIGHT — opening prose + pull-quote on paper */}
         <div className="lg:col-span-6 space-y-8 sm:space-y-10">
-          <p className="font-rocky text-lg sm:text-xl md:text-2xl text-rocky-paper leading-[1.55] uppercase tracking-wide text-shadow-readable">
+          <p className="font-painted text-lg sm:text-xl md:text-2xl text-rocky-paper leading-[1.6] uppercase tracking-[0.06em] text-shadow-readable">
             Three decades in advertising. Boardrooms, late nights, hustle culture.
             The kind of success that quietly{' '}
             <span className="text-mighty-red font-bold">breaks you</span>.

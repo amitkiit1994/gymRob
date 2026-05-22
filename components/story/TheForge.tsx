@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Image from 'next/image'
 import ChapterShell from './ChapterShell'
 import { images } from '@/config/images'
@@ -42,6 +41,7 @@ export default function TheForge() {
 
   return (
     <ChapterShell
+      id="forge"
       numeral="02"
       era="The Transformation · 7-8 Months"
       title="The Forge"
@@ -51,19 +51,16 @@ export default function TheForge() {
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center max-w-6xl mx-auto">
         {/* LEFT — Big "120 → 78" canvas number */}
         <div className="lg:col-span-7 space-y-10">
-          <p className="font-rocky text-lg sm:text-xl md:text-2xl text-rocky-paper leading-[1.55] uppercase tracking-wide text-shadow-readable">
+          <p className="font-painted text-lg sm:text-xl md:text-2xl text-rocky-paper leading-[1.6] uppercase tracking-[0.06em] text-shadow-readable">
             One simple decision: <span className="text-mighty-red font-bold">show up</span>.
             No magic plan. No shortcuts. Just a gym, a barbell, and the slow
             arithmetic of consistency.
           </p>
 
+          {/* 120 → 78 — let the numbers carry it. The KG unit and the
+              7-8 month duration are painted directly into the composition
+              so it reads as a single piece of wall, not a tagged exhibit. */}
           <div className="relative">
-            <span
-              className="inline-block font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.35em] uppercase mb-3 bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-              style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-            >
-              · The Receipt ·
-            </span>
             <div className="flex items-end gap-4 sm:gap-8 md:gap-10">
               <span className="forge-num-from font-painted stencil-paint-dark text-[5rem] sm:text-[7rem] md:text-[9rem] leading-[0.85] tracking-tighter line-through decoration-mighty-red decoration-[6px] sm:decoration-[10px]">
                 120
@@ -71,7 +68,7 @@ export default function TheForge() {
               <span
                 className="forge-arrow font-mono text-5xl sm:text-7xl md:text-8xl pb-3"
                 style={{
-                  color: '#5b1208',
+                  color: 'var(--ink-stencil)',
                   mixBlendMode: 'multiply',
                   textShadow: '0 2px 0 rgba(10,3,1,0.5), 0 4px 2px rgba(0,0,0,0.5)',
                   filter: 'url(#painted-aged-filter)',
@@ -82,36 +79,45 @@ export default function TheForge() {
               </span>
               <span className="forge-num-to font-painted stencil-paint-red text-[7rem] sm:text-[10rem] md:text-[13rem] leading-[0.85] tracking-tighter">
                 78
+                <span className="font-painted stencil-paint-red text-[1.5rem] sm:text-[2rem] md:text-[2.5rem] tracking-[0.05em] align-top ml-1 sm:ml-2">
+                  KG
+                </span>
               </span>
             </div>
-            <span
-              className="inline-block font-mono text-xs sm:text-sm text-rocky-paper font-bold uppercase tracking-[0.25em] mt-3 bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-              style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
+            <p
+              className="font-painted stencil-paint-dark text-base sm:text-xl md:text-2xl uppercase tracking-[0.08em] mt-4 sm:mt-6"
             >
-              Kilos · 7-8 Months
-            </span>
+              · Seven&nbsp;to&nbsp;eight&nbsp;months ·
+            </p>
           </div>
 
-          {/* Vintage paper pull-quote */}
-          <figure className="relative bg-paper text-mighty-shadow p-5 sm:p-7 rotate-1 border-2 border-mighty-shadow shadow-[0_10px_24px_rgba(0,0,0,0.8)]">
-            <span className="pin-bolt absolute -top-2 left-6" aria-hidden="true" />
-            <span className="pin-bolt absolute -top-2 right-6" aria-hidden="true" />
-            <p className="font-painted text-base sm:text-xl md:text-2xl leading-[1.3] text-mighty-shadow">
-              &ldquo;The transformation didn&apos;t happen overnight. It came from
-              showing up consistently, even on the days motivation disappeared.&rdquo;
+          {/* Pull-quote — painted directly on the brick wall. No card, no
+              paper, no pin-bolts: spray-stenciled at low opacity so the
+              brick texture pulls through. Slight tilt so it reads as a
+              human hand, not a typeset block. */}
+          <figure className="relative max-w-2xl rotate-[0.6deg]">
+            <p className="font-painted stencil-paint-red text-2xl sm:text-3xl md:text-4xl leading-[1.15] uppercase tracking-tight">
+              &ldquo;The transformation didn&apos;t happen overnight.&nbsp;It came from
+              showing up — even on the days motivation disappeared.&rdquo;
             </p>
-            <figcaption className="font-mono text-[10px] text-mighty-red font-bold tracking-[0.3em] uppercase mt-3">
-              — Robin Carruthers
+            <figcaption
+              className="font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.3em] uppercase mt-4"
+              style={{ textShadow: 'var(--text-shadow-on-dark)' }}
+            >
+              — Robin Carruthers · painted on the wall
             </figcaption>
           </figure>
         </div>
 
         {/* RIGHT — Before/after image as a darkroom polaroid pinned to wall */}
-        <motion.figure
+        {/* Documentary "before / after" — bare paper backing, no inner frame.
+            This is editorial evidence, not a hung portrait — let it sit on
+            paper the way a coach's clippings do. */}
+        <figure
           className="lg:col-span-5 relative mx-auto lg:mx-0 max-w-[340px]"
         >
           <div className="bg-paper p-3 sm:p-4 wall-cast border border-mighty-shadow/40">
-            <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow photo-grain">
+            <div className="relative aspect-[4/5] overflow-hidden bg-mighty-shadow photo-grain">
               <Image
                 src={images.transformation.beforeAfter}
                 alt="Robin Carruthers — before and after"
@@ -129,7 +135,7 @@ export default function TheForge() {
           <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
           <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
           <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
-        </motion.figure>
+        </figure>
       </div>
     </ChapterShell>
   )

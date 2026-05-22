@@ -20,7 +20,6 @@ export default function Contact() {
       window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank')
       setSubmitStatus('success')
       setFormData({ name: '', email: '', goal: '' })
-      setTimeout(() => setSubmitStatus('idle'), 5000)
     } catch (err) {
       console.error(err)
       setSubmitStatus('error')
@@ -37,7 +36,7 @@ export default function Contact() {
   const inputCls =
     'w-full bg-rocky-paper text-mighty-shadow placeholder-mighty-shadow/40 ' +
     'border-2 border-mighty-shadow rounded-sm px-4 py-3 font-mono text-sm sm:text-base ' +
-    'focus:outline-none focus:border-mighty-red focus:ring-2 focus:ring-mighty-red/30 transition-all'
+    'focus:outline-none focus:border-mighty-red focus:ring-2 focus:ring-mighty-red/30 transition-colors'
 
   const labelCls =
     'block font-mono text-[10px] sm:text-xs font-bold text-mighty-red tracking-[0.3em] uppercase mb-2'
@@ -45,15 +44,13 @@ export default function Contact() {
   return (
     <ChapterShell
       id="contact"
-      numeral="10"
-      era="The Bell · Begin"
       title="Train With Robin"
       tone="brick-right"
       tilt={-1.2}
     >
       <div className="max-w-2xl mx-auto">
         <div className="legible-on-dark mb-10 sm:mb-12 max-w-2xl mx-auto">
-          <p className="font-rocky text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.12em] text-center">
+          <p className="font-painted text-base sm:text-lg md:text-xl text-rocky-paper uppercase tracking-[0.15em] leading-relaxed text-center">
             Ready to transform?{' '}
             <span className="text-mighty-red">Step up to the bell.</span>
           </p>
@@ -73,6 +70,15 @@ export default function Contact() {
           <span className="pin-bolt absolute top-3 left-3" aria-hidden="true" />
           <span className="pin-bolt absolute top-3 right-3" aria-hidden="true" />
 
+          {submitStatus === 'success' ? (
+            <div
+              className="mt-2 p-6 bg-rocky-dust/40 border-2 border-mighty-shadow rounded-sm text-mighty-shadow font-mono text-sm sm:text-base text-center"
+              role="status"
+              aria-live="polite"
+            >
+              Bell rung. Check WhatsApp.
+            </div>
+          ) : (
           <form onSubmit={handleSubmit} className="space-y-6 mt-2">
             <div>
               <label htmlFor="name" className={labelCls}>
@@ -125,13 +131,6 @@ export default function Contact() {
               />
             </div>
 
-            {submitStatus === 'success' && (
-              <motion.div
-                className="p-4 bg-rocky-dust/40 border-2 border-mighty-shadow rounded-sm text-mighty-shadow font-mono text-sm"
-              >
-                Bell rung. We&apos;ll be in touch — check WhatsApp.
-              </motion.div>
-            )}
             {submitStatus === 'error' && (
               <motion.div
                 className="p-4 bg-mighty-red/15 border-2 border-mighty-red rounded-sm text-mighty-shadow font-mono text-sm"
@@ -156,7 +155,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="relative w-full inline-flex items-center justify-center gap-3 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-4 font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+              className="relative w-full inline-flex items-center justify-center gap-3 painted-metal-red wearouts border-4 border-mighty-shadow px-6 py-4 font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-wider rounded-sm shadow-[0_6px_0_-1px_rgba(0,0,0,0.85)] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_3px_0_-1px_rgba(0,0,0,0.85)] disabled:opacity-60 disabled:cursor-not-allowed transition-[transform,box-shadow]"
             >
               <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
               <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
@@ -172,6 +171,7 @@ export default function Contact() {
               )}
             </button>
           </form>
+          )}
         </motion.div>
 
         <motion.div

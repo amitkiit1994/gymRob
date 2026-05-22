@@ -34,16 +34,20 @@ export default function MobileStickyCTA() {
         show ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      {/* The iron beam itself */}
+      {/* The iron beam itself.
+       * Brand-palette colours promoted to CSS vars (gate-58 mid-render
+       * decision cleanup); the rgba()/linear-gradient noise that
+       * remains is procedural surface texture (rim light, AO band,
+       * vertical brush) and stays as literal alpha math. */}
       <div
         className="relative"
         style={{
-          backgroundColor: '#0e0a07',
+          backgroundColor: 'var(--mighty-shadow)',
           backgroundImage: [
             'linear-gradient(180deg, rgba(254, 215, 170, 0.22) 0%, transparent 14%)',
             'linear-gradient(180deg, transparent 76%, rgba(0, 0, 0, 0.7) 100%)',
             'repeating-linear-gradient(90deg, transparent 0, rgba(255,255,255,0.05) 1px, transparent 3px, rgba(0,0,0,0.18) 4px, transparent 7px)',
-            'linear-gradient(180deg, #1f1611 0%, #050201 100%)',
+            'linear-gradient(180deg, var(--iron-beam-top) 0%, var(--iron-beam-bottom) 100%)',
           ].join(', '),
           boxShadow: [
             'inset 0 2px 0 rgba(255, 235, 200, 0.22)',
@@ -59,7 +63,7 @@ export default function MobileStickyCTA() {
         <span
           className="absolute top-1/2 left-3 -translate-y-1/2 w-3 h-3 rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle at 30% 30%, #f3f4f6 0%, #9ca3af 30%, #1f2937 75%, #000 100%)',
+            background: 'radial-gradient(circle at 30% 30%, var(--steel-highlight) 0%, var(--steel-brushed) 30%, var(--steel-gunmetal) 75%, var(--iron-beam-bottom) 100%)',
             boxShadow: 'inset 0 -1px 2px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 1px rgba(0,0,0,0.9), 0 2px 3px rgba(0,0,0,0.7)',
           }}
           aria-hidden="true"
@@ -67,7 +71,7 @@ export default function MobileStickyCTA() {
         <span
           className="absolute top-1/2 right-3 -translate-y-1/2 w-3 h-3 rounded-full pointer-events-none"
           style={{
-            background: 'radial-gradient(circle at 30% 30%, #f3f4f6 0%, #9ca3af 30%, #1f2937 75%, #000 100%)',
+            background: 'radial-gradient(circle at 30% 30%, var(--steel-highlight) 0%, var(--steel-brushed) 30%, var(--steel-gunmetal) 75%, var(--iron-beam-bottom) 100%)',
             boxShadow: 'inset 0 -1px 2px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.4), 0 1px 1px rgba(0,0,0,0.9), 0 2px 3px rgba(0,0,0,0.7)',
           }}
           aria-hidden="true"

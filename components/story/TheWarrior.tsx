@@ -1,14 +1,56 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import ChapterShell from './ChapterShell'
 import { useGsapContext, gsap } from '@/hooks/useGsap'
 
+/**
+ * Four certifications hung on a single rotated rack across the wall.
+ *
+ * Desktop: absolute-positioned on a tilted rail so plates overlap visibly,
+ * each with its own size, tilt and vertical drop. Plate 01 sits highest and
+ * largest (it came first); plates 03 / 04 droop and overlap into each other
+ * at the right end of the rack.
+ *
+ * Mobile (default): simple stack with alternating tilts — keeps it tap-safe
+ * and readable, no overlap, no absolute positioning.
+ *
+ * Reading order = source order = chronological credential order, so the
+ * accessibility tree stays linear regardless of visual placement.
+ */
 const certifications = [
-  { label: 'Certified Personal Trainer', sub: 'Renewed 2022' },
-  { label: 'Sports Medicine Rehabilitation', sub: 'Injury-aware training' },
-  { label: 'Strength & Conditioning', sub: 'American School of Conditioning & Muscle' },
-  { label: 'Speed & Agility', sub: 'Athletic performance' },
+  {
+    label: 'Certified Personal Trainer',
+    sub: 'Renewed 2022',
+    // Desktop: top-left anchor, hung highest, biggest plate — the one that started it all.
+    deskPos:
+      'sm:absolute sm:left-[2%] sm:top-[6%] sm:w-[42%] sm:-rotate-[2.5deg] sm:z-30 sm:scale-[1.06]',
+    // Mobile: plain stack tilt
+    mobileTilt: '-rotate-[1deg]',
+  },
+  {
+    label: 'Sports Medicine Rehabilitation',
+    sub: 'Injury-aware training',
+    // Desktop: drops below 01 and tucks under its bottom-right corner.
+    deskPos:
+      'sm:absolute sm:left-[28%] sm:top-[44%] sm:w-[38%] sm:rotate-[1.5deg] sm:z-20',
+    mobileTilt: 'rotate-[0.8deg]',
+  },
+  {
+    label: 'Strength & Conditioning',
+    sub: 'American School of Conditioning & Muscle',
+    // Desktop: upper-right area, slightly nudged off the rail, overlaps 02.
+    deskPos:
+      'sm:absolute sm:right-[6%] sm:top-[10%] sm:w-[36%] sm:-rotate-[3deg] sm:z-25',
+    mobileTilt: '-rotate-[1.5deg]',
+  },
+  {
+    label: 'Speed & Agility',
+    sub: 'Athletic performance',
+    // Desktop: dropped lowest, biggest tilt, kissed by 02's bottom edge.
+    deskPos:
+      'sm:absolute sm:right-[2%] sm:bottom-[2%] sm:w-[34%] sm:rotate-[3.5deg] sm:z-10',
+    mobileTilt: 'rotate-[1.8deg]',
+  },
 ]
 
 const warriorVerse = [
@@ -38,18 +80,16 @@ const warriorVerse = [
  * Verse displayed on a gym placard, leather plates on a back rack.
  */
 export default function TheWarrior() {
-  // Plates drop in like brass medallions hung on the wall — gravity + pendulum settle.
+  // Plates drop in like brass medallions hung on the wall — gravity + pendulum
+  // settle. GSAP only animates Y (vertical drop) and leaves rotation/position
+  // entirely to the placement utility classes on the outer wrapper, so the
+  // staggered desktop rack ends up exactly where the layout intends.
   const platesRef = useGsapContext<HTMLDivElement>((q, scope) => {
     const plates = q('.warrior-plate')
     if (!plates.length) return
 
-    gsap.set(scope, { perspective: 1400 })
-    plates.forEach((el, idx) => {
-      gsap.set(el, {
-        transformOrigin: '50% 0%',
-        y: -700,
-        rotateZ: idx % 2 === 0 ? -8 : 8,
-      })
+    plates.forEach((el) => {
+      gsap.set(el, { y: -700 })
     })
 
     const tl = gsap.timeline({
@@ -57,10 +97,8 @@ export default function TheWarrior() {
     })
 
     plates.forEach((el, idx) => {
-      const settleRotate = idx % 2 === 0 ? -1.5 : 2
       tl.to(el, {
         y: 0,
-        rotateZ: settleRotate,
         duration: 0.65,
         ease: 'power3.out',
       }, idx * 0.12)
@@ -69,6 +107,7 @@ export default function TheWarrior() {
 
   return (
     <ChapterShell
+      id="warrior"
       numeral="03"
       era="The Discipline · The Manifesto"
       title="I Am A Warrior"
@@ -77,7 +116,7 @@ export default function TheWarrior() {
     >
       <div className="max-w-5xl mx-auto space-y-14 sm:space-y-20">
         {/* The verse — gym placard / wood-frame paper */}
-        <motion.figure
+        <figure
           className="relative bg-paper text-mighty-shadow p-7 sm:p-12 mx-auto max-w-3xl border-4 border-mighty-shadow shadow-hung -rotate-[0.5deg]"
         >
           <span className="pin-bolt absolute -top-2 left-6 sm:left-10" aria-hidden="true" />
@@ -117,24 +156,27 @@ export default function TheWarrior() {
               MS_001 / 2026
             </span>
           </figcaption>
-        </motion.figure>
+        </figure>
 
-        {/* Certifications — stamped leather plates on a rack */}
+        {/* Certifications — stamped leather plates on a single rotated rack.
+            Desktop: absolute-positioned, overlapping, varied tilt & size.
+            Mobile: clean stack with alternating tilts (no overlap). */}
         <div>
-          <div className="flex items-center gap-3 mb-8">
-            <span
-              className="font-mono text-[10px] sm:text-xs text-rocky-paper font-bold tracking-[0.3em] uppercase bg-mighty-shadow/80 border-l-2 border-mighty-red px-2 py-1 rounded-sm"
-              style={{ textShadow: '0 1px 0 rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)' }}
-            >
-              · Forged Credentials ·
-            </span>
-            <div className="h-px flex-1 bg-gradient-to-r from-mighty-red/50 to-transparent" />
-          </div>
-
-          <div ref={platesRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 items-stretch">
+          <div
+            ref={platesRef}
+            className="
+              relative flex flex-col gap-5 pt-3 pb-6
+              sm:block sm:gap-0 sm:pt-6 sm:pb-10
+              sm:h-[460px] md:h-[520px] lg:h-[560px]
+              sm:-rotate-[1.5deg]
+            "
+          >
             {certifications.map((cert, i) => (
               <div
                 key={cert.label}
+                className={`${cert.mobileTilt} ${cert.deskPos} self-center sm:self-auto w-full max-w-sm sm:max-w-none`}
+              >
+              <div
                 className="warrior-plate relative bg-wood wearouts border-4 border-mighty-shadow rounded-[2px] p-3 sm:p-4 shadow-[0_14px_22px_-6px_rgba(0,0,0,0.85),0_4px_0_-2px_rgba(0,0,0,0.85)] flex"
                 style={{ willChange: 'transform' }}
               >
@@ -145,13 +187,13 @@ export default function TheWarrior() {
                 <span className="brass-tack absolute bottom-1.5 right-1.5" aria-hidden="true" />
 
                 {/* The engraved brass plate inset — fills the plaque */}
-                <div className="relative bg-brass px-4 py-4 sm:px-5 sm:py-5 border border-[#3a2208]/60 flex-1 flex flex-col">
+                <div className="relative bg-brass px-4 py-4 sm:px-5 sm:py-5 border border-brass-edge-dark/60 flex-1 flex flex-col">
                   {/* Small "PLATE NN" engraved at top */}
                   <p className="font-mono text-[9px] sm:text-[10px] text-engrave-brass font-bold tracking-[0.35em] uppercase mb-2">
                     · Plate {String(i + 1).padStart(2, '0')} ·
                   </p>
                   {/* Hairline brass-engraved separator */}
-                  <div className="h-px bg-gradient-to-r from-transparent via-[#3a2208]/70 to-transparent mb-3" />
+                  <div className="h-px bg-gradient-to-r from-transparent via-brass-edge-dark/70 to-transparent mb-3" />
                   {/* The credential — deep engraved, hyphenate to avoid orphan letters */}
                   <p
                     className="font-painted text-engrave-brass text-[13px] sm:text-sm uppercase leading-[1.1] mb-2 break-words"
@@ -163,6 +205,7 @@ export default function TheWarrior() {
                     {cert.sub}
                   </p>
                 </div>
+              </div>
               </div>
             ))}
           </div>

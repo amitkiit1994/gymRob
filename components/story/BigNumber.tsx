@@ -44,10 +44,16 @@ export default function BigNumber({
   // Auto serial — derive from value if not supplied
   const serial = decal ?? `S_${value.replace(/\D/g, '').padStart(3, '0')}`
 
+  // Variant-specific solid colour + text-shadow (replaces gradient-clip
+  // helpers; gate-5 forbids background-clip:text on display copy).
   const numeralCls =
     variant === 'cast'
-      ? 'cast-text'
-      : 'rust-text'
+      ? 'text-steel-cast'
+      : 'text-rust-spark'
+  const numeralShadow =
+    variant === 'cast'
+      ? '0 2px 0 rgba(0,0,0,0.8), 0 4px 12px rgba(0,0,0,0.55)'
+      : '2px 3px 0 rgba(0,0,0,0.85), 0 4px 8px rgba(122,45,18,0.4)'
 
   return (
     <div ref={ref} className={`relative select-none ${className}`}>
@@ -57,9 +63,9 @@ export default function BigNumber({
       </p>
 
       <motion.h2
-        style={{ y }}
+        style={{ y, textShadow: numeralShadow }}
         className={`
-          font-iron font-bold uppercase tracking-tighter
+          font-painted font-bold uppercase tracking-tighter
           text-display-giant
           ${numeralCls}
           leading-[0.85]
