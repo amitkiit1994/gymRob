@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="GYMROB icon — painted canvas banner badge">
+  <title>GYMROB — Painted Canvas Icon</title>
+  <desc>Compact Mighty Mick's fight banner: GYM ROB stacked in cream on weathered red canvas with frayed edges, corner bolts and a boxing glove.</desc>
+
+  <defs>
+    <linearGradient id="i1-canvas" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a241c"/>
+      <stop offset="1" stop-color="#6f1812"/>
+    </linearGradient>
+    <radialGradient id="i1-keylight" cx="0.26" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#a4271f" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a4271f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="i1-vignette" cx="0.78" cy="0.84" r="0.85">
+      <stop offset="0.4" stop-color="#0e0a07" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0e0a07" stop-opacity="0.5"/>
+    </radialGradient>
+
+    <filter id="i1-painted" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.03" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <filter id="i1-hammer" x="-14%" y="-14%" width="128%" height="128%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="4" result="rough"/>
+      <feDisplacementMap in="SourceGraphic" in2="rough" scale="1.4" result="r"/>
+      <feGaussianBlur in="r" stdDeviation="0.8" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="2.6" specularConstant="1.0" specularExponent="22" lighting-color="#fff5d6" result="s">
+        <feDistantLight azimuth="135" elevation="56"/>
+      </feSpecularLighting>
+      <feComposite in="s" in2="r" operator="in" result="sm"/>
+      <feComposite in="sm" in2="r" operator="arithmetic" k1="0" k2="1" k3="0.9" k4="0"/>
+    </filter>
+
+    <pattern id="i1-weave" width="6" height="6" patternUnits="userSpaceOnUse">
+      <path d="M0 0H6M0 3H6" stroke="#0e0a07" stroke-opacity="0.10" stroke-width="0.6"/>
+      <path d="M0 0V6M3 0V6" stroke="#0e0a07" stroke-opacity="0.10" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- Frayed square banner seal -->
+    <path id="i1-banner" d="
+      M40 36
+      Q128 31 216 37
+      Q221 78 219 128
+      Q221 178 216 220
+      Q128 225 40 219
+      Q35 178 37 128
+      Q35 78 40 36 Z"/>
+  </defs>
+
+  <!-- Hanging eyelets -->
+  <g fill="#0e0a07">
+    <ellipse cx="78" cy="20" rx="8" ry="5"/>
+    <ellipse cx="178" cy="20" rx="8" ry="5"/>
+  </g>
+  <g stroke="#0e0a07" stroke-width="5" stroke-linecap="round">
+    <line x1="78" y1="22" x2="78" y2="40"/>
+    <line x1="178" y1="22" x2="178" y2="40"/>
+  </g>
+
+  <!-- Banner body, tilted -->
+  <g transform="rotate(-1.6 128 130)">
+    <use href="#i1-banner" fill="#0e0a07" transform="translate(0 3)"/>
+
+    <g filter="url(#i1-painted)">
+      <use href="#i1-banner" fill="url(#i1-canvas)"/>
+      <use href="#i1-banner" fill="url(#i1-keylight)"/>
+      <use href="#i1-banner" fill="url(#i1-weave)"/>
+    </g>
+
+    <use href="#i1-banner" fill="none" stroke="#0e0a07" stroke-width="8" filter="url(#i1-painted)"/>
+    <use href="#i1-banner" fill="none" stroke="#fefae0" stroke-opacity="0.18" stroke-width="2"
+         transform="translate(128 128) scale(0.9) translate(-128 -128)"/>
+
+    <!-- Corner bolts -->
+    <g fill="#0e0a07">
+      <circle cx="56" cy="54" r="5"/><circle cx="200" cy="56" r="5"/>
+      <circle cx="56" cy="202" r="5"/><circle cx="200" cy="200" r="5"/>
+    </g>
+
+    <!-- Boxing glove, top-right corner -->
+    <g transform="translate(150 40) scale(0.62)" fill="#fefae0" fill-opacity="0.9" filter="url(#i1-painted)">
+      <rect x="14" y="46" width="32" height="12" rx="2"/>
+      <path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/>
+      <ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/>
+    </g>
+
+    <!-- Stacked wordmark GYM / ROB -->
+    <g filter="url(#i1-hammer)" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" text-anchor="middle">
+      <text x="130" y="128" font-size="62" letter-spacing="1">GYM</text>
+      <text x="130" y="190" font-size="62" letter-spacing="1">ROB</text>
+    </g>
+
+    <!-- Painted divider rule between the two lines -->
+    <g stroke="#fefae0" stroke-opacity="0.6" stroke-width="3" stroke-linecap="square">
+      <line x1="66" y1="142" x2="100" y2="142"/>
+      <line x1="160" y1="142" x2="194" y2="142"/>
+    </g>
+    <rect x="124" y="137" width="10" height="10" transform="rotate(45 129 142)" fill="#fefae0" fill-opacity="0.6"/>
+
+    <use href="#i1-banner" fill="url(#i1-vignette)"/>
+  </g>
+</svg>

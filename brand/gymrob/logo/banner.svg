@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="GYMROB painted canvas banner">
+  <title>GYMROB · hand-painted canvas fight-banner (hero lockup)</title>
+  <g transform="rotate(-1.6 500 300)">
+    <!-- canvas body -->
+    <rect x="80" y="120" width="840" height="360" rx="6" fill="#6f1812"/>
+    <rect x="86" y="126" width="828" height="348" rx="5" fill="#9a241c"/>
+    <!-- inner seam -->
+    <rect x="116" y="156" width="768" height="288" rx="3" fill="none" stroke="#fefae0" stroke-opacity="0.28" stroke-width="2"/>
+    <!-- corner reinforcement patches -->
+    <g fill="#6f1812" opacity="0.55">
+      <rect x="120" y="160" width="34" height="34"/>
+      <rect x="846" y="160" width="34" height="34"/>
+      <rect x="120" y="406" width="34" height="34"/>
+      <rect x="846" y="406" width="34" height="34"/>
+    </g>
+
+    <!-- top mono line -->
+    <text x="500" y="208" text-anchor="middle" fill="#fefae0" fill-opacity="0.88"
+          font-family="JetBrains Mono, monospace" font-weight="700" font-size="20" letter-spacing="10">ROBIN CARRUTHERS'</text>
+
+    <!-- GYMROB hammered -->
+    <g font-family="Alfa Slab One, Rockwell, serif" font-size="168" text-anchor="middle">
+      <text x="503" y="358" fill="#3a0d08" opacity="0.8">GYMROB</text>
+      <text x="500" y="354" fill="#fefae0">GYMROB</text>
+    </g>
+
+    <!-- bottom mono line -->
+    <text x="500" y="424" text-anchor="middle" fill="#fefae0" fill-opacity="0.85"
+          font-family="JetBrains Mono, monospace" font-weight="700" font-size="18" letter-spacing="8">OLD-SCHOOL IRON · MUMBAI</text>
+
+    <!-- boxing glove top-right corner -->
+    <g transform="translate(812 150) scale(1.7)" fill="#fefae0" fill-opacity="0.9">
+      <rect x="14" y="46" width="32" height="12" rx="2"/>
+      <path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/>
+      <ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/>
+    </g>
+
+    <!-- hanging bolts -->
+    <circle cx="150" cy="120" r="9" fill="#b1b3b3" stroke="#0e0a07" stroke-width="2"/>
+    <circle cx="850" cy="120" r="9" fill="#b1b3b3" stroke="#0e0a07" stroke-width="2"/>
+  </g>
+</svg>

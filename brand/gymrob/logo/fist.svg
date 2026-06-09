@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>

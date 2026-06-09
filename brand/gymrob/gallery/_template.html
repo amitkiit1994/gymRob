@@ -1,0 +1,434 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRANDSCAPE · GYMROB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kit.css">
+<style>
+  body{margin:0;background:#0a0604;color:#fefae0;font-family:'Inter',sans-serif}
+  .mk svg{width:100%;height:auto;display:block}
+  .wrapcol{max-width:1240px;margin:0 auto;padding:0 26px}
+
+  /* cover */
+  .cover{position:relative;min-height:760px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 26px;overflow:hidden}
+  .cover .kicker{font-family:'JetBrains Mono',monospace;letter-spacing:.45em;text-transform:uppercase;font-size:12px;color:#fefae0;opacity:.8;margin-bottom:26px}
+  .cover .bannerwrap{width:min(720px,86vw);margin:6px auto 30px;position:relative}
+  .cover h1{font-family:'Alfa Slab One',serif;font-size:clamp(40px,7vw,86px);margin:6px 0 2px;letter-spacing:.01em}
+  .cover h1 .b{color:#a4271f}
+  .cover .tag{font-family:'JetBrains Mono',monospace;letter-spacing:.4em;text-transform:uppercase;font-size:13px;color:#fefae0;opacity:.9;margin-top:8px}
+  .cover .ded{max-width:620px;margin:26px auto 0;color:#cabfa8;font-size:15px;line-height:1.7;font-style:italic}
+
+  /* section heads */
+  .shead{display:flex;align-items:baseline;gap:16px;margin:64px 0 22px;border-top:2px solid #2a1d14;padding-top:20px}
+  .shead .no{font-family:'Alfa Slab One',serif;color:#a4271f;font-size:26px}
+  .shead .ti{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.34em;font-size:14px;color:#fefae0}
+
+  /* brand sheet */
+  .sheet{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start}
+  .panel{background:#0d0a07;border:1px solid #2a1d14;border-radius:4px;padding:24px}
+  .panel h3{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#b1b3b3;margin:0 0 16px}
+  .markgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;grid-auto-rows:172px}
+  .markgrid .mbox.span{grid-column:1/-1;grid-row:auto;height:150px}
+  .panel{align-self:start}
+  .sw{display:flex;flex-wrap:wrap;gap:10px}
+  .sw .chip{width:104px;height:74px;border-radius:3px;position:relative;box-shadow:inset 0 0 0 1px rgba(0,0,0,.4)}
+  .sw .chip span{position:absolute;left:6px;bottom:5px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.05em;color:rgba(0,0,0,.55);background:rgba(254,250,224,.7);padding:1px 4px;border-radius:2px}
+  .sw .chip.dk span{color:rgba(254,250,224,.8);background:rgba(0,0,0,.4)}
+  .typ p{margin:0 0 14px}
+  .marks{display:flex;gap:18px;flex-wrap:wrap;align-items:center;margin-top:6px}
+  .mbox{background:#16110e;border:1px solid #2a1d14;border-radius:3px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:150px}
+  .mbox .cap,.lab .d,.foot{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#b1b3b3}
+
+  /* merch grid */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .item{background:#0b0805;border:1px solid #241913;border-radius:5px;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+  .item.wide{grid-column:1/-1}
+  .surface{height:400px;display:flex;align-items:center;justify-content:center;gap:40px;position:relative;padding:34px;flex-wrap:wrap}
+  .item.wide .surface{height:420px}
+  .lab{padding:14px 18px;display:flex;flex-direction:column;gap:3px;background:linear-gradient(180deg,#16110e,#0a0604);border-top:2px solid #a4271f}
+  .lab .n{font-family:'Alfa Slab One',serif;color:#a4271f;font-size:14px}
+  .lab .t{font-family:'Alfa Slab One',serif;color:#fefae0;font-size:21px;line-height:1.05}
+  .lab .c{font-family:'Inter';color:#a99e8c;font-size:12.5px;line-height:1.5}
+  .row{display:flex;align-items:baseline;gap:12px}
+
+  footer{padding:60px 26px 90px;text-align:center}
+  footer .f-slab{font-size:30px}
+</style></head>
+<body>
+
+<!-- SVG FILTERS (from site) -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs>
+  <filter id="painted-aged-filter" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence baseFrequency="0.04 0.06" numOctaves="2" seed="3" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5"/>
+  </filter>
+  <filter id="hammered-painted-canvas" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence baseFrequency="0.05" numOctaves="2" seed="4" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" result="rough"/>
+    <feGaussianBlur in="rough" stdDeviation="1.5" result="blur"/>
+    <feSpecularLighting in="blur" surfaceScale="5" specularConstant="1.6" specularExponent="25" lighting-color="#fff5d6" result="spec"><feDistantLight azimuth="135" elevation="55"/></feSpecularLighting>
+    <feComposite in="spec" in2="rough" operator="in" result="sm"/>
+    <feComposite in="sm" in2="rough" operator="arithmetic" k1="0" k2="1" k3="1.2" k4="0"/>
+  </filter>
+</defs></svg>
+
+<!-- ============ COVER ============ -->
+<section class="cover bg-brick bg-brick-spot-l brick-cracks">
+  <div class="kicker">The Brandscape · A Gift for Robin</div>
+  <div class="bannerwrap mk">%%BANNER%%</div>
+  <h1>BRANDSCAPE · <span class="b">GYMROB</span></h1>
+  <div class="tag">Robin Carruthers · Chief Iron Officer · Mumbai</div>
+  <p class="ded">Robin — from the boardroom to the iron, <strong style="color:#fefae0">120&nbsp;→&nbsp;78</strong>, forged at 40.
+  The best version of you was never behind you; you just hadn't shown up yet.
+  So here's your mark — the raised fist from the day you stood beside Rocky — put on everything you carry.
+  <strong style="color:#fefae0">Fists up. Iron is religion.</strong></p>
+</section>
+
+<div class="wrapcol">
+
+<!-- ============ BRAND SHEET ============ -->
+<div class="shead"><span class="no">00</span><span class="ti">The Identity</span></div>
+<div class="sheet">
+  <div class="panel">
+    <h3>The marks</h3>
+    <div class="markgrid">
+      <div class="mbox span" style="background:#0e0a07"><div class="mk" style="width:330px">%%LOCKUP%%</div><span class="cap">Primary horizontal lockup</span></div>
+      <div class="mbox"><div class="mk" style="width:118px">%%EMBLEM%%</div><span class="cap">Warrior's seal · emblem</span></div>
+      <div class="mbox"><div class="mk" style="width:104px">%%ICON%%</div><span class="cap">GR monogram · icon</span></div>
+      <div class="mbox" style="background:#fefae0"><div class="mk" style="width:72px;color:#a4271f">%%FIST%%</div><span class="cap" style="color:#6f1812">The fist</span></div>
+      <div class="mbox"><div class="mk" style="width:52px">%%FAVICON%%</div><span class="cap">Favicon · 1-colour safe</span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Palette — two inks + one cool tick</h3>
+    <div class="sw">
+      <div class="chip" style="background:#a4271f"><span class="dk">mighty.red #a4271f</span></div>
+      <div class="chip" style="background:#fefae0"><span>rocky.paper #fefae0</span></div>
+      <div class="chip" style="background:#0e0a07"><span class="dk">mighty.shadow #0e0a07</span></div>
+      <div class="chip" style="background:#b49676"><span>leather #b49676</span></div>
+      <div class="chip" style="background:#d4a14a"><span>brass #d4a14a</span></div>
+      <div class="chip" style="background:#4687a6"><span class="dk">ring-blue #4687a6</span></div>
+    </div>
+    <h3 style="margin-top:22px">Type — 2 + 1</h3>
+    <div class="typ">
+      <p><span class="f-slab" style="font-size:34px;color:#fefae0">Alfa Slab One</span><br><span class="foot">Painted signage · the wordmark</span></p>
+      <p><span class="f-mono" style="font-size:18px;letter-spacing:.2em;color:#fefae0">JETBRAINS MONO</span><br><span class="foot">Stamped IDs · decals · ring type</span></p>
+      <p style="margin-bottom:0"><span class="f-body" style="font-size:18px;color:#fefae0">Inter — the body voice</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ THE GIFT SET ============ -->
+<div class="shead"><span class="no">01</span><span class="ti">The Gift Set — 18 pieces</span></div>
+<div class="grid">
+
+  <!-- 01 TEE FRONT -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="tee">
+        <div class="body fabric-charcoal">
+          <div class="neck"></div>
+          <div class="print">
+            <div class="mk" style="width:50px;margin:0 auto 8px;color:#fefae0">%%FIST%%</div>
+            <div class="f-slab text-screenprint" style="font-size:36px;letter-spacing:.01em">IRON IS<br>RELIGION</div>
+          </div>
+          <div class="hem"></div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">01</span><span class="t">Drop-shoulder tee · front</span></div>
+      <span class="c">Big chest screen-print, paper-on-charcoal. The creed you can read across the floor.</span></figcaption>
+  </figure>
+
+  <!-- 02 TEE BACK -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="tee back">
+        <div class="body fabric-charcoal">
+          <div class="neck"></div>
+          <div class="print">
+            <div class="f-slab text-screenprint" style="font-size:21px;line-height:1.22">I AM A WARRIOR.<br>IRON IS MY RELIGION.<br>I WILL NEVER<br>SAY I CAN'T.</div>
+            <div class="f-mono" style="font-size:9px;letter-spacing:.28em;color:rgba(254,250,224,.55);margin-top:16px">· GYMROB · MUMBAI ·</div>
+          </div>
+          <div class="hem"></div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">02</span><span class="t">Drop-shoulder tee · back</span></div>
+      <span class="c">His own manifesto, tightened to a fight-card cadence.</span></figcaption>
+  </figure>
+
+  <!-- 03 POLO -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="polo">
+        <div class="body fabric-navy"></div>
+        <div class="collar fabric-navy"></div>
+        <div class="placket"></div>
+        <div class="chip mk" style="width:46px;height:46px;color:#8f9aa6;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))">%%FIST%%</div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">03</span><span class="t">Polo</span></div>
+      <span class="c">Left-chest embroidered fist in tonal thread. Quiet, collared, club-level.</span></figcaption>
+  </figure>
+
+  <!-- 04 CAP -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="cap">
+        <div class="crown fabric-charcoal"></div>
+        <div class="stitch"></div>
+        <div class="bill fabric-charcoal"></div>
+        <div class="button fabric-charcoal"></div>
+        <div class="front mk" style="color:#e7dcbe;filter:drop-shadow(0 1px 0 rgba(0,0,0,.4))">%%FIST%%</div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">04</span><span class="t">6-panel cap</span></div>
+      <span class="c">Embroidered fist on the front panel. Hidden copy — back-strap: IRON IS RELIGION · sweatband: SHOW UP.</span></figcaption>
+  </figure>
+
+  <!-- 05 MUG -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="mug">
+        <div class="body"><div class="rim"></div>
+          <div class="wrap">
+            <div class="f-slab" style="font-size:38px;color:#a4271f;line-height:.9">SHOW<br>UP.</div>
+            <div class="f-mono" style="font-size:7.5px;letter-spacing:.16em;color:#7a1d16;margin-top:10px">· FUEL · GYMROB · MUMBAI ·</div>
+          </div>
+          <div class="base"></div>
+        </div>
+        <div class="handle"></div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">05</span><span class="t">Enamel camp mug</span></div>
+      <span class="c">Red rim, cream body. His own word — the 6am joke and the day's only instruction.</span></figcaption>
+  </figure>
+
+  <!-- 06 COASTER -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="coaster bg-brass"><div class="mk" style="width:152px">%%EMBLEM%%</div></div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">06</span><span class="t">Weight-plate coaster</span></div>
+      <span class="c">Cast brass round, the warrior's seal struck into the face. For the cabin desk.</span></figcaption>
+  </figure>
+
+  <!-- 07 NAMEPLATE (wide) -->
+  <figure class="item wide">
+    <div class="surface bg-brick brick-cracks">
+      <div class="plaque bg-wood">
+        <div class="brass bg-brass">
+          <span class="tk brass-tack" style="top:8px;left:8px"></span><span class="tk brass-tack" style="top:8px;right:8px"></span>
+          <span class="tk brass-tack" style="bottom:8px;left:8px"></span><span class="tk brass-tack" style="bottom:8px;right:8px"></span>
+          <div class="f-mono text-engrave-brass" style="font-size:13px;letter-spacing:.34em">· CHIEF IRON OFFICER ·</div>
+          <div class="f-slab text-engrave-brass" style="font-size:44px;letter-spacing:.02em;margin:6px 0 6px">ROBIN&nbsp;&nbsp;CARRUTHERS</div>
+          <div class="f-mono text-engrave-brass" style="font-size:11px;letter-spacing:.3em">· MUMBAI · IRON IS RELIGION ·</div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">07</span><span class="t">Cabin nameplate — brass on walnut</span></div>
+      <span class="c">The hero piece. Role title + his name, engraved — no org named. The C.I.O. wink: 30 years a Chief-something in adland, now Chief Iron Officer. (Door version swaps the support line to · 120 → 78 · OLD-SCHOOL IRON ·.)</span></figcaption>
+  </figure>
+
+  <!-- 08 BIKE TANK (wide) -->
+  <figure class="item wide">
+    <div class="surface bg-brick brick-cracks">
+      <div class="tank">
+        <div class="badge">
+          <div class="mk" style="width:64px;color:#a4271f">%%FIST%%</div>
+          <div style="text-align:left">
+            <div class="f-slab" style="font-size:42px;color:#7a1d16;line-height:.9;text-shadow:0 1px 0 rgba(255,255,255,.5)">GYMROB</div>
+            <div class="f-mono" style="font-size:10px;letter-spacing:.26em;color:#5a3a18;margin-top:4px">OLD-SCHOOL IRON · MUMBAI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">08</span><span class="t">Bike fuel-tank badge</span></div>
+      <span class="c">Cast-metal emblem — fist + GYMROB over OLD-SCHOOL IRON · MUMBAI. The bike he rides, branded.</span></figcaption>
+  </figure>
+
+  <!-- 09 HELMET -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="helmet">
+        <div class="shell"></div>
+        <div class="chin"></div>
+        <div class="visor"></div>
+        <div class="pivot"></div>
+        <div class="decal" style="display:flex;align-items:center;gap:8px">
+          <div class="mk" style="width:38px;color:#fefae0">%%FIST%%</div>
+          <div class="f-slab" style="font-size:16px;color:#fefae0;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.6)">IRON IS<br>RELIGION</div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">09</span><span class="t">Helmet decal</span></div>
+      <span class="c">Matte-black lid · fist + IRON IS RELIGION on the shell. (Rear stamp: 120 → 78.)</span></figcaption>
+  </figure>
+
+  <!-- 10 TOTE -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="tote">
+        <div class="handle" style="left:24px"></div><div class="handle" style="right:24px"></div>
+        <div class="body fabric-cream"></div>
+        <div class="print">
+          <div class="f-slab stencil-paint-red" style="font-size:42px">GYMROB</div>
+          <div class="f-mono" style="font-size:9px;letter-spacing:.3em;color:#7a1d16;margin-top:8px">MUMBAI · IRON</div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">10</span><span class="t">Canvas tote</span></div>
+      <span class="c">Natural canvas, stencil-painted wordmark — the kit bag, the market bag.</span></figcaption>
+  </figure>
+
+  <!-- 11 BOTTLE -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="bottle">
+        <div class="cap-top"></div>
+        <div class="body">
+          <div class="wrap">
+            <div class="mk" style="width:52px;margin:0 auto 8px;color:#a4271f">%%FIST%%</div>
+            <div class="f-slab text-screenprint" style="font-size:26px">GYMROB</div>
+            <div class="f-mono" style="font-size:8px;letter-spacing:.22em;color:rgba(254,250,224,.6);margin-top:8px">FUEL · OLD-SCHOOL IRON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">11</span><span class="t">Steel shaker / bottle</span></div>
+      <span class="c">Brushed-steel wrap, fist + GYMROB. On the floor between sets.</span></figcaption>
+  </figure>
+
+  <!-- 12 BUSINESS CARD (wide) -->
+  <figure class="item wide">
+    <div class="surface bg-brick brick-cracks">
+      <div class="bcard bg-paper">
+        <div class="mk" style="width:56px;color:#a4271f">%%FIST%%</div>
+        <div class="f-slab text-engrave-paper" style="font-size:26px">ROBIN CARRUTHERS</div>
+        <div class="f-mono text-engrave-paper" style="font-size:10px;letter-spacing:.3em">· CHIEF IRON OFFICER ·</div>
+      </div>
+      <div class="bcard bg-canvas" style="gap:4px">
+        <div class="f-slab text-hammered-canvas" style="font-size:24px">IRON IS RELIGION</div>
+        <div class="f-mono" style="font-size:10px;letter-spacing:.22em;color:rgba(254,250,224,.9);margin-top:6px">@gymrob123</div>
+        <div class="f-mono" style="font-size:10px;letter-spacing:.18em;color:rgba(254,250,224,.8)">wa&nbsp;&nbsp;93723 03172</div>
+        <div class="f-mono" style="font-size:9px;letter-spacing:.14em;color:rgba(254,250,224,.7)">Lokhandwala · Andheri W · Mumbai</div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">12</span><span class="t">Business card — letterpress</span></div>
+      <span class="c">Front: debossed on paper. Back: painted on canvas-red. The card is the brand.</span></figcaption>
+  </figure>
+
+  <!-- 13 LANYARD + ID -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="lanyard">
+        <div class="webbing"><span>IRON IS RELIGION · IRON IS RELIGION</span></div>
+        <div class="clip"></div>
+        <div class="id-badge">
+          <div class="mk" style="width:34px;margin:0 auto 6px;color:#a4271f">%%FIST%%</div>
+          <div class="f-slab" style="font-size:24px;color:#fefae0">GYMROB</div>
+          <div style="height:2px;background:#a4271f;margin:8px 24px"></div>
+          <div class="f-slab" style="font-size:15px;color:#fefae0">ROBIN CARRUTHERS</div>
+          <div class="f-mono" style="font-size:9px;letter-spacing:.24em;color:#b1b3b3;margin-top:2px">CHIEF IRON OFFICER</div>
+          <div class="f-mono" style="font-size:9px;letter-spacing:.2em;color:#4687a6;margin-top:10px">ALL-ACCESS · THE FLOOR</div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">13</span><span class="t">Lanyard + ID credential</span></div>
+      <span class="c">Webbing repeats the creed · the badge gives him the run of the floor.</span></figcaption>
+  </figure>
+
+  <!-- 14 PIN + PATCH -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="pin" style="background:linear-gradient(180deg,#9a241c,#6f1812)"><div class="mk" style="width:118px;color:#fefae0">%%FIST%%</div></div>
+      <div class="patch bg-canvas stitched"><div class="mk">%%EMBLEM%%</div></div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">14</span><span class="t">Enamel pin + woven patch</span></div>
+      <span class="c">The collectibles — the wordless fist pin, and the seal as a stitched patch.</span></figcaption>
+  </figure>
+
+  <!-- 15 TOWEL -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="towel fabric-charcoal">
+        <div class="band"></div><div class="band b"></div>
+        <div class="wmk mk" style="color:#fefae0">%%FIST%%</div>
+        <div class="print">
+          <div style="text-align:center">
+            <div class="f-slab" style="font-size:42px;color:rgba(254,250,224,.85);text-shadow:0 1px 0 rgba(0,0,0,.4)">GYMROB</div>
+            <div class="f-mono" style="font-size:9px;letter-spacing:.3em;color:rgba(254,250,224,.5);margin-top:6px">120 → 78</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">15</span><span class="t">Gym towel — woven</span></div>
+      <span class="c">Tonal jacquard wordmark · 120 → 78 woven into the corner.</span></figcaption>
+  </figure>
+
+  <!-- 16 LOGBOOK -->
+  <figure class="item">
+    <div class="surface bg-brick brick-cracks">
+      <div class="logbook book-leather">
+        <div class="pages"></div>
+        <div class="mk" style="width:54px;color:#d2a861;filter:drop-shadow(0 1px 0 rgba(0,0,0,.55))">%%FIST%%</div>
+        <div class="f-slab" style="font-size:22px;text-align:center;line-height:1.1;color:#e6c585;text-shadow:0 1px 0 rgba(0,0,0,.55),0 -1px 0 rgba(255,232,184,.25)">THE IRON<br>LOGBOOK</div>
+        <div class="f-mono" style="font-size:9px;letter-spacing:.2em;text-align:center;color:#caa15a;text-shadow:0 1px 0 rgba(0,0,0,.5)">GYMROB · ROBIN CARRUTHERS</div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">16</span><span class="t">Coach's logbook — embossed leather</span></div>
+      <span class="c">Inside cover: “For Robin — who proved the best version was never behind him. Every page in here is iron you've already lifted. Keep showing up.”</span></figcaption>
+  </figure>
+
+  <!-- 17 STICKER SHEET (wide) -->
+  <figure class="item wide">
+    <div class="surface bg-brick brick-cracks" style="height:auto;min-height:360px">
+      <div class="polaroid-aged" style="padding:26px;border-radius:4px;box-shadow:0 16px 30px rgba(0,0,0,.5)">
+        <div style="display:flex;flex-wrap:wrap;gap:16px;max-width:760px;justify-content:center">
+          <div class="sticker" style="--r:-3deg"><div class="f-slab" style="font-size:30px;color:#a4271f">GYMROB</div></div>
+          <div class="sticker round" style="--r:2deg;background:#a4271f;width:96px;height:96px"><div class="mk" style="width:60px;color:#fefae0">%%FIST%%</div></div>
+          <div class="sticker" style="--r:1deg"><div class="f-mono" style="font-size:13px;letter-spacing:.18em;font-weight:700;color:#6f1812">IRON IS RELIGION</div></div>
+          <div class="sticker" style="--r:-2deg"><div class="f-slab" style="font-size:24px;color:#a4271f">120 → 78</div></div>
+          <div class="sticker" style="--r:3deg"><div class="f-mono" style="font-size:12px;letter-spacing:.18em;font-weight:700;color:#6f1812">I AM A WARRIOR</div></div>
+          <div class="sticker" style="--r:-1deg"><div class="f-mono" style="font-size:13px;letter-spacing:.08em;font-weight:700;color:#6f1812">@gymrob123</div></div>
+          <div class="sticker" style="--r:2deg"><div class="f-slab" style="font-size:22px;color:#a4271f">SHOW UP</div></div>
+          <div class="sticker" style="--r:-2deg"><div class="f-mono" style="font-size:10px;letter-spacing:.16em;font-weight:700;color:#6f1812;max-width:120px;text-align:center;line-height:1.4">THE REAL ROCKY OF MUMBAI</div></div>
+          <div class="sticker" style="--r:1deg"><div class="f-mono" style="font-size:12px;letter-spacing:.18em;font-weight:700;color:#6f1812">FORGED AT 40</div></div>
+          <div class="sticker" style="--r:-3deg;background:#0e0a07"><div class="f-mono" style="font-size:10px;letter-spacing:.22em;font-weight:700;color:#fefae0">· EST · MUMBAI · IRON ·</div></div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">17</span><span class="t">Die-cut sticker sheet — 10</span></div>
+      <span class="c">The wordmark, the fist, and the slogans that travel: for the bike, the bottle, the laptop, the locker.</span></figcaption>
+  </figure>
+
+  <!-- 18 WALL BANNER (wide) -->
+  <figure class="item wide">
+    <div class="surface bg-brick brick-cracks" style="height:520px">
+      <div style="position:relative;transform:rotate(-1.4deg)">
+        <span class="canvas-rope" style="left:60px"></span><span class="canvas-rope" style="right:60px"></span>
+        <div class="bg-canvas wearouts shadow-hung" style="position:relative;padding:36px 70px 30px;border:5px solid #0e0a07;text-align:center;max-width:760px">
+          <div class="f-mono" style="font-size:12px;letter-spacing:.4em;color:rgba(254,250,224,.85)">ROBIN CARRUTHERS'</div>
+          <div class="f-slab text-hammered-canvas" style="font-size:88px;line-height:.95;margin:4px 0">GYMROB</div>
+          <div style="height:2px;background:rgba(254,250,224,.5);margin:6px auto 12px;max-width:360px"></div>
+          <div class="f-mono" style="font-size:12px;letter-spacing:.3em;color:rgba(254,250,224,.9)">OLD-SCHOOL IRON · MUMBAI</div>
+          <div class="f-slab" style="font-size:20px;color:#fefae0;line-height:1.35;margin-top:14px;text-shadow:1px 1px 0 rgba(0,0,0,.6)">IRON IS RELIGION.<br>I AM A WARRIOR. I WILL NEVER QUIT.</div>
+        </div>
+      </div>
+    </div>
+    <figcaption class="lab"><div class="row"><span class="n">18</span><span class="t">Hand-painted wall banner</span></div>
+      <span class="c">The Mighty-Mick's sign, made his. Hung on the brick where you walk in.</span></figcaption>
+  </figure>
+
+</div>
+</div>
+
+<footer class="bg-brick brick-cracks">
+  <div class="mk" style="width:120px;margin:0 auto 18px;color:#fefae0">%%FIST%%</div>
+  <div class="f-slab" style="color:#fefae0">IRON IS RELIGION</div>
+  <div class="foot" style="margin-top:10px">BRANDSCAPE · GYMROB · FORGED FOR ROBIN CARRUTHERS · MUMBAI</div>
+</footer>
+
+</body></html>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360" role="img" aria-label="GYMROB — dog-tag freight-stencil stamp">
+  <title>GYMROB — dog-tag / freight-stencil stamp</title>
+
+  <!-- ============================================================
+       CONCEPT 5 · DOG-TAG / FREIGHT-STENCIL STAMP
+       Stamped-steel plate. GYMROB punched/stenciled into metal,
+       serial-number mono line, dog-tag chain-hole + notch.
+       Holds as ONE solid colour: every fill is mighty.shadow or
+       rocky.paper, alternating to read as deboss / knockout.
+       Background transparent except the steel plate itself.
+       ============================================================ -->
+
+  <defs>
+    <!-- subtle brushed-steel deboss gradient — seasoning only, NOT load-bearing -->
+    <linearGradient id="c5steel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcbebe"/>
+      <stop offset="0.5" stop-color="#b1b3b3"/>
+      <stop offset="1" stop-color="#999c9c"/>
+    </linearGradient>
+    <linearGradient id="c5well" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e0a07"/>
+      <stop offset="1" stop-color="#211712"/>
+    </linearGradient>
+  </defs>
+
+  <!-- slight hand-stamped rotation on the whole tag -->
+  <g transform="rotate(-1.4 440 180)">
+
+    <!-- ============ STEEL DOG-TAG PLATE (squared, 2px radius) ============ -->
+    <!-- outer stamped border line -->
+    <rect x="62" y="58" width="756" height="244" rx="2" fill="url(#c5steel)"
+          stroke="#0e0a07" stroke-width="5"/>
+    <!-- inner scribed border (real stamped double-rule) -->
+    <rect x="78" y="74" width="724" height="212" rx="2" fill="none"
+          stroke="#0e0a07" stroke-width="2.5"/>
+
+    <!-- chain punch-hole, top-left (the dog-tag tell) -->
+    <circle cx="108" cy="100" r="15" fill="#0e0a07"/>
+    <circle cx="108" cy="100" r="8.5" fill="url(#c5steel)"/>
+    <!-- notch cut, top-right edge of dog tags -->
+    <path d="M772 58 l0 22 q14 0 14 -14 l8 -8 z" fill="#0e0a07"/>
+
+    <!-- corner stamp rivets (hex bolt motif, reused & shrunk) -->
+    <g fill="#0e0a07">
+      <polygon points="786,86 798,93 798,107 786,114 774,107 774,93"/>
+      <polygon points="786,246 798,253 798,267 786,274 774,267 774,253"/>
+      <polygon points="106,246 118,253 118,267 106,274 94,267 94,253"/>
+    </g>
+
+    <!-- ============ DEBOSSED WORDMARK WELL ============ -->
+    <!-- recessed dark channel the letters are punched into -->
+    <rect x="150" y="118" width="580" height="104" rx="2" fill="url(#c5well)"
+          stroke="#0e0a07" stroke-width="3"/>
+
+    <!-- GYMROB — heavy slab, paper knockout inside the steel punch -->
+    <text x="440" y="197" text-anchor="middle"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="90"
+          letter-spacing="4" fill="#fefae0">GYMROB</text>
+
+    <!-- STENCIL BRIDGES — real freight-stencil device, paper-well ticks that
+         break the letter strokes so the islands (the bowls of R/O/B) stay
+         'attached', exactly as a cut steel stencil would. These read as the
+         ribs of the stencil. Load-bearing stencil grammar; survives 1-colour
+         because they share the well fill. -->
+    <!-- STENCIL SCORE + BRIDGES — authentic cut-stencil grammar.
+         A single horizontal waist score reads as the stencil rib without
+         ever breaking a letter's identity (no G->C failures). Two short
+         vertical bridges sit only on the CLOSED counters (O and B) — the
+         exact places a real steel stencil must add a tie to hold the island.
+         All share the well fill, so it survives 1-colour. -->
+    <g fill="url(#c5well)">
+      <!-- continuous waist score across the whole wordmark (thin) -->
+      <rect x="158" y="161" width="564" height="6"/>
+      <!-- counter-bridge on the R bowl (upper counter tie) -->
+      <rect x="412" y="143" width="28" height="8" rx="1"/>
+      <!-- counter-bridge centred on the O bowl -->
+      <rect x="498" y="150" width="40" height="9" rx="1"/>
+      <!-- counter-bridges on the two B bowls -->
+      <rect x="600" y="143" width="30" height="8" rx="1"/>
+      <rect x="600" y="183" width="30" height="8" rx="1"/>
+    </g>
+
+    <!-- ============ SERIAL / MONO METADATA LINE ============ -->
+    <!-- left freight stencil block: barbell stamp -->
+    <g transform="translate(150 248) scale(0.62)" fill="#0e0a07" stroke="#0e0a07">
+      <line x1="14" y1="32" x2="50" y2="32" stroke-width="2.5"/>
+      <line x1="6" y1="32" x2="14" y2="32" stroke-width="4"/>
+      <line x1="50" y1="32" x2="58" y2="32" stroke-width="4"/>
+      <rect x="11" y="22" width="4" height="20"/><rect x="49" y="22" width="4" height="20"/>
+      <rect x="4" y="18" width="6" height="28"/><rect x="54" y="18" width="6" height="28"/>
+    </g>
+
+    <!-- serial number, stamped mono -->
+    <text x="206" y="270" text-anchor="start"
+          font-family="JetBrains Mono, monospace" font-size="20" font-weight="700"
+          letter-spacing="3" fill="#0e0a07">No. 120-78</text>
+
+    <!-- right metadata, stamped mono -->
+    <text x="730" y="270" text-anchor="end"
+          font-family="JetBrains Mono, monospace" font-size="18"
+          letter-spacing="6" fill="#0e0a07">MUMBAI · IRON</text>
+
+    <!-- centre divider dot row, stamped -->
+    <g fill="#0e0a07">
+      <circle cx="470" cy="263" r="2.6"/>
+      <circle cx="492" cy="263" r="2.6"/>
+      <circle cx="514" cy="263" r="2.6"/>
+    </g>
+
+  </g>
+</svg>

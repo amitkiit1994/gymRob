@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="GYMROB champion laurel icon">
+  <title>GYMROB · Champion Laurel · icon</title>
+
+  <!-- CONCEPT 7 · CHAMPION LAUREL · ICON
+       Compact seal for cap / pin / favicon / bike badge.
+       Fist (hero symbol) cradled in a champion wreath, barbell base,
+       crowned by a star. Built fat for 24px + embroidery + die-cut.
+       1-colour safe: fill all #a4271f works; knockouts are #fefae0. -->
+
+  <defs>
+    <!-- leaf grows from origin toward +x; tip at ~ (26,0) -->
+    <path id="i7-leaf" d="M0 0 Q14 -7 26 -1 Q14 7 0 1 Q-3 0 0 0 Z"/>
+    <path id="i7-star" d="M0 -16 L4.9 -5.2 L16.5 -4.1 L7.7 3.6 L10.3 15.5 L0 9.1 L-10.3 15.5 L-7.7 3.6 L-16.5 -4.1 L-4.9 -5.2 Z"/>
+
+    <!-- ONE laurel arm, built once, mirrored for the other side.
+         Each leaf: rotate to its arc angle, ride out to radius 80,
+         then tilt so it lies tangent and fans up-and-out. -->
+    <g id="i7-arm" fill="#a4271f">
+      <!-- outer fan: rides the right side from low (+70) up to high (-58),
+           each leaf tilted up-the-arc (-100) and fanned slightly out. -->
+      <use href="#i7-leaf" transform="rotate(70)  translate(82 0) rotate(-104) scale(1.5)"/>
+      <use href="#i7-leaf" transform="rotate(48)  translate(82 0) rotate(-104) scale(1.6)"/>
+      <use href="#i7-leaf" transform="rotate(26)  translate(82 0) rotate(-104) scale(1.65)"/>
+      <use href="#i7-leaf" transform="rotate(4)   translate(82 0) rotate(-104) scale(1.6)"/>
+      <use href="#i7-leaf" transform="rotate(-18) translate(82 0) rotate(-104) scale(1.5)"/>
+      <use href="#i7-leaf" transform="rotate(-40) translate(82 0) rotate(-104) scale(1.35)"/>
+      <use href="#i7-leaf" transform="rotate(-58) translate(80 0) rotate(-104) scale(1.15)"/>
+      <!-- inner braid: shorter leaves, closer in, tighter tilt -->
+      <use href="#i7-leaf" transform="rotate(60)  translate(60 0) rotate(-82) scale(1.0)"/>
+      <use href="#i7-leaf" transform="rotate(38)  translate(60 0) rotate(-82) scale(1.05)"/>
+      <use href="#i7-leaf" transform="rotate(16)  translate(60 0) rotate(-82) scale(1.05)"/>
+      <use href="#i7-leaf" transform="rotate(-6)  translate(60 0) rotate(-82) scale(1.0)"/>
+      <use href="#i7-leaf" transform="rotate(-28) translate(60 0) rotate(-82) scale(0.9)"/>
+    </g>
+  </defs>
+
+  <g transform="translate(128 128) rotate(-1.4)">
+
+    <!-- stamped seal ring (thick: survives 24px + stitch) -->
+    <circle cx="0" cy="0" r="112" fill="none" stroke="#a4271f" stroke-width="11"/>
+    <circle cx="0" cy="0" r="93" fill="none" stroke="#a4271f" stroke-width="3"/>
+
+    <!-- crown star on the ring -->
+    <use href="#i7-star" transform="translate(0 -112) scale(1.45)" fill="#a4271f"/>
+
+    <!-- WREATH: right arm + mirrored left arm -->
+    <use href="#i7-arm"/>
+    <use href="#i7-arm" transform="scale(-1 1)"/>
+
+    <!-- base tie knot -->
+    <g fill="#a4271f">
+      <rect x="-15" y="84" width="30" height="15" rx="2"/>
+      <rect x="-8" y="95" width="7" height="17" rx="2" transform="rotate(-12 -4 104)"/>
+      <rect x="2" y="95" width="7" height="17" rx="2" transform="rotate(12 5 104)"/>
+    </g>
+
+    <!-- CENTRE: FIST over BARBELL (brief paths) -->
+    <!-- FIST, scaled to dominate the seal -->
+    <g transform="translate(0 -26) scale(1.95) translate(-32 -34)" fill="#a4271f" stroke="#a4271f" stroke-width="1.5">
+      <path d="M12 28 Q12 18 22 16 L42 16 Q52 16 52 26 L52 44 Q52 52 44 52 L20 52 Q12 52 12 44 Z"/>
+      <ellipse cx="14" cy="38" rx="5" ry="8" transform="rotate(-20 14 38)"/>
+      <line x1="22" y1="26" x2="22" y2="34" stroke="#fefae0" stroke-width="2"/>
+      <line x1="30" y1="24" x2="30" y2="32" stroke="#fefae0" stroke-width="2"/>
+      <line x1="38" y1="24" x2="38" y2="32" stroke="#fefae0" stroke-width="2"/>
+      <line x1="46" y1="26" x2="46" y2="34" stroke="#fefae0" stroke-width="2"/>
+    </g>
+
+    <!-- BARBELL base -->
+    <g transform="translate(0 58) scale(1.7) translate(-32 -32)" fill="#a4271f" stroke="#a4271f">
+      <line x1="14" y1="32" x2="50" y2="32" stroke-width="2.5"/>
+      <line x1="6" y1="32" x2="14" y2="32" stroke-width="4"/>
+      <line x1="50" y1="32" x2="58" y2="32" stroke-width="4"/>
+      <rect x="11" y="22" width="4" height="20"/><rect x="49" y="22" width="4" height="20"/>
+      <rect x="4" y="18" width="6" height="28"/><rect x="54" y="18" width="6" height="28"/>
+    </g>
+
+  </g>
+</svg>

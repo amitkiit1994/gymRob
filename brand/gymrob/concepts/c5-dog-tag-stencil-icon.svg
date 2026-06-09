@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="GYMROB dog-tag icon mark">
+  <title>GYMROB — dog-tag icon mark</title>
+
+  <!-- ============================================================
+       CONCEPT 5 · ICON-ONLY · stamped dog-tag with stenciled GR.
+       Dog-tag oval is the one allowed curve (a badge silhouette).
+       Reads at 24px: bold tag shape + chunky GR + punch hole.
+       1-colour safe: paper letters knock out of a shadow tag,
+       OR flip — fill all mighty.red and it still reads.
+       ============================================================ -->
+
+  <defs>
+    <linearGradient id="c5isteel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcbebe"/>
+      <stop offset="0.55" stop-color="#b1b3b3"/>
+      <stop offset="1" stop-color="#999c9c"/>
+    </linearGradient>
+    <linearGradient id="c5iwell" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e0a07"/>
+      <stop offset="1" stop-color="#241a14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- hand-stamped tilt -->
+  <g transform="rotate(-4 128 128)">
+
+    <!-- DOG-TAG SILHOUETTE: rounded military oval, vertical.
+         Heavy outline so the shape survives at 24px favicon. -->
+    <rect x="62" y="20" width="132" height="216" rx="62" fill="url(#c5isteel)"
+          stroke="#0e0a07" stroke-width="10"/>
+    <!-- scribed inner rule (thin — backs off so it vanishes cleanly at 24px) -->
+    <rect x="80" y="38" width="96" height="180" rx="46" fill="none"
+          stroke="#0e0a07" stroke-width="3"/>
+
+    <!-- chain punch-hole at top -->
+    <circle cx="128" cy="55" r="15" fill="#0e0a07"/>
+    <circle cx="128" cy="55" r="7" fill="url(#c5isteel)"/>
+
+    <!-- DEBOSSED WELL for the monogram — large, dominates the tag -->
+    <rect x="84" y="84" width="88" height="98" rx="6" fill="url(#c5iwell)"
+          stroke="#0e0a07" stroke-width="3"/>
+
+    <!-- GR — heavy slab, paper knockout, big so it holds at favicon -->
+    <text x="128" y="162" text-anchor="middle"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="70"
+          letter-spacing="-3" fill="#fefae0">GR</text>
+
+    <!-- STENCIL BRIDGE across GR — single bold rib, the freight-stencil tell.
+         One bridge only: survives shrink, won't muddy at 24px. -->
+    <g fill="url(#c5iwell)">
+      <rect x="84" y="127" width="88" height="7"/>
+    </g>
+
+    <!-- stamped serial under the well, mono (decorative at large sizes) -->
+    <text x="128" y="208" text-anchor="middle"
+          font-family="JetBrains Mono, monospace" font-size="15" font-weight="700"
+          letter-spacing="2" fill="#0e0a07">120·78</text>
+
+  </g>
+</svg>

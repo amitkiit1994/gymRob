@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

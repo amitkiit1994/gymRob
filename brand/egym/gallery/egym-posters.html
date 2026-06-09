@@ -1,0 +1,861 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Physical Brandscape — Iron Creed System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../gymrob/gallery/kit.css">
+<link rel="stylesheet" href="egym-kit.css">
+<style>
+  body{margin:0;background:#0a0604;color:#fefae0;font-family:'Inter',sans-serif}
+  .mk svg{width:100%;height:auto;display:block}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 26px}
+  .cover{position:relative;min-height:560px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 26px;overflow:hidden}
+  .cover .ew{width:min(340px,68vw);margin:0 auto 16px}
+  .cover .kick{font-family:'JetBrains Mono',monospace;letter-spacing:.42em;text-transform:uppercase;font-size:12px;color:#fefae0;opacity:.85;margin-bottom:18px}
+  .cover h1{font-family:'Alfa Slab One',serif;font-size:clamp(30px,5vw,54px);margin:4px 0}
+  .cover h1 .b{color:#a4271f}
+  .cover .ded{max-width:680px;margin:16px auto 0;color:#cabfa8;font-size:15px;line-height:1.7}
+  .shead{display:flex;align-items:baseline;gap:14px;margin:54px 0 20px;border-top:2px solid #2a1d14;padding-top:18px}
+  .shead .no{font-family:'Alfa Slab One',serif;color:#a4271f;font-size:22px}
+  .shead .ti{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.3em;font-size:13px}
+  .shead .sub{font-family:'Inter';color:#8c8273;font-size:12px;margin-left:auto}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .pcard{grid-column:span 1}.pcard.w2{grid-column:span 2}.pcard.w3{grid-column:span 3}
+  .scene{background:#0b0805;border:1px solid #241913;border-radius:4px;overflow:hidden;box-shadow:0 14px 30px rgba(0,0,0,.5)}
+  .wallpad{display:flex;align-items:center;justify-content:center;gap:26px;padding:30px;flex-wrap:wrap;min-height:300px}
+  .lab{padding:12px 16px;background:linear-gradient(180deg,#16110e,#0a0604);border-top:2px solid #a4271f}
+  .lab .t{font-family:'Alfa Slab One',serif;font-size:16px;color:#fefae0}
+  .lab .t .n{color:#a4271f;margin-right:7px}
+  .lab .c{font-family:'Inter';color:#a99e8c;font-size:11.5px;line-height:1.5;margin-top:2px}
+  .lab .tag{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.16em;color:#7b7164;text-transform:uppercase;margin-top:4px}
+  .art{position:relative;overflow:hidden;border:6px solid #0e0a07;box-shadow:0 16px 28px rgba(0,0,0,.6);text-align:center}
+  .art.por{width:286px;height:420px}.art.tall{width:286px;height:464px}.art.land{width:100%;height:330px}
+  .art .pad{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:8px}
+  .concrete{background:radial-gradient(ellipse 72% 52% at 50% -4%,rgba(254,215,170,.13),transparent 60%),radial-gradient(ellipse at center,transparent 28%,rgba(0,0,0,.72) 100%),linear-gradient(180deg,#16110d,#090605)}
+  .bg-chalk2{background-color:#142117;background-image:radial-gradient(ellipse at 30% 25%,rgba(255,255,255,.05),transparent 50%),radial-gradient(ellipse at 72% 72%,rgba(255,255,255,.04),transparent 50%),linear-gradient(180deg,#1a2a1c,#0a1410)}
+  .footdecal{font-family:'JetBrains Mono';font-size:8px;letter-spacing:.22em}
+  .glovecorner{position:absolute;top:10px;right:12px;width:40px;height:40px;opacity:.85}
+  .wsign{position:relative;display:flex;align-items:center;gap:16px;width:100%;height:100%;padding:0 22px}
+  .wsign .ic{width:48px;height:48px;flex:none}.wsign .ic svg{width:100%;height:100%}
+  .wft{text-align:left}
+</style></head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <filter id="painted-aged-filter" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence baseFrequency="0.04 0.06" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.5"/></filter>
+  <filter id="hammered-painted-canvas" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence baseFrequency="0.05" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" result="r"/><feGaussianBlur in="r" stdDeviation="1.5" result="b"/><feSpecularLighting in="b" surfaceScale="5" specularConstant="1.6" specularExponent="25" lighting-color="#fff5d6" result="s"><feDistantLight azimuth="135" elevation="55"/></feSpecularLighting><feComposite in="s" in2="r" operator="in" result="sm"/><feComposite in="sm" in2="r" operator="arithmetic" k1="0" k2="1" k3="1.2" k4="0"/></filter>
+</defs></svg>
+
+<!-- COVER -->
+<section class="cover bg-brick bg-brick-spot-l brick-cracks">
+  <div class="kick">The Physical Brandscape · Name-Agnostic</div>
+  <div class="ew mk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+  <h1>RE-THEME THE <span class="b">IRON</span> — WALL BY WALL</h1>
+  <p class="ded">Not a logo on a poster — the <b style="color:#fefae0">whole building</b> made into one creed.
+  Every surface a member touches, from the street sign to the shower mirror: facade, doors, reception, floors,
+  stairs, racks, machines, the ring, lockers, washrooms, shoe space. Same iron house language as Robin's mark, standing entirely on its own — no name needed; the fist and the creed carry it. Drop a logo or patch in later, wherever identity sits. <b style="color:#fefae0">The room is the manifesto.</b></p>
+</section>
+
+<div class="wrap">
+
+<!-- ============ ZONE 1 · EXTERIOR & ENTRY ============ -->
+<div class="shead"><span class="no">01</span><span class="ti">Exterior &amp; Entry</span><span class="sub">the first 10 seconds</span></div>
+<div class="grid">
+
+  <!-- name board -->
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="signboard">
+      <div class="lit mk" style="width:300px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+      <div class="lit f-slab" style="color:#fefae0;font-size:20px;letter-spacing:.08em;text-shadow:0 0 12px rgba(254,215,170,.4)">LOKHANDWALA · MUMBAI</div>
+      <div class="f-mono" style="color:#b1b3b3;font-size:10px;letter-spacing:.34em;margin-top:4px">OLD-SCHOOL IRON · EST</div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">1.1</span>Exterior name board</div><div class="c">Channel-letter sign on a dark fascia, warm-lit — the gym's face from the street.</div><div class="tag">creed-led · illuminated signage</div></div></div></div>
+
+  <!-- glass doors -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="gdoors">
+      <div class="gdoor l glass"><div class="handle"></div>
+        <div class="dec"><div class="mk" style="width:88px;margin:0 auto"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div></div>
+        <div class="pp f-mono" style="font-size:8px;letter-spacing:.3em;color:#0e0a07">PUSH</div></div>
+      <div class="gdoor r glass"><div class="handle"></div>
+        <div class="dec f-mono" style="font-size:9px;letter-spacing:.2em;color:#0e0a07;line-height:1.7">MON–SUN<br>5:00 — 23:00</div>
+        <div class="pp f-mono" style="font-size:8px;letter-spacing:.3em;color:#0e0a07">PULL</div></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">1.2</span>Glass entry doors</div><div class="c">Etched-vinyl iron seal, hours, PUSH/PULL — frosted on the glass. The seal is the slot a logo drops into later.</div><div class="tag">creed-led · etched glass vinyl</div></div></div></div>
+
+  <!-- window vinyl -->
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art land" style="height:200px;background:linear-gradient(108deg,rgba(120,140,150,.18),rgba(50,70,80,.34),rgba(140,160,170,.16))">
+      <div class="pad" style="flex-direction:row;gap:30px;justify-content:space-around">
+        <div class="mk" style="width:160px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+        <div class="f-slab" style="color:#fefae0;font-size:30px;line-height:1;text-shadow:0 2px 6px rgba(0,0,0,.4)">IRON IS<br>RELIGION</div>
+        <div class="mk" style="width:70px;color:#a4271f;opacity:.9"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">1.3</span>Window / shutter vinyl</div><div class="c">Frosted-cream graphics across the street glass — privacy + creed in one.</div><div class="tag">creed-led · window film</div></div></div></div>
+
+  <!-- entry mat -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="mat"><div class="m"><div class="lbl f-slab text-painted" style="font-size:38px;line-height:.9">SHOW<br>UP.</div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">1.4</span>Entry floor mat</div><div class="c">The first thing underfoot — the instruction, woven into the coir.</div><div class="tag">unbranded creed · entry mat</div></div></div></div>
+
+  <!-- bike bay / A-frame -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por" style="height:300px;background:linear-gradient(180deg,#1a1411,#0a0604)"><div class="pad">
+      <div class="mk" style="width:56px;color:#a4271f;margin-bottom:6px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+      <div class="f-slab text-painted" style="font-size:30px;line-height:1">PARK THE<br>IRON HORSE</div>
+      <div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.24em;margin-top:8px">BIKE BAY · MEMBERS</div>
+      <div class="footdecal" style="color:#7b7164;margin-top:10px">· IRON ·</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">1.5</span>Bike bay / A-frame</div><div class="c">Painted-metal sign for the parking bay (he rides) + a pavement A-frame.</div><div class="tag">creed-led · painted metal</div></div></div></div>
+
+</div>
+
+<!-- ============ ZONE 2 · RECEPTION & HOUSE ============ -->
+<div class="shead"><span class="no">02</span><span class="ti">Reception &amp; House Law</span></div>
+<div class="grid">
+
+  <!-- reception -->
+  <div class="pcard w2"><div class="scene"><div class="wallpad" style="padding:0">
+    <div class="reception">
+      <div class="wall bg-brick bg-brick-spot-l brick-cracks"></div>
+      <div class="logo"><div class="mk" style="width:260px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div><div class="f-mono" style="color:#fefae0;font-size:10px;letter-spacing:.3em;opacity:.9">OLD-SCHOOL IRON · MUMBAI</div></div>
+      <div class="desk painted-metal-red wearouts"><div class="top"></div>
+        <div class="mk" style="width:130px;position:relative;z-index:2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">2.1</span>Reception — backwall + desk</div><div class="c">Hero iron-seal wall behind the desk; painted-metal desk front. This is the natural home for a logo/patch once the name is chosen.</div><div class="tag">creed-led · wall vinyl + desk wrap</div></div></div></div>
+
+  <!-- welcome banner -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div style="position:relative;transform:rotate(-1.3deg)">
+      <span class="canvas-rope" style="left:34px"></span><span class="canvas-rope" style="right:34px"></span>
+      <div class="bg-canvas wearouts shadow-hung" style="position:relative;padding:24px 40px 18px;border:5px solid #0e0a07;text-align:center;max-width:320px">
+        <svg class="glovecorner" viewBox="0 0 64 64" fill="#fefae0" opacity="0.8"><rect x="14" y="46" width="32" height="12" rx="2"/><path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/><ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/></svg>
+        <div class="mk" style="width:170px;margin:0 auto 6px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+        <div class="f-slab" style="color:#fefae0;font-size:13px;text-shadow:0 1px 0 rgba(0,0,0,.6)">THE MIGHTY-MICK'S OF MUMBAI</div>
+        <div class="footdecal" style="color:rgba(254,250,224,.7);margin-top:6px">· EST · IRON IS RELIGION ·</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">2.2</span>Welcome banner</div><div class="c">The hand-painted canvas fight-banner over reception.</div><div class="tag">creed-led · canvas</div></div></div></div>
+
+  <!-- commandments -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art tall bg-canvas wearouts" style="width:260px"><div class="pad" style="justify-content:flex-start;gap:5px;padding-top:20px">
+      <div style="width:100%;height:3px;background:#fefae0;opacity:.6;margin-bottom:5px"></div>
+      <div class="f-slab text-painted" style="font-size:19px;line-height:1.0">THE IRON<br>COMMANDMENTS</div>
+      <div style="text-align:left;margin-top:6px;color:#fefae0;font-family:'Inter';font-size:9.5px;line-height:1.8;text-shadow:0 1px 0 rgba(0,0,0,.5)">
+        <b style="color:#e9c986">I.</b> RE-RACK YOUR IRON. ALWAYS.<br>
+        <b style="color:#e9c986">II.</b> CHECK YOUR EGO AT THE DOOR.<br>
+        <b style="color:#e9c986">III.</b> RESPECT THE IRON &amp; EACH OTHER.<br>
+        <b style="color:#e9c986">IV.</b> WIPE IT DOWN. LEAVE IT BETTER.<br>
+        <b style="color:#e9c986">V.</b> SPOT A BROTHER. ASK FOR A SPOT.<br>
+        <b style="color:#e9c986">VI.</b> PHONE DOWN. WORK UP.<br>
+        <b style="color:#e9c986">VII.</b> NO MIRROR HOGGING.<br>
+        <b style="color:#e9c986">VIII.</b> SHOW UP. THEN SHOW UP AGAIN.</div>
+      <div class="footdecal" style="margin-top:auto;color:#e9c986">· HOUSE RULES · LOKHANDWALA ·</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">2.3</span>The Iron Commandments</div><div class="c">House law at the entrance, fight-card style.</div><div class="tag">creed-led</div></div></div></div>
+
+  <!-- directory -->
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por acrylic" style="width:240px;height:300px"><div class="pad" style="justify-content:flex-start;padding-top:24px;gap:10px">
+      <div class="f-slab text-painted" style="font-size:22px">THE FLOORPLAN</div>
+      <div style="width:60px;height:3px;background:#b8862b"></div>
+      <div style="text-align:left;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.06em;color:#fefae0;line-height:2.1">
+        → THE FORGE <span style="color:#8c8273">free weights</span><br>
+        → THE RING <span style="color:#8c8273">boxing</span><br>
+        → THE FLOOR <span style="color:#8c8273">functional</span><br>
+        → THE PIT <span style="color:#8c8273">cardio</span><br>
+        → LOCKERS &amp; SHOWERS</div>
+      <div class="footdecal" style="margin-top:auto;color:#caa15a">· YOU ARE HERE ·</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">2.4</span>Directory / zone map</div><div class="c">Engraved-acrylic "you are here" by the entrance.</div><div class="tag">creed-led · engraved acrylic</div></div></div></div>
+
+</div>
+
+<!-- ============ ZONE 3 · THE CREED WALLS ============ -->
+<div class="shead"><span class="no">03</span><span class="ti">The Creed Walls &amp; Pillars</span><span class="sub">read the manifesto in fragments</span></div>
+<div class="grid">
+
+  <div class="pcard w3"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art land bg-canvas wearouts" style="max-width:820px;height:300px">
+      <span style="position:absolute;left:24px;top:14px;width:13px;height:13px;border-radius:50%;background:#b1b3b3;box-shadow:0 0 0 2px #0e0a07"></span>
+      <span style="position:absolute;right:24px;top:14px;width:13px;height:13px;border-radius:50%;background:#b1b3b3;box-shadow:0 0 0 2px #0e0a07"></span>
+      <svg class="glovecorner" viewBox="0 0 64 64" fill="#fefae0" opacity="0.8"><rect x="14" y="46" width="32" height="12" rx="2"/><path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/><ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/></svg>
+      <div class="pad">
+        <div class="f-slab text-hammered-canvas" style="font-size:58px;line-height:.9">I AM A WARRIOR</div>
+        <div class="f-slab" style="color:#fefae0;font-size:15px;line-height:1.5;margin-top:8px;text-shadow:0 1px 0 rgba(0,0,0,.6)">FOR ME IRON IS A RELIGION AND I AM DEFINED BY ITS TEACHINGS.</div>
+        <div class="f-mono" style="color:#fefae0;font-size:11px;letter-spacing:.16em;margin-top:6px;opacity:.92">HUMILITY · PATIENCE · FOCUS · POWER · BROTHERHOOD</div>
+        <div class="f-slab" style="color:#fefae0;font-size:14px;margin-top:6px;text-shadow:0 1px 0 rgba(0,0,0,.6)">I AM PREPARED TO NEVER QUIT — TO NEVER SAY &ldquo;I CAN'T.&rdquo;</div>
+        <div class="footdecal" style="position:absolute;right:16px;bottom:10px;color:rgba(254,250,224,.7)">· LOKHANDWALA · IRON IS RELIGION ·</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">3.1</span>The Manifesto Wall — “I Am A Warrior”</div><div class="c">The centerpiece mural — his full verse, hand-painted on canvas-red. The soul of the room.</div><div class="tag">unbranded creed · hero mural</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por concrete"><div class="pad"><div class="f-slab text-painted" style="font-size:46px;line-height:.96">IRON<br>IS<br>RELIGION</div><div class="footdecal" style="color:rgba(254,250,224,.5);margin-top:16px">· OLD-SCHOOL IRON ·</div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.2</span>Iron Is Religion</div><div class="c">Painted concrete, one spotlight. The type is the image.</div><div class="tag">unbranded</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por bg-canvas wearouts"><div class="pad" style="gap:6px">
+      <div class="f-mono" style="color:rgba(254,250,224,.8);font-size:11px;letter-spacing:.34em;margin-bottom:2px">THE FIVE</div>
+      <div class="f-slab text-painted" style="font-size:23px">HUMILITY</div><div class="f-slab text-painted" style="font-size:23px">PATIENCE</div>
+      <div class="f-slab text-painted" style="font-size:23px">FOCUS</div><div class="f-slab text-painted" style="font-size:23px">POWER</div>
+      <div class="f-slab text-painted" style="font-size:20px">BROTHERHOOD</div>
+      <div style="font-family:'Inter';font-style:italic;color:rgba(254,250,224,.72);font-size:11px;margin-top:6px">— what the iron teaches.</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.3</span>The Five</div><div class="c">The iron's teachings as a creed ladder.</div><div class="tag">unbranded</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por bg-canvas wearouts"><div class="pad">
+      <div class="f-slab text-painted" style="font-size:38px;line-height:1.0">NEVER<br>SAY<br>&ldquo;I CAN'T.&rdquo;</div>
+      <div class="f-mono" style="color:rgba(254,250,224,.85);font-size:10px;letter-spacing:.2em;margin-top:10px">I AM PREPARED TO NEVER QUIT.</div>
+      <div class="mk" style="width:44px;position:absolute;right:14px;bottom:12px;color:#0e0a07"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.4</span>Never Say I Can't</div><div class="c">At the squat rack — the fist seals the phrase shut.</div><div class="tag">tiny creed footer</div></div></div></div>
+
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art land" style="display:flex">
+      <div style="flex:1;display:flex;align-items:center;justify-content:center" class="concrete"><div class="f-slab" style="font-size:80px;color:#fefae0;text-shadow:2px 3px 0 rgba(0,0,0,.6)">120</div></div>
+      <div style="flex:0 0 64px;display:flex;align-items:center;justify-content:center;background:#0e0a07"><div class="f-slab" style="font-size:48px;color:#a4271f">→</div></div>
+      <div style="flex:1.1;display:flex;flex-direction:column;align-items:center;justify-content:center" class="bg-paper">
+        <div class="f-slab" style="font-size:88px;color:#a4271f;line-height:.85">78</div>
+        <div class="f-slab text-engrave-paper" style="font-size:18px;margin-top:4px">FORGED AT 40.</div>
+        <div class="f-mono text-engrave-paper" style="font-size:8.5px;letter-spacing:.16em;margin-top:6px">NO MAGIC PLAN. I CHOSE TO SHOW UP.</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">3.5</span>120 → 78 · The Transformation Wall</div><div class="c">The before/after told in the split — dark concrete to torn paper. His numbers.</div><div class="tag">unbranded story</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por concrete"><div class="pad">
+      <svg viewBox="0 0 120 120" style="width:120px;height:120px;position:absolute;top:54px;opacity:.5" fill="none" stroke="#4687a6" stroke-width="3"><path d="M30 64 Q22 30 40 26"/><path d="M90 64 Q98 30 80 26"/></svg>
+      <div class="mk" style="width:100px;color:#fefae0;margin-top:14px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+      <div class="f-slab text-painted" style="font-size:22px;line-height:1.05;margin-top:14px">OFF THE SCREEN.<br>INTO THE IRON.</div>
+      <div class="f-mono" style="color:#4687a6;font-size:10px;letter-spacing:.4em;margin-top:8px">FISTS UP.</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.6</span>Off The Screen</div><div class="c">The full-circle fist homage. No names, no logos. Kept sacred.</div><div class="tag">unbranded · one ring-blue glint</div></div></div></div>
+
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art land bg-brick brick-cracks" style="border-color:#1a0a06"><div class="pad">
+      <div class="f-slab text-painted" style="font-size:120px;line-height:.85;letter-spacing:.01em">SHOW UP.</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.7</span>Show Up.</div><div class="c">Largest type in the building — sprayed on raw brick over the floor.</div><div class="tag">unbranded</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="pillar"><div class="vt f-slab" style="color:#fefae0;font-size:30px;text-shadow:0 2px 4px rgba(0,0,0,.5)">IRON IS RELIGION</div></div>
+  </div><div class="lab"><div class="t"><span class="n">3.8</span>Pillar wrap</div><div class="c">Structural columns wrapped canvas-red, the creed running floor-to-ceiling.</div><div class="tag">creed · column vinyl wrap</div></div></div></div>
+
+</div>
+
+<!-- ============ ZONE 4 · FLOOR & STAIRS ============ -->
+<div class="shead"><span class="no">04</span><span class="ti">Floor &amp; Stairs</span></div>
+<div class="grid">
+  <div class="pcard"><div class="scene"><div class="wallpad rubber">
+    <div class="floorz"><div class="ground rubber"><div class="lbl"><div class="f-slab stencil-paint-red" style="font-size:44px">THE FORGE</div></div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">4.1</span>Floor zone graphic</div><div class="c">Zone names epoxy-stencilled straight onto the rubber floor.</div><div class="tag">wayfinding · floor epoxy</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad rubber">
+    <div class="floorz"><div class="ground" style="background:linear-gradient(180deg,#241a12,#0f0a07)"><div class="lbl" style="display:flex;flex-direction:column;align-items:center;gap:6px">
+      <div class="mk" style="width:54px;color:#a4271f"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+      <div class="f-slab text-painted" style="font-size:30px">120 → 78</div>
+      <div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.2em">THE PLATFORM · EARN IT</div>
+    </div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">4.2</span>Lifting platform</div><div class="c">The deadlift platform inlaid with the fist + his number.</div><div class="tag">creed · platform inlay</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="stairs">
+      <div class="riser"><span class="f-slab text-painted" style="font-size:20px">SHOW UP</span></div>
+      <div class="riser"><span class="f-slab text-painted" style="font-size:20px">DO THE WORK</span></div>
+      <div class="riser"><span class="f-slab text-painted" style="font-size:20px">NEVER QUIT</span></div>
+      <div class="riser"><span class="f-slab text-painted" style="font-size:20px">BE A WARRIOR</span></div>
+      <div class="riser"><span class="f-slab text-painted" style="font-size:20px">IRON IS RELIGION</span></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">4.3</span>Stair risers</div><div class="c">The creed climbs the steps — one line per riser, read on the way up.</div><div class="tag">creed · riser vinyl</div></div></div></div>
+
+  <div class="pcard w3"><div class="scene"><div class="wallpad rubber" style="min-height:120px">
+    <div class="art" style="width:100%;height:84px;border-width:4px;background:repeating-linear-gradient(90deg,#9a241c 0 60px,#0e0a07 60px 64px)"><div class="pad" style="padding:0"><div class="f-slab text-painted" style="font-size:30px;letter-spacing:.1em">SWEAT SAVES BLOOD · MIND THE IRON · SWEAT SAVES BLOOD</div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">4.4</span>Walk-path &amp; safety lane</div><div class="c">Hazard-striped floor band along the main walkway — safety, kept on-brand.</div><div class="tag">creed · floor hazard vinyl</div></div></div></div>
+</div>
+
+<!-- ============ ZONE 5 · EQUIPMENT — THE FORGE ============ -->
+<div class="shead"><span class="no">05</span><span class="ti">Equipment — The Forge</span></div>
+<div class="grid">
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="rack">
+      <div class="up l"></div><div class="up r"></div><div class="crossbar"></div>
+      <div class="holes l"></div><div class="holes r"></div>
+      <div class="plate l"></div><div class="plate r"></div><div class="bar"></div>
+      <div class="tag eqplate acrylic"><div class="mk" style="width:64px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div><div class="f-mono" style="color:#caa15a;font-size:8px;letter-spacing:.2em">RACK 01 · THE FORGE</div></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">5.1</span>Power rack + ID plate</div><div class="c">Every rack stamped with an engraved station plate — fist + station no., no name needed.</div><div class="tag">creed-led · engraved plate</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div style="width:240px">
+      <div style="text-align:center;padding:8px;background:linear-gradient(180deg,#9a241c,#6f1812);border:3px solid #0e0a07"><span class="f-slab text-painted" style="font-size:22px">THE DUMBBELLS</span></div>
+      <div style="background:#0e0a07;border:3px solid #0e0a07;border-top:none;padding:10px;display:flex;justify-content:space-between;font-family:'JetBrains Mono';font-size:11px;color:#fefae0;letter-spacing:.1em">
+        <span>5–50 KG</span><span style="color:#e9c986">RE-RACK YOUR IRON</span></div>
+      <div style="text-align:center;font-family:'JetBrains Mono';font-size:9px;color:#8c8273;letter-spacing:.2em;margin-top:8px">· OLD-SCHOOL IRON ·</div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">5.2</span>Dumbbell-rack header + RE-RACK</div><div class="c">Painted header over the rack; the rule stamped where the weights live.</div><div class="tag">creed-led · rack decal</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div style="width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#2a2722,#0d0b09);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:inset 0 0 0 6px rgba(254,250,224,.1),inset 0 0 0 7px rgba(0,0,0,.4),0 12px 20px rgba(0,0,0,.6);position:relative">
+      <div style="position:absolute;width:30px;height:30px;border-radius:50%;background:#15110d;box-shadow:inset 0 0 0 2px rgba(254,250,224,.15)"></div>
+      <div class="mk" style="width:40px;color:#fefae0;position:relative;z-index:2;margin-top:-6px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div>
+      <div class="f-mono" style="color:#fefae0;font-size:8px;letter-spacing:.2em;position:relative;z-index:2;margin-top:34px">IRON · 20 KG</div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">5.3</span>Weight-plate branding</div><div class="c">Cast fist + weight, raised on every plate. Add a name later if you want it.</div><div class="tag">creed-led · cast iron</div></div></div></div>
+
+  <div class="pcard w3"><div class="scene"><div style="padding:24px;display:flex;flex-direction:column;gap:12px" class="bg-brick brick-cracks">
+    <div class="art" style="height:96px;background:linear-gradient(180deg,#1a1411,#0a0604)"><div class="wsign">
+      <span class="ic" style="color:#d4a14a"><svg viewBox="0 0 64 64" fill="currentColor"><rect x="14" y="30" width="36" height="4"/><rect x="6" y="27" width="6" height="10"/><rect x="52" y="27" width="6" height="10"/><rect x="2" y="22" width="5" height="20"/><rect x="57" y="22" width="5" height="20"/></svg></span>
+      <div class="wft"><div class="f-slab" style="color:#fefae0;font-size:28px;line-height:1">THE FORGE</div><div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.24em;margin-top:3px">FREE WEIGHTS · BARBELLS · IRON — WHERE IT'S MADE</div></div>
+      <div class="footdecal" style="margin-left:auto;color:#caa15a">· IRON ·</div></div></div>
+    <div class="art" style="height:96px;background:linear-gradient(180deg,#1a1411,#0a0604)"><div class="wsign">
+      <span class="ic" style="color:#d4a14a"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3"><circle cx="32" cy="32" r="24"/><circle cx="32" cy="32" r="9" fill="currentColor"/></svg></span>
+      <div class="wft"><div class="f-slab" style="color:#fefae0;font-size:28px;line-height:1">THE FLOOR</div><div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.24em;margin-top:3px">FUNCTIONAL · MATS · OPEN IRON — ALL-ACCESS</div></div>
+      <div class="footdecal" style="margin-left:auto;color:#caa15a">· IRON ·</div></div></div>
+    <div class="art" style="height:96px;background:linear-gradient(180deg,#1a1411,#0a0604)"><div class="wsign">
+      <span class="ic" style="color:#d4a14a"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4"><path d="M24 18 Q24 8 32 8 Q40 8 40 18"/><circle cx="32" cy="40" r="18" fill="currentColor" stroke="none"/></svg></span>
+      <div class="wft"><div class="f-slab" style="color:#fefae0;font-size:28px;line-height:1">THE PIT</div><div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.24em;margin-top:3px">CARDIO · CONDITIONING — EARN YOUR BREATH</div></div>
+      <div class="footdecal" style="margin-left:auto;color:#caa15a">· IRON ·</div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">5.4</span>Wayfinding section plates</div><div class="c">Brass-on-tobacco overhead/door plates — one family, so the whole building reads as one signed place.</div><div class="tag">creed-led · squared iron</div></div></div></div>
+</div>
+
+<!-- ============ ZONE 6 · BOXING — THE RING ============ -->
+<div class="shead"><span class="no">06</span><span class="ti">Boxing — The Ring</span><span class="sub">owns the one ring-blue accent</span></div>
+<div class="grid">
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks" style="align-items:flex-end">
+    <div style="width:100%;max-width:560px"><div class="ringapron"><div style="text-align:center">
+      <div class="f-slab text-hammered-canvas" style="font-size:40px;line-height:.9">THE RING</div>
+      <div class="f-mono" style="color:#fefae0;font-size:9px;letter-spacing:.3em;margin-top:4px;opacity:.9">BOXING · SWEAT SAVES BLOOD</div>
+    </div></div></div>
+  </div><div class="lab"><div class="t"><span class="n">6.1</span>Ring apron + ropes</div><div class="c">The boxing ring's canvas apron carries the name; the ropes are the one ring-blue accent.</div><div class="tag">creed-led · ring canvas</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="bagwrap"><div class="strap"></div><div class="bag">
+      <span class="seam" style="top:44px"></span><span class="seam" style="bottom:60px"></span>
+      <div class="pad"><div class="mk" style="width:54px;color:#fefae0;margin:0 auto 6px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 70" role="img" aria-label="GYMROB fist">
+  <title>GYMROB · raised fist mark</title>
+  <g fill="currentColor">
+    <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+    <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+    <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+  </g>
+  <g stroke="rgba(0,0,0,0.32)" stroke-width="2.6" stroke-linecap="round">
+    <line x1="22" y1="24" x2="22" y2="34"/>
+    <line x1="31" y1="22" x2="31" y2="33"/>
+    <line x1="40" y1="22" x2="40" y2="33"/>
+    <line x1="49" y1="24" x2="49" y2="34"/>
+  </g>
+  <path d="M16 30 Q32 26 50 30" fill="none" stroke="rgba(0,0,0,0.28)" stroke-width="2" stroke-linecap="round"/>
+  <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="rgba(0,0,0,0.3)" stroke-width="2.4" stroke-linecap="round"/>
+</svg>
+</div><div class="f-slab" style="color:#fefae0;font-size:24px;text-shadow:0 1px 2px rgba(0,0,0,.5)">IRON</div></div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">6.2</span>Heavy bag</div><div class="c">The fist on the bag leather — the icon you actually hit.</div><div class="tag">creed-led · bag print</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por concrete"><div class="pad">
+      <svg viewBox="0 0 120 80" style="width:120px;height:80px" fill="#a4271f"><g><rect x="6" y="40" width="28" height="11" rx="2"/><path d="M6 40 Q4 18 16 12 Q26 8 34 14 Q44 20 42 36 L42 40 Z"/></g><g transform="translate(54 0)"><rect x="6" y="40" width="28" height="11" rx="2"/><path d="M6 40 Q4 18 16 12 Q26 8 34 14 Q44 20 42 36 L42 40 Z"/></g></svg>
+      <div class="f-slab text-painted" style="font-size:30px;margin-top:14px;line-height:1">THE GLOVE<br>WALL</div>
+      <div class="f-mono" style="color:rgba(254,250,224,.7);font-size:9px;letter-spacing:.24em;margin-top:8px">HANG 'EM WHEN YOU'VE EARNED IT</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">6.3</span>Glove wall mural</div><div class="c">The red-gloves mural — the gym's boxing icon, the wall members aspire to.</div><div class="tag">creed · painted mural</div></div></div></div>
+</div>
+
+<!-- ============ ZONE 7 · LOCKERS · WASHROOM · SHOE ============ -->
+<div class="shead"><span class="no">07</span><span class="ti">Lockers · Washroom · Shoe Space</span></div>
+<div class="grid">
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="lockerbank">
+      <div class="lockerhdr f-slab text-painted" style="font-size:18px">THE LOCKERS · STOW THE STREET</div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">01</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">02</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">03</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">04</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">05</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">06</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">07</span><span class="knob"></span></div>
+      <div class="locker"><span class="num f-mono" style="font-size:11px;color:#e9c986">08</span><span class="knob"></span></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">7.1</span>Locker bank</div><div class="c">Painted header + brass number plates on every door.</div><div class="tag">creed-led · locker plates</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks" style="gap:14px">
+    <div class="washsign acrylic"><svg class="ic" viewBox="0 0 40 60" fill="#fefae0"><circle cx="20" cy="9" r="7"/><rect x="13" y="19" width="14" height="22" rx="3"/><rect x="14" y="40" width="5" height="16"/><rect x="21" y="40" width="5" height="16"/></svg><div class="f-slab text-painted" style="font-size:18px">MEN</div></div>
+    <div class="washsign acrylic"><svg class="ic" viewBox="0 0 40 60" fill="#fefae0"><circle cx="20" cy="9" r="7"/><path d="M20 17 L30 44 L10 44 Z"/><rect x="15" y="43" width="4" height="14"/><rect x="21" y="43" width="4" height="14"/></svg><div class="f-slab text-painted" style="font-size:18px">WOMEN</div></div>
+  </div><div class="lab"><div class="t"><span class="n">7.2</span>Washroom door signs</div><div class="c">Engraved-acrylic pictogram plates; inside wall reads LEAVE IT BETTER.</div><div class="tag">creed-led · engraved acrylic</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="mirror"><div class="face"></div>
+      <svg class="refl" viewBox="0 0 64 160" fill="currentColor"><rect x="22" y="20" width="20" height="120" rx="8"/><circle cx="32" cy="14" r="12"/></svg>
+      <div class="cling"><div class="f-slab" style="color:#fefae0;font-size:24px;line-height:1.1;text-shadow:0 2px 6px rgba(0,0,0,.5)">THE BEST<br>VERSION OF YOU</div><div class="f-mono" style="color:#fefae0;font-size:9px;letter-spacing:.22em;margin-top:8px;opacity:.85">IS STANDING RIGHT HERE.</div></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">7.3</span>Mirror cling</div><div class="c">On the training mirror — his line, turned on the member looking back.</div><div class="tag">creed · mirror vinyl</div></div></div></div>
+
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="shoerack">
+      <div class="shoehdr"><span class="f-slab text-painted" style="font-size:22px">LEAVE THE STREET HERE</span></div>
+      <div class="cubbies">
+        <div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">01</span></div><div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">02</span></div>
+        <div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">03</span></div><div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">04</span></div>
+        <div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">05</span></div><div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">06</span></div>
+        <div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">07</span></div><div class="cubby"><span class="f-mono" style="font-size:10px;color:#e9c986">08</span></div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">7.4</span>Shoe space</div><div class="c">Numbered cubbies under a painted header — the threshold from street to iron.</div><div class="tag">creed-led · shoe rack</div></div></div></div>
+</div>
+
+<!-- ============ ZONE 8 · OVERHEAD · COACH · EXIT ============ -->
+<div class="shead"><span class="no">08</span><span class="ti">Overhead · Coach's Corner · Exit</span></div>
+<div class="grid">
+  <div class="pcard w2"><div class="scene"><div class="wallpad bg-brick brick-cracks" style="align-items:flex-start">
+    <div class="hangwrap" style="display:flex;gap:40px">
+      <div style="position:relative;padding-top:22px"><span class="chain" style="left:30%"></span><span class="chain" style="right:30%"></span>
+        <div class="hangbanner bg-canvas wearouts"><div class="f-slab text-painted" style="font-size:26px">THE FORGE</div></div></div>
+      <div style="position:relative;padding-top:22px"><span class="chain" style="left:30%"></span><span class="chain" style="right:30%"></span>
+        <div class="hangbanner" style="background:#0e0a07"><div class="f-slab text-painted" style="font-size:26px">THE RING</div></div></div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">8.1</span>Hanging zone banners</div><div class="c">Double-sided canvas flags on chains, hung over each zone — readable across the floor.</div><div class="tag">creed-led · ceiling-hung</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art por" style="border:10px solid #3a1f12;border-radius:3px;width:260px">
+      <div class="bg-chalk2" style="position:absolute;inset:0"></div>
+      <div class="pad" style="justify-content:flex-start;gap:9px;padding-top:20px">
+        <div class="f-slab text-chalk" style="font-size:21px;line-height:1.05">SHOW UP.<br>LOG THE WORK.</div>
+        <div style="width:80%;height:1px;background:rgba(240,237,224,.4)"></div>
+        <div class="f-mono text-chalk" style="font-size:11px;opacity:.85">TODAY'S IRON —</div>
+        <div class="f-mono text-chalk" style="font-size:12px;opacity:.8">__ × __&nbsp;&nbsp;__ × __&nbsp;&nbsp;__ × __</div>
+        <div class="text-chalk" style="font-family:'Inter';font-style:italic;font-size:13px;opacity:.9;margin-top:4px">&ldquo;iron is religion&rdquo;</div>
+        <div class="footdecal" style="margin-top:auto;color:#caa15a">· THE BOARD ·</div>
+      </div>
+    </div>
+  </div><div class="lab"><div class="t"><span class="n">8.2</span>Coach's chalkboard</div><div class="c">Permanent painted creed + live chalk for the day's work. The gym's pulse.</div><div class="tag">creed-led · coach's corner</div></div></div></div>
+
+  <div class="pcard"><div class="scene"><div class="wallpad bg-brick brick-cracks">
+    <div class="art land" style="height:160px;background:linear-gradient(180deg,#1a1411,#0a0604);width:280px"><div class="pad">
+      <div class="f-slab text-painted" style="font-size:34px;line-height:.95">SHOW UP<br>AGAIN.</div>
+      <div class="f-mono" style="color:#b1b3b3;font-size:9px;letter-spacing:.28em;margin-top:8px">· SEE YOU TOMORROW ·</div>
+    </div></div>
+  </div><div class="lab"><div class="t"><span class="n">8.3</span>Over-the-exit sign</div><div class="c">The last thing read on the way out — the only instruction that matters.</div><div class="tag">creed · over-door</div></div></div></div>
+</div>
+
+</div>
+
+<footer style="padding:54px 26px 82px;text-align:center" class="bg-brick brick-cracks">
+  <div class="mk" style="width:190px;margin:0 auto 14px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Iron creed seal">
+  <title>Iron creed seal — name-agnostic gym anchor (fist + creed, no brand name)</title>
+  <defs>
+    <path id="is-top" fill="none" d="M 34 128 A 94 94 0 0 1 222 128"/>
+    <path id="is-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15.5" letter-spacing="4.5">
+      <textPath href="#is-top" startOffset="50%">IRON IS RELIGION</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13" letter-spacing="4.5">
+      <textPath href="#is-bot" startOffset="50%">OLD-SCHOOL · MUMBAI</textPath>
+    </text>
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+    <g transform="translate(128 120) scale(2.5) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/><line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/><line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+</div>
+  <div class="f-slab" style="color:#fefae0;font-size:24px">THE ROOM IS THE MANIFESTO</div>
+  <div class="footdecal" style="color:#b1b3b3;margin-top:10px;font-size:10px;letter-spacing:.3em">LOKHANDWALA · ANDHERI W · MUMBAI · IRON IS RELIGION</div>
+</footer>
+</body></html>
