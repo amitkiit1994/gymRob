@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360" role="img" aria-label="GYMROB — Old-School Iron, Mumbai. Hand-painted fight banner.">
+  <title>GYMROB — Painted Canvas Wordmark</title>
+  <desc>A Mighty Mick's hand-painted fight banner: GYMROB hammered in cream on a weathered red canvas, frayed edges, corner bolts, hanging rope, boxing glove in the corner.</desc>
+
+  <defs>
+    <!-- Canvas red ground: top-left key light, bottom-right oxidised cinder -->
+    <linearGradient id="c1-canvas" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a241c"/>
+      <stop offset="1" stop-color="#6f1812"/>
+    </linearGradient>
+    <radialGradient id="c1-keylight" cx="0.24" cy="0.18" r="0.7">
+      <stop offset="0" stop-color="#a4271f" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#a4271f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="c1-vignette" cx="0.78" cy="0.86" r="0.85">
+      <stop offset="0.4" stop-color="#0e0a07" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0e0a07" stop-opacity="0.5"/>
+    </radialGradient>
+
+    <!-- Hand-painted wobble: tasteful displacement, NOT load-bearing -->
+    <filter id="c1-painted" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <!-- Cream paint with a soft hammered bevel for the wordmark (seasoning only) -->
+    <filter id="c1-hammer" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="rough"/>
+      <feDisplacementMap in="SourceGraphic" in2="rough" scale="2.2" result="r"/>
+      <feGaussianBlur in="r" stdDeviation="1.1" result="b"/>
+      <feSpecularLighting in="b" surfaceScale="3.5" specularConstant="1.1" specularExponent="22" lighting-color="#fff5d6" result="s">
+        <feDistantLight azimuth="135" elevation="56"/>
+      </feSpecularLighting>
+      <feComposite in="s" in2="r" operator="in" result="sm"/>
+      <feComposite in="sm" in2="r" operator="arithmetic" k1="0" k2="1" k3="0.9" k4="0"/>
+    </filter>
+
+    <!-- Canvas weave: faint cross-hatch, drawn into a tile -->
+    <pattern id="c1-weave" width="6" height="6" patternUnits="userSpaceOnUse">
+      <rect width="6" height="6" fill="none"/>
+      <path d="M0 0H6M0 3H6" stroke="#0e0a07" stroke-opacity="0.10" stroke-width="0.6"/>
+      <path d="M0 0V6M3 0V6" stroke="#0e0a07" stroke-opacity="0.10" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- Frayed / aged banner silhouette. Irregular edge = fabric folds + wear.
+         This is the structural shape; it reads as one solid colour on its own. -->
+    <path id="c1-banner" d="
+      M70 58
+      Q210 50 440 53
+      Q670 56 812 60
+      Q820 150 816 208
+      Q812 268 808 302
+      Q620 312 440 309
+      Q260 306 74 300
+      Q66 230 67 178
+      Q68 116 70 58 Z"/>
+  </defs>
+
+  <!-- ===================== HANGING HARDWARE (behind banner) ===================== -->
+  <g stroke="#0e0a07" stroke-width="6" stroke-linecap="round" opacity="0.92">
+    <path d="M150 24 L150 60" fill="none"/>
+    <path d="M730 24 L730 60" fill="none"/>
+  </g>
+  <g fill="#0e0a07">
+    <ellipse cx="150" cy="22" rx="11" ry="7"/>
+    <ellipse cx="730" cy="22" rx="11" ry="7"/>
+  </g>
+
+  <!-- ===================== THE BANNER (tilted, hung) ===================== -->
+  <g transform="rotate(-1.4 440 180)">
+
+    <!-- Solid dark backing so a tiny rim of black shows = stitched canvas edge -->
+    <use href="#c1-banner" fill="#0e0a07" transform="translate(0 4)"/>
+
+    <!-- Painted red canvas ground -->
+    <g filter="url(#c1-painted)">
+      <use href="#c1-banner" fill="url(#c1-canvas)"/>
+      <use href="#c1-banner" fill="url(#c1-keylight)"/>
+      <use href="#c1-banner" fill="url(#c1-weave)"/>
+    </g>
+
+    <!-- Heavy near-black painted border (the fight-banner frame) -->
+    <use href="#c1-banner" fill="none" stroke="#0e0a07" stroke-width="9" filter="url(#c1-painted)"/>
+    <!-- Inner seam stitch line, cream, faint -->
+    <use href="#c1-banner" fill="none" stroke="#fefae0" stroke-opacity="0.18" stroke-width="2"
+         transform="translate(440 180) scale(0.945) translate(-440 -180)"/>
+
+    <!-- Corner reinforcement patches + bolts (rope eyelet pads) -->
+    <g>
+      <rect x="92" y="78" width="34" height="34" rx="2" fill="#6f1812" stroke="#0e0a07" stroke-width="2"/>
+      <rect x="756" y="80" width="34" height="34" rx="2" fill="#6f1812" stroke="#0e0a07" stroke-width="2"/>
+      <rect x="92" y="252" width="34" height="34" rx="2" fill="#6f1812" stroke="#0e0a07" stroke-width="2"/>
+      <rect x="756" y="250" width="34" height="34" rx="2" fill="#6f1812" stroke="#0e0a07" stroke-width="2"/>
+      <g fill="#0e0a07">
+        <circle cx="109" cy="95" r="5"/><circle cx="773" cy="97" r="5"/>
+        <circle cx="109" cy="269" r="5"/><circle cx="773" cy="267" r="5"/>
+      </g>
+    </g>
+
+    <!-- Boxing gloves — small, hung in the top corners, clear of the wordmark.
+         The wordmark is the hero; gloves are a quiet corner motif. -->
+    <g transform="translate(96 64) scale(0.6)" fill="#fefae0" fill-opacity="0.85" filter="url(#c1-painted)">
+      <rect x="14" y="46" width="32" height="12" rx="2"/>
+      <path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/>
+      <ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/>
+    </g>
+    <g transform="translate(752 66) scale(-0.6 0.6)" fill="#fefae0" fill-opacity="0.85" filter="url(#c1-painted)">
+      <rect x="14" y="46" width="32" height="12" rx="2"/>
+      <path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/>
+      <ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/>
+    </g>
+
+    <!-- ===================== WORDMARK ===================== -->
+    <g filter="url(#c1-hammer)">
+      <text x="442" y="206" text-anchor="middle"
+            font-family="Alfa Slab One, Rockwell, serif" font-size="134"
+            letter-spacing="1" fill="#fefae0">GYMROB</text>
+    </g>
+
+    <!-- Mono support line, flanked by short painted rules + diamond ticks.
+         Rules sit OUTSIDE the text run so nothing strikes through. -->
+    <g stroke="#fefae0" stroke-opacity="0.7" stroke-width="3" stroke-linecap="square">
+      <line x1="150" y1="266" x2="212" y2="266"/>
+      <line x1="672" y1="266" x2="734" y2="266"/>
+    </g>
+    <g fill="#fefae0" fill-opacity="0.7">
+      <rect x="227" y="261" width="10" height="10" transform="rotate(45 232 266)"/>
+      <rect x="647" y="261" width="10" height="10" transform="rotate(45 652 266)"/>
+    </g>
+    <text x="442" y="273" text-anchor="middle"
+          font-family="JetBrains Mono, monospace" font-size="18" font-weight="700"
+          letter-spacing="6" fill="#fefae0" fill-opacity="0.94">OLD-SCHOOL IRON · MUMBAI</text>
+
+    <!-- Weathering vignette on top of everything inside the banner -->
+    <use href="#c1-banner" fill="url(#c1-vignette)"/>
+  </g>
+</svg>

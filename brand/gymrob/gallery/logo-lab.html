@@ -1,0 +1,681 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRANDSCAPE · GYMROB — logo lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0e0a07;color:#fefae0;font-family:'Inter',sans-serif;padding:34px 40px 90px}
+  h1{font-family:'Alfa Slab One',serif;font-size:30px;margin:0 0 2px}
+  .sub{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.35em;font-size:11px;color:#b1b3b3;margin-bottom:26px}
+  h2{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:#a4271f;border-top:2px solid #2a1d14;padding-top:18px;margin:34px 0 14px}
+  .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .tile{border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px}
+  .dark{background:#16110e;border:1px solid #2a1d14}
+  .paper{background:url('paper.jpg'),#fefae0;background-size:cover}
+  .brick{background:linear-gradient(rgba(91,26,8,.4),rgba(20,8,4,.55)),url('brick-wall.jpg');background-size:cover;background-position:center}
+  .red{background:linear-gradient(180deg,#9a241c,#6f1812)}
+  .cap{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#b1b3b3}
+  .paper .cap{color:#6f1812}
+  svg{display:block}
+  .s220 svg{width:220px;height:220px} .s140 svg{width:140px;height:140px}
+  .s96 svg{width:96px;height:96px} .s64 svg{width:64px;height:64px}
+  .s48 svg{width:48px;height:48px} .s24 svg{width:24px;height:24px}
+  .s160 svg{width:160px;height:160px}
+  .wm420 svg{width:420px;height:auto} .wm260 svg{width:260px;height:auto}
+  .lk760 svg{width:760px;height:auto}
+  .bn720 svg{width:720px;height:auto}
+  .mono1{filter:brightness(0)}            /* all-black knockout test */
+  .knockcream{position:relative}
+</style></head><body>
+<h1>BRANDSCAPE · GYMROB</h1>
+<div class="sub">logo master system — scaling &amp; 1-colour proof lab</div>
+
+<h2>Emblem · The Warrior's Seal — shrink test</h2>
+<div class="row">
+  <div class="tile dark s220"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — raised-fist warrior seal">
+  <title>GYMROB · The Warrior's Seal</title>
+  <defs>
+    <!-- arcs riding the ring (centre 128,128) -->
+    <path id="em-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="em-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+
+  <g transform="rotate(-2 128 128)">
+    <!-- dark red base edge (gives a stamped lip) -->
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <!-- red field -->
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <!-- cream keyline ring -->
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+
+    <!-- ring type -->
+    <text text-anchor="middle" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#em-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#em-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+
+    <!-- flanking stars on the horizontal axis -->
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ===== HERO: raised clenched fist (paper knockout), thickened ~10% ===== -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <!-- wrist / forearm stub -->
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <!-- fist body (slightly widened) -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <!-- knuckle grooves carved back to red (fattened) -->
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/>
+        <line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/>
+        <line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <!-- knuckle ridge crease -->
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- wrist wrap stripe -->
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+<span class="cap">220 hero</span></div>
+  <div class="tile paper s140"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — raised-fist warrior seal">
+  <title>GYMROB · The Warrior's Seal</title>
+  <defs>
+    <!-- arcs riding the ring (centre 128,128) -->
+    <path id="em-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="em-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+
+  <g transform="rotate(-2 128 128)">
+    <!-- dark red base edge (gives a stamped lip) -->
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <!-- red field -->
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <!-- cream keyline ring -->
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+
+    <!-- ring type -->
+    <text text-anchor="middle" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#em-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#em-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+
+    <!-- flanking stars on the horizontal axis -->
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ===== HERO: raised clenched fist (paper knockout), thickened ~10% ===== -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <!-- wrist / forearm stub -->
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <!-- fist body (slightly widened) -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <!-- knuckle grooves carved back to red (fattened) -->
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/>
+        <line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/>
+        <line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <!-- knuckle ridge crease -->
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- wrist wrap stripe -->
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+<span class="cap">on paper · 140</span></div>
+  <div class="tile brick s96"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — raised-fist warrior seal">
+  <title>GYMROB · The Warrior's Seal</title>
+  <defs>
+    <!-- arcs riding the ring (centre 128,128) -->
+    <path id="em-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="em-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+
+  <g transform="rotate(-2 128 128)">
+    <!-- dark red base edge (gives a stamped lip) -->
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <!-- red field -->
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <!-- cream keyline ring -->
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+
+    <!-- ring type -->
+    <text text-anchor="middle" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#em-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#em-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+
+    <!-- flanking stars on the horizontal axis -->
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ===== HERO: raised clenched fist (paper knockout), thickened ~10% ===== -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <!-- wrist / forearm stub -->
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <!-- fist body (slightly widened) -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <!-- knuckle grooves carved back to red (fattened) -->
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/>
+        <line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/>
+        <line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <!-- knuckle ridge crease -->
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- wrist wrap stripe -->
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+<span class="cap">on brick · 96</span></div>
+  <div class="tile dark s48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — raised-fist warrior seal">
+  <title>GYMROB · The Warrior's Seal</title>
+  <defs>
+    <!-- arcs riding the ring (centre 128,128) -->
+    <path id="em-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="em-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+
+  <g transform="rotate(-2 128 128)">
+    <!-- dark red base edge (gives a stamped lip) -->
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <!-- red field -->
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <!-- cream keyline ring -->
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+
+    <!-- ring type -->
+    <text text-anchor="middle" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#em-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#em-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+
+    <!-- flanking stars on the horizontal axis -->
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ===== HERO: raised clenched fist (paper knockout), thickened ~10% ===== -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <!-- wrist / forearm stub -->
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <!-- fist body (slightly widened) -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <!-- knuckle grooves carved back to red (fattened) -->
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/>
+        <line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/>
+        <line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <!-- knuckle ridge crease -->
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- wrist wrap stripe -->
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+<span class="cap">48 pin</span></div>
+  <div class="tile dark s24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — raised-fist warrior seal">
+  <title>GYMROB · The Warrior's Seal</title>
+  <defs>
+    <!-- arcs riding the ring (centre 128,128) -->
+    <path id="em-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="em-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+
+  <g transform="rotate(-2 128 128)">
+    <!-- dark red base edge (gives a stamped lip) -->
+    <circle cx="128" cy="128" r="124" fill="#6f1812"/>
+    <!-- red field -->
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <!-- cream keyline ring -->
+    <circle cx="128" cy="128" r="110" fill="none" stroke="#fefae0" stroke-width="3"/>
+
+    <!-- ring type -->
+    <text text-anchor="middle" fill="#fefae0" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#em-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#em-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+
+    <!-- flanking stars on the horizontal axis -->
+    <g fill="#fefae0">
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+      <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ===== HERO: raised clenched fist (paper knockout), thickened ~10% ===== -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <!-- wrist / forearm stub -->
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z" fill="#fefae0"/>
+      <!-- fist body (slightly widened) -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="2.4" stroke-linejoin="round">
+        <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z"/>
+        <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      </g>
+      <!-- knuckle grooves carved back to red (fattened) -->
+      <g stroke="#a4271f" stroke-width="3" stroke-linecap="round">
+        <line x1="22" y1="24" x2="22" y2="34"/>
+        <line x1="31" y1="22" x2="31" y2="33"/>
+        <line x1="40" y1="22" x2="40" y2="33"/>
+        <line x1="49" y1="24" x2="49" y2="34"/>
+      </g>
+      <!-- knuckle ridge crease -->
+      <path d="M16 30 Q32 26 50 30" fill="none" stroke="#a4271f" stroke-width="2.2" stroke-linecap="round"/>
+      <!-- wrist wrap stripe -->
+      <line x1="27" y1="56.5" x2="37" y2="56.5" stroke="#a4271f" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>
+<span class="cap">24 ✛ tiny</span></div>
+</div>
+
+<h2>Icon · GR monogram — shrink test (favicon / cap / bike badge)</h2>
+<div class="row">
+  <div class="tile dark s160"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — GR monogram">
+  <title>GYMROB · GR stamped monogram (icon)</title>
+  <!-- icon-only mark: stamped red tile + cream bezel + interlocking slab GR.
+       Production: outline the GR before manufacture (it is set in Alfa Slab One). -->
+  <g transform="rotate(-1.5 128 128)">
+    <!-- droppable red plate -->
+    <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+    <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+    <!-- stamped bezel -->
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+    <!-- corner rivets -->
+    <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+    <!-- interlocking GR -->
+    <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132"
+          letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">160</span></div>
+  <div class="tile brick s64"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — GR monogram">
+  <title>GYMROB · GR stamped monogram (icon)</title>
+  <!-- icon-only mark: stamped red tile + cream bezel + interlocking slab GR.
+       Production: outline the GR before manufacture (it is set in Alfa Slab One). -->
+  <g transform="rotate(-1.5 128 128)">
+    <!-- droppable red plate -->
+    <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+    <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+    <!-- stamped bezel -->
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+    <!-- corner rivets -->
+    <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+    <!-- interlocking GR -->
+    <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132"
+          letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">on brick · 64</span></div>
+  <div class="tile dark s48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — GR monogram">
+  <title>GYMROB · GR stamped monogram (icon)</title>
+  <!-- icon-only mark: stamped red tile + cream bezel + interlocking slab GR.
+       Production: outline the GR before manufacture (it is set in Alfa Slab One). -->
+  <g transform="rotate(-1.5 128 128)">
+    <!-- droppable red plate -->
+    <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+    <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+    <!-- stamped bezel -->
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+    <!-- corner rivets -->
+    <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+    <!-- interlocking GR -->
+    <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132"
+          letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">48</span></div>
+  <div class="tile dark s24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — GR monogram">
+  <title>GYMROB · GR stamped monogram (icon)</title>
+  <!-- icon-only mark: stamped red tile + cream bezel + interlocking slab GR.
+       Production: outline the GR before manufacture (it is set in Alfa Slab One). -->
+  <g transform="rotate(-1.5 128 128)">
+    <!-- droppable red plate -->
+    <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+    <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+    <!-- stamped bezel -->
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+    <!-- corner rivets -->
+    <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+    <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+    <!-- interlocking GR -->
+    <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132"
+          letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">24 favicon</span></div>
+</div>
+
+<h2>1-colour knockout variants (single ink) &amp; favicon</h2>
+<div class="row">
+  <div class="tile paper s140" style="color:#0e0a07"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB warrior seal (1-colour stamp)" style="color:#0e0a07">
+  <title>GYMROB · Warrior's Seal — single-ink stamp</title>
+  <defs>
+    <path id="emm-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="emm-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <!-- one ink, ink-stamp style: ring outlines + solid fist silhouette + stars + type -->
+  <g transform="rotate(-2 128 128)" fill="currentColor">
+    <circle cx="128" cy="128" r="120" fill="none" stroke="currentColor" stroke-width="6"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <text text-anchor="middle" fill="currentColor" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#emm-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="currentColor" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#emm-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    <!-- solid fist silhouette (grooves omitted for clean single-ink read) -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+      <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      <!-- groove hints as thin ink-gaps kept as subtle strokes for definition -->
+    </g>
+  </g>
+</svg>
+<span class="cap">seal · 1-ink on paper</span></div>
+  <div class="tile red s140" style="color:#fefae0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB warrior seal (1-colour stamp)" style="color:#0e0a07">
+  <title>GYMROB · Warrior's Seal — single-ink stamp</title>
+  <defs>
+    <path id="emm-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="emm-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <!-- one ink, ink-stamp style: ring outlines + solid fist silhouette + stars + type -->
+  <g transform="rotate(-2 128 128)" fill="currentColor">
+    <circle cx="128" cy="128" r="120" fill="none" stroke="currentColor" stroke-width="6"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <text text-anchor="middle" fill="currentColor" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#emm-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="currentColor" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#emm-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    <!-- solid fist silhouette (grooves omitted for clean single-ink read) -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+      <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      <!-- groove hints as thin ink-gaps kept as subtle strokes for definition -->
+    </g>
+  </g>
+</svg>
+<span class="cap">seal · cream on red</span></div>
+  <div class="tile paper s96" style="color:#0e0a07"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB GR monogram (1-colour)" style="color:#0e0a07">
+  <title>GYMROB · GR monogram — single-ink (drop the red plate)</title>
+  <!-- 1-colour production form: one ink, no backing plate. currentColor = the ink. -->
+  <g transform="rotate(-1.5 128 128)" fill="currentColor" stroke="currentColor">
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke-width="7"/>
+    <circle cx="50" cy="50" r="4" stroke="none"/>
+    <circle cx="206" cy="50" r="4" stroke="none"/>
+    <circle cx="50" cy="206" r="4" stroke="none"/>
+    <circle cx="206" cy="206" r="4" stroke="none"/>
+    <text x="129" y="171" text-anchor="middle" stroke="none"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132" letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">GR · 1-ink on paper</span></div>
+  <div class="tile red s96" style="color:#fefae0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB GR monogram (1-colour)" style="color:#0e0a07">
+  <title>GYMROB · GR monogram — single-ink (drop the red plate)</title>
+  <!-- 1-colour production form: one ink, no backing plate. currentColor = the ink. -->
+  <g transform="rotate(-1.5 128 128)" fill="currentColor" stroke="currentColor">
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke-width="7"/>
+    <circle cx="50" cy="50" r="4" stroke="none"/>
+    <circle cx="206" cy="50" r="4" stroke="none"/>
+    <circle cx="50" cy="206" r="4" stroke="none"/>
+    <circle cx="206" cy="206" r="4" stroke="none"/>
+    <text x="129" y="171" text-anchor="middle" stroke="none"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132" letter-spacing="-8">GR</text>
+  </g>
+</svg>
+<span class="cap">GR · cream on red</span></div>
+  <div class="tile dark s48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GYMROB">
+  <title>GYMROB favicon</title>
+  <rect x="2" y="2" width="60" height="60" rx="3" fill="#6f1812"/>
+  <rect x="3" y="3" width="58" height="56" rx="2.5" fill="#a4271f"/>
+  <rect x="8" y="8" width="48" height="48" rx="2" fill="none" stroke="#fefae0" stroke-width="2.6"/>
+  <text x="32.5" y="46" text-anchor="middle" fill="#fefae0"
+        font-family="Alfa Slab One, Rockwell, serif" font-size="40" letter-spacing="-3">GR</text>
+</svg>
+<span class="cap">favicon 48</span></div>
+  <div class="tile dark s24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GYMROB">
+  <title>GYMROB favicon</title>
+  <rect x="2" y="2" width="60" height="60" rx="3" fill="#6f1812"/>
+  <rect x="3" y="3" width="58" height="56" rx="2.5" fill="#a4271f"/>
+  <rect x="8" y="8" width="48" height="48" rx="2" fill="none" stroke="#fefae0" stroke-width="2.6"/>
+  <text x="32.5" y="46" text-anchor="middle" fill="#fefae0"
+        font-family="Alfa Slab One, Rockwell, serif" font-size="40" letter-spacing="-3">GR</text>
+</svg>
+<span class="cap">favicon 24</span></div>
+</div>
+
+<h2>Wordmark</h2>
+<div class="row">
+  <div class="tile dark wm420"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 210" role="img" aria-label="GYMROB wordmark">
+  <title>GYMROB · painted slab wordmark</title>
+  <!-- hammered painted wordmark: stepped dark extrusion + cream face.
+       Cream face = rocky.paper; designed for dark / red / brick grounds. -->
+  <g font-family="Alfa Slab One, Rockwell, serif" font-size="132" text-anchor="middle">
+    <text x="343" y="150" fill="#0e0a07" opacity="0.85">GYMROB</text>
+    <text x="342" y="149" fill="#0e0a07" opacity="0.7">GYMROB</text>
+    <text x="341" y="148" fill="#3a0d08">GYMROB</text>
+    <text x="340" y="146" fill="#fefae0">GYMROB</text>
+  </g>
+</svg>
+<span class="cap">on dark</span></div>
+  <div class="tile red wm260"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 210" role="img" aria-label="GYMROB wordmark">
+  <title>GYMROB · painted slab wordmark</title>
+  <!-- hammered painted wordmark: stepped dark extrusion + cream face.
+       Cream face = rocky.paper; designed for dark / red / brick grounds. -->
+  <g font-family="Alfa Slab One, Rockwell, serif" font-size="132" text-anchor="middle">
+    <text x="343" y="150" fill="#0e0a07" opacity="0.85">GYMROB</text>
+    <text x="342" y="149" fill="#0e0a07" opacity="0.7">GYMROB</text>
+    <text x="341" y="148" fill="#3a0d08">GYMROB</text>
+    <text x="340" y="146" fill="#fefae0">GYMROB</text>
+  </g>
+</svg>
+<span class="cap">on red</span></div>
+  <div class="tile brick wm260"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 210" role="img" aria-label="GYMROB wordmark">
+  <title>GYMROB · painted slab wordmark</title>
+  <!-- hammered painted wordmark: stepped dark extrusion + cream face.
+       Cream face = rocky.paper; designed for dark / red / brick grounds. -->
+  <g font-family="Alfa Slab One, Rockwell, serif" font-size="132" text-anchor="middle">
+    <text x="343" y="150" fill="#0e0a07" opacity="0.85">GYMROB</text>
+    <text x="342" y="149" fill="#0e0a07" opacity="0.7">GYMROB</text>
+    <text x="341" y="148" fill="#3a0d08">GYMROB</text>
+    <text x="340" y="146" fill="#fefae0">GYMROB</text>
+  </g>
+</svg>
+<span class="cap">on brick</span></div>
+</div>
+
+<h2>Primary horizontal lockup</h2>
+<div class="row">
+  <div class="tile dark lk760"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 300" role="img" aria-label="GYMROB horizontal lockup">
+  <title>GYMROB · primary horizontal lockup</title>
+
+  <!-- LEFT: GR stamped tile -->
+  <g transform="translate(40 50) scale(0.78)">
+    <g transform="rotate(-1.5 128 128)">
+      <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+      <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+      <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+      <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+      <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+      <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+      <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+      <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+            font-family="Alfa Slab One, Rockwell, serif" font-size="132" letter-spacing="-8">GR</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: wordmark + names + support -->
+  <g transform="translate(300 0)">
+    <!-- top rule with stamped caps -->
+    <line x1="6" y1="92" x2="700" y2="92" stroke="#fefae0" stroke-width="3"/>
+    <rect x="6" y="86" width="16" height="12" fill="#fefae0"/>
+    <rect x="684" y="86" width="16" height="12" fill="#fefae0"/>
+
+    <g font-family="Alfa Slab One, Rockwell, serif" font-size="108" text-anchor="start">
+      <text x="6" y="190" fill="#0e0a07" opacity="0.55">GYMROB</text>
+      <text x="3" y="187" fill="#fefae0">GYMROB</text>
+    </g>
+
+    <line x1="6" y1="222" x2="700" y2="222" stroke="#fefae0" stroke-width="3"/>
+    <rect x="6" y="216" width="16" height="12" fill="#fefae0"/>
+    <rect x="684" y="216" width="16" height="12" fill="#fefae0"/>
+
+    <text x="6" y="262" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700"
+          font-size="22" letter-spacing="6">ROBIN CARRUTHERS</text>
+    <text x="700" y="262" text-anchor="end" fill="#4687a6" font-family="JetBrains Mono, monospace" font-weight="700"
+          font-size="22" letter-spacing="6">MUMBAI · IRON</text>
+  </g>
+</svg>
+<span class="cap">on dark</span></div>
+</div>
+<div class="row" style="margin-top:14px">
+  <div class="tile brick lk760"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 300" role="img" aria-label="GYMROB horizontal lockup">
+  <title>GYMROB · primary horizontal lockup</title>
+
+  <!-- LEFT: GR stamped tile -->
+  <g transform="translate(40 50) scale(0.78)">
+    <g transform="rotate(-1.5 128 128)">
+      <rect x="20" y="20" width="216" height="216" rx="6" fill="#6f1812"/>
+      <rect x="22" y="22" width="212" height="208" rx="5" fill="#a4271f"/>
+      <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke="#fefae0" stroke-width="7"/>
+      <circle cx="50" cy="50" r="4" fill="#fefae0"/>
+      <circle cx="206" cy="50" r="4" fill="#fefae0"/>
+      <circle cx="50" cy="206" r="4" fill="#fefae0"/>
+      <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+      <text x="129" y="171" text-anchor="middle" fill="#fefae0"
+            font-family="Alfa Slab One, Rockwell, serif" font-size="132" letter-spacing="-8">GR</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: wordmark + names + support -->
+  <g transform="translate(300 0)">
+    <!-- top rule with stamped caps -->
+    <line x1="6" y1="92" x2="700" y2="92" stroke="#fefae0" stroke-width="3"/>
+    <rect x="6" y="86" width="16" height="12" fill="#fefae0"/>
+    <rect x="684" y="86" width="16" height="12" fill="#fefae0"/>
+
+    <g font-family="Alfa Slab One, Rockwell, serif" font-size="108" text-anchor="start">
+      <text x="6" y="190" fill="#0e0a07" opacity="0.55">GYMROB</text>
+      <text x="3" y="187" fill="#fefae0">GYMROB</text>
+    </g>
+
+    <line x1="6" y1="222" x2="700" y2="222" stroke="#fefae0" stroke-width="3"/>
+    <rect x="6" y="216" width="16" height="12" fill="#fefae0"/>
+    <rect x="684" y="216" width="16" height="12" fill="#fefae0"/>
+
+    <text x="6" y="262" fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700"
+          font-size="22" letter-spacing="6">ROBIN CARRUTHERS</text>
+    <text x="700" y="262" text-anchor="end" fill="#4687a6" font-family="JetBrains Mono, monospace" font-weight="700"
+          font-size="22" letter-spacing="6">MUMBAI · IRON</text>
+  </g>
+</svg>
+<span class="cap">on brick</span></div>
+</div>
+
+<h2>Hero banner (painted canvas)</h2>
+<div class="row">
+  <div class="tile brick bn720"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-label="GYMROB painted canvas banner">
+  <title>GYMROB · hand-painted canvas fight-banner (hero lockup)</title>
+  <g transform="rotate(-1.6 500 300)">
+    <!-- canvas body -->
+    <rect x="80" y="120" width="840" height="360" rx="6" fill="#6f1812"/>
+    <rect x="86" y="126" width="828" height="348" rx="5" fill="#9a241c"/>
+    <!-- inner seam -->
+    <rect x="116" y="156" width="768" height="288" rx="3" fill="none" stroke="#fefae0" stroke-opacity="0.28" stroke-width="2"/>
+    <!-- corner reinforcement patches -->
+    <g fill="#6f1812" opacity="0.55">
+      <rect x="120" y="160" width="34" height="34"/>
+      <rect x="846" y="160" width="34" height="34"/>
+      <rect x="120" y="406" width="34" height="34"/>
+      <rect x="846" y="406" width="34" height="34"/>
+    </g>
+
+    <!-- top mono line -->
+    <text x="500" y="208" text-anchor="middle" fill="#fefae0" fill-opacity="0.88"
+          font-family="JetBrains Mono, monospace" font-weight="700" font-size="20" letter-spacing="10">ROBIN CARRUTHERS'</text>
+
+    <!-- GYMROB hammered -->
+    <g font-family="Alfa Slab One, Rockwell, serif" font-size="168" text-anchor="middle">
+      <text x="503" y="358" fill="#3a0d08" opacity="0.8">GYMROB</text>
+      <text x="500" y="354" fill="#fefae0">GYMROB</text>
+    </g>
+
+    <!-- bottom mono line -->
+    <text x="500" y="424" text-anchor="middle" fill="#fefae0" fill-opacity="0.85"
+          font-family="JetBrains Mono, monospace" font-weight="700" font-size="18" letter-spacing="8">EST · OLD-SCHOOL IRON · MUMBAI</text>
+
+    <!-- boxing glove top-right corner -->
+    <g transform="translate(812 150) scale(1.7)" fill="#fefae0" fill-opacity="0.9">
+      <rect x="14" y="46" width="32" height="12" rx="2"/>
+      <path d="M14 46 Q12 20 24 14 Q34 10 44 14 Q54 18 52 36 L52 46 Z"/>
+      <ellipse cx="48" cy="40" rx="6" ry="9" transform="rotate(20 48 40)"/>
+    </g>
+
+    <!-- hanging bolts -->
+    <circle cx="150" cy="120" r="9" fill="#b1b3b3" stroke="#0e0a07" stroke-width="2"/>
+    <circle cx="850" cy="120" r="9" fill="#b1b3b3" stroke="#0e0a07" stroke-width="2"/>
+  </g>
+</svg>
+<span class="cap">hung on the wall</span></div>
+</div>
+</body></html>

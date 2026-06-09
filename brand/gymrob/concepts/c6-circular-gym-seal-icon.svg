@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="GYMROB seal icon">
+  <title>GYMROB seal — icon</title>
+  <!-- C6 icon-only seal: compact coin for cap / pin / favicon / bike badge.
+       Chunky strokes, no hairlines -> legible at 24px. 1-colour safe. -->
+  <g transform="rotate(-2 128 128)">
+    <circle cx="128" cy="128" r="120" fill="#a4271f"/>
+    <circle cx="128" cy="128" r="120" fill="none" stroke="#fefae0" stroke-width="7"/>
+    <circle cx="128" cy="128" r="104" fill="none" stroke="#fefae0" stroke-width="2.5"/>
+    <!-- arched GYMROB -->
+    <text x="47.46" y="81.50" transform="rotate(300.00 47.46 81.50)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">G</text>
+    <text x="73.34" y="52.76" transform="rotate(324.00 73.34 52.76)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">Y</text>
+    <text x="108.66" y="37.03" transform="rotate(348.00 108.66 37.03)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">M</text>
+    <text x="147.34" y="37.03" transform="rotate(372.00 147.34 37.03)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">R</text>
+    <text x="182.66" y="52.76" transform="rotate(396.00 182.66 52.76)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">O</text>
+    <text x="208.54" y="81.50" transform="rotate(420.00 208.54 81.50)" font-family="Alfa Slab One, Rockwell, serif" font-size="32" fill="#fefae0" text-anchor="middle" dominant-baseline="central">B</text>
+    <!-- MUMBAI -->
+    <text x="57.40" y="191.57" transform="rotate(48.00 57.40 191.57)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">·</text>
+    <text x="70.39" y="203.54" transform="rotate(37.33 70.39 203.54)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central"> </text>
+    <text x="85.36" y="212.90" transform="rotate(26.67 85.36 212.90)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">M</text>
+    <text x="101.81" y="219.32" transform="rotate(16.00 101.81 219.32)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">U</text>
+    <text x="119.17" y="222.59" transform="rotate(5.33 119.17 222.59)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">M</text>
+    <text x="136.83" y="222.59" transform="rotate(-5.33 136.83 222.59)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">B</text>
+    <text x="154.19" y="219.32" transform="rotate(-16.00 154.19 219.32)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">A</text>
+    <text x="170.64" y="212.90" transform="rotate(-26.67 170.64 212.90)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">I</text>
+    <text x="185.61" y="203.54" transform="rotate(-37.33 185.61 203.54)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central"> </text>
+    <text x="198.60" y="191.57" transform="rotate(-48.00 198.60 191.57)" font-family="JetBrains Mono, monospace" font-size="16" font-weight="700" fill="#fefae0" text-anchor="middle" dominant-baseline="central">·</text>
+    <!-- flank stars -->
+    <path d="M0 -10 L2.9 -3 L10 -3 L4.3 1.5 L6.5 8.5 L0 4.2 L-6.5 8.5 L-4.3 1.5 L-10 -3 L-2.9 -3 Z" fill="#fefae0" transform="translate(24 128)"/>
+    <path d="M0 -10 L2.9 -3 L10 -3 L4.3 1.5 L6.5 8.5 L0 4.2 L-6.5 8.5 L-4.3 1.5 L-10 -3 L-2.9 -3 Z" fill="#fefae0" transform="translate(232 128)"/>
+    <!-- central fist on paper disc -->
+    <circle cx="128" cy="126" r="58" fill="#fefae0"/>
+    <g transform="translate(76.16 68.92) scale(1.62)" fill="#a4271f" stroke="#a4271f" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M12 28 Q12 18 22 16 L42 16 Q52 16 52 26 L52 44 Q52 52 44 52 L20 52 Q12 52 12 44 Z"/>
+      <ellipse cx="14" cy="38" rx="5" ry="8" transform="rotate(-20 14 38)"/>
+      <line x1="22" y1="26" x2="22" y2="34" stroke="#fefae0" stroke-width="2.2"/>
+      <line x1="30" y1="24" x2="30" y2="32" stroke="#fefae0" stroke-width="2.2"/>
+      <line x1="38" y1="24" x2="38" y2="32" stroke="#fefae0" stroke-width="2.2"/>
+      <line x1="46" y1="26" x2="46" y2="34" stroke="#fefae0" stroke-width="2.2"/>
+    </g>
+    <!-- stencil bridges -->
+    <rect x="124.5" y="4.0" width="7" height="8" rx="1" fill="#a4271f"/>
+    <rect x="124.5" y="244.0" width="7" height="8" rx="1" fill="#a4271f"/>
+    <rect x="244.0" y="124.5" width="8" height="7" rx="1" fill="#a4271f"/>
+    <rect x="4.0" y="124.5" width="8" height="7" rx="1" fill="#a4271f"/>
+  </g>
+</svg>

@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360" role="img" aria-label="GYMROB — Champion Laurel — Iron Is Religion">
+  <title>GYMROB · Champion Laurel · Iron Is Religion</title>
+
+  <!-- CONCEPT 7 · CHAMPION LAUREL
+       A fist rising from a barbell, cradled in a champion's wreath.
+       Earned it late, earned it hard. 1-colour safe.
+       Palette: mighty.red #a4271f / red-cinder #6f1812 /
+                rocky.paper #fefae0 / mighty.shadow #0e0a07 /
+                brass.edge #d4a14a -->
+
+  <defs>
+    <!-- one laurel leaf: clean lens, grows from origin toward +x -->
+    <path id="c7-leaf" d="M0 0 Q14 -7 26 -1 Q14 7 0 1 Q-3 0 0 0 Z"/>
+
+    <!-- five-point champion star -->
+    <path id="c7-star" d="M0 -15 L4.6 -4.9 L15.5 -3.9 L7.2 3.4 L9.7 14.6 L0 8.6 L-9.7 14.6 L-7.2 3.4 L-15.5 -3.9 L-4.6 -4.9 Z"/>
+
+    <!-- bottom arc for seal text (rides between the two rings) -->
+    <path id="c7-bottomarc" d="M -116 0 A 116 116 0 0 0 116 0" fill="none"/>
+
+    <!-- ONE laurel arm: leaves ride the right side from low (+70)
+         up to high (-58), tilted up-the-arc and fanned out.
+         Mirrored for the left arm. -->
+    <g id="c7-arm" fill="#a4271f">
+      <use href="#c7-leaf" transform="rotate(70)  translate(110 0) rotate(-104) scale(1.7)"/>
+      <use href="#c7-leaf" transform="rotate(50)  translate(110 0) rotate(-104) scale(1.8)"/>
+      <use href="#c7-leaf" transform="rotate(30)  translate(110 0) rotate(-104) scale(1.85)"/>
+      <use href="#c7-leaf" transform="rotate(10)  translate(110 0) rotate(-104) scale(1.85)"/>
+      <use href="#c7-leaf" transform="rotate(-10) translate(110 0) rotate(-104) scale(1.8)"/>
+      <use href="#c7-leaf" transform="rotate(-30) translate(110 0) rotate(-104) scale(1.65)"/>
+      <use href="#c7-leaf" transform="rotate(-50) translate(108 0) rotate(-104) scale(1.45)"/>
+      <use href="#c7-leaf" transform="rotate(-68) translate(106 0) rotate(-104) scale(1.2)"/>
+      <!-- inner braid -->
+      <use href="#c7-leaf" transform="rotate(60)  translate(83 0) rotate(-82) scale(1.15)"/>
+      <use href="#c7-leaf" transform="rotate(40)  translate(83 0) rotate(-82) scale(1.2)"/>
+      <use href="#c7-leaf" transform="rotate(20)  translate(83 0) rotate(-82) scale(1.2)"/>
+      <use href="#c7-leaf" transform="rotate(0)   translate(83 0) rotate(-82) scale(1.15)"/>
+      <use href="#c7-leaf" transform="rotate(-20) translate(83 0) rotate(-82) scale(1.05)"/>
+      <use href="#c7-leaf" transform="rotate(-40) translate(83 0) rotate(-82) scale(0.95)"/>
+    </g>
+  </defs>
+
+  <!-- whole stamp rotated a hair: hand-applied, not machine-true -->
+  <g transform="rotate(-1.4 250 180)">
+
+    <!-- THE WREATH SEAL -->
+    <g transform="translate(250 168)">
+
+      <!-- stamped outer ring (hairline-safe, die-cut-safe) -->
+      <circle cx="0" cy="0" r="148" fill="none" stroke="#a4271f" stroke-width="7"/>
+      <circle cx="0" cy="0" r="132" fill="none" stroke="#a4271f" stroke-width="2.5"/>
+
+      <!-- crowning champion star at top of the ring -->
+      <use href="#c7-star" transform="translate(0 -148) scale(1.5)" fill="#a4271f"/>
+
+      <!-- LAUREL WREATH (two earned arms):
+           right arm + mirrored left arm, sweeping up the seal sides.
+           Each leaf is a solid lens, 1-colour safe. -->
+      <use href="#c7-arm"/>
+      <use href="#c7-arm" transform="scale(-1 1)"/>
+
+      <!-- wreath base tie: a stamped knot where the arms meet -->
+      <g fill="#a4271f">
+        <rect x="-14" y="116" width="28" height="14" rx="2"/>
+        <rect x="-7" y="126" width="6" height="16" rx="2" transform="rotate(-12 -4 134)"/>
+        <rect x="1" y="126" width="6" height="16" rx="2" transform="rotate(12 4 134)"/>
+      </g>
+
+      <!-- CENTRE EMBLEM: FIST over BARBELL.
+           Reuse brief paths (viewBox 0 0 64 64), recentred and scaled.
+           Fist is the Stallone symbol; barbell is the iron beneath. -->
+
+      <!-- FIST (clenched) — hero symbol, scaled & lifted -->
+      <g transform="translate(0 -34) scale(2.05) translate(-32 -34)" fill="#a4271f" stroke="#a4271f" stroke-width="1.5">
+        <path d="M12 28 Q12 18 22 16 L42 16 Q52 16 52 26 L52 44 Q52 52 44 52 L20 52 Q12 52 12 44 Z"/>
+        <ellipse cx="14" cy="38" rx="5" ry="8" transform="rotate(-20 14 38)"/>
+        <!-- knuckle creases knocked out so it reads as a fist in 1-colour -->
+        <line x1="22" y1="26" x2="22" y2="34" stroke="#fefae0" stroke-width="1.6"/>
+        <line x1="30" y1="24" x2="30" y2="32" stroke="#fefae0" stroke-width="1.6"/>
+        <line x1="38" y1="24" x2="38" y2="32" stroke="#fefae0" stroke-width="1.6"/>
+        <line x1="46" y1="26" x2="46" y2="34" stroke="#fefae0" stroke-width="1.6"/>
+      </g>
+
+      <!-- BARBELL — the iron the fist is raised from -->
+      <g transform="translate(0 58) scale(1.95) translate(-32 -32)" fill="#a4271f" stroke="#a4271f">
+        <line x1="14" y1="32" x2="50" y2="32" stroke-width="2.5"/>
+        <line x1="6" y1="32" x2="14" y2="32" stroke-width="4"/>
+        <line x1="50" y1="32" x2="58" y2="32" stroke-width="4"/>
+        <rect x="11" y="22" width="4" height="20"/><rect x="49" y="22" width="4" height="20"/>
+        <rect x="4" y="18" width="6" height="28"/><rect x="54" y="18" width="6" height="28"/>
+      </g>
+
+      <!-- seal text riding the bottom arc, mono -->
+      <text font-family="JetBrains Mono, monospace" font-size="13"
+            letter-spacing="6" fill="#a4271f">
+        <textPath href="#c7-bottomarc" startOffset="50%" text-anchor="middle">OLD SCHOOL IRON · MUMBAI</textPath>
+      </text>
+
+    </g>
+
+    <!-- WORDMARK BLOCK (right) -->
+    <g transform="translate(470 0)">
+
+      <!-- GYMROB — slab, painted-cream knockout on a red banner -->
+      <g>
+        <!-- banner ground: squared, max 2px radius, slight droop nod -->
+        <rect x="0" y="92" width="378" height="92" rx="2" fill="#a4271f"/>
+        <rect x="0" y="92" width="378" height="92" rx="2" fill="none" stroke="#6f1812" stroke-width="3"/>
+        <!-- stencil bridge nicks (hand-made seasoning, not load-bearing) -->
+        <rect x="120" y="90" width="7" height="6" fill="#fefae0"/>
+        <rect x="250" y="180" width="7" height="6" fill="#fefae0"/>
+
+        <text x="189" y="160" text-anchor="middle"
+              font-family="Alfa Slab One, Rockwell, serif" font-size="64"
+              letter-spacing="2" fill="#fefae0">GYMROB</text>
+      </g>
+
+      <!-- champion line over the wordmark, mono -->
+      <text x="189" y="72" text-anchor="middle"
+            font-family="JetBrains Mono, monospace" font-size="14"
+            letter-spacing="6" fill="#a4271f">THE  REAL  ROCKY</text>
+
+      <!-- support line under the banner -->
+      <g transform="translate(0 214)">
+        <line x1="22" y1="0" x2="78" y2="0" stroke="#a4271f" stroke-width="2"/>
+        <text x="189" y="5" text-anchor="middle"
+              font-family="JetBrains Mono, monospace" font-size="14"
+              letter-spacing="5" fill="#0e0a07">IRON  IS  RELIGION</text>
+        <line x1="300" y1="0" x2="356" y2="0" stroke="#a4271f" stroke-width="2"/>
+      </g>
+
+      <!-- brass champion ticks, the single warm metallic note -->
+      <g fill="#d4a14a">
+        <use href="#c7-star" transform="translate(150 244) scale(0.4)"/>
+        <use href="#c7-star" transform="translate(228 244) scale(0.4)"/>
+      </g>
+    </g>
+
+  </g>
+</svg>

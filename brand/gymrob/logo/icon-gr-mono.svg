@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB GR monogram (1-colour)" style="color:#0e0a07">
+  <title>GYMROB · GR monogram — single-ink (drop the red plate)</title>
+  <!-- 1-colour production form: one ink, no backing plate. currentColor = the ink. -->
+  <g transform="rotate(-1.5 128 128)" fill="currentColor" stroke="currentColor">
+    <rect x="34" y="34" width="188" height="188" rx="4" fill="none" stroke-width="7"/>
+    <circle cx="50" cy="50" r="4" stroke="none"/>
+    <circle cx="206" cy="50" r="4" stroke="none"/>
+    <circle cx="50" cy="206" r="4" stroke="none"/>
+    <circle cx="206" cy="206" r="4" stroke="none"/>
+    <text x="129" y="171" text-anchor="middle" stroke="none"
+          font-family="Alfa Slab One, Rockwell, serif" font-size="132" letter-spacing="-8">GR</text>
+  </g>
+</svg>

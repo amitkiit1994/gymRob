@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB warrior seal (1-colour stamp)" style="color:#0e0a07">
+  <title>GYMROB · Warrior's Seal — single-ink stamp</title>
+  <defs>
+    <path id="emm-top" fill="none" d="M 36 128 A 92 92 0 0 1 220 128"/>
+    <path id="emm-bot" fill="none" d="M 40 128 A 88 88 0 0 0 216 128"/>
+  </defs>
+  <!-- one ink, ink-stamp style: ring outlines + solid fist silhouette + stars + type -->
+  <g transform="rotate(-2 128 128)" fill="currentColor">
+    <circle cx="128" cy="128" r="120" fill="none" stroke="currentColor" stroke-width="6"/>
+    <circle cx="128" cy="128" r="110" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <text text-anchor="middle" fill="currentColor" font-family="Alfa Slab One, Rockwell, serif" font-size="30" letter-spacing="6">
+      <textPath href="#emm-top" startOffset="50%">GYMROB</textPath>
+    </text>
+    <text text-anchor="middle" fill="currentColor" font-family="JetBrains Mono, monospace" font-weight="700" font-size="13.5" letter-spacing="5">
+      <textPath href="#emm-bot" startOffset="50%">MUMBAI · IRON IS RELIGION</textPath>
+    </text>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(38 121)"/>
+    <path d="M0 0 l3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(204 121)"/>
+    <!-- solid fist silhouette (grooves omitted for clean single-ink read) -->
+    <g transform="translate(128 118) scale(2.45) translate(-32 -33)">
+      <path d="M21 50 L43 50 L41 61 Q41 64 36 64 L28 64 Q23 64 23 61 Z"/>
+      <path d="M11 28 Q11 17 22 15 L42 15 Q53 15 53 26 L53 44 Q53 53 44 53 L20 53 Q11 53 11 44 Z" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+      <ellipse cx="13.5" cy="38" rx="5.6" ry="8.6" transform="rotate(-20 13.5 38)"/>
+      <!-- groove hints as thin ink-gaps kept as subtle strokes for definition -->
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="GYMROB">
+  <title>GYMROB favicon</title>
+  <rect x="2" y="2" width="60" height="60" rx="3" fill="#6f1812"/>
+  <rect x="3" y="3" width="58" height="56" rx="2.5" fill="#a4271f"/>
+  <rect x="8" y="8" width="48" height="48" rx="2" fill="none" stroke="#fefae0" stroke-width="2.6"/>
+  <text x="32.5" y="46" text-anchor="middle" fill="#fefae0"
+        font-family="Alfa Slab One, Rockwell, serif" font-size="40" letter-spacing="-3">GR</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB raised-fist seal">
+  <title>GYMROB — Raised-Fist Seal (icon)</title>
+
+  <!-- ============ ARC PATHS for curved type (invisible) ============ -->
+  <defs>
+    <!-- top arc rides the ring (centre 128,128 r=86), reads left-to-right -->
+    <path id="ic-arc-top" fill="none" d="M 42 128 A 86 86 0 0 1 214 128" />
+    <!-- bottom arc rides the lower ring, reads left-to-right -->
+    <path id="ic-arc-bot" fill="none" d="M 46 128 A 82 82 0 0 0 210 128" />
+  </defs>
+
+  <!-- ============ THE SEAL ============ -->
+  <!-- slight hand-stamp rotation for the made-by-hand feel -->
+  <g transform="rotate(-2 128 128)">
+
+    <!-- outer stamped ring -->
+    <circle cx="128" cy="128" r="120" fill="none" stroke="#a4271f" stroke-width="9"/>
+    <!-- thin inner keyline -->
+    <circle cx="128" cy="128" r="104" fill="none" stroke="#a4271f" stroke-width="3"/>
+    <!-- solid red field that carries the fist -->
+    <circle cx="128" cy="128" r="96" fill="#a4271f"/>
+
+    <!-- curved support type around the ring -->
+    <g fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="15" letter-spacing="5">
+      <text text-anchor="middle">
+        <textPath href="#ic-arc-top" startOffset="50%">MUMBAI · IRON</textPath>
+      </text>
+      <text text-anchor="middle">
+        <textPath href="#ic-arc-bot" startOffset="50%">OLD · SCHOOL</textPath>
+      </text>
+    </g>
+
+    <!-- flanking stamped stars (horizontal axis, beside the fist) -->
+    <g fill="#fefae0">
+      <path d="M 0 0 l 2.9 8.9 9.4 0 -7.6 5.5 2.9 8.9 -7.6 -5.5 -7.6 5.5 2.9 -8.9 -7.6 -5.5 9.4 0 z" transform="translate(40 121)"/>
+      <path d="M 0 0 l 2.9 8.9 9.4 0 -7.6 5.5 2.9 8.9 -7.6 -5.5 -7.6 5.5 2.9 -8.9 -7.6 -5.5 9.4 0 z" transform="translate(204 121)"/>
+    </g>
+
+    <!-- ============ HERO: CLENCHED FIST (paper knockout, raised) ============ -->
+    <!-- brief FIST path, viewBox 0 0 64 64, scaled & centred high in the field -->
+    <g transform="translate(128 122) scale(2.32) translate(-32 -32)">
+      <!-- forearm/wrist wrap stub beneath the fist for the 'raised' read -->
+      <path d="M22 50 L42 50 L40 60 Q40 63 36 63 L28 63 Q24 63 24 60 Z" fill="#fefae0"/>
+      <!-- the fist body -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="1.5" stroke-linejoin="round">
+        <path d="M12 28 Q12 18 22 16 L42 16 Q52 16 52 26 L52 44 Q52 52 44 52 L20 52 Q12 52 12 44 Z"/>
+        <ellipse cx="14" cy="38" rx="5" ry="8" transform="rotate(-20 14 38)"/>
+      </g>
+      <!-- knuckle / finger grooves carved back to the red field -->
+      <g stroke="#a4271f" stroke-width="2.4" stroke-linecap="round">
+        <line x1="22" y1="25" x2="22" y2="34"/>
+        <line x1="30" y1="23" x2="30" y2="33"/>
+        <line x1="38" y1="23" x2="38" y2="33"/>
+        <line x1="46" y1="25" x2="46" y2="34"/>
+      </g>
+      <!-- wrist-wrap binding stripes -->
+      <g stroke="#a4271f" stroke-width="2" stroke-linecap="round">
+        <line x1="27" y1="55" x2="37" y2="55"/>
+      </g>
+    </g>
+
+  </g>
+</svg>

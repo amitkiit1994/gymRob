@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-label="GYMROB — raised-fist seal, Mumbai iron">
+  <title>GYMROB — Raised-Fist Emblem (primary lockup)</title>
+
+  <defs>
+    <!-- arc paths riding the inner ring (centre 200,180 r=104) -->
+    <!-- top arc: sweeps across the upper ring, text reads l-to-r -->
+    <path id="pr-arc-top" fill="none" d="M 96 180 A 104 104 0 0 1 304 180" />
+    <!-- bottom arc: sweeps across the lower ring, text reads l-to-r -->
+    <path id="pr-arc-bot" fill="none" d="M 100 180 A 100 100 0 0 0 300 180" />
+  </defs>
+
+  <!-- ================= LEFT: THE WARRIOR'S SEAL ================= -->
+  <g transform="rotate(-2 200 180)">
+
+    <!-- outer stamped ring -->
+    <circle cx="200" cy="180" r="148" fill="none" stroke="#a4271f" stroke-width="11"/>
+    <!-- thin inner keyline -->
+    <circle cx="200" cy="180" r="128" fill="none" stroke="#a4271f" stroke-width="3.5"/>
+    <!-- solid red field -->
+    <circle cx="200" cy="180" r="118" fill="#a4271f"/>
+
+    <!-- curved support type on the ring -->
+    <g fill="#fefae0" font-family="JetBrains Mono, monospace" font-weight="700" font-size="18" letter-spacing="7">
+      <text text-anchor="middle">
+        <textPath href="#pr-arc-top" startOffset="50%">MUMBAI · IRON</textPath>
+      </text>
+      <text text-anchor="middle">
+        <textPath href="#pr-arc-bot" startOffset="50%">OLD · SCHOOL</textPath>
+      </text>
+    </g>
+
+    <!-- flanking stamped stars (on the horizontal axis, beside the fist) -->
+    <g fill="#fefae0">
+      <path d="M 0 0 l 3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(91 173)"/>
+      <path d="M 0 0 l 3.6 11 11.6 0 -9.4 6.8 3.6 11 -9.4 -6.8 -9.4 6.8 3.6 -11 -9.4 -6.8 11.6 0 z" transform="translate(293 173)"/>
+    </g>
+
+    <!-- ============ HERO: CLENCHED FIST (paper knockout, raised) ============ -->
+    <g transform="translate(200 172) scale(2.72) translate(-32 -32)">
+      <!-- wrist/forearm stub -->
+      <path d="M22 50 L42 50 L40 60 Q40 63 36 63 L28 63 Q24 63 24 60 Z" fill="#fefae0"/>
+      <!-- fist body -->
+      <g fill="#fefae0" stroke="#fefae0" stroke-width="1.5" stroke-linejoin="round">
+        <path d="M12 28 Q12 18 22 16 L42 16 Q52 16 52 26 L52 44 Q52 52 44 52 L20 52 Q12 52 12 44 Z"/>
+        <ellipse cx="14" cy="38" rx="5" ry="8" transform="rotate(-20 14 38)"/>
+      </g>
+      <!-- knuckle / finger grooves carved back to red -->
+      <g stroke="#a4271f" stroke-width="2.4" stroke-linecap="round">
+        <line x1="22" y1="25" x2="22" y2="34"/>
+        <line x1="30" y1="23" x2="30" y2="33"/>
+        <line x1="38" y1="23" x2="38" y2="33"/>
+        <line x1="46" y1="25" x2="46" y2="34"/>
+      </g>
+      <!-- wrist wrap stripe -->
+      <g stroke="#a4271f" stroke-width="2" stroke-linecap="round">
+        <line x1="27" y1="55" x2="37" y2="55"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ================= RIGHT: WORDMARK LOCKUP ================= -->
+  <g transform="translate(404 0)">
+
+    <!-- top hairline rule with stamped end-caps (registration feel) -->
+    <line x1="8" y1="112" x2="452" y2="112" stroke="#a4271f" stroke-width="3"/>
+    <rect x="8" y="106" width="14" height="12" fill="#a4271f"/>
+    <rect x="438" y="106" width="14" height="12" fill="#a4271f"/>
+
+    <!-- GYMROB — painted slab wordmark, width-constrained to the zone -->
+    <text x="230" y="218" text-anchor="middle"
+          font-family="Alfa Slab One, Rockwell, serif"
+          font-size="104" fill="#a4271f"
+          textLength="444" lengthAdjust="spacingAndGlyphs"
+          transform="rotate(-1.2 230 210)">GYMROB</text>
+
+    <!-- support mono line beneath, between rules -->
+    <line x1="8" y1="252" x2="452" y2="252" stroke="#a4271f" stroke-width="3"/>
+    <rect x="8" y="246" width="14" height="12" fill="#a4271f"/>
+    <rect x="438" y="246" width="14" height="12" fill="#a4271f"/>
+
+    <text x="230" y="296" text-anchor="middle"
+          font-family="JetBrains Mono, monospace" font-weight="700"
+          font-size="20" fill="#a4271f"
+          textLength="430" lengthAdjust="spacingAndGlyphs">THE REAL ROCKY OF MUMBAI</text>
+  </g>
+</svg>

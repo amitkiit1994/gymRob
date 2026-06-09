@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="GYMROB — GR monogram">
+  <title>GYMROB · GR interlocking slab monogram</title>
+
+  <!-- ============================================================
+       ICON-ONLY MARK  ·  cap / enamel pin / bike badge / favicon
+       Structure = a stamped frame + SOLID interlocking slab "GR".
+       1-COLOUR SAFE: the figure (frame + GR) is one ink; the red
+       plate fill is a DROPPABLE backing, never load-bearing. Flip
+       to any single colour and the framed GR still reads, because
+       the letters are solid positives with cut counters.
+       ============================================================ -->
+
+  <g transform="rotate(-1.5 128 128)">
+
+    <!-- (A) DROPPABLE plate fill — enrichment only, remove for 1-colour stamp -->
+    <rect x="20" y="20" width="216" height="216" rx="8" fill="#a4271f"/>
+
+    <!-- (B) STRUCTURAL frame — stamped bezel, part of the 1-colour mark -->
+    <rect x="33" y="33" width="190" height="190" rx="5" fill="none"
+          stroke="#fefae0" stroke-width="8"/>
+    <!-- corner rivet pricks (small, survive as same-ink dots) -->
+    <circle cx="50"  cy="50"  r="4" fill="#fefae0"/>
+    <circle cx="206" cy="50"  r="4" fill="#fefae0"/>
+    <circle cx="50"  cy="206" r="4" fill="#fefae0"/>
+    <circle cx="206" cy="206" r="4" fill="#fefae0"/>
+
+    <!-- (C) STRUCTURAL GR — SOLID slab letters with counters cut by
+            evenodd. Counters show through to whatever is behind, so
+            the mark is identical in colour and in 1-colour knockout. -->
+
+    <!-- G : heavy slab C + tongue/shelf -->
+    <path fill="#fefae0" fill-rule="evenodd" d="
+      M 126 62 L 78 62 Q 56 62 56 92 L 56 164 Q 56 194 78 194
+      L 108 194 Q 126 194 126 176 L 126 118 L 92 118 L 92 142
+      L 103 142 L 103 164 Q 103 169 98 169 L 86 169 Q 80 169 80 160
+      L 80 96 Q 80 87 89 87 L 126 87 Z
+    "/>
+
+    <!-- R : slab stem + squared bowl + kicking leg -->
+    <path fill="#fefae0" fill-rule="evenodd" d="
+      M 146 62 L 192 62 Q 212 62 212 92 Q 212 118 193 122
+      L 212 194 L 186 194 L 174 134 L 174 194 L 146 194 Z
+      M 174 87 L 189 87 Q 193 87 193 92 Q 193 99 189 99 L 174 99 Z
+    "/>
+
+  </g>
+</svg>
