@@ -10,7 +10,7 @@ const testimonials = [
     author: 'Abhishek Kathalye',
     profession: 'Actor · Chhaava',
     instagram: 'https://www.instagram.com/abhishekathalye/',
-    avatar: '/images/abhishek-kathalye.jpg',
+    avatar: '/images/opt/abhishek-kathalye.webp',
     rotate: -3,
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     author: 'Saurav Chakrabarti',
     profession: 'Film Actor · Bagghi, Tadap, Farzi',
     instagram: 'https://www.instagram.com/saurav_chakrabarti/',
-    avatar: '/images/saurav-chakrabarti.jpg',
+    avatar: '/images/opt/saurav-chakrabarti.webp',
     rotate: 2,
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     author: 'Amit Kumar Das',
     profession: 'CTO · Cofounder ratl.ai',
     instagram: 'https://www.instagram.com/amitkumardas___/',
-    avatar: '/images/amit-kumar-das.jpg',
+    avatar: '/images/opt/amit-kumar-das.webp',
     rotate: -2,
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
     author: 'Ronnie Chouhan',
     profession: 'Director · Choreographer',
     instagram: 'https://www.instagram.com/roniechouhann/',
-    avatar: '/images/ronnie-chouhan.jpg',
+    avatar: '/images/opt/ronnie-chouhan.webp',
     rotate: 3,
   },
   {
@@ -46,7 +46,7 @@ const testimonials = [
     author: 'Sai Ghatpande',
     profession: 'SVP · Influencer Partnerships, Ogilvy India',
     instagram: 'https://www.instagram.com/sai_ghatpande/',
-    avatar: '/images/sai-ghatpande.jpg',
+    avatar: '/images/opt/sai-ghatpande.webp',
     rotate: -2,
   },
 ]
@@ -60,6 +60,7 @@ export default function Testimonials() {
     <ChapterShell
       id="testimonials"
       title="The Fraternity"
+      plate="/images/scene/fraternity.webp"
       tone="brick-crop"
       tilt={1.5}
     >
@@ -83,19 +84,25 @@ export default function Testimonials() {
               <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
               <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
               <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
-              <div
-                className="relative w-full overflow-hidden border border-rocky-paper/15 rounded-sm"
-                style={{ paddingBottom: '177.78%' }}
+              <a
+                href={`https://www.youtube.com/watch?v=${id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Play video testimonial ${i + 1}`}
+                className="group relative block w-full overflow-hidden border border-rocky-paper/15 rounded-sm"
+                style={{ paddingBottom: '56.25%' }}
               >
-                <iframe
-                  className="absolute top-0 left-0 w-full h-full"
-                  src={`https://www.youtube.com/embed/${id}`}
-                  title={`Video Testimonial ${i + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
+                <img
+                  src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
+                  alt={`Video testimonial ${i + 1}`}
                   loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-              </div>
+                <span className="absolute inset-0 bg-mighty-shadow/35 group-hover:bg-mighty-shadow/15 transition-colors" aria-hidden="true" />
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-mighty-red/90 border-2 border-rocky-paper shadow-[0_6px_16px_rgba(0,0,0,0.6)]" aria-hidden="true">
+                  <svg className="w-6 h-6 text-rocky-paper ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </a>
               <p className="font-mono text-[10px] text-rocky-paper tracking-[0.3em] uppercase text-center mt-2 text-shadow-readable">
                 · Live From The Floor ·
               </p>

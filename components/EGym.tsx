@@ -22,6 +22,7 @@ export default function EGym() {
     <ChapterShell
       id="egym"
       title="eGym Lokhandwala"
+      plate="/images/scene/egym.webp"
       tone="brick-right"
       tilt={-1}
     >

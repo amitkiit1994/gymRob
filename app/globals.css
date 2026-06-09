@@ -1744,3 +1744,59 @@
   .iron-strap::before { left: 8px; }
   .iron-strap::after  { right: 8px; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   CINEMATIC PHOTOREAL SURFACES — real generated material textures
+   replace the procedural/flat fills so surfaces read photographed.
+   Unlayered (wins over @layer utilities). Remove this block to revert.
+   ════════════════════════════════════════════════════════════════ */
+.bg-brick, .bg-brick-dark, .bg-brick-spotlight-left, .bg-brick-spotlight-right{
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(254,215,170,.10) 0%, transparent 55%),
+    linear-gradient(rgba(18,8,4,.30), rgba(8,4,2,.48)),
+    url('/images/textures/real-brick.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.bg-canvas{
+  background-image:
+    linear-gradient(160deg, rgba(255,220,170,.10), transparent 45%),
+    linear-gradient(rgba(120,22,16,.30), rgba(70,12,8,.42)),
+    url('/images/textures/real-canvas.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.bg-chalkboard{
+  background-image:
+    linear-gradient(rgba(12,18,14,.28), rgba(6,10,8,.42)),
+    url('/images/textures/real-chalk.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.bg-paper, .polaroid-aged, .newsprint{
+  background-image: url('/images/textures/real-paper.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.bg-wood, .trophy-plaque{
+  background-image:
+    linear-gradient(rgba(20,10,5,.18), rgba(10,5,2,.34)),
+    url('/images/textures/real-wood.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.leather-grain{
+  background-image: url('/images/textures/real-leather.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+.painted-metal-red{
+  background-image:
+    linear-gradient(rgba(150,24,16,.28), rgba(80,12,8,.46)),
+    url('/images/textures/real-metal.webp') !important;
+  background-size: cover !important; background-position:center !important;
+}
+/* kill the playful Ken-Burns drift */
+.kenburns{ animation: none !important; }
+
+/* ── Cinematic CTA enamel signs: feather the baked sign's outer brick to
+      transparent so it blends seamlessly into the hero plate's wall. ── */
+.cta-sign img{
+  -webkit-mask-image: radial-gradient(ellipse 84% 82% at 50% 50%, #000 68%, rgba(0,0,0,0) 97%);
+          mask-image: radial-gradient(ellipse 84% 82% at 50% 50%, #000 68%, rgba(0,0,0,0) 97%);
+  filter: brightness(1.08) drop-shadow(0 12px 20px rgba(0,0,0,0.65));
+}

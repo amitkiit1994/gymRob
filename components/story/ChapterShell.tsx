@@ -17,6 +17,15 @@ interface ChapterShellProps {
   era?: string
   /** Title to render in the canvas banner (short — fits in a banner) */
   title: string
+  /** Optional baked-in cinematic title image (spray-paint / placard). When set,
+   *  it replaces the CSS canvas-banner title; `title` becomes its alt text. */
+  titleImg?: string
+  /** Optional full-bleed cinematic scene PLATE (a photographed gym wall with the
+   *  chapter title baked in + real photos composited into frames). When set, it
+   *  becomes the chapter's establishing shot: rendered edge-to-edge at the top,
+   *  and the CSS title banner + giant numeral are suppressed (the plate carries
+   *  them). `title` becomes its alt text. */
+  plate?: string
   /** Visual tone for the section bg */
   tone?: Tone
   /** Banner tilt (deg) — defaults to alternating */
@@ -51,6 +60,8 @@ export default function ChapterShell({
   numeral,
   era,
   title,
+  titleImg,
+  plate,
   tone = 'brick',
   tilt = -1.2,
   children,
@@ -103,8 +114,28 @@ export default function ChapterShell({
         aria-hidden="true"
         className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-weld-seam z-30"
       />
+      {/* CINEMATIC ESTABLISHING PLATE — the whole gym wall, photographed, with
+          the chapter title baked in and real photos composited into its frames.
+          Edge-to-edge film still; the brick content area flows beneath it. */}
+      {plate && (
+        <div className="relative w-full">
+          <img
+            src={plate}
+            alt={title}
+            className="block w-full h-auto max-h-[82vh] object-cover object-center select-none"
+            loading="lazy"
+            decoding="async"
+          />
+          {/* blend the photographic plate down into the chapter's wall */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-mighty-shadow"
+          />
+        </div>
+      )}
+
       {/* Background SPRAY-STENCILED chapter numeral — painted on the brick (paint always there) */}
-      {numeral && (
+      {numeral && !plate && (
         <motion.div
           style={{ y: numeralY }}
           className="absolute top-8 right-2 sm:right-6 lg:right-10 z-0 pointer-events-none select-none"
@@ -123,16 +154,27 @@ export default function ChapterShell({
       )}
 
       <div ref={stageRef} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
-        {/* CanvasBanner — title pinned to the wall (GSAP: drops from above).
-            The giant background numeral above is the chapter stamp; no
-            separate CH_NN chip is needed. */}
-        <div className="chapter-banner mb-4 sm:mb-6" style={{ willChange: 'transform' }}>
-          <CanvasBanner tilt={0} showGloves={false}>
-            <h2 className="font-painted text-hammered-canvas text-3xl sm:text-5xl md:text-6xl leading-[1.0] tracking-tight uppercase">
-              {title}
-            </h2>
-          </CanvasBanner>
-        </div>
+        {/* CanvasBanner — title pinned to the wall. Suppressed when a full
+            cinematic plate is shown (the plate already carries the title). */}
+        {!plate && (
+          <div className="chapter-banner mb-4 sm:mb-6">
+            {titleImg ? (
+              <img
+                src={titleImg}
+                alt={title}
+                className="block w-full max-w-[680px] rounded-sm shadow-hung"
+              />
+            ) : (
+              <CanvasBanner tilt={0} showGloves={false}>
+                <h2 className="font-painted text-hammered-canvas text-3xl sm:text-5xl md:text-6xl leading-[1.0] tracking-tight uppercase">
+                  {title}
+                </h2>
+              </CanvasBanner>
+            )}
+          </div>
+        )}
+        {/* When a plate is shown, give the chapter a screen-reader heading. */}
+        {plate && <h2 className="sr-only">{title}</h2>}
 
         {/* Era caption — small painted line under the banner. No chip,
             no divider; it's a sub-line of the title, not a tag. */}

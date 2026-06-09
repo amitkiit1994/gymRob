@@ -111,6 +111,7 @@ export default function TheWarrior() {
       numeral="03"
       era="The Discipline · The Manifesto"
       title="I Am A Warrior"
+      plate="/images/scene/warrior.webp"
       tone="concrete"
       tilt={-0.8}
     >

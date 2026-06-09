@@ -90,6 +90,7 @@ export default function Services() {
     <ChapterShell
       id="services"
       title="Offerings"
+      plate="/images/scene/offerings.webp"
       tone="brick-left"
       tilt={1.5}
     >

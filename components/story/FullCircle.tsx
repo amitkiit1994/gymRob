@@ -1,22 +1,18 @@
 'use client'
 
-import Image from 'next/image'
-
 /**
  * INTERLUDE · FULL CIRCLE
  *
- * A standalone moment bridging the PAST chapters (Weight → Forge → Warrior)
- * and the PRESENT (Services, eGym, …): the photograph of Robin standing
- * beside Sylvester Stallone — the man who, through Rocky, planted the seed
- * of every brick in this gym.
- *
- * Not a numbered chapter; this is a pinned-to-the-wall keepsake.
+ * The bridge between PAST and PRESENT: the keepsake photograph of Robin beside
+ * Sylvester Stallone — the man whose Rocky planted the seed of every brick in
+ * this gym. Now a photographed wall: the keepsake hangs in an ornate frame, the
+ * "OFF THE SCREEN" note pinned beside it. The written moment sits beneath.
  */
 export default function FullCircle() {
   return (
     <section
       id="full-circle"
-      className="relative bg-brick bg-brick-spotlight-right brick-cracks overflow-hidden py-20 sm:py-28 lg:py-32"
+      className="relative bg-mighty-shadow overflow-hidden"
     >
       {/* Welded seam to bridge from preceding chapter */}
       <div
@@ -24,10 +20,21 @@ export default function FullCircle() {
         className="absolute top-0 left-0 right-0 h-[6px] bg-gradient-to-r from-mighty-shadow via-mighty-red/70 to-mighty-shadow shadow-weld-seam z-30"
       />
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        {/* Eyebrow — painted directly on the brick wall. No chips, no
-            divider. This is an interlude, a moment, written by hand. */}
-        <div className="mb-10 sm:mb-14 max-w-4xl mx-auto">
+      {/* CINEMATIC ESTABLISHING PLATE — the keepsake framed on the gym wall */}
+      <div className="relative w-full">
+        <img
+          src="/images/scene/fullcircle-final.webp"
+          alt="Robin Carruthers standing beside Sylvester Stallone, fists raised — framed as a keepsake on the gym wall, with a pinned note reading 'Off The Screen'"
+          className="block w-full h-auto max-h-[82vh] object-cover object-center select-none"
+          loading="lazy"
+          decoding="async"
+        />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-mighty-shadow" />
+      </div>
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 sm:py-20 lg:py-24 bg-brick bg-brick-spotlight-right brick-cracks">
+        {/* Eyebrow — painted directly on the brick wall. */}
+        <div className="mb-10 sm:mb-12 max-w-4xl mx-auto">
           <p
             className="font-painted text-rocky-paper text-base sm:text-lg uppercase tracking-[0.3em]"
             style={{ textShadow: 'var(--text-shadow-on-dark)' }}
@@ -37,98 +44,43 @@ export default function FullCircle() {
           </p>
         </div>
 
-        <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center max-w-6xl mx-auto"
+        {/* The written moment — aged paper note */}
+        <figure
+          className="relative max-w-3xl mx-auto bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_14px_28px_rgba(0,0,0,0.75)] rotate-[0.8deg]"
         >
-          {/* ── POLAROID ─────────────────────────────────────── */}
-          <figure
-            className="relative lg:col-span-5 mx-auto -rotate-[2.5deg]"
-          >
-            <div className="bg-paper p-3 sm:p-4 border border-mighty-shadow/40 shadow-pinned">
-              <div className="relative overflow-hidden bg-mighty-shadow border-2 border-mighty-shadow">
-                <Image
-                  src="/images/stallone-meeting.jpg"
-                  alt="Robin Carruthers standing beside Sylvester Stallone, both raising clenched fists"
-                  width={560}
-                  height={560}
-                  sizes="(min-width: 1024px) 420px, 80vw"
-                  className="block w-[260px] sm:w-[340px] md:w-[400px] lg:w-[420px] h-auto grayscale-[0.35] contrast-110"
-                />
-              </div>
-              <figcaption className="mt-3 text-center px-2">
-                <p className="font-painted text-mighty-shadow text-base sm:text-lg leading-none">
-                  Robin &amp; Sylvester Stallone
-                </p>
-                <p className="font-mono text-[10px] text-mighty-shadow/60 italic mt-1 uppercase tracking-wide">
-                  · Fists Up · The Real Rocky ·
-                </p>
-              </figcaption>
-            </div>
+          <span className="tape-corner" aria-hidden="true" />
+          <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
+          <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
+          <span className="absolute -top-3 -left-1 sm:-left-2 font-painted text-6xl sm:text-7xl text-mighty-red/40 leading-none select-none">
+            “
+          </span>
 
-            {/* Corner pin bolts */}
-            <span className="pin-bolt absolute -top-2 -left-2" aria-hidden="true" />
-            <span className="pin-bolt absolute -top-2 -right-2" aria-hidden="true" />
-            <span className="pin-bolt absolute -bottom-2 -left-2" aria-hidden="true" />
-            <span className="pin-bolt absolute -bottom-2 -right-2" aria-hidden="true" />
+          <blockquote className="space-y-4 sm:space-y-5">
+            <p className="font-painted text-lg sm:text-2xl md:text-3xl leading-[1.25] text-mighty-shadow">
+              Some heroes live on screen.
+              <br />
+              <span className="text-mighty-red">
+                Very few inspire the man you become off it.
+              </span>
+            </p>
 
-            {/* "Rocky" stenciled tag — brass-tacked metal sign.
-                Outer wrapper owns the absolute position so that .wearouts
-                (which sets position: relative) on the inner cannot win
-                specificity and drop the tag back into flow. */}
-            <div className="absolute -top-5 -right-5 sm:-right-7 rotate-6 z-20">
-              <div className="relative painted-metal-red wearouts border-2 border-mighty-shadow px-3 py-1 rounded-sm shadow-[0_5px_0_-1px_rgba(0,0,0,0.85),0_8px_14px_rgba(0,0,0,0.7)]">
-                <span className="brass-tack absolute -top-1 -left-1" aria-hidden="true" />
-                <span className="brass-tack absolute -top-1 -right-1" aria-hidden="true" />
-                <span className="font-mono text-[0.6rem] font-extrabold tracking-[0.3em] uppercase text-rocky-paper">
-                  · The Real Rocky ·
-                </span>
-              </div>
-            </div>
-          </figure>
+            <p className="font-painted text-base sm:text-lg md:text-xl leading-[1.45] text-mighty-shadow/90">
+              Meeting Sylvester Stallone was a full-circle moment — from
+              watching <em className="not-italic font-extrabold">Rocky</em> as
+              a young dreamer to standing beside the man who taught an entire
+              generation what grit looks like.
+            </p>
+          </blockquote>
 
-          {/* ── NOTE — aged paper card with the quote ───────── */}
-          <figure
-            className="relative lg:col-span-7 bg-paper text-mighty-shadow p-6 sm:p-8 md:p-10 border-2 border-mighty-shadow shadow-[0_14px_28px_rgba(0,0,0,0.75)] rotate-[1.2deg]"
-          >
-            {/* Top washi tape strip — anchors the note to the wall */}
-            <span className="tape-corner" aria-hidden="true" />
-
-            {/* Pin bolts on the corners */}
-            <span className="pin-bolt absolute -top-2 left-8" aria-hidden="true" />
-            <span className="pin-bolt absolute -top-2 right-8" aria-hidden="true" />
-
-            {/* Big painted opening quote mark */}
-            <span className="absolute -top-3 -left-1 sm:-left-2 font-painted text-6xl sm:text-7xl text-mighty-red/40 leading-none select-none">
-              “
+          <figcaption className="mt-7 pt-5 border-t-2 border-mighty-shadow/30 flex items-end justify-between gap-3">
+            <span className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.3em] uppercase">
+              — Robin Carruthers
             </span>
-
-            <blockquote className="space-y-4 sm:space-y-5">
-              <p className="font-painted text-lg sm:text-2xl md:text-3xl leading-[1.25] text-mighty-shadow">
-                Some heroes live on screen.
-                <br />
-                <span className="text-mighty-red">
-                  Very few inspire the man you become off it.
-                </span>
-              </p>
-
-              <p className="font-painted text-base sm:text-lg md:text-xl leading-[1.45] text-mighty-shadow/90">
-                Meeting Sylvester Stallone was a full-circle moment — from
-                watching <em className="not-italic font-extrabold">Rocky</em> as
-                a young dreamer to standing beside the man who taught an entire
-                generation what grit looks like.
-              </p>
-            </blockquote>
-
-            <figcaption className="mt-7 pt-5 border-t-2 border-mighty-shadow/30 flex items-end justify-between gap-3">
-              <span className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.3em] uppercase">
-                — Robin Carruthers
-              </span>
-              <span className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 tracking-[0.25em] uppercase">
-                Polaroid 001 / Full Circle
-              </span>
-            </figcaption>
-          </figure>
-        </div>
+            <span className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 tracking-[0.25em] uppercase">
+              Polaroid 001 / Full Circle
+            </span>
+          </figcaption>
+        </figure>
       </div>
     </section>
   )

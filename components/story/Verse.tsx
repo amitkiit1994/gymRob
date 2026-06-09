@@ -30,7 +30,7 @@ export default function Verse({
   if (variant === 'scripture') {
     return (
       <motion.figure
-        initial={{ opacity: 0, y: 24 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 1 }}
@@ -53,7 +53,7 @@ export default function Verse({
 
   return (
     <motion.figure
-      initial={{ opacity: 0, y: 16 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.8 }}

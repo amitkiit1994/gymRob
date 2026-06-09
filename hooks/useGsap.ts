@@ -1,6 +1,6 @@
 'use client'
 
-import { useLayoutEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
@@ -29,22 +29,13 @@ export function useGsapContext<T extends HTMLElement = HTMLElement>(
 ) {
   const ref = useRef<T>(null)
 
-  useLayoutEffect(() => {
-    if (!ref.current) return
-    const scope = ref.current
-    const q = gsap.utils.selector(scope)
-    // matchMedia gates the whole setup on prefers-reduced-motion: no-preference.
-    // When reduce is requested, no tweens or ScrollTriggers register, so every
-    // component mounts in its natural CSS state (which is also the final state
-    // each timeline was landing on). cleanup reverts everything matchMedia made.
-    const mm = gsap.matchMedia()
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const ctx = gsap.context(() => setup(q, scope), scope)
-      return () => ctx.revert()
-    })
-    return () => mm.revert()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps)
+  // ── Animations intentionally DISABLED ──
+  // The site renders static / cinematic. Every component mounts in its natural
+  // CSS state, which is also the final resting state each old timeline landed on,
+  // so layout is unchanged — only the entrance motion (falls/swings/slams/scrubs)
+  // is gone. Kept as a no-op so all call sites compile without edits.
+  void setup
+  void deps
 
   return ref
 }

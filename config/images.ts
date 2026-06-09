@@ -17,8 +17,8 @@ export const images = {
 
   // eGym Lokhandwala Section
   egym: {
-    background: '/images/Gemini_Generated_Image_e6489be6489be648.png',
-    main: '/images/Gemini_Generated_Image_e6489be6489be648.png',
+    background: '/images/opt/egym.webp',
+    main: '/images/opt/egym.webp',
     // Alternative: '/images/egym-main.jpg'
   },
 

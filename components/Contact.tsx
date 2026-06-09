@@ -45,6 +45,7 @@ export default function Contact() {
     <ChapterShell
       id="contact"
       title="Train With Robin"
+      plate="/images/scene/contact.webp"
       tone="brick-right"
       tilt={-1.2}
     >

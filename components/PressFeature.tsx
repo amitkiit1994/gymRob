@@ -11,31 +11,26 @@ export default function PressFeature() {
   return (
     <section
       id="press"
-      className="relative bg-brick brick-cracks py-20 sm:py-28 overflow-hidden"
+      className="relative bg-brick brick-cracks overflow-hidden"
     >
       {/* Top weld seam */}
-      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-transparent via-mighty-red/60 to-transparent z-30" />
 
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        {/* Newspaper-style heading on paper. Chapter-stamp corners removed
-            (wave-5): the Hallmark macrostructure stamp declares the present
-            cluster un-numbered, so the masthead carries its own H2 + eyebrow
-            and nothing else — half-numbering is the worst option. */}
-        <div className="text-center mb-14 sm:mb-20">
-          <div className="inline-block relative bg-paper text-mighty-shadow px-6 py-5 sm:px-10 sm:py-7 -rotate-1 border-4 border-mighty-shadow shadow-plate">
-            <span className="pin-bolt absolute -top-2 left-6 sm:left-10" aria-hidden="true" />
-            <span className="pin-bolt absolute -top-2 right-6 sm:right-10" aria-hidden="true" />
-            <p className="font-mono text-[10px] sm:text-xs text-mighty-red font-bold tracking-[0.35em] uppercase mb-2 mt-1 sm:mt-2">
-              · As Featured In ·
-            </p>
-            <h2 className="font-painted text-mighty-shadow text-3xl sm:text-5xl md:text-6xl uppercase leading-tight">
-              Earned Media
-            </h2>
-            <p className="font-mono text-[10px] sm:text-xs text-mighty-shadow/60 tracking-[0.25em] uppercase mt-2">
-              What India&apos;s media is saying
-            </p>
-          </div>
-        </div>
+      {/* CINEMATIC ESTABLISHING PLATE — "EARNED MEDIA" stenciled over real
+          brick with pinned newspaper clippings. */}
+      <div className="relative w-full">
+        <img
+          src="/images/scene/press.webp"
+          alt="Earned Media — Robin Carruthers in the press, newspaper clippings pinned to the gym wall"
+          className="block w-full h-auto max-h-[80vh] object-cover object-center select-none"
+          loading="lazy"
+          decoding="async"
+        />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-mighty-shadow" />
+      </div>
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 z-10 py-16 sm:py-20">
+        <h2 className="sr-only">Earned Media — what India&apos;s media is saying</h2>
 
         <div className="space-y-20 sm:space-y-28 max-w-6xl mx-auto">
           {features.map((feature, idx) => (
